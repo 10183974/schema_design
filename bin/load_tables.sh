@@ -24,4 +24,4 @@ echo "loading nation table"
 ./psql.sh -t  nation -d '|' 2 3 -h N_NATIONKEY,N_NAME,N_REGIONKEY,N_COMMENT,N_EMPTY localhost $data_dir/nation.csv
 
 echo "loading region table"
-./psql.sh -t  lineitem -d '|' 2 3 -h R_REGIONKEYT,R_NAME,R_COMMENT,R_EMPTY localhost $data_dir/region.csv
+./psql.sh -t  region -d '|' 2 3 -h R_REGIONKEYT,R_NAME,R_COMMENT,R_EMPTY localhost $data_dir/region.csv
