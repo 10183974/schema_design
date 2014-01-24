@@ -1,8 +1,8 @@
 -- customer table
-
+create table if not exists customer (   C_CUSTKEY INTEGER not null primary key, C_NAME VARCHAR, C_ADDRESS VARCHAR, C_NATIONKEY INTEGER, C_PHONE VARCHAR, C_ACCTBAL VARCHAR, C_MKTSEGMENT VARCHAR, C_COMMENT VARCHAR);
 
 -- supplier table
-
+create table if not exists supplier (S_SUPPKEY INTEGER not null primary key, S_NAME VARCHAR, S_ADDRESS VARCHAR, S_NATIONKEY INTEGER, S_PHONE VARCHAR, S_ACCTBAL DOUBLE, S_COMMENT VARCHAR);
 
 -- orders table
 create table if not exists orders (O_ORDERKEY INTEGER not null primary key, O_CUSTKEY INTEGER not null, O_ORDERSTATUS VARCHAR, O_TOTALPRICE DOUBLE, O_ORDERDATE VARCHAR, O_ORDERPRIORITY VARCHAR, O_CLERK VARCHAR, O_SHIPPRIORITY INTEGER, O_COMMENT VARCHAR);
@@ -14,9 +14,10 @@ Create table if not exists lineitem (L_ORDERKEY INTEGER not null, L_PARTKEY INTE
 create table if not exists part (P_PARTKEY INTEGER not null primary key, P_NAME VARCHAR, P_MFGR VARCHAR, P_BRAND VARCHAR, P_TYPE VARCHAR, P_SIZE INTEGER, P_CONTAINER VARCHAR, P_RETAILPRICE DOUBLE, P_COMMENT VARCHAR);
 
 --partsupp table
-
+create table if not exists partsupp (PS_PARTKEY INTEGER not null, PS_SUPPKEY INTEGER not null, PS_AVAILQTY INTEGER, PS_SUPPLYCOST DOUBLE, PS_COMMENT VARCHAR CONSTRAINT PK_PS PRIMARY KEY (PS_PARTKEY, PS_SUPPKEY));
 
 -- nation table
-
+create table if not exists nation (N_NATIONKEY INTEGER not null primary key, N_NAME VARCHAR, N_REGIONKEY INTEGER not null, N_COMMENT VARCHAR);
 
 -- region table
+create table if not exists region (R_REGIONKEY INTEGER not null primary key, R_NAME VARCHAR, R_COMMENT VARCHAR);
