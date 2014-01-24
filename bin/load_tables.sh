@@ -1,6 +1,6 @@
 #! /bin/bash
 
-data_dir = $1
+data_dir=$1
 
 echo "loading customer table"
 ./psql.sh -t customer -d '|' 2 3 -h C_CUSTKEY,C_NAME,C_ADDRESS,C_NATIONKEY,C_PHONE,C_ACCTBAL,C_MKTSEGMENT,C_COMMENT,C_EMPTY localhost $data_dir/customer.csv
@@ -11,7 +11,7 @@ echo "loading supplier table"
 echo "loading orders table"
 ./psql.sh -t orders -d '|' 2 3 -h O_ORDERKEY,O_CUSTKEY,O_ORDERSTATUS,O_TOTALPRICE,O_ORDERDATE,O_ORDERPRIORITY,O_CLERK,O_SHIPPRIORITY,O_COMMENT,O_EMPTY localhost $data_dir/orders.csv
 
-echo "loading lineitem"
+echo "loading lineitem table"
 ./psql.sh -t  lineitem -d '|' 2 3 -h L_ORDERKEY,L_PARTKEY,L_SUPPKEY,L_LINENUMBER,L_QUANTITY,L_EXTENDEDPRICE,L_DISCOUNT,L_TAX,L_RETURNFLAG,L_LINESTATUS,L_SHIPDATE,L_COMMITDATE,L_RECEIPTDATE,L_SHIPINSTRUCT,L_SHIPMODE,L_COMMENT,L_EMPTY localhost $data_dir/lineitem.csv 
 
 echo "loading part table"
@@ -24,4 +24,4 @@ echo "loading nation table"
 ./psql.sh -t  nation -d '|' 2 3 -h N_NATIONKEY,N_NAME,N_REGIONKEY,N_COMMENT,N_EMPTY localhost $data_dir/nation.csv
 
 echo "loading region table"
-./psql.sh -t  region -d '|' 2 3 -h R_REGIONKEYT,R_NAME,R_COMMENT,R_EMPTY localhost $data_dir/region.csv
+./psql.sh -t  region -d '|' 2 3 -h R_REGIONKEY,R_NAME,R_COMMENT,R_EMPTY localhost $data_dir/region.csv
