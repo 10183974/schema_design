@@ -6,7 +6,7 @@ export raw_data_dir=/raw_data/
 export project_home=~/git/schema_design/
 
 # commands for converting raw_data to csv format
-$HADOOP_HOME/bin/hadoop  jar /home/hadoop/hadoop/contrib/streaming/hadoop-streaming-1.2.1.jar -input $raw_data_dir -output $csv_data_dir -mapper $project_home -reducer org.apache.hadoop.mapred.lib.IdentityMapper
+$HADOOP_HOME/bin/hadoop  jar /home/hadoop/hadoop/contrib/streaming/hadoop-streaming-1.2.1.jar -input $raw_data_dir -output $csv_data_dir -mapper $project_home/bin/rawdatatocsv.sh -reducer org.apache.hadoop.mapred.lib.IdentityMapper
 
 
 # commands for loading data
