@@ -2,6 +2,8 @@ package duke.hbase.sd;
 
 public class Table {
 
+  String name;
+
   /**
    * @param args
    */
