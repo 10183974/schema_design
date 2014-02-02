@@ -18,15 +18,6 @@ public class Column {
     this.isRowKey = isRowKey;
   }
 
-  /**
-   * @param args
-   */
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
-
-  }
-
-
   public String getName() {
     return name;
   }
@@ -35,7 +26,6 @@ public class Column {
   public void setName(String name) {
     this.name = name;
   }
-
 
   public String getFamily() {
     return family;

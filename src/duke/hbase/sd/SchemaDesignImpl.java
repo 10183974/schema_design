@@ -2,6 +2,7 @@ package duke.hbase.sd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,17 +17,17 @@ public class SchemaDesignImpl {
   public static Connection getConnection(Properties prop) {
     try {
       if (conn == null) {
-      conn =
-          DriverManager
-              .getConnection(
-                "jdbc:phoenix:yahoo005.nicl.cs.duke.edu,yahoo006.nicl.cs.duke.edu,yahoo007.nicl.cs.duke.edu:2181",
-                prop);
+        conn = DriverManager.getConnection("jdbc:phoenix:yahoo005.nicl.cs.duke.edu:2181", prop);
+        ResultSet rs = conn.prepareStatement("select count(*) from nation").executeQuery();
+        while (rs.next()) {
+          System.out.println("row count " + rs.getInt(1));
+        }
+        System.out.println("Connection established successfully");
       }
     } catch (SQLException e) {
       System.err.println("Error in getting zookeeper connection");
       e.printStackTrace();
     }
-    System.out.println("Connection established successfully");
     return conn;
   }
 
@@ -43,6 +44,8 @@ public class SchemaDesignImpl {
   }
 
   public static void main(String[] args) {
+    // System.setProperty("user.name", "hadoop");
+
     Properties prop = new Properties();
 
     try {
@@ -60,10 +63,13 @@ public class SchemaDesignImpl {
     ArrayList<TransformationRule> rules = new ArrayList<TransformationRule>();
     
     int loop_counter = 0;
-    while (cost(queries) > COST_THRESOLD && loop_counter < MAX_LOOP_COUNT) {
+    while (cost(queries) > COST_THRESOLD || loop_counter < MAX_LOOP_COUNT) {
       loop_counter++;
-
+      System.out.println(loop_counter);
     }
+
+
+    System.exit(0);
   }
 
 }
