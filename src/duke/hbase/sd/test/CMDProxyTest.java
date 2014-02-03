@@ -13,13 +13,17 @@ public class CMDProxyTest {
   @Test
   public void test() throws IOException {
     CMDProxy cm =
- new CMDProxy("bin/cm", "--training_file=/home/abhisdub/join_training_data.csv");
+        new CMDProxy(
+"cm-1.2/bin/cm.sh",
+            "/home/abhisdub/git/abhishek1015/schema_design/join_training_data.csv");
     BufferedWriter bw = cm.GetInputWriter();
 
     String querystr =
         "12" + "\t" + "4" + "\t" + "1999" + "\t" + "2.86" + "\t" + "7996" +
-    "\t" + "2.86" + "\t" + "1998";
+ "\t" + "2.86" + "\t"
+            + "1998" + "\n";
     bw.write(querystr, 0, querystr.length());
+    bw.flush();
     String a = null;
     while (a == null) {
     BufferedReader br = cm.GetOutputReader();

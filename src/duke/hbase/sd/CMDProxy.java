@@ -21,7 +21,7 @@ public class CMDProxy {
   }
 
   public BufferedReader GetOutputReader() {
-    InputStream is = process.getInputStream();
+    InputStream is = process.getErrorStream();
     InputStreamReader isr = new InputStreamReader(is);
     BufferedReader br = new BufferedReader(isr);
     return br;
