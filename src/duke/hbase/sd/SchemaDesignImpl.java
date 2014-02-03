@@ -1,9 +1,6 @@
 package duke.hbase.sd;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
@@ -13,23 +10,6 @@ public class SchemaDesignImpl {
   private static int MAX_LOOP_COUNT = 10;
 
   public static Connection conn = null;
-
-  public static Connection getConnection(Properties prop) {
-    try {
-      if (conn == null) {
-        conn = DriverManager.getConnection("jdbc:phoenix:yahoo005.nicl.cs.duke.edu:2181", prop);
-        ResultSet rs = conn.prepareStatement("select count(*) from nation").executeQuery();
-        while (rs.next()) {
-          System.out.println("row count " + rs.getInt(1));
-        }
-        System.out.println("Connection established successfully");
-      }
-    } catch (SQLException e) {
-      System.err.println("Error in getting zookeeper connection");
-      e.printStackTrace();
-    }
-    return conn;
-  }
 
   private static double cost(ArrayList<Query> queries) {
     double max_cost = 0;
@@ -54,7 +34,7 @@ public class SchemaDesignImpl {
       System.err.println("Error in loading the phoenix driver: " + e);
     }
 
-    conn = getConnection(prop);
+    conn = Util.getConnection(prop);
 
     Schema schema = new Schema();
 
