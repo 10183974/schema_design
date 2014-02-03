@@ -35,7 +35,7 @@ public class Schema {
     this.tables = tables;
   }
 
-  // initialize from the hbase connection
+  // initialize the schema
   public Schema init(ArrayList<String> table_list) {
     Schema schema = new Schema();
     this.id = SCHEMA_COUNT++;

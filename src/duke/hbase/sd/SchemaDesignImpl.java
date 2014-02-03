@@ -33,7 +33,6 @@ public class SchemaDesignImpl {
     } catch (ClassNotFoundException e) {
       System.err.println("Error in loading the phoenix driver: " + e);
     }
-
     conn = Util.getConnection(prop);
 
     Schema schema = new Schema();

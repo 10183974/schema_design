@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
+
   public static BufferedWriter getFileWriter(String filename) {
     BufferedWriter bw = null;
     File file = new File(filename);

@@ -1,14 +1,7 @@
 package duke.hbase.sd.tdg;
 
-import java.sql.Connection;
-import java.util.Properties;
-
-import duke.hbase.sd.Util;
 
 public class TrainingDataGeneratorForTPCH {
-
-  Properties prop = new Properties();
-  Connection conn = Util.getConnection(prop);
 
   public static void main(String[] args) {
 
