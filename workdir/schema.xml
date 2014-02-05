@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='us-ascii'?> 
+<Schema>
+	<table>
+		<name>customer</name>
+		<columns>
+			<column>c_custkey</column>
+		   	
+		</columns>
+</table>
+
+<relationships>
+<cardinality table1="customer" table2="orders">1:100</cardinality>
+
+</relationships>
+</Schema>
