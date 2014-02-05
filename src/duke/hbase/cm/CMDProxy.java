@@ -1,4 +1,4 @@
-package duke.hbase.sd;
+package duke.hbase.cm;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

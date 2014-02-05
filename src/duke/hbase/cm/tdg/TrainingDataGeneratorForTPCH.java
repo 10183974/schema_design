@@ -1,4 +1,4 @@
-package duke.hbase.sd.tdg;
+package duke.hbase.cm.tdg;
 
 
 public class TrainingDataGeneratorForTPCH {

@@ -1,4 +1,4 @@
-package duke.hbase.sd.test;
+package duke.hbase.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import duke.hbase.sd.CMDProxy;
+import duke.hbase.cm.CMDProxy;
 
 public class CMDProxyTest {
 

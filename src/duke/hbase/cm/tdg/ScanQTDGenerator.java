@@ -1,18 +1,18 @@
-package duke.hbase.sd.tdg;
+package duke.hbase.cm.tdg;
 
 import java.io.BufferedWriter;
 
 import duke.hbase.sd.Util;
 
-public class WriteQTDGenerator {
+public class ScanQTDGenerator {
 
   private void generate(String string) {
 
   }
 
   public void generate() {
-    System.out.println("generating training data from write operation...");
-    BufferedWriter bw = Util.getFileWriter("training_data/write.csv");
+    System.out.println("generating training data from scan operation...");
+    BufferedWriter bw = Util.getFileWriter("training_data/scan.csv");
     generate("customer");
     generate("orders");
     generate("supplier");
