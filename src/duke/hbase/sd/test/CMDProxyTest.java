@@ -19,12 +19,28 @@ public class CMDProxyTest {
     BufferedWriter bw = cm.GetInputWriter();
 
     String querystr =
-        "12" + "\t" + "4" + "\t" + "1999" + "\t" + "2.86" + "\t" + "7996" +
+        "12" + "\t" + "4" + "\t" + "10000" + "\t" + "2.86" + "\t" + "10000" +
  "\t" + "2.86" + "\t"
-            + "1998" + "\n";
+            + "10000" + "\n";
     bw.write(querystr, 0, querystr.length());
     bw.flush();
+
     String a = null;
+
+    while (a == null) {
+      BufferedReader br = cm.GetOutputReader();
+      a = (String) br.readLine();
+      System.out.println("latency " + a);
+    }
+    
+    a = null;
+
+    querystr =
+        "12" + "\t" + "4" + "\t" + "20000" + "\t" + "2.86" + "\t" + "20000" + "\t" + "2.86" + "\t"
+            + "20000" + "\n";
+    bw.write(querystr, 0, querystr.length());
+    bw.flush();
+
     while (a == null) {
     BufferedReader br = cm.GetOutputReader();
       a = (String) br.readLine();
