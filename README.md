@@ -22,12 +22,17 @@ Thanks Eric for providing the cost model package cm-1.2.tar.gz. Cost model is im
 compilation steps for cost model
 
 installing dependencies:
+
 sudo apt-get install libgsl0-dev
+
 sudo apt-get install libatlas-dev
+
 sudo apt-get install libgflags-dev
 
 compiling cost model:
+
 cd cm-1.2/
+
 make
 
 
