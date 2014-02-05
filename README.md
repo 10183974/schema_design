@@ -17,11 +17,11 @@ Command for generating training data
 java -cp $PROJECT_HOME/lib/TrainingDataGeneratorForTPCH.jar:$PROJECT_HOME/lib/phoenix-3.0.0-SNAPSHOT-client.jar  duke.hbase.sd.tdg.TrainingDataGeneratorForTPCH all
 
 
-Thanks Eric for providing the cost model package cm-1.2.tar.gz
+Thanks Eric for providing the cost model package cm-1.2.tar.gz. Cost model is implemented in c++. 
 
-cm-1.2.tar.gz dependencies:
+compilation steps for cost model
 
-sudo apt-get install libgsl0-dbg
+installing dependencies:
 
 sudo apt-get install libgsl0-dev
 
@@ -29,21 +29,7 @@ sudo apt-get install libatlas-dev
 
 sudo apt-get install libgflags-dev
 
-sudo apt-get install libatlas-base-dev
-
-sudo apt-get install libatlas3-base libblas3
-
-cd $PROJECT_HOME 
-
-wget https://ulib.googlecode.com/files/ulib-2.0.1_src.tar.gz
-
-tar xvf ulib-2.0.1_src.tar.gz 
-
-mv ulib-svn ulib
-
-cd ulib
-
-tar xvf cm-1.2.tar.gz
+compiling cost model:
 
 cd cm-1.2/
 

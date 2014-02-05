@@ -1,4 +1,4 @@
-package duke.hbase.sd.tdg;
+package duke.hbase.cm.tdg;
 
 import java.io.BufferedWriter;
 

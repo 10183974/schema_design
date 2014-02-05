@@ -1,4 +1,4 @@
-package duke.hbase.sd.test;
+package duke.hbase.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import duke.hbase.sd.CMDProxy;
+import duke.hbase.cm.CMDProxy;
 
 public class CMDProxyTest {
 
@@ -15,7 +15,7 @@ public class CMDProxyTest {
     CMDProxy cm =
         new CMDProxy(
 "cm-1.2/bin/cm.sh",
-            "/home/abhisdub/git/abhishek1015/schema_design/join_training_data.csv");
+            "join_training_data.csv");
     BufferedWriter bw = cm.GetInputWriter();
 
     String querystr =
