@@ -2,29 +2,22 @@ package duke.hbase.sd;
 
 public class Column {
   
-  String name;
-  String family = "default";
-  int size = 0;
+  String family = "_0:";
+  String key;
+  int average_key_size = 0;
+  int average_value_size = 0;
+  int numberOfColumns = 1;
+
   ColumnType type = ColumnType.VARCHAR;
-  boolean isRowKey = false;
   
 
-  public Column(String name, String family, int size, ColumnType type, boolean isRowKey) {
-    super();
-    this.name = name;
-    this.family = family;
-    this.size = size;
-    this.type = type;
-    this.isRowKey = isRowKey;
-  }
-
-  public String getName() {
-    return name;
+  public String getKey() {
+    return key;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setKey(String name) {
+    this.key = name;
   }
 
   public String getFamily() {
@@ -37,16 +30,6 @@ public class Column {
   }
 
 
-  public int getSize() {
-    return size;
-  }
-
-
-  public void setSize(int size) {
-    this.size = size;
-  }
-
-
   public ColumnType getType() {
     return type;
   }
@@ -54,16 +37,6 @@ public class Column {
 
   public void setType(ColumnType type) {
     this.type = type;
-  }
-
-
-  public boolean isRowKey() {
-    return isRowKey;
-  }
-
-
-  public void setRowKey(boolean isRowKey) {
-    this.isRowKey = isRowKey;
   }
 
 }

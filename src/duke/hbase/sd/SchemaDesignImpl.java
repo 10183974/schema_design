@@ -1,5 +1,6 @@
 package duke.hbase.sd;
 
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -33,13 +34,13 @@ public class SchemaDesignImpl {
     } catch (ClassNotFoundException e) {
       System.err.println("Error in loading the phoenix driver: " + e);
     }
-    conn = Util.getConnection(prop);
+    // conn = Util.getConnection(prop);
 
     Schema schema = new Schema();
 
     ArrayList<Query> queries = new ArrayList<Query>();
 
-    ArrayList<TransformationRule> rules = new ArrayList<TransformationRule>();
+    Method[] transformationRules = Util.getTransformationMethods();
     
     int loop_counter = 0;
     while (cost(queries) > COST_THRESOLD || loop_counter < MAX_LOOP_COUNT) {

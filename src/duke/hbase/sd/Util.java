@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -59,5 +60,11 @@ public class Util {
       e.printStackTrace();
     }
     return conn;
+  }
+
+  public static Method[] getTransformationMethods() {
+    Class c = new TransformationMethods().getClass();
+    Method[] m = c.getDeclaredMethods();
+    return m;
   }
 }

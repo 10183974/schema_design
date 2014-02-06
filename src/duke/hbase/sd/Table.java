@@ -6,6 +6,7 @@ public class Table {
 
   String name;
   ArrayList<Column> columns = new ArrayList<Column>();
+  ArrayList<Column> rowkey = new ArrayList<Column>();
   int rowcount = 0;
 
   public Table() {

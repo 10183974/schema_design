@@ -9,14 +9,18 @@ public class Schema {
   int id = 0;
   ArrayList<Table> tables = new ArrayList<Table>();
 
-  public Schema() {
-    // TODO Auto-generated constructor stub
-  }
+  // to-do adding the cardinality table
+
+
 
   public Schema(ArrayList<Table> tables) {
     super();
     this.id = SCHEMA_COUNT++;
     this.tables = tables;
+  }
+
+  public Schema() {
+    // TODO Auto-generated constructor stub
   }
 
   public int getId() {
