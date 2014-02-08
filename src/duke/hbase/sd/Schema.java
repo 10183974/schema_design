@@ -8,10 +8,7 @@ public class Schema {
 
   int id = 0;
   ArrayList<Table> tables = new ArrayList<Table>();
-
-  // to-do adding the cardinality table
-
-
+  ArrayList<Relation> rels = new ArrayList<Relation>();
 
   public Schema(ArrayList<Table> tables) {
     super();

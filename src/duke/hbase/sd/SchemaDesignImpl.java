@@ -5,11 +5,11 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
+
 public class SchemaDesignImpl {
 
   private static double COST_THRESOLD = 2;
   private static int MAX_LOOP_COUNT = 10;
-
   public static Connection conn = null;
 
   private static double cost(ArrayList<Query> queries) {
@@ -36,19 +36,25 @@ public class SchemaDesignImpl {
     }
     // conn = Util.getConnection(prop);
 
-    Schema schema = new Schema();
+    // initialize schema from ER diagram
+    Schema schema = Util.initSchema("workdir/schema.xml");
 
     ArrayList<Query> queries = new ArrayList<Query>();
 
     Method[] transformationRules = Util.getTransformationMethods();
     
+    NeighbourSelector ns = new NeighbourSelector();
+    
     int loop_counter = 0;
     while (cost(queries) > COST_THRESOLD || loop_counter < MAX_LOOP_COUNT) {
       loop_counter++;
-      System.out.println(loop_counter);
+      
+      ArrayList<Schema> schemas = ns.getNeighbours();
+      // assume it returns only one schema
+      // schema = schemas.get(0);
+      // queries = ns.getRewrittenQueries();
+
     }
-
-
     System.exit(0);
   }
 

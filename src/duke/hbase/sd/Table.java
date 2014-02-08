@@ -30,6 +30,22 @@ public class Table {
     return name;
   }
 
+  public ArrayList<Column> getRowkey() {
+    return rowkey;
+  }
+
+  public void setRowkey(ArrayList<Column> rowkey) {
+    this.rowkey = rowkey;
+  }
+
+  public int getRowcount() {
+    return rowcount;
+  }
+
+  public void setRowcount(int rowcount) {
+    this.rowcount = rowcount;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
