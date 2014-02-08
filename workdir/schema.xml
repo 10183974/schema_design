@@ -1,15 +1,41 @@
 <?xml version='1.0' encoding='us-ascii'?> 
 <Schema>
 	<table>
-		<name>customer</name>
+		<name>CUSTOMER</name>
 		<columns>
-			<column>c_custkey</column>
-		   	
+			<column type="INTEGER">C_CUSTKEY</column>
+            <column type="VARCHAR">C_NAME</column> 
+            <column type="VARCHAR">C_ADDRESS</column>
+            <column type="INTEGER">C_NATIONKEY</column> 
+            <column type="VARCHAR">C_PHONE</column> 
+            <column type="VARCHAR">C_ACCTBAL</column>
+            <column type="VARCHAR">C_MKTSEGMENT</column>   
+            <column type="VARCHAR">C_COMMENT</column>
+            <column type="VARCHAR">C_EMPTY</column>
 		</columns>
-</table>
-
-<relationships>
-<cardinality table1="customer" table2="orders">1:100</cardinality>
-
-</relationships>
+		<primarykey>C_CUSTKEY</primarykey>
+	</table>
+	<table>
+		<name>ORDERS</name>
+		<columns>
+			<column type="INTEGER">O_ORDERKEY</column>
+			<column type="INTEGER">O_CUSTKEY</column>
+			<column type="VARCHAR">O_ORDERSTATUS</column>
+			<column type="DOUBLE">O_TOTALPRICE</column>
+			<column type="VARCHAR">O_ORDERDATE</column>
+			<column type="VARCHAR">O_ORDERPRIORITY</column>
+			<column type="VARCHAR">O_CLERK</column>
+			<column type="INTEGER">O_SHIPPRIORITY</column>
+			<column type="VARCHAR">O_COMMENT</column>	
+			<column type="VARCHAR">O_EMPTY</column>
+		</columns>
+	    <primarykey>O_ORDERKEY</primarykey>
+	</table>
+	<relationships>
+		<relationship>
+			<cardinality table1="CUSTOMER" table2="ORDERS">1:100</cardinality>
+			<joinkey pos="1">C_CUSTKEY</joinkey>
+			<joinkey pos="2">O_CUSTKEY</joinkey>
+		</relationship>
+	</relationships>
 </Schema>
