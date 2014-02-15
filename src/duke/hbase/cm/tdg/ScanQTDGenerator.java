@@ -24,4 +24,8 @@ public class ScanQTDGenerator {
     Util.closeFileWriter(bw);
   }
 
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  } 
+
 }
