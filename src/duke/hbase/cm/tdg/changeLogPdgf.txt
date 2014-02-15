@@ -1,3 +1,18 @@
+How to generate data
+-----complie pdgf
+javac -cp lib/log4j-1.2.15.jar :lib/flanagan.jar:. Controller.java
+
+-----generate data using tpchSchema.xml
+javac -cp pdgf.jar DataGenerator.java
+java -cp pdgf.jar DataGenerator
+
+
+
+
+
+
+
+-----change history
 (1). commented TEXT_QUOTE in the CSVRowOutput.java
  //threadLineBuffers[threadID].append(TEXT_QUOTE); 
 (2). one line added in Controller.java, set the closeWhenDone to be true. 
