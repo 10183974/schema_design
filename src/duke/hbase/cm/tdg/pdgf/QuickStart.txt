@@ -1,0 +1,36 @@
+Quick start
+=====================================
+
+java -jar pdgf.jar -load myConfigFile.xml 
+
+If  you see the message: 'Configuration File imported without errors' your configuration file contains no obvious errors.
+You then may enter 'start' to start the data generation process.
+
+Notice
+=====================================
+PDGF v1 is no longer maintained.
+We do and will not provide any support.
+
+
+Available shell commands
+=====================================
+Discard the '-' prefix  if you use the command within the PDGF shell: 'pdgf>'
+Note: some commands depend on other commands. For example: you can not start the data generation if the config files are not loaded. 
+
+-exit 			quits PDGF shell, stops all workers and exits programm
+-noShell		non interactive mode. disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop 			stops data generation on this node
+-closeWhenDone 	activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False.
+-help 			displays all available commands with a short description and needed parameters
+-testgen 		Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start	 		starts data generation on this node
+-plugins 		displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-scaleFactor  	scale factor for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins 	searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load 			read and Parse a XML configuration file (node or project config). NOTE: Replaces previously imported configuration without asking.
+-workers 		number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-benchGen 		Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-plugin 		displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+
