@@ -113,6 +113,17 @@ public class DataGenerator{
     	dg.generateXml(tableList);
     	dg.generateSql(tableList);
     	dg.generateCSV();
+    	
+    	//
+    	HdfsCopyer hdfsCopyer = new HdfsCopyer();
+        String localDir = "/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output";
+        String hdfsDir =  "/tdg/output";
+        try {
+			hdfsCopyer.copyFromLocal(localDir,hdfsDir);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
   
    }
 } 
