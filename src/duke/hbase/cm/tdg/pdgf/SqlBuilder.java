@@ -82,9 +82,9 @@ public class SqlBuilder {
 		//table 1
 		Column id = new Column("ID", " ", "INTEGER", 10, true, true);
 		Column userName = new Column("UserName"," ","VARCHAR",10,false,true);		
-		Column address = new Column("Address", "_0","VARCHAR", 10,false,false);
-		Column accBal = new Column("AccBal","_0","DECIMAL",10,false,false);
-		Column comment = new Column("Comment", "_0","VARCHAR", 10,false,false);
+		Column address = new Column("Address", "f","VARCHAR", 10,false,false);
+		Column accBal = new Column("AccBal","f","DECIMAL",10,false,false);
+		Column comment = new Column("Comment", "f","VARCHAR", 10,false,false);
 		
         ArrayList<Column> rowkey = new ArrayList<Column>();
         rowkey.add(id);
@@ -100,7 +100,7 @@ public class SqlBuilder {
 		
 		//table 2
 		Column ip = new Column("IP", " ", "INTEGER", 10, true, true);
-		Column message = new Column("Message", "_0","VARCHAR", 10, false,false);
+		Column message = new Column("Message", "f","VARCHAR", 10, false,false);
 		
         ArrayList<Column> rowkey2 = new ArrayList<Column>();
         ArrayList<Column> columns2 = new ArrayList<Column>();

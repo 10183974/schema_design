@@ -59,8 +59,8 @@ public class Table {
 		
 	public static void main(String[] args){
 		Column id = new Column("ID", " ", "INTEGER", 10, true, true);
-		Column comment1 = new Column("Comment#1", "_0","VARCHAR", 10,false,false);
-		Column comment2 = new Column("Comment#2", "_0","VARCHAR", 10,false,false);
+		Column comment1 = new Column("Comment#1", "f","VARCHAR", 10,false,false);
+		Column comment2 = new Column("Comment#2", "f","VARCHAR", 10,false,false);
 		
         ArrayList<Column> rowkey = new ArrayList<Column>();
         rowkey.add(id);

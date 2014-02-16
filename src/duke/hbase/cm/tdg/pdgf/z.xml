@@ -56,22 +56,5 @@
                 </field>
             </fields>
         </table>
-        <table name="X">
-            <size>20</size>
-            <fields>
-                <field name="IP">
-                    <type>java.sql.Types.INTEGER</type>
-                    <generator name="IdGenerator"/>
-                    <primary>true</primary>
-                </field>
-                <field name="Message">
-                    <size>10</size>
-                    <type>java.sql.Types.VARCHAR</type>
-                    <generator name="tpc.h.generators.TextString">
-                        <size>10</size>
-                    </generator>
-                </field>
-            </fields>
-        </table>
     </tables>	
 </project>

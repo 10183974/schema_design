@@ -206,9 +206,9 @@ public class XmlBuilder {
 		 Column id = new Column("ID", " ", "INTEGER", 10, true, true);
 	     Column userName = new Column("UserName"," ","VARCHAR",10,false,true);
 			
-		 Column address = new Column("Address", "_0","VARCHAR", 10,false,false);
-		 Column accBal = new Column("AccBal","_0","DECIMAL",10,false,false);
-		 Column comment = new Column("Comment", "_0","VARCHAR", 10,false,false);
+		 Column address = new Column("Address", "f","VARCHAR", 10,false,false);
+		 Column accBal = new Column("AccBal","f","DECIMAL",10,false,false);
+		 Column comment = new Column("Comment", "f","VARCHAR", 10,false,false);
 			
 	     ArrayList<Column> rowkey = new ArrayList<Column>();
 	     rowkey.add(id);

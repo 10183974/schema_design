@@ -802,3 +802,50 @@ INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 
 INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output/GeneratorStatistics_1.csv
 INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 4 force worker to die..
 INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 4 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: output/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 4 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 4 workers for this task.
+INFO Thread-4 pdgf.Controller - 
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 27ms average time: 26
+Generator overall time: 27ms
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 4 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: output/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 4 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 4 workers for this task.
+INFO Thread-2 pdgf.Controller - 
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 27ms average time: 25
+Generator overall time: 28ms
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 1 force worker to die..
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
