@@ -180,11 +180,29 @@ public class XmlBuilder {
 	 }
 
 	 public static void main(String[] args){
+		 Column id = new Column("ID", " ", "INTEGER", 10, true, true);
+	     Column userName = new Column("UserName"," ","VARCHAR",10,false,true);
+			
+		 Column address = new Column("Address", "_0","VARCHAR", 10,false,false);
+		 Column accBal = new Column("AccBal","_0","DECIMAL",10,false,false);
+		 Column comment = new Column("Comment", "_0","VARCHAR", 10,false,false);
+			
+	     ArrayList<Column> rowkey = new ArrayList<Column>();
+	     rowkey.add(id);
+	     rowkey.add(userName);
+	     ArrayList<Column> columns = new ArrayList<Column>();
+	     columns.add(address);
+	     columns.add(accBal);
+	     columns.add(comment);
+	       
+		 Table t = new Table("Z",20,rowkey,columns) ;
+		 t.printTableInfo();
+			
 		 XmlBuilder builder = new XmlBuilder();
-		 ArrayList<Table> tables = new ArrayList<Table>();
-	     Table t = new Table();
+		 
+		 ArrayList<Table> tables = new ArrayList<Table>();     
 	     tables.add(t);
-	     t.printTableInfo();		
+	  	
 		 builder.setOutFilePath("z.xml");	 
 		 builder.addTableToXML(tables);
          } 
