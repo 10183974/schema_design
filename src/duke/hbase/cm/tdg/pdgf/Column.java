@@ -74,7 +74,5 @@ public class Column {
 		  Column c = new Column();
 		  c.printColumnInfo();
 
-
-
 	  }
 }

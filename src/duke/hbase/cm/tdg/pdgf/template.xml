@@ -8,7 +8,7 @@
 
         <scheduler name="FixedJunkScheduler"></scheduler>
         <output name="CSVRowOutput">
-                <outputDir>../csv_data/</outputDir>
+                <outputDir>output/</outputDir>
                 <fileEnding>.csv</fileEnding>
                 <charset>UTF-8</charset>
                 <delimiter>,</delimiter>

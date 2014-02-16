@@ -7,7 +7,6 @@ public class Table {
     
 	public Table(){
 		//defalut table constructor
-
 	}
 	
 	public Table(String aTableName, int aNRows, ArrayList<Column> aRowkey, ArrayList<Column> aColumns) {

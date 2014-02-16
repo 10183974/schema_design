@@ -14,7 +14,7 @@ import org.xml.sax.SAXException;
  */
 public class XmlBuilder {
 	 private String templateFile = "template.xml"; 
-   	 private String outputFile = "z.xml";
+   	 private String outputFile = null;
    	 private Document document = null;
    		
    	 
@@ -123,8 +123,28 @@ public class XmlBuilder {
          //new fields
 		 Element fields = document.createElement("fields");
 		      
-         ArrayList<Column> columns = t.getRowkey();
-         columns.addAll(t.getColumns()); 
+  
+         ArrayList<Column> rowkey = t.getRowkey();
+         ArrayList<Column> columns = t.getColumns();
+         for(Column r:rowkey){
+        	 if (r.getColumnType().equalsIgnoreCase("INTEGER")){
+        		 Element field = createIntegerField(r.getColumnName());
+        		 if (r.getIsPrimary())
+        		     field = setPrimary(field);
+        		 
+        		 fields.appendChild(field);
+        	 }
+        	 else if (r.getColumnType().equalsIgnoreCase("DECIMAL")){
+        		 Element field = createDecimalField(r.getColumnName());
+        		 fields.appendChild(field);
+        		 
+        	 }
+        	 else if (r.getColumnType().equalsIgnoreCase("VARCHAR")){
+    			 Element field = createTextField(r.getColumnName(),r.getColumnSize());
+    			 fields.appendChild(field);
+        	 }      	 
+         }	
+
          for(Column c:columns){
         	 if (c.getColumnType().equalsIgnoreCase("INTEGER")){
         		 Element field = createIntegerField(c.getColumnName());
@@ -142,7 +162,9 @@ public class XmlBuilder {
     			 Element field = createTextField(c.getColumnName(),c.getColumnSize());
     			 fields.appendChild(field);
         	 }      	 
-         }	 
+         }	
+         
+         
          tableElement.appendChild(fields);
 		 return tableElement;
 	 }
@@ -172,11 +194,12 @@ public class XmlBuilder {
 		     tablesNodeParent.appendChild(tableElement);
 		 }
 		 //write tablenodes into xml file
-		 writeToXML();	    	 
+		 writeToXML();	    
+		 System.out.println("Writing XML file to " + outputFile);
 	 }
 
-     public void setOutFilePath(String outPath){
-		 outputFile = outPath;
+     public void setOutFilePath(String name){
+		 this.outputFile = name;
 	 }
 
 	 public static void main(String[] args){

@@ -1,5 +1,0 @@
-(1). commented TEXT_QUOTE in the CSVRowOutput.java
- //threadLineBuffers[threadID].append(TEXT_QUOTE); 
-(2). one line added in Controller.java, set the closeWhenDone to be true. 
-             //------------------------ zz changed
-                dataGen.setCloseAfterFinish(true);
