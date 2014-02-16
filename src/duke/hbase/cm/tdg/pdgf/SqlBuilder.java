@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 public class SqlBuilder {
 	private String outFile = null;
-	
 	public String buildSqlFile(ArrayList<Table> tableList){
 		
 		StringBuilder builder = new StringBuilder();
@@ -42,9 +41,15 @@ public class SqlBuilder {
 			    		    	
 		    builder.append("\t");
 		    builder.append("constraint pk primary key (");
-		    for(Column r:rowkey){
-		    	builder.append(r.getColumnName() + " ");
+		    Iterator<Column> it = rowkey.iterator();
+		    while(it.hasNext())
+		    {		    	
+		    	Column c = it.next();
+		    	builder.append(c.getColumnName());
+		    	if(it.hasNext())
+		    		builder.append(", ");
 		    }
+
 		    builder.append(")\n");
 		    builder.append(");\n");		
 		}
