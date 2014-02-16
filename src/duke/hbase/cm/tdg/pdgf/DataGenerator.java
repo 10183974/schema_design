@@ -1,6 +1,5 @@
-import pdgf.Controller;
 
-import java.lang.ProcessBuilder; 
+import pdgf.Controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,10 +13,9 @@ import pdgf.core.exceptions.XmlException;
 
 public class DataGenerator{
   public static void main(String[] agrs){
-  Controller controller = null; 
   try {
-       controller = new Controller();
-       controller.executeCommand(new String[] {"load","config/tpchSchema.xml"});
+       Controller controller = new Controller();
+       controller.executeCommand(new String[] {"load","xml_schema/z.xml"});
        controller.executeCommand(new String[] {"start"});
       // controller.executeCommand(new String[] {"exit"} );
    } catch (IOException e) {
@@ -43,12 +41,7 @@ public class DataGenerator{
    } catch (InvalidStateException e) {
       e.printStackTrace();
    }
-
-  System.out.println("Hello World!");
-
-   
+ 
   }
-
-
 } 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="tpch">
+
+        <scaleFactor name="SF">1</scaleFactor>
+
+        <seed>1234567890</seed>
+        <rng name="PdgfDefaultRandom"></rng>
+
+        <scheduler name="FixedJunkScheduler"></scheduler>
+        <output name="CSVRowOutput">
+                <outputDir>../csv_data/</outputDir>
+                <fileEnding>.csv</fileEnding>
+                <charset>UTF-8</charset>
+                <delimiter>,</delimiter>
+                <bufferSize></bufferSize>
+                <lineBufferScale>100</lineBufferScale>
+        </output>
+
+        <tables>
+        
+        </tables>	
+</project>
