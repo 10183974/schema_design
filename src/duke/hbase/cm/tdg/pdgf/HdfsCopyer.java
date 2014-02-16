@@ -51,9 +51,12 @@ public class HdfsCopyer {
 		HdfsCopyer hdfsCopyer = new HdfsCopyer();
 		String localDir = "/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output";
 		String hdfsDir =  "/tdg/output";
-		hdfsCopyer.copyFromLocal(localDir,hdfsDir);
-		
-		
+	    try {
+				hdfsCopyer.copyFromLocal(localDir,hdfsDir);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+	     }
 	}
 
 }
