@@ -8,13 +8,17 @@ import javax.xml.parsers.*;
 
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
-
+/*
+ * build xml file to communicate with pdgf
+ * 
+ */
 public class XmlBuilder {
 	 private String templateFile = "template.xml"; 
    	 private String outputFile = "z.xml";
    	 private Document document = null;
    		
-	 private Element getTablesRoot(){	            
+   	 
+   	 private void parseXMLDocument(){
 	        try {
 			    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -22,10 +26,13 @@ public class XmlBuilder {
 			} catch (SAXException e){
 				e.printStackTrace();
 			} catch(IOException e){
+				e.printStackTrace();
 			} catch(ParserConfigurationException e){
 			   e.printStackTrace();
-			}
-			
+			}	        
+   	 }
+	 private Element getTablesNode(){	            
+		
             //list of tables
 	        NodeList tablesList = document.getElementsByTagName("tables");
 	        Element tables = (Element) tablesList.item(0);               
@@ -41,18 +48,28 @@ public class XmlBuilder {
 	        e.appendChild(document.createTextNode("java.sql.Types." + type));
 	        return e;
 	 }
-	 private Element createTextGeneratorElement(String name, int min){	    		           
+	 private Element createTextGeneratorElement(String name, int gsize){	    		           
 	        Element e = document.createElement("generator");
 	        e.setAttribute("name", "tpc.h.generators.TextString");        
 	        
-	        Element size = createSizeElement(min); 
-	        e.appendChild(size);
+	        Element sizeElement = createSizeElement(gsize); 
+	        e.appendChild(sizeElement);
 	        return e;	       
 	 }
-	 
 	 private Element createIntegerGeneratorElement(String name){	          
 	        Element e = document.createElement("generator");
 	        e.setAttribute("name", "IdGenerator");
+	        return e;	       
+	 }
+	 private Element createDecimalGeneratorElement(){	          
+	        Element e = document.createElement("generator");
+	        e.setAttribute("name", "tpc.h.generators.RandomValueXY");
+	        Element x = document.createElement("x");
+	        Element y = document.createElement("y");
+	        x.appendChild(document.createTextNode(String.valueOf(-999.99)));
+	        y.appendChild(document.createTextNode(String.valueOf(9999.99)));
+	        e.appendChild(x);
+	        e.appendChild(y);
 	        return e;	       
 	 }
 	 private Element createPrimaryElement(boolean isPrimary){
@@ -64,48 +81,71 @@ public class XmlBuilder {
 		    // Assuming this is the primary key
 		    Element field = document.createElement("field");
 		    field.setAttribute("name", fieldName);
-	        Element primaryElement = createPrimaryElement(true);
 		    Element typeElement = createTypeElement("INTEGER");
-		    Element generatorElement = createIntegerGeneratorElement("IdGenerator");
-		    	    
+		    Element generatorElement = createIntegerGeneratorElement("IdGenerator");	    	    
 		    field.appendChild(typeElement);
-		    field.appendChild(primaryElement);
-		    field.appendChild(generatorElement);
+		    field.appendChild(generatorElement);		    	        
 		    return field;	  	    
 	 }
-	 
-	 private Element createTextField(String fieldName, int min, int max){
+	 private Element setPrimary(Element field){
+		    Element primaryElement = createPrimaryElement(true);
+		    field.appendChild(primaryElement);
+		    return field;
+	 }
+	 private Element createDecimalField(String fieldName){
 		    Element field = document.createElement("field");
 		    field.setAttribute("name", fieldName);
-		    Element sizeElement = createSizeElement(max);
+		    Element typeElement = createTypeElement("DECIMAL");
+		    Element generatorElement = createDecimalGeneratorElement();
+		    	    
+		    field.appendChild(typeElement);
+		    field.appendChild(generatorElement);
+		    return field;		 
+	 }
+	 private Element createTextField(String fieldName, int size){
+		    Element field = document.createElement("field");
+		    field.setAttribute("name", fieldName);
+		    Element sizeElement = createSizeElement(size);
 		    Element typeElement = createTypeElement("VARCHAR");
-		    Element generatorElement = createTextGeneratorElement("tpc.h.generators.TextString",min);
+		    Element generatorElement = createTextGeneratorElement("tpc.h.generators.TextString",size);
 		    field.appendChild(sizeElement);
 		    field.appendChild(typeElement);
 		    field.appendChild(generatorElement);
 		    return field;	  	    
 	 }
-	 private Element createTable(String tableName, int NoRows){
+	 private Element createTableElement(Table t){
 		 
-		 Element table = document.createElement("table");
-		 table.setAttribute("name", tableName);
-		 Element sizeElement = createSizeElement(NoRows);
-                 table.appendChild(sizeElement);
-		    
+		 Element tableElement = document.createElement("table");
+		 tableElement.setAttribute("name", t.getTableName());
+		 Element sizeElement = createSizeElement(t.getNRows());
+         tableElement.appendChild(sizeElement);
+         
+         //new fields
 		 Element fields = document.createElement("fields");
-		 
-		 Element IdField = createIntegerField("ID");
-		 fields.appendChild(IdField);
-	     	     
-		 for(int i=0;i<10;i++){
-			 Element field = createTextField("Text"+(i+1),5,5);
-			 fields.appendChild(field);
-		 }
-		 	 	 
-		 table.appendChild(fields);
-		 return table;
+		      
+         ArrayList<Column> columns = t.getRowkey();
+         columns.addAll(t.getColumns()); 
+         for(Column c:columns){
+        	 if (c.getColumnType().equalsIgnoreCase("INTEGER")){
+        		 Element field = createIntegerField(c.getColumnName());
+        		 if (c.getIsPrimary())
+        		     field = setPrimary(field);
+        		 
+        		 fields.appendChild(field);
+        	 }
+        	 else if (c.getColumnType().equalsIgnoreCase("DECIMAL")){
+        		 Element field = createDecimalField(c.getColumnName());
+        		 fields.appendChild(field);
+        		 
+        	 }
+        	 else if (c.getColumnType().equalsIgnoreCase("VARCHAR")){
+    			 Element field = createTextField(c.getColumnName(),c.getColumnSize());
+    			 fields.appendChild(field);
+        	 }      	 
+         }	 
+         tableElement.appendChild(fields);
+		 return tableElement;
 	 }
-
 	 private void writeToXML(){	
 			try {
 		        DOMSource source = new DOMSource(document);
@@ -121,17 +161,31 @@ public class XmlBuilder {
 				e.printStackTrace();
 			}        
 	 }
-	 public void addTableToXML(String tableName, int NoRows){	  
-	    	Element tablesRoot = getTablesRoot();
-	    	Element table = createTable(tableName, NoRows);
-	    	tablesRoot.appendChild(table);
-	    	writeToXML();	 
+	 public void addTableToXML(ArrayList<Table> tables){	 
+		 //must parse the document first
+		 parseXMLDocument();
+		 //get the parent node of tables
+	     Element tablesNodeParent = getTablesNode();
+	     //create table in the table list, and append them to the tablenode
+		 for(Table t:tables){
+			 Element tableElement = createTableElement(t);
+		     tablesNodeParent.appendChild(tableElement);
+		 }
+		 //write tablenodes into xml file
+		 writeToXML();	    	 
 	 }
 
-     
+     public void setOutFilePath(String outPath){
+		 outputFile = outPath;
+	 }
+
 	 public static void main(String[] args){
 		 XmlBuilder builder = new XmlBuilder();
-		 builder.addTableToXML("Z",300);
-
-     }
+		 ArrayList<Table> tables = new ArrayList<Table>();
+	     Table t = new Table();
+	     tables.add(t);
+	     t.printTableInfo();		
+		 builder.setOutFilePath("z.xml");	 
+		 builder.addTableToXML(tables);
+         } 
 }
