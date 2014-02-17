@@ -1,3 +1,4 @@
+package duke.hbase.cm.tdg;
 import java.util.*;
 public class Table {
 	private String tableName = null;

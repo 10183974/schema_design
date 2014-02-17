@@ -1,20 +1,28 @@
+package duke.hbase.cm.tdg;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
 
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
-import javax.xml.transform.dom.*;
-import javax.xml.parsers.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 /*
  * build xml file to communicate with pdgf
  * 
  */
 public class XmlBuilder {
-	 private String templateFile = "template.xml"; 
-   	 private String outputFile = null;
+  private String templateFile = "src/duke/hbase/cm/tdg/template.xml";
+  private String outputFile = null;
    	 private Document document = null;
    		
    	 
@@ -226,7 +234,7 @@ public class XmlBuilder {
 		 ArrayList<Table> tables = new ArrayList<Table>();     
 	     tables.add(t);
 	  	
-		 builder.setOutFilePath("z.xml");	 
+    builder.setOutFilePath("workdir/z.xml");
 		 builder.addTableToXML(tables);
          } 
 }

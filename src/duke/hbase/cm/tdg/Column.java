@@ -1,3 +1,4 @@
+package duke.hbase.cm.tdg;
 
 public class Column {
 	  private String columnType = null;

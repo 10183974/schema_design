@@ -1,5 +1,4 @@
-
-import pdgf.Controller;
+package duke.hbase.cm.tdg;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +7,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import pdgf.Controller;
 import pdgf.core.exceptions.ConfigurationException;
 import pdgf.core.exceptions.InvalidArgumentException;
 import pdgf.core.exceptions.InvalidElementException;
@@ -33,7 +33,7 @@ public class DataGenerator{
 		sqlBuilder.createTableSql(tableList);
 	}
 	public void generateCSV(){
-		try {
+    try {
 		       Controller controller = new Controller();
 		       controller.executeCommand(new String[] {"load",xmlFile});
 		       controller.executeCommand(new String[] {"start"});
@@ -108,22 +108,22 @@ public class DataGenerator{
 		tableList.add(table2);
 	
     	DataGenerator dg = new DataGenerator();
-    	dg.setSqlFile("createTable.sql");
-    	dg.setXmlFile("z.xml");
+    dg.setSqlFile("workdir/createTable.sql");
+    dg.setXmlFile("workdir/z.xml");
     	dg.generateXml(tableList);
     	dg.generateSql(tableList);
     	dg.generateCSV();
     	
     	//
-    	HdfsCopyer hdfsCopyer = new HdfsCopyer();
-        String localDir = "/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output";
-        String hdfsDir =  "/tdg";
-        try {
-			hdfsCopyer.copyFromLocal(localDir,hdfsDir);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    // HdfsCopyer hdfsCopyer = new HdfsCopyer();
+    // String localDir = "/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output";
+    // String hdfsDir = "/tdg";
+    // try {
+    // hdfsCopyer.copyFromLocal(localDir,hdfsDir);
+    // } catch (IOException e) {
+    // // TODO Auto-generated catch block
+    // e.printStackTrace();
+    // }
   
    }
 } 

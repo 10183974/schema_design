@@ -1,7 +1,9 @@
-import java.util.*;
+package duke.hbase.cm.tdg;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Iterator;
 public class SqlBuilder {
 	private String outFile = null;
 	public String buildSqlFile(ArrayList<Table> tableList){
@@ -119,7 +121,7 @@ public class SqlBuilder {
 		tableList.add(table2);
 		
 		SqlBuilder sqlBuilder = new SqlBuilder();
-		sqlBuilder.setOutFile("createTable.sql");
+    sqlBuilder.setOutFile("workdir/createTable.sql");
 		sqlBuilder.createTableSql(tableList);
 	}
 
