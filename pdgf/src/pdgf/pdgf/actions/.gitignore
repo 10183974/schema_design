@@ -1,0 +1,13 @@
+/Action.class
+/BenchmarkGeneratorAction.class
+/ListPluginsAction.class
+/LoadConfigAction.class
+/LoadPluginsAction.class
+/PluginDetailAction.class
+/SetCloseWhenDoneAction.class
+/SetScaleFactorAction.class
+/SetWorkersAction.class
+/ShowHelpAction.class
+/StartAction.class
+/StopAction.class
+/TestGeneratorAction.class

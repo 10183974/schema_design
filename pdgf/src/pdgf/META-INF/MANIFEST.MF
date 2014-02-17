@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.7.0_02-ea-b11 (Oracle Corporation)
+Main-Class: pdgf.Controller
+Class-Path: . config/ plugins/ lib/  lib/flanagan.jar lib/log4j-1.2.15
+ .jar
+

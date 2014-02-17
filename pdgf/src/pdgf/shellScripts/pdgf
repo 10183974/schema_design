@@ -1,0 +1,278 @@
+#!/usr/bin/env bash
+
+isInteger()
+{
+	# bash internally only works with strings. To check if a string is
+	# an integer, remove all digits from the string and if the resulting
+	# string is empty, the argument was a number
+	[ "$1" ] && [ -z "${1//[0-9]/}" ]
+}
+
+# Defines "methods" for sanity checks for values given by the user
+# Do NOT run these methods in a subshell, because an error would only terminate the subshell and not this script
+checkEnv()
+{
+	case "$1" in
+		"checkPDGFenv") # Set PDGF environment if necessary and test availability
+			[ -e "${PDGF_ENVIRONMENT:="$DEFAULT_PDGF_ENVIRONMENT"}" ] || printErrorMessage "PDGF environment not found or missing parameter"
+			;;
+		"checkJavaBin") # Set java binary if necessary and test availability
+			[ -x "${JAVA_BIN:="$DEFAULT_JAVA_BIN"}" ] || printErrorMessage "Java binary not found or missing parameter"
+			;;
+		"checkXMLconfig") # Test if xml config is readable
+			[ -r "$CONFIGFILE" ] || printErrorMessage "XML config file not found or missing parameter"
+			;;
+		"checkInstancesPerNode") # Test if given option is an integer
+			isInteger "${INSTANCES_PER_NODE:=$DEFAULT_INSTANCES_PER_NODE}" || printErrorMessage "Instances per node is not an integer or missing parameter"
+			;;
+		"checkWorkers") # Test if given option is an integer
+			isInteger "${WORKERS:=$DEFAULT_WORKERS}" || printErrorMessage "Workers is not an integer or missing parameter"
+			;;
+		"checkPhysicalNodes") # Test if given option is an integer
+			isInteger "$PHYSICAL_NODES" || printErrorMessage "Number of physical nodes is not an integer or missing parameter"
+			;;
+		"checkStartNodeIndex") # Test if given option is an integer
+			isInteger "$START_NODE_INDEX" || printErrorMessage "Index of start node is not an integer or missing parameter"
+			;;
+		"checkScaleFactor") # Test if given option is an integer
+			isInteger "$SCALE_FACTOR" || printErrorMessage "Scale factor is not an integer"
+			;;
+		"checkHostconfig") # Test if file with hostnames is readable and if it contains enough hosts to run the given number of nodes
+			[ -r "$HOSTSFILE" ] || printErrorMessage "Host config file not found or missing parameter"
+			local LAST_HOST_INDEX="$(wc -l "$HOSTSFILE" | awk '{print $1}')"
+			local TOTAL_NUMBER_OF_HOSTS="$(( $START_NODE_INDEX + $PHYSICAL_NODES - 1 ))"
+			[ $TOTAL_NUMBER_OF_HOSTS -le $LAST_HOST_INDEX ] || printErrorMessage "Trying to use $TOTAL_NUMBER_OF_HOSTS hosts while only $LAST_HOST_INDEX available"
+			;;
+		"checkSSHstatus") # Test if the target host answers to ssh connections
+			local HOST="$2"
+			echo "Checking status of $HOST"
+			if [[ "$HOST" != "$HOSTNAME" && "$HOST" != "$(hostname -f)" ]]
+			then
+				ssh-keyscan "$HOST" > /dev/null 2>&1 || printErrorMessage "Host $HOST is not responding to ssh connections"
+				ssh "$HOST" "true" || printErrorMessage "Login problem on $HOST"
+			fi
+			;;
+	esac
+}
+
+# Get hostname with given index from the host list.
+# The index is the line number of the host
+getHostWithIndex()
+{
+	sed -n -e "$1p" "$HOSTSFILE"
+}
+
+# Run commands in specified file on specified host
+runCommandOn()
+{
+	local COMMAND_FILE="$1" # The file with the commands
+	local HOST="$2" # The hostname
+	echo "=======================| $HOST |==============================="
+	echo "Running commands in $COMMAND_FILE on $HOST"
+	if [[ "$HOST" = "$HOSTNAME" || "$HOST" = "$(hostname -f)" ]]
+	then
+		bash -s < "$COMMAND_FILE" & # On localhost, ssh is not needed
+	else
+		ssh "$HOST" 'bash -s' < "$COMMAND_FILE" & # Otherwise run command through ssh
+	fi
+	echo "===================================================================="
+}
+
+# Start PDGF instances
+startPDGF()
+{
+	# Check consistency of user input
+	checkEnv checkPDGFenv
+	checkEnv checkJavaBin
+	checkEnv checkXMLconfig
+	checkEnv checkInstancesPerNode
+	checkEnv checkWorkers
+	checkEnv checkPhysicalNodes
+	checkEnv checkStartNodeIndex
+	checkEnv checkHostconfig
+	if [ "$SCALE_FACTOR" ]
+	then
+		checkEnv checkScaleFactor
+	fi
+
+	# Check online status of all participating hosts
+	if [ $CHECK_SSH -eq 1 ]
+	then
+		echo
+		for (( i = 0; i < $PHYSICAL_NODES; i++ ))
+		do
+			checkEnv checkSSHstatus "$(getHostWithIndex "$(( $START_NODE_INDEX + $i ))")"
+		done
+		echo
+	fi
+
+	# Local start options
+	local START="-start"
+	local STOPWHENDONE="-closeWhenDone"
+	local NOSHELL="-noShell"
+	local VMOPTIONS="-Xms512m -Xmx1024m -XX:SurvivorRatio=16 -XX:PermSize=128m -Xmn256m -XX:+AggressiveOpts -XX:+UseFastAccessorMethods"
+
+	local CURRENTNODE=0
+	local NODECOUNT="$(( $PHYSICAL_NODES * $INSTANCES_PER_NODE ))"
+	echo "Starting $NODECOUNT instances of PDGF on $PHYSICAL_NODES nodes a $INSTANCES_PER_NODE instances"
+
+	# For each physical node
+	for (( i = 0; i < $PHYSICAL_NODES; i++ ))
+	do
+		# Create temp file for this node
+		local TEMP_FILE="/tmp/pdgf.node$i"
+		# Every node has to cd into the PDGF directory
+		echo "cd \"$PDGF_ENVIRONMENT\"" > "$TEMP_FILE"
+
+		# For every instance per node
+		for (( j = 1; j <=  $INSTANCES_PER_NODE; j++ ))
+		do
+			local CURRENTNODE="$(( $CURRENTNODE + 1 ))"
+			# Generate command to run on nodes
+			echo "\"$JAVA_BIN\" $VMOPTIONS -server -jar pdgf.jar -load \"$CONFIGFILE\" $SCALE_FACTOR -nodecount $NODECOUNT -nodenumber $CURRENTNODE -workers $WORKERS $STOPWHENDONE $NOSHELL $START &" >> "$TEMP_FILE"
+		done
+		# Execute the commands recorded in the file on the target node
+		runCommandOn "$TEMP_FILE" "$(getHostWithIndex "$(( $START_NODE_INDEX + $i ))")"
+	done
+}
+
+# Stop PDGF instances
+stopPDGF()
+{
+	# Check consistency of user input
+	checkEnv checkPhysicalNodes
+	checkEnv checkStartNodeIndex
+	checkEnv checkHostconfig
+
+	# Check online status of all participating hosts
+	if [ $CHECK_SSH -eq 1 ]
+	then
+		echo
+		for (( i = 0; i < $PHYSICAL_NODES; i++ ))
+		do
+			checkEnv checkSSHstatus "$(getHostWithIndex "$(( $START_NODE_INDEX + $i ))")"
+		done
+		echo
+	fi
+
+	echo "Stopping $PHYSICAL_NODES nodes beginning with node $START_NODE_INDEX"
+
+	# For each physical node
+	for (( i = 0; i < $PHYSICAL_NODES; i++ ))
+	do
+		# Create temp file for this node
+		local TEMP_FILE="/tmp/pdgf.node$i"
+		# Generate command to run on nodes
+		echo "killall java" > "$TEMP_FILE"
+		# Execute the commands recorded in the file on the target node
+		runCommandOn "$TEMP_FILE" "$(getHostWithIndex "$(( $START_NODE_INDEX + $i ))")"
+	done
+}
+
+# Cleanup output files from PDGF
+cleanupPDGF()
+{
+	# Check consistency of user input
+	checkEnv checkPDGFenv
+	checkEnv checkPhysicalNodes
+	checkEnv checkStartNodeIndex
+	checkEnv checkHostconfig
+
+	# Check online status of all participating hosts
+	if [ $CHECK_SSH -eq 1 ]
+	then
+		echo
+		for (( i = 0; i < $PHYSICAL_NODES; i++ ))
+		do
+			checkEnv checkSSHstatus "$(getHostWithIndex "$(( $START_NODE_INDEX + $i ))")"
+		done
+		echo
+	fi
+
+	echo "Cleaning logs and csv files on $PHYSICAL_NODES nodes beginning with node $START_NODE_INDEX"
+
+	for (( i = 0; i < $PHYSICAL_NODES; i++ ))
+	do
+		# Create temp file for this node
+		local TEMP_FILE="/tmp/pdgf.node$i"
+		# Generate command to run on nodes
+		echo "rm \"$PDGF_ENVIRONMENT\"/logs/pdgf.* 2> /dev/null" > "$TEMP_FILE"
+		echo "rm \"$PDGF_ENVIRONMENT\"/*.csv 2> /dev/null" >> "$TEMP_FILE"
+		# Execute the commands recorded in the file on the target node
+		runCommandOn "$TEMP_FILE" "$(getHostWithIndex "$(( $START_NODE_INDEX + $i ))")"
+	done
+}
+
+# Print out an error message, the help and examples, then exit script
+printErrorMessage()
+{
+	echo "Error: $1"
+	echo
+	echo "Usage: $(basename $0) ACTION OPTIONS"
+	echo
+	echo "ACTIONS:"
+	echo -e "\t-r Start PDGF on given nodes"
+	echo -e "\t-t Terminate all running instances on given nodes"
+	echo -e "\t-c Cleanup files on given nodes"
+	echo
+	echo "OPTIONS:"
+	echo -e "\t-x Path to xml config file (mandatory)"
+	echo -e "\t-y Path to hostname file (mandatory)"
+	echo -e "\t-p Number of physical nodes (mandatory)"
+	echo -e "\t-b Index of first node (mandatory)"
+	echo -e "\t-s Scale factor (optional, overrides value in config file)"
+	echo -e "\t-i Number of instances per node (optional, defaults to $DEFAULT_INSTANCES_PER_NODE)"
+	echo -e "\t-w Number of workers (optional, defaults to $DEFAULT_WORKERS)"
+	echo -e "\t-j Java executable binary (optional, defaults to $DEFAULT_JAVA_BIN)"
+	echo -e "\t-e PDGFEnvironment directory (optional, defaults to $DEFAULT_PDGF_ENVIRONMENT)"
+	echo -e "\t-n disable status checking of remote hosts (optional)"
+	echo
+	echo "EXAMPLES:"
+	echo "Starting PDGF:"
+	echo "$(basename $0) -r -x /path/to/config.xml -y /path/to/hostlist -p 10 -b 5"
+	echo "will start generation of config.xml on 10 nodes beginning at node 5. Nodes 5 to 14 will take part in the generation process and the workload will be split evenly between them."
+	echo
+	echo "Stopping PDGF:"
+	echo "$(basename $0) -t -y /path/to/hostlist -p 10 -b 5"
+	echo "will stop generation on 10 nodes begining at node 5. So nodes 5 to 14 will be stopped"
+	echo "consider the use of $(basename $0) -c -p 10 -b 5 afterwards"
+	echo
+	echo "Cleaning up temporary files"
+	echo "$(basename $0) -c -y /path/to/hostlist -p 10 -b 5"
+	echo "will cleanup (delete all csv files in output) on 10 nodes begining at node 5."
+	exit 1
+}
+
+# Declare defaults
+DEFAULT_PDGF_ENVIRONMENT="$HOME/PDGFEnvironment/"
+DEFAULT_JAVA_BIN="$JAVA_HOME/bin/java"
+DEFAULT_INSTANCES_PER_NODE=2
+DEFAULT_WORKERS=4
+CHECK_SSH=1
+
+# Parse command line options
+while getopts ':rtcx:y:p:b:s:i:w:j:e:n' OPTION
+do
+	case "$OPTION" in
+		r) ACTION=startPDGF;;
+		t) ACTION=stopPDGF;;
+		c) ACTION=cleanupPDGF;;
+		x) CONFIGFILE="$OPTARG";;
+		y) HOSTSFILE="$OPTARG";;
+		p) PHYSICAL_NODES="$OPTARG";;
+		b) START_NODE_INDEX="$OPTARG";;
+		s) SCALE_FACTOR="$OPTARG";;
+		i) INSTANCES_PER_NODE="$OPTARG";;
+		w) WORKERS="$OPTARG";;
+		j) JAVA_BIN="$OPTARG";;
+		e) PDGF_ENVIRONMENT="$OPTARG";;
+		n) CHECK_SSH=0;;
+		'?') printErrorMessage "Invalid option: $OPTARG";;
+		:) printErrorMessage "Option \"-$OPTARG\" needs an argument.";;
+		*) printErrorMessage "Unknown internal error";;
+	esac
+done
+
+# If an action was set, run it.
+# Be sure to let the corresponding function check the arguments it needs before accessing these global variables
+[ "$ACTION" ] && "$ACTION" || printErrorMessage "No action defined"
