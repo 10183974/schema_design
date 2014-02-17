@@ -39,6 +39,7 @@ public class HdfsCopyer {
 		 
 		try{
 			fileSystem.copyFromLocalFile(srcPath, dstPath);
+			System.out.println("-------------------------------------------");
 			System.out.println("File " + filename + "copied to " + dest);
 		}catch(Exception e){
 			System.err.println("Exception caught! :" + e);
