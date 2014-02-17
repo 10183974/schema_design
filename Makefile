@@ -1,5 +1,5 @@
 GS = -g
-JC = javac -d classes -cp "lib/junit.jar:lib/org.hamcrest.core_1.1.0.v20090501071000.jar:classes/"
+JC = javac -d classes -cp "lib/junit.jar:lib/org.hamcrest.core_1.1.0.v20090501071000.jar:lib/pdgf.jar:lib/hadoop-core-1.2.1.jar:pdgf/lib/flanagan.jar:pdgf/lib/log4j-1.2.15.jar:classes/"
 JVM = java
 .SUFFIXES: .java .class
 .java.class:
@@ -21,7 +21,7 @@ sd: src/duke/hbase/sd
 tdg: src/duke/hbase/cm/tdg
 	$(JC) $(JFLAGS) $(wildcard src/duke/hbase/cm/tdg/*.java)
 
-createjar:
+createjar: clean compile
 	jar cmf  META-INF/MANIFEST.MF SchemaDesign-1.0.jar -C classes .
 
 run:
