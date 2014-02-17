@@ -7,7 +7,7 @@ JVM = java
 
 CLASSES	= $(wildcard src/duke/hbase/sd/*.java)
 
-compile: cm sd test tdg createjar
+compile: cm sd test tdg
 
 test: src/duke/hbase/test
 	$(JC) $(JFLAGS)	$(wildcard src/duke/hbase/test/CMDProxyTest.java)
