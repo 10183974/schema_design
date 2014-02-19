@@ -476,9 +476,9 @@ public class Controller extends Observable implements Observer {
 			IOException, ClassNotFoundException, InvalidElementException,
 			InvalidStateException {
                 //------------------------ zz changed 
-                //dataGen.setCloseAfterFinish(true);
+                dataGen.setCloseAfterFinish(true);
 		
-                if (command[0].equalsIgnoreCase("exit")) {
+		if (command[0].equalsIgnoreCase("exit")) {
 			doQuitCMD();
 		} else if (command[0].equalsIgnoreCase("noShell")) {
 			shellRunning = false;

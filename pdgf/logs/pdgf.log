@@ -1314,3 +1314,1429 @@ Generator overall time: 40ms
 INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/abhisdub/git/abhishek1015/schema_design/pdgf/output/GeneratorStatistics_1.csv
 INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/abhisdub/git/abhishek1015/schema_design/pdgf/output/GeneratorStatistics_1.csv
 INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 49ms average time: 42
+Generator overall time: 54ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+ERROR main pdgf.Controller - ERROR! <Project name=tpch><output name=CSVRowOutput>Could not write to configured output dir: ../workdir/output/ Maybe no write permission. Additional info: No such file or directory
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command exi is not known. Enter help to see a list of commands
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/Z.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 25ms average time: 10
+Generator overall time: 33ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+ERROR main pdgf.Controller - ERROR! The command laod is not known. Enter help to see a list of commands
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command eixt is not known. Enter help to see a list of commands
+ERROR main pdgf.Controller - ERROR! The command ladd is not known. Enter help to see a list of commands
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command eixt is not known. Enter help to see a list of commands
+ERROR main pdgf.Controller - ERROR! The command laad is not known. Enter help to see a list of commands
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/Z.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 10ms average time: 8
+Generator overall time: 14ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+ERROR main pdgf.Controller - ERROR! Parameters are missing. This command requires at least 1 parameters
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 51ms average time: 47
+Generator overall time: 53ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 1 force worker to die..
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+ERROR main pdgf.Controller - ERROR! Parameters are missing. This command requires at least 1 parameters
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+ERROR main pdgf.Controller - ERROR! Parameters are missing. This command requires at least 1 parameters
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - Shell is disabled
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - Shell is disabled
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - stopping shell...
+INFO main pdgf.Controller - Shell is disabled
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command -help is not known. Enter help to see a list of commands
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command helpexit is not known. Enter help to see a list of commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command helpexit is not known. Enter help to see a list of commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command helpexit is not known. Enter help to see a list of commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file pdgf/config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file pdgf/config/simple.sh could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+ERROR main pdgf.Controller - ERROR!  Flooding prevention! to much failed commands in a row...exiting
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! The command /bash is not known. Enter help to see a list of commands
+ERROR main pdgf.Controller - Please enter a command. Enter "help" for a list of available commands
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 52ms average time: 49
+Generator overall time: 54ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file pdgf/config/simple.xml could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 43ms average time: 40
+Generator overall time: 46ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 43ms average time: 41
+Generator overall time: 46ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 3 force worker to die..
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file workdir/z.xml could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! ERROR! Command: "start" cannot be executed because: ProjectConfig Xml file was not loaded! Please execute:
+load
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 12ms average time: 10
+Generator overall time: 15ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 47ms average time: 46
+Generator overall time: 50ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-4 pdgf.Controller - 
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 12ms average time: 11
+Generator overall time: 14ms
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 13ms average time: 11
+Generator overall time: 15ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.actions.ShowHelpAction - pdgf.jar 
+-exit: quits PDGF shell, stops all workers and exits programm
+-noShell: non interactive mode: disables PDGF shell. Also activates automatic exit: closeWhenDone true
+-stop: stops data generation on this node
+-help: displays all available commands with a short description and needed parameters
+-testgen: Tests the generator (configured via xml) for the specified  field in specified table <iteration> times and ouputs his generated value
+-start: starts data generation on this node
+-plugins: displays available plugins. Permitted values for <type>: { all | generator | distribution | output | scheduler | random}
+-benchGen: Benchmarks a generator for a specified field in a table (must be configured via xml) or if the first parameter equals "ALL", generators of all fields and tables are benchmarkt. For both uses you can specified the  <time> in ms a benchmark should run
+-scaleFactor:  scale factor  for the project. Project config file must be loaded before scale factor can be changed
+-findPlugins: searches in plugin and lib dir for new plugins. If path parameter is specified: search recursively in given path or load specified file
+-load: read and Parse a XML configuration file (node or project config).
+NOTE: Replaces previously imported configuration without asking.
+-workers: number of threads/workers to be used (optional). Overrides automatic worker determination by cpu count
+-closeWhenDone: activates automatic exit of the program (when data generation is done) if no parameter is specified or sets to value of specified parameter. Default: False. 
+-plugin: displays information on a plugin. Parameter <name>: the plugin name (like myProject.generator.MyCustomGenerator)
+
+
+Note: some commands depend on other commands. For example: you can not start datageneration if the config files are not loaded. The command line parameters are processed sequentially. So the 
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 199ms average time: 185
+Generator overall time: 206ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 247ms average time: 222
+Generator overall time: 249ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 193ms average time: 185
+Generator overall time: 195ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-1 pdgf.Controller - 
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 328ms average time: 294
+Generator overall time: 330ms
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 201ms average time: 194
+Generator overall time: 205ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 246ms average time: 227
+Generator overall time: 248ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 6 force worker to die..
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 49ms average time: 45
+Generator overall time: 52ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 8 force worker to die..
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/config/simple.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: output/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/output/
+INFO main pdgf.core.dbSchema.Project - Found 1 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "simple.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: output/simpleTable.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 57ms average time: 48
+Generator overall time: 59ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/output/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 234ms average time: 214
+Generator overall time: 236ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!

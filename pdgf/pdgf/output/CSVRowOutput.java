@@ -374,10 +374,10 @@ public final class CSVRowOutput extends Output implements FileOutput {
 			} else if (value instanceof char[]) {
 
 				if (StaticHelper.needSingleQuote(data.fieldValues[i].getType())) {
-					//threadLineBuffers[threadID].append(TEXT_QUOTE);
+				//	threadLineBuffers[threadID].append(TEXT_QUOTE);
 					threadLineBuffers[threadID].append((char[]) value);
 
-					//threadLineBuffers[threadID].append(TEXT_QUOTE);
+				//	threadLineBuffers[threadID].append(TEXT_QUOTE);
 				} else {
 					threadLineBuffers[threadID].append((char[]) value);
 				}
@@ -385,10 +385,10 @@ public final class CSVRowOutput extends Output implements FileOutput {
 			} else {
 				stringFieldVal = value.toString();
 				if (StaticHelper.needSingleQuote(data.fieldValues[i].getType())) {
-					//threadLineBuffers[threadID].append(TEXT_QUOTE);
+				//	threadLineBuffers[threadID].append(TEXT_QUOTE);
 					threadLineBuffers[threadID].append(stringFieldVal);
 
-					//threadLineBuffers[threadID].append(TEXT_QUOTE);
+				//	threadLineBuffers[threadID].append(TEXT_QUOTE);
 				} else {
 					threadLineBuffers[threadID].append(stringFieldVal);
 				}

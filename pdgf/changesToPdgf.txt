@@ -1,0 +1,7 @@
+
+-----change history
+(1). commented TEXT_QUOTE in the CSVRowOutput.java
+ //threadLineBuffers[threadID].append(TEXT_QUOTE); i
+(2). closeWhenDone is set to be true in Controller.java
+   //------------------------ zz changed 
+     dataGen.setCloseAfterFinish(true);
