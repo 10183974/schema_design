@@ -5,13 +5,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
+import java.io.*;
 
 public class DataGenerator{
 	private String xmlFile = null;
 	private String sqlFile = null;
 	private String csvFile = null;
-			
+
 	public void generateXml(ArrayList<Table> tableList){		
 	    XmlBuilder builder = new XmlBuilder();
 	 	builder.setOutFilePath(xmlFile);	 
@@ -23,35 +23,38 @@ public class DataGenerator{
 		sqlBuilder.setOutFile(sqlFile);
 		sqlBuilder.createTableSql(tableList);
 	}
-        private void executePdgfCommand(String[] command){
-                       try {
-		         ProcessBuilder pb = new ProcessBuilder(command);
-			 pb.directory(new File("/home/hadoop/git/schema_design/pdgf"));
-			 pb.redirectErrorStream(true);
-		         Process p;
-			 p = pb.start();
-                         p.waitFor();
-			 BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			 String line = null;
-			 while ((line = reader.readLine()) != null)
-			 {
-			    System.out.println(line);
-			 }
+	public void generateCSV(String xmlFilePath){
+                try {
+                          //load xml file to pdgf     
+                          //ProcessBuilder pb = new ProcessBuilder(new String[]{"pdgf/mypdgfscript.sh",xmlFilePath});
+                          ProcessBuilder pb = new ProcessBuilder(new String[]{
+                                   "java","-jar","pdgf.jar","-load",xmlFilePath});
+                          pb.directory(new File("./pdgf"));
+                          pb.redirectErrorStream(true);
+                          
+                          Process p;
+			  p = pb.start(); 
+                          BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                          BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
+			  
+                          System.out.println("Starting pdgf...");
+                          String a = null;
+                          //start generating
+                          String cmdStr = "start"; 
+    			  bw.write(cmdStr, 0, cmdStr.length());
+                          bw.newLine();
+    			  bw.flush();
+    			  
+                          while ((a = reader.readLine()) !=null) {
+                              System.out.println("pdgf: " + a);
+    		          }
+                          //exit automatically, since closeWhenDone is set to be true in pdgf Controller
+
 
 		  } catch (IOException e) {
 			e.printStackTrace();
-		 } catch (InterruptedException e){
-                        e.printStackTrace();
-                 }	
+                  } 
 
-         }
-	public void generateCSV(String xmlFilePath){
-			this.executePdgfCommand(new String[] {"java", "-jar", "pdgf.jar","-load",xmlFilePath});	
-  
-  
-                         this.executePdgfCommand(new String[] {"help"});
-                         this.executePdgfCommand(new String[] {"start"});
-                        this.executePdgfCommand(new String[] {"exit"});
 
 	}
 	public void setXmlFile(String fileName){
@@ -59,12 +62,12 @@ public class DataGenerator{
 	}
         public void setSqlFile(String fileName){
     	this.sqlFile = fileName;
-         }
+        }
         public void setCsvFile(String fileName){
     	this.csvFile = fileName;
         }
         public static void main(String[] agrs){
-        ArrayList<Table> tableList = new ArrayList<Table>();
+                ArrayList<Table> tableList = new ArrayList<Table>();
 		
 		//generate table 1
 		Column id = new Column("ID", " ", "INTEGER", 10, true, true);
@@ -82,7 +85,7 @@ public class DataGenerator{
 		columns.add(accBal);
 		columns.add(comment);
 	       
-		Table table1 = new Table("Z",20,rowkey,columns) ;
+		Table table1 = new Table("Z",20000,rowkey,columns) ;
 		
 		//generate table 2
 		Column ip = new Column("IP", " ", "INTEGER", 10, true, true);
@@ -103,8 +106,8 @@ public class DataGenerator{
 		dg.setSqlFile("workdir/createTable.sql");
 		dg.setXmlFile("workdir/z.xml");
 		dg.generateXml(tableList);
-		dg.generateSql(tableList);
-    	        dg.generateCSV("config/simple.xml");
+//		dg.generateSql(tableList);
+    	        dg.generateCSV("../workdir/z.xml");
     	
     	//
     // HdfsCopier hdfsCopier = new HdfsCopier();
