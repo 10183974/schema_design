@@ -7,11 +7,13 @@ import java.util.ArrayList;
 
 
 public class HbaseLoader {
-	public void createTableInHbase(){
+       private static final String csvBulkLoader = "/home/hadoop/git/phoenix/bin/csv-bulk-loader.sh";
+       private static final String csvBulkLoaderPath = "/home/hadoop/git/phoenix/bin/"; 
+	public void createTableInHbase(String sqlFile){
 		try {
-			String[] command = {"/home/hadoop/git/phoenix/bin/psql.sh", "localhost",
-                             "/home/hadoop/git/schema_design/workdir/createTable.sql"};
-		         ProcessBuilder pb = new ProcessBuilder(command);
+			String[] command = {"/home/hadoop/git/phoenix/bin/psql.sh", "localhost",sqlFile};
+		         
+                         ProcessBuilder pb = new ProcessBuilder(command);
                          pb.directory(new File("/home/hadoop/git/phoenix/bin"));   
                          pb.redirectErrorStream(true);
                          Process p;
@@ -22,6 +24,8 @@ public class HbaseLoader {
 			 {
 			    System.out.println(line);
 			 }
+                         System.out.println("-------------------------------");
+                         System.out.println(sqlFile + " was executed to create table in Hbase"); 
 
 		  } catch (IOException e) {
 			e.printStackTrace();
@@ -31,7 +35,7 @@ public class HbaseLoader {
 	public void loadTableInHbase(ArrayList<Table> tableList){
 		for (Table t:tableList){
 			try {
-				String[] command = {"/home/hadoop/git/phoenix/bin/csv-bulk-loader.sh",
+				String[] command = {this.csvBulkLoader,
 						   "-i", "/tdg/csvdir/"+t.getTableName().toUpperCase()+".csv",
 						   "-t", t.getTableName().toUpperCase(), 
 						   "-zk", "master:2181",
@@ -39,7 +43,7 @@ public class HbaseLoader {
 						   "-mr", "master:54311"};
 				
 				ProcessBuilder pb = new ProcessBuilder(command);
-			        pb.directory(new File("/home/hadoop/git/phoenix/bin"));   
+			        pb.directory(new File(this.csvBulkLoaderPath));   
 			        pb.redirectErrorStream(true); 
                                 Process p;
 				p = pb.start();
@@ -83,7 +87,7 @@ public class HbaseLoader {
 		tableList.add(table1);
 		
 		HbaseLoader hLoader = new HbaseLoader();
-		hLoader.createTableInHbase();
+		hLoader.createTableInHbase("workdir/createTable.sql");
 		hLoader.loadTableInHbase(tableList);
 	
 	}

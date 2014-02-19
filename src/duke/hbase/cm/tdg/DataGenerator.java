@@ -23,12 +23,16 @@ public class DataGenerator{
 		sqlBuilder.setOutFile(sqlFile);
 		sqlBuilder.createTableSql(tableList);
 	}
-	public void generateCSV(String xmlFilePath){
+	public void generateCSV(){
                 try {
                           //load xml file to pdgf     
                           //ProcessBuilder pb = new ProcessBuilder(new String[]{"pdgf/mypdgfscript.sh",xmlFilePath});
+                          String relativeXmlFilePath = "../" + xmlFile;
+                          System.out.println("Starting pdgf...");
+                        
+                          System.out.println("Loading xml file " + relativeXmlFilePath + " to pdgf");
                           ProcessBuilder pb = new ProcessBuilder(new String[]{
-                                   "java","-jar","pdgf.jar","-load",xmlFilePath});
+                                   "java","-jar","pdgf.jar","-load",relativeXmlFilePath});
                           pb.directory(new File("./pdgf"));
                           pb.redirectErrorStream(true);
                           
@@ -37,7 +41,6 @@ public class DataGenerator{
                           BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                           BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
 			  
-                          System.out.println("Starting pdgf...");
                           String a = null;
                           //start generating
                           String cmdStr = "start"; 
@@ -49,13 +52,11 @@ public class DataGenerator{
                               System.out.println("pdgf: " + a);
     		          }
                           //exit automatically, since closeWhenDone is set to be true in pdgf Controller
-
+                          System.out.println("Exiting pdgf");
 
 		  } catch (IOException e) {
 			e.printStackTrace();
                   } 
-
-
 	}
 	public void setXmlFile(String fileName){
 		this.xmlFile = fileName;
@@ -98,28 +99,36 @@ public class DataGenerator{
 		columns2.add(message);     
 		Table table2 = new Table("X",20,rowkey2,columns2) ;
 		
-		//tableList
+		//add table to tableList
 		tableList.add(table1);
 		tableList.add(table2);
-	
+	        
+                //start data generation and loading
 		DataGenerator dg = new DataGenerator();
+                //create sql file
 		dg.setSqlFile("workdir/createTable.sql");
-		dg.setXmlFile("workdir/z.xml");
+	        dg.generateSql(tableList);
+                //create xml file
+          	dg.setXmlFile("./workdir/z.xml");
 		dg.generateXml(tableList);
-//		dg.generateSql(tableList);
-    	        dg.generateCSV("../workdir/z.xml");
-    	
-    	//
-    // HdfsCopier hdfsCopier = new HdfsCopier();
-    // String localDir = "/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/pdgf/output";
-    // String hdfsDir = "/tdg";
-    // try {
-    // hdfsCopier.copyFromLocal(localDir,hdfsDir);
-    // } catch (IOException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // }
-  
+    	        //generate data, write to csv file
+                dg.generateCSV();
+    	        
+                //copy data from local to hdfs
+                HdfsCopier hdfsCopier = new HdfsCopier();
+                String localDir = "./workdir/csvdir/";
+                String hdfsDir = "/tdg";
+                try {
+                    hdfsCopier.copyFromLocal(localDir,hdfsDir);
+                } catch (IOException e) {
+	        // TODO Auto-generated catch block
+	            e.printStackTrace();
+	        }
+                
+                //load table into Hbase
+                HbaseLoader hLoader = new HbaseLoader();
+                hLoader.createTableInHbase("workdir/createTable.sql");
+                hLoader.loadTableInHbase(tableList); 
    }
 } 
 
