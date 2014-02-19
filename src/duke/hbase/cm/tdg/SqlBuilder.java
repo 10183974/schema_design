@@ -64,7 +64,6 @@ public class SqlBuilder {
 		try {
 			writer = new PrintWriter(outFile, "UTF-8");
 			writer.println(s);
-	
 			writer.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -79,7 +78,7 @@ public class SqlBuilder {
 	}
 	public void createTableSql(ArrayList<Table> tableList){
 		String s = buildSqlFile(tableList);
-		System.out.println("Writing create table sql statement to " + this.outFile);
+		System.out.println("Writing sql statement to " + this.outFile);
 		System.out.println(s);
 		writeToSql(s);	
 	}	
@@ -93,13 +92,13 @@ public class SqlBuilder {
 		Column accBal = new Column("AccBal","f","DECIMAL",10,false,false);
 		Column comment = new Column("Comment", "f","VARCHAR", 10,false,false);
 		
-        ArrayList<Column> rowkey = new ArrayList<Column>();
-        rowkey.add(id);
-        rowkey.add(userName);
-        ArrayList<Column> columns = new ArrayList<Column>();
-        columns.add(address);
-        columns.add(accBal);
-        columns.add(comment);
+		ArrayList<Column> rowkey = new ArrayList<Column>();
+		rowkey.add(id);
+		rowkey.add(userName);
+		ArrayList<Column> columns = new ArrayList<Column>();
+		columns.add(address);
+		columns.add(accBal);
+		columns.add(comment);
        
 		Table table1 = new Table("Z",20,rowkey,columns) ;
 	
@@ -109,11 +108,11 @@ public class SqlBuilder {
 		Column ip = new Column("IP", " ", "INTEGER", 10, true, true);
 		Column message = new Column("Message", "f","VARCHAR", 10, false,false);
 		
-        ArrayList<Column> rowkey2 = new ArrayList<Column>();
-        ArrayList<Column> columns2 = new ArrayList<Column>();
-        
-        rowkey2.add(ip);  
-        columns2.add(message);     
+		ArrayList<Column> rowkey2 = new ArrayList<Column>();
+		ArrayList<Column> columns2 = new ArrayList<Column>();
+		
+		rowkey2.add(ip);  
+		columns2.add(message);     
 		Table table2 = new Table("X",20,rowkey2,columns2) ;
 		
 		
@@ -121,7 +120,7 @@ public class SqlBuilder {
 		tableList.add(table2);
 		
 		SqlBuilder sqlBuilder = new SqlBuilder();
-    sqlBuilder.setOutFile("workdir/createTable.sql");
+	        sqlBuilder.setOutFile("workdir/createTable.sql");
 		sqlBuilder.createTableSql(tableList);
 	}
 

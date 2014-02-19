@@ -4,7 +4,7 @@ public class Table {
 	private String tableName = null;
 	private int nRows = 0; 
 	private ArrayList<Column> rowkey = new ArrayList<Column> ();
-    private ArrayList<Column> columns = new ArrayList<Column> ();
+        private ArrayList<Column> columns = new ArrayList<Column> ();
     
 	public Table(){
 		//defalut table constructor
@@ -15,7 +15,7 @@ public class Table {
 		    this.nRows = aNRows;
 		    this.rowkey = aRowkey;
 		    this.columns = aColumns;
-    }
+       }
 		
 	public String getTableName(){
 		return this.tableName;
@@ -50,11 +50,11 @@ public class Table {
 		                   + "nRows: " + this.getNRows());
 		for(Column r:rowkey){		
 			  System.out.println("\tRowkey");  
-              r.printColumnInfo();
+                          r.printColumnInfo();
 		}		
 		for(Column c:columns){
 			System.out.println("\tColumns");  
-               c.printColumnInfo();
+                        c.printColumnInfo();
 		}
 	}
 		
@@ -63,11 +63,11 @@ public class Table {
 		Column comment1 = new Column("Comment#1", "f","VARCHAR", 10,false,false);
 		Column comment2 = new Column("Comment#2", "f","VARCHAR", 10,false,false);
 		
-        ArrayList<Column> rowkey = new ArrayList<Column>();
-        rowkey.add(id);
-        ArrayList<Column> columns = new ArrayList<Column>();
-        columns.add(comment1);
-        columns.add(comment2);
+                ArrayList<Column> rowkey = new ArrayList<Column>();
+                rowkey.add(id);
+                ArrayList<Column> columns = new ArrayList<Column>();
+                columns.add(comment1);
+                columns.add(comment2);
        
 		Table t = new Table("Z",20,rowkey,columns) ;
 
