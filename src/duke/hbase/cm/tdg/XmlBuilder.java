@@ -21,9 +21,9 @@ import org.xml.sax.SAXException;
  * 
  */
 public class XmlBuilder {
-  private String templateFile = "src/duke/hbase/cm/tdg/template.xml";
-  private String outputFile = null;
-   	 private Document document = null;
+	  private static final String templateFile = "src/duke/hbase/cm/tdg/template.xml";
+	  private String outputFile = null;
+          private Document document = null;
    		
    	 
    	 private void parseXMLDocument(){
@@ -178,14 +178,14 @@ public class XmlBuilder {
 	 }
 	 private void writeToXML(){	
 			try {
-		        DOMSource source = new DOMSource(document);
-		        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-		        Transformer transformer;
+				DOMSource source = new DOMSource(document);
+				TransformerFactory transformerFactory = TransformerFactory.newInstance();
+				Transformer transformer;
 				transformer = transformerFactory.newTransformer();
 				transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 				transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-			    StreamResult result = new StreamResult(outputFile);
-			    transformer.transform(source, result);
+			        StreamResult result = new StreamResult(outputFile);
+			        transformer.transform(source, result);
 			} catch (TransformerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -203,7 +203,9 @@ public class XmlBuilder {
 		 }
 		 //write tablenodes into xml file
 		 writeToXML();	    
+		 System.out.println("-------------------------------------------");
 		 System.out.println("Writing XML file to " + outputFile);
+		 System.out.println("-------------------------------------------");
 	 }
 
      public void setOutFilePath(String name){

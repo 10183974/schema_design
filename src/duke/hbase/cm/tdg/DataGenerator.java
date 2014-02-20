@@ -86,7 +86,7 @@ public class DataGenerator{
 		columns.add(accBal);
 		columns.add(comment);
 	       
-		Table table1 = new Table("Z",20000,rowkey,columns) ;
+		Table table1 = new Table("Z",100,rowkey,columns) ;
 		
 		//generate table 2
 		Column ip = new Column("IP", " ", "INTEGER", 10, true, true);
@@ -102,7 +102,10 @@ public class DataGenerator{
 		//add table to tableList
 		tableList.add(table1);
 		tableList.add(table2);
-	        
+	       
+
+
+                long startTime = System.currentTimeMillis(); 
                 //start data generation and loading
 		DataGenerator dg = new DataGenerator();
                 //create sql file
@@ -127,8 +130,11 @@ public class DataGenerator{
                 
                 //load table into Hbase
                 HbaseLoader hLoader = new HbaseLoader();
-                hLoader.createTableInHbase("workdir/createTable.sql");
-                hLoader.loadTableInHbase(tableList); 
+                hLoader.createTableInHbase("$PROJECT_HOME/workdir/createTable.sql");
+                hLoader.loadTableInHbase(tableList,"/tdg/csvdir/"); 
+
+                long endTime = System.currentTimeMillis();
+                System.out.println("Total time used: " + (endTime - startTime)/1e3 + " seconds");
    }
 } 
 

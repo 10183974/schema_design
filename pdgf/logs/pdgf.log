@@ -2740,3 +2740,1226 @@ Generator overall time: 236ms
 INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
 INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
 INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-4 pdgf.Controller - 
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 237ms average time: 196
+Generator overall time: 238ms
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-2 pdgf.Controller - 
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 240ms average time: 230
+Generator overall time: 242ms
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-1 pdgf.Controller - 
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 264ms average time: 260
+Generator overall time: 265ms
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-2 pdgf.Controller - 
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 228ms average time: 222
+Generator overall time: 230ms
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 205ms average time: 179
+Generator overall time: 236ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 225ms average time: 215
+Generator overall time: 227ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 223ms average time: 214
+Generator overall time: 225ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 6 force worker to die..
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-7 pdgf.Controller - 
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 221ms average time: 198
+Generator overall time: 223ms
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file ../workdir/z.xml could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! ERROR! Command: "start" cannot be executed because: ProjectConfig Xml file was not loaded! Please execute:
+load
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file ./workdir/z.xml could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! ERROR! Command: "start" cannot be executed because: ProjectConfig Xml file was not loaded! Please execute:
+load
+INFO main pdgf.actions.LoadConfigAction - Config file not found. Searching for file in standard config file dir: config
+ERROR main pdgf.Controller - ERROR! Config file ./workdir/z.xml could not be found in config
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+ERROR main pdgf.Controller - ERROR! ERROR! Command: "start" cannot be executed because: ProjectConfig Xml file was not loaded! Please execute:
+load
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/../workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 216ms average time: 211
+Generator overall time: 219ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 288ms average time: 275
+Generator overall time: 291ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 3 force worker to die..
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 350ms average time: 332
+Generator overall time: 353ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 213ms average time: 196
+Generator overall time: 216ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-2 pdgf.Controller - 
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 198ms average time: 180
+Generator overall time: 200ms
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-7 pdgf.Controller - 
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 188ms average time: 177
+Generator overall time: 192ms
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-4 pdgf.Controller - 
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 631ms average time: 581
+Generator overall time: 646ms
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 694ms average time: 625
+Generator overall time: 700ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 861ms average time: 802
+Generator overall time: 888ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 622ms average time: 576
+Generator overall time: 624ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-1 pdgf.Controller - 
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 733ms average time: 681
+Generator overall time: 734ms
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 1 force worker to die..
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 683ms average time: 614
+Generator overall time: 691ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-4 pdgf.Controller - 
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 644ms average time: 570
+Generator overall time: 646ms
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 651ms average time: 571
+Generator overall time: 654ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 667ms average time: 595
+Generator overall time: 672ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-4 pdgf.Controller - 
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 816ms average time: 730
+Generator overall time: 818ms
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-7 pdgf.Controller - 
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 670ms average time: 592
+Generator overall time: 672ms
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-2 pdgf.Controller - 
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 711ms average time: 641
+Generator overall time: 724ms
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-2 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 709ms average time: 637
+Generator overall time: 712ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 644ms average time: 571
+Generator overall time: 646ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 629ms average time: 577
+Generator overall time: 633ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 635ms average time: 587
+Generator overall time: 643ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - stop failed for worker: 5 force worker to die..
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 613ms average time: 554
+Generator overall time: 619ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 746ms average time: 700
+Generator overall time: 749ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 761ms average time: 696
+Generator overall time: 765ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-4 pdgf.Controller - 
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 641ms average time: 572
+Generator overall time: 667ms
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-4 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-1 pdgf.Controller - 
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 688ms average time: 611
+Generator overall time: 690ms
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-1 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-8 pdgf.Controller - 
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 725ms average time: 656
+Generator overall time: 749ms
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-8 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-5 pdgf.Controller - 
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 618ms average time: 578
+Generator overall time: 622ms
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-5 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 16ms average time: 14
+Generator overall time: 17ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-3 pdgf.Controller - 
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 15ms average time: 13
+Generator overall time: 17ms
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-3 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-7 pdgf.Controller - 
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 15ms average time: 13
+Generator overall time: 19ms
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-7 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!
+INFO main pdgf.actions.LoadConfigAction - Parsing configuration file: /home/hadoop/git/schema_design/pdgf/.././workdir/z.xml
+INFO main pdgf.actions.LoadConfigAction - parsing config file data...
+INFO main pdgf.core.dbSchema.Project - Config File is <project> configuration...
+INFO main pdgf.output.CSVRowOutput - Testing specified output dir... 
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/OUTPUT_TEST.csv
+INFO main pdgf.output.CSVRowOutput - Output dir ok!
+INFO main pdgf.output.CSVRowOutput - Writing all files to folder: /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/
+INFO main pdgf.core.dbSchema.Project - Found 2 tables
+INFO main pdgf.actions.LoadConfigAction - Configuration File "z.xml" imported without errors
+INFO main pdgf.actions.LoadConfigAction - Configuration File imported without errors
+INFO main pdgf.Controller - ################################################################################
+			 PDGF v1.1 Experimental
+	Parallel Data Generation Framework for Database Benchmarks
+			Author: Michael Frank
+for usage help start with java -jar pdgf.jar -help or type "help" in: PDGF:> 
+###############################################################################
+INFO main pdgf.core.dataGenerator.DataGenerator - Worker count was not specified manually. Detected 8 available processors and start now same amount of workers
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/Z.csv
+INFO main pdgf.output.CSVRowOutput -  Created file: ../workdir/csvdir/X.csv
+INFO main pdgf.core.dataGenerator.DataGenerator - Data generation procces started. Created 8 workers for this task.
+INFO main pdgf.Controller - Data generation procces started. Created 8 workers for this task.
+INFO Thread-6 pdgf.Controller - 
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - REPORT
+=======================
+Max time of a worker: 16ms average time: 14
+Generator overall time: 18ms
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.Controller - finished processing after 0s. Saved processing statistics file GeneratorStatistics_1.csv to /home/hadoop/git/schema_design/pdgf/../workdir/csvdir/GeneratorStatistics_1.csv
+INFO Thread-6 pdgf.core.dataGenerator.DataGenerator - All workers stopped successfully!

@@ -13,7 +13,7 @@ public class SqlBuilder {
 			builder.append("create table if not exists ");
 			builder.append(table.getTableName() + " (\n");
 			
-	        ArrayList<Column> rowkey = table.getRowkey();   
+			ArrayList<Column> rowkey = table.getRowkey();   
 	 
 		    for(Column r:rowkey){
 		    	//format
@@ -78,7 +78,9 @@ public class SqlBuilder {
 	}
 	public void createTableSql(ArrayList<Table> tableList){
 		String s = buildSqlFile(tableList);
-		System.out.println("Writing sql statement to " + this.outFile);
+		System.out.println("-------------------------------------------");
+		System.out.println("Writing create table sql statement to " + this.outFile);
+		System.out.println("-------------------------------------------");
 		System.out.println(s);
 		writeToSql(s);	
 	}	
