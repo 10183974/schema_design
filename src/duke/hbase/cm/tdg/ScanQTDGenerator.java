@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import duke.hbase.sd.Util;
 
 public class ScanQTDGenerator {
-
+  
   private void generate(String string) {
 
   }

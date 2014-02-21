@@ -21,12 +21,13 @@ import org.xml.sax.SAXException;
  * 
  */
 public class XmlBuilder {
-	  private static final String templateFile = "src/duke/hbase/cm/tdg/template.xml";
-	  private String outputFile = null;
-          private Document document = null;
-   		
-   	 
-   	 private void parseXMLDocument(){
+	 private static final String PROJECT_HOME = System.getenv("PROJECT_HOME");
+	 private static final String templateFile =  PROJECT_HOME + "/src/duke/hbase/cm/tdg/template.xml";
+	 private String xmlFile = null;
+	  
+     private Document document = null;
+   			 
+     private void parseXMLDocument(){
 	        try {
 			    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -184,14 +185,14 @@ public class XmlBuilder {
 				transformer = transformerFactory.newTransformer();
 				transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 				transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-			        StreamResult result = new StreamResult(outputFile);
+			        StreamResult result = new StreamResult(xmlFile);
 			        transformer.transform(source, result);
 			} catch (TransformerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}        
 	 }
-	 public void addTableToXML(ArrayList<Table> tables){	 
+	 public void createXmlFile(ArrayList<Table> tables){	 
 		 //must parse the document first
 		 parseXMLDocument();
 		 //get the parent node of tables
@@ -201,17 +202,17 @@ public class XmlBuilder {
 			 Element tableElement = createTableElement(t);
 		     tablesNodeParent.appendChild(tableElement);
 		 }
-		 //write tablenodes into xml file
+		 //write tableList into xml file
 		 writeToXML();	    
 		 System.out.println("-------------------------------------------");
-		 System.out.println("Writing XML file to " + outputFile);
+		 System.out.println("Writing XML file to " + xmlFile);
 		 System.out.println("-------------------------------------------");
 	 }
 
      public void setOutFilePath(String name){
-		 this.outputFile = name;
+		 this.xmlFile = name;
 	 }
-
+ 
 	 public static void main(String[] args){
 		 Column id = new Column("ID", " ", "INTEGER", 10, true, true);
 	     Column userName = new Column("UserName"," ","VARCHAR",10,false,true);
@@ -236,7 +237,7 @@ public class XmlBuilder {
 		 ArrayList<Table> tables = new ArrayList<Table>();     
 	     tables.add(t);
 	  	
-    builder.setOutFilePath("workdir/z.xml");
-		 builder.addTableToXML(tables);
+         builder.setOutFilePath("workdir/z.xml");
+		 builder.createXmlFile(tables);
          } 
 }

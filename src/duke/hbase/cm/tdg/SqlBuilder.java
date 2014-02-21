@@ -5,8 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 public class SqlBuilder {
-	private String outFile = null;
-	public String buildSqlFile(ArrayList<Table> tableList){
+	private String sqlFile = null;
+	private String buildSqlStatement(ArrayList<Table> tableList){
 		
 		StringBuilder builder = new StringBuilder();
 		for (Table table:tableList){
@@ -62,7 +62,7 @@ public class SqlBuilder {
 	private void writeToSql(String s){
 		PrintWriter writer;
 		try {
-			writer = new PrintWriter(outFile, "UTF-8");
+			writer = new PrintWriter(sqlFile, "UTF-8");
 			writer.println(s);
 			writer.close();
 		} catch (FileNotFoundException e) {
@@ -73,16 +73,16 @@ public class SqlBuilder {
 			e.printStackTrace();
 		}
 	}
-	public void setOutFile(String name){
-		this.outFile = name;
+	public void setsqlFile(String name){
+		this.sqlFile = name;
 	}
-	public void createTableSql(ArrayList<Table> tableList){
-		String s = buildSqlFile(tableList);
+	public void createSqlFile(ArrayList<Table> tableList){
+		String sqlStatement = buildSqlStatement(tableList);
 		System.out.println("-------------------------------------------");
-		System.out.println("Writing create table sql statement to " + this.outFile);
+		System.out.println("Writing create table sql statement to " + this.sqlFile);	
+		System.out.println(sqlStatement);
 		System.out.println("-------------------------------------------");
-		System.out.println(s);
-		writeToSql(s);	
+		writeToSql(sqlStatement);	
 	}	
 	public static void main(String[] args){
 		ArrayList<Table> tableList = new ArrayList<Table>();
@@ -122,8 +122,8 @@ public class SqlBuilder {
 		tableList.add(table2);
 		
 		SqlBuilder sqlBuilder = new SqlBuilder();
-	        sqlBuilder.setOutFile("workdir/createTable.sql");
-		sqlBuilder.createTableSql(tableList);
+	        sqlBuilder.setsqlFile("workdir/createTable.sql");
+		sqlBuilder.createSqlFile(tableList);
 	}
 
 }

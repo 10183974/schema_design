@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
- 
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.BlockLocation;
 import org.apache.hadoop.fs.FSDataInputStream;
@@ -18,10 +18,10 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.DistributedFileSystem;
 import org.apache.hadoop.hdfs.protocol.DatanodeInfo;
 public class HdfsCopier {
-       
-        private static final String hadoopCoreSiteXML = "/home/hadoop/hadoop/conf/core-site.xml";
-        private static final String hadoopHdfsSiteXML = "/home/hadoop/hadoop/conf/hdfs-site.xml";
-        private static final String hadoopMapredSiteXML = "/home/hadoop/hadoop/conf/mapred-site.xml";
+	    private static final String HADOOP_HOME = System.getenv("HADOOP_HOME");
+        private static final String hadoopCoreSiteXML = HADOOP_HOME + "/conf/core-site.xml";
+        private static final String hadoopHdfsSiteXML = HADOOP_HOME + "/conf/hdfs-site.xml";
+        private static final String hadoopMapredSiteXML = HADOOP_HOME+ "/conf/mapred-site.xml";
          	
 	public void copyFromLocal (String source, String dest) throws IOException {
 		 

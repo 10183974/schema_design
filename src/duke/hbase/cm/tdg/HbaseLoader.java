@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 public class HbaseLoader {
-        private static final String PHOENIX_HOME = "/home/hadoop/git/phoenix";
+	    private static final String PHOENIX_HOME = System.getenv("PHOENIX_HOME");
         private static final String psql = PHOENIX_HOME+"/bin/psql.sh";
         private static final String psqlPath = PHOENIX_HOME+"/bin/";
         private static final String csvBulkLoader = PHOENIX_HOME + "/bin/csv-bulk-loader.sh";
@@ -19,10 +19,10 @@ public class HbaseLoader {
 		try {
                          System.out.println("-------------------------------------------");                      
                          System.out.println("Executing " +  sqlFile + " to create tables in Hbase");
-                         String[] command = {psql, "localhost",sqlFile};
+                         String[] command = {HbaseLoader.psql, "localhost",sqlFile};
 		        
                          ProcessBuilder pb = new ProcessBuilder(command);
-                         pb.directory(new File(psqlPath));   
+                         pb.directory(new File(HbaseLoader.psqlPath));   
                          pb.redirectErrorStream(true);
                          Process p;
 			 p = pb.start();
@@ -42,7 +42,7 @@ public class HbaseLoader {
 	public void loadTableInHbase(ArrayList<Table> tableList, String csvDir){
 		for (Table t:tableList){
 			try {
-				String[] command = {this.csvBulkLoader,
+				String[] command = {HbaseLoader.csvBulkLoader,
 						   "-i", csvDir+t.getTableName().toUpperCase()+".csv",
 						   "-t", t.getTableName().toUpperCase(), 
 						   "-zk", zk,
@@ -50,7 +50,7 @@ public class HbaseLoader {
 						   "-mr", mr};
 				
 				ProcessBuilder pb = new ProcessBuilder(command);
-			        pb.directory(new File(this.csvBulkLoaderPath));   
+			        pb.directory(new File(HbaseLoader.csvBulkLoaderPath));   
 			        pb.redirectErrorStream(true); 
                                 Process p;
 				p = pb.start();
