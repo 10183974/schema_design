@@ -228,31 +228,31 @@ public class XmlBuilder {
 	 }
  
 	 public static void main(String[] args){
-		 Column id = new Column("ID", " ", "INTEGER", 10, true, true);
-	     Column userName = new Column("UserName"," ","VARCHAR",10,false,true);
+		 ArrayList<Table> tableList = new ArrayList<Table>();
 			
-		 Column address = new Column("Address", "f","VARCHAR", 10,false,false);
-		 Column accBal = new Column("AccBal","f","DECIMAL",10,false,false);
-		 Column comment = new Column("Comment", "f","VARCHAR", 10,false,false);
-			
-	     ArrayList<Column> rowkey = new ArrayList<Column>();
-	     rowkey.add(id);
-	     rowkey.add(userName);
-	     ArrayList<Column> columns = new ArrayList<Column>();
-	     columns.add(address);
-	     columns.add(accBal);
-	     columns.add(comment);
+			//table 1
+	 		Column id       = new Column("ID",      " ", "INTEGER",  10,               true, true, true);
+	 		Column userName = new Column("UserName"," ", "VARCHAR",  10,false,true,true);	
+	 		Column address  = new Column("Address", "f", "VARCHAR",  10,false,false,false);
+	 		Column accBal   = new Column("AccBal",  "f", "DECIMAL",  10,false,false,false);
+	 		Column comment  = new Column("Comment", "f", "VARCHAR",  10,false,false,false);
+	 		
+			ArrayList<Column> rowkey = new ArrayList<Column>();
+			rowkey.add(id);
+			rowkey.add(userName);
+			ArrayList<Column> columns = new ArrayList<Column>();
+			columns.add(address);
+			columns.add(accBal);
+			columns.add(comment);
 	       
-             Table t = new Table("Z",20,rowkey,columns) ;
-//		 t.printTableInfo();
-			 
-             ArrayList<Table> tables = new ArrayList<Table>();     
-	     tables.add(t);
+			Table table1 = new Table("Z",20,rowkey,columns) ;
+		
+			tableList.add(table1);
 	     
             XmlBuilder builder = new XmlBuilder();
             builder.setXmlFile("/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/z.xml");
             builder.setCsvDir("/home/hadoop/git/schema_design/workdir");
-		 builder.createXmlFile(tables);
+		 builder.createXmlFile(tableList);
 		 
          } 
 }

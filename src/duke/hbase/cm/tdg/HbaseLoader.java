@@ -74,27 +74,25 @@ public class HbaseLoader {
 		}     
 	}
 	public static void main(String[] args){
-		ArrayList<Table> tableList = new ArrayList<Table>();
+ArrayList<Table> tableList = new ArrayList<Table>();
 		
-		//generate table 1
-		Column id = new Column("ID", " ", "INTEGER", 10, true, true);
-		Column userName = new Column("UserName"," ","VARCHAR",10,false,true);		
-		Column address = new Column("Address", "f","VARCHAR", 10,false,false);
-		Column accBal = new Column("AccBal","f","DECIMAL",10,false,false);
-		Column comment = new Column("Comment", "f","VARCHAR", 10,false,false);
-		
+		//table 1
+ 		Column id       = new Column("ID",      " ", "INTEGER",  10,               true, true, true);
+ 		Column userName = new Column("UserName"," ", "VARCHAR",  10,false,true,true);	
+ 		Column address  = new Column("Address", "f", "VARCHAR",  10,false,false,false);
+ 		Column accBal   = new Column("AccBal",  "f", "DECIMAL",  10,false,false,false);
+ 		Column comment  = new Column("Comment", "f", "VARCHAR",  10,false,false,false);
+ 		
 		ArrayList<Column> rowkey = new ArrayList<Column>();
-		ArrayList<Column> columns = new ArrayList<Column>();
 		rowkey.add(id);
 		rowkey.add(userName);
-		
+		ArrayList<Column> columns = new ArrayList<Column>();
 		columns.add(address);
 		columns.add(accBal);
 		columns.add(comment);
        
 		Table table1 = new Table("Z",20,rowkey,columns) ;
-		
-		//tableList
+	
 		tableList.add(table1);
 		
 		HbaseLoader hLoader = new HbaseLoader();
