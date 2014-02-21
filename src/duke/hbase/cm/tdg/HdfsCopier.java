@@ -47,7 +47,7 @@ public class HdfsCopier {
                         //keep the local file, and overwrite the file on hdfs 
 			fileSystem.copyFromLocalFile(false,true,srcPath, dstPath);
 			System.out.println("-------------------------------------------");
-			System.out.println("File " + filename + "copied to " + dest);
+			System.out.println("Copying " + filename + " from " + srcPath + " to /hdfs"  + dest);
                         System.out.println("-------------------------------------------");
 		}catch(Exception e){
 			System.err.println("Exception caught! :" + e);

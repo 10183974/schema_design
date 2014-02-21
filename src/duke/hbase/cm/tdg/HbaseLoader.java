@@ -19,6 +19,7 @@ public class HbaseLoader {
 		try {
                          System.out.println("-------------------------------------------");                      
                          System.out.println("Executing " +  sqlFile + " to create tables in Hbase");
+                         System.out.println("-------------------------------------------");
                          String[] command = {HbaseLoader.psql, "localhost",sqlFile};
 		        
                          ProcessBuilder pb = new ProcessBuilder(command);
@@ -55,7 +56,9 @@ public class HbaseLoader {
                                 Process p;
 				p = pb.start();
                                 System.out.println("---------------------------------------------");
-				System.out.println("Loading table " + t.getTableName() +  " into Hbase ...");
+				System.out.println("Loading table " + t.getTableName() + 
+                                     " from " + csvDir+t.getTableName().toUpperCase()+".csv" +" into Hbase ...");
+                                System.out.println("-------------------------------------------");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				String line = null;
 				while ((line = reader.readLine()) != null)

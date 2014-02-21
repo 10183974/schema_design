@@ -16,22 +16,23 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-/*
- * build xml file to communicate with pdgf
- * 
- */
+
 public class XmlBuilder {
 	 private static final String PROJECT_HOME = System.getenv("PROJECT_HOME");
 	 private static final String templateFile =  PROJECT_HOME + "/src/duke/hbase/cm/tdg/template.xml";
 	 private String xmlFile = null;
+	 private String csvDir = null;
 	  
      private Document document = null;
-   			 
+     public XmlBuilder(){
+    	 parseXMLDocument();
+     }
      private void parseXMLDocument(){
 	        try {
 			    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 				document = documentBuilder.parse(templateFile);
+				System.out.println("Successfully parsed " + templateFile);
 			} catch (SAXException e){
 				e.printStackTrace();
 			} catch(IOException e){
@@ -40,7 +41,16 @@ public class XmlBuilder {
 			   e.printStackTrace();
 			}	        
    	 }
-	 private Element getTablesNode(){	            
+     private void modifyOutputDir(){
+	        //get element <output/>
+	        Element output = (Element) document.getElementsByTagName("output").item(0);
+	        //get outputDir element
+	        Element outputDir = (Element) output.getElementsByTagName("outputDir").item(0);       
+	        outputDir.setTextContent(this.csvDir);
+	        output.appendChild(outputDir);	       
+	        System.out.println("Setting output csv directory  = " + this.csvDir);      
+     }
+ 	 private Element getTablesNode(){	            
 		
             //list of tables
 	        NodeList tablesList = document.getElementsByTagName("tables");
@@ -193,9 +203,8 @@ public class XmlBuilder {
 			}        
 	 }
 	 public void createXmlFile(ArrayList<Table> tables){	 
-		 //must parse the document first
-		 parseXMLDocument();
-		 //get the parent node of tables
+	
+		 //get the node  <tables/>
 	     Element tablesNodeParent = getTablesNode();
 	     //create table in the table list, and append them to the tablenode
 		 for(Table t:tables){
@@ -209,8 +218,13 @@ public class XmlBuilder {
 		 System.out.println("-------------------------------------------");
 	 }
 
-     public void setOutFile(String name){
+     public void setXmlFile(String name){
 		 this.xmlFile = name;
+	 }
+     public void setCsvDir(String aCsvDir){	 
+ 	        //set the output csv file directory	    
+	        this.csvDir = aCsvDir;
+	        modifyOutputDir();
 	 }
  
 	 public static void main(String[] args){
@@ -229,15 +243,16 @@ public class XmlBuilder {
 	     columns.add(accBal);
 	     columns.add(comment);
 	       
-		 Table t = new Table("Z",20,rowkey,columns) ;
-		 t.printTableInfo();
-			
-		 XmlBuilder builder = new XmlBuilder();
-		 
-		 ArrayList<Table> tables = new ArrayList<Table>();     
+             Table t = new Table("Z",20,rowkey,columns) ;
+//		 t.printTableInfo();
+			 
+             ArrayList<Table> tables = new ArrayList<Table>();     
 	     tables.add(t);
-	  	
-         builder.setOutFile("workdir/z.xml");
+	     
+            XmlBuilder builder = new XmlBuilder();
+            builder.setXmlFile("/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/z.xml");
+            builder.setCsvDir("/home/hadoop/git/schema_design/workdir");
 		 builder.createXmlFile(tables);
+		 
          } 
 }
