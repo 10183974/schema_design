@@ -6,6 +6,7 @@ public class Column {
 	  private String familyName = null;
 	  private String columnName = null;
 	  private boolean isPrimary = false;
+	  private boolean isRowkey = false;
 	  private boolean isNotNull = false;
 
 	  public Column() {
@@ -18,12 +19,13 @@ public class Column {
 //		  this.isNotNull = false;
 	  }
 	  public Column(String aName,  String aFamilyName, String aType, int aSize,
-			   boolean aIsPrimary, boolean aIsNotNull) {
+			   boolean aIsPrimary, boolean aIsRowkey, boolean aIsNotNull) {
 	    this.columnType = aType;
 	    this.columnSize = aSize;
 	    this.familyName = aFamilyName;
 	    this.columnName = aName;
 	    this.isPrimary = aIsPrimary;
+	    this.setIsRowkey(aIsRowkey);
 	    this.isNotNull = aIsNotNull;
 	  }
 	  public String getColumnType() {
@@ -41,6 +43,9 @@ public class Column {
 	  public boolean getIsPrimary(){
 		  return this.isPrimary;
 	  }
+		public boolean getIsRowkey() {
+			return this.isRowkey;
+		}
 	  public boolean getIsNotNull(){
 		  return this.isNotNull;
 	  }
@@ -59,6 +64,10 @@ public class Column {
 	  public void setIsPrimary(boolean aIsPrimary){
 		  this.isPrimary = aIsPrimary;
 	  }
+
+	 public void setIsRowkey(boolean aIsRowkey) {
+			this.isRowkey = aIsRowkey;
+	}
 	  public void setIsNotNull(boolean aIsNotNull){
 		  this.isNotNull = aIsNotNull;
 	  }
@@ -76,4 +85,5 @@ public class Column {
 		  c.printColumnInfo();
 
 	  }
+
 }

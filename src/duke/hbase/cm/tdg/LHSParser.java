@@ -20,14 +20,16 @@ public class LHSParser {
 		while ((line = br.readLine()) != null) {
 			if (k==lineNumber){
 				String[] s = line.split(seperator);
-				schema.NoRows = Integer.parseInt(s[0]);
-				schema.NoColumns = Integer.parseInt(s[1]);
+				schema.numRows= Integer.parseInt(s[0]);
+				schema.numColumns = Integer.parseInt(s[1]);
 				schema.rowkeySize = Integer.parseInt(s[2]);
-				schema.columnSize = Integer.parseInt(s[3]);		
-				System.out.println("Number of rows = " + schema.NoRows + ", " + 
-	                               "number of columns = " + schema.NoColumns + ", " + 
+				schema.columnSize = Integer.parseInt(s[3]);	
+				System.out.println("-------------------------------------------");
+				System.out.println("Number of rows = " + schema.numRows + ", " + 
+	                               "number of columns = " + schema.numColumns + ", " + 
 						            "rowkey size = " + schema.rowkeySize + ", " + 
-	                                "columnSize = " + schema.columnSize);		
+	                                "columnSize = " + schema.columnSize);	
+				System.out.println("-------------------------------------------");
 			}
 			lineNumber++;
 
