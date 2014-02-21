@@ -8,53 +8,58 @@ import java.util.ArrayList;
 import java.io.*;
 
 public class HbaseTableGenerator{
+	private static final String PROJECT_HOME = System.getenv("PROJECT_HOME");	
+	private String dataDir = PROJECT_HOME;
+	
 	private String xmlFile = null;
 	private String sqlFile = null;
 	private String csvFile = null;
+	private String hdfsDir = "/tdg";
 	
 	public void setXmlFile(String fileName){
-		this.xmlFile = fileName;
+		this.xmlFile = PROJECT_HOME + "/" + fileName;
 	}
     public void setSqlFile(String fileName){
-    	this.sqlFile = fileName;
+    	this.sqlFile = PROJECT_HOME + "/" + fileName;
     }
     public void setCsvFile(String fileName){
-    	this.csvFile = fileName;
+    	this.csvFile = PROJECT_HOME + "/" + fileName;
     }
+    
 	public void generate(ArrayList<Table> tableList){	
 		//create sql file
 		SqlBuilder sqlBuilder = new SqlBuilder();
-		sqlBuilder.setsqlFile(sqlFile);
+		sqlBuilder.setOutFile(sqlFile);
 		sqlBuilder.createSqlFile(tableList);
 		
 		//create xml file
 	    XmlBuilder builder = new XmlBuilder();
-	 	builder.setOutFilePath(xmlFile);	 
+	 	builder.setOutFile(xmlFile);	 
 	    builder.createXmlFile(tableList);
 	    
 	    //generate csv data using pdgf
-   	    pdgfDataGenerator pdgf = new pdgfDataGenerator();
-   	    pdgf.generate(xmlFile);
+	    PdgfDataGenerator pdgf = new PdgfDataGenerator();
+     	pdgf.setInFile(xmlFile);
+   	    pdgf.generate( );
    	    
 	    //copy csv data from local to hdfs
-	    HdfsCopier hdfsCopier = new HdfsCopier();
-        String hdfsDir = "/tdg";
+
         try {
+    	    HdfsCopier hdfsCopier = new HdfsCopier();
             hdfsCopier.copyFromLocal(csvFile,hdfsDir);
         } catch (IOException e) {
- 
-        e.printStackTrace();
+            e.printStackTrace();
         }
         
         //load table into Hbase
         HbaseLoader hLoader = new HbaseLoader();
-        hLoader.createTableInHbase("$PROJECT_HOME/workdir/createTable.sql");
+        hLoader.createTableInHbase(sqlFile);
         hLoader.loadTableInHbase(tableList,"/tdg/csvdir/"); 
 	               
 	}
 
     public static void main(String[] agrs){
-                ArrayList<Table> tableList = new ArrayList<Table>();
+        ArrayList<Table> tableList = new ArrayList<Table>();
 		
 		//generate table 1
 		Column id = new Column("ID", " ", "INTEGER", 10, true, true);
@@ -74,40 +79,30 @@ public class HbaseTableGenerator{
 	       
 		Table table1 = new Table("Z",100,rowkey,columns) ;
 		
-		//generate table 2
-		Column ip = new Column("IP", " ", "INTEGER", 10, true, true);
-		Column message = new Column("Message", "f","VARCHAR", 10, false,false);
-		
-		ArrayList<Column> rowkey2 = new ArrayList<Column>();
-		ArrayList<Column> columns2 = new ArrayList<Column>();
-        
-		rowkey2.add(ip);  
-		columns2.add(message);     
-		Table table2 = new Table("X",20,rowkey2,columns2) ;
-		
-		//add table to tableList
 		tableList.add(table1);
-		tableList.add(table2);
-	       
-
-
-                long startTime = System.currentTimeMillis(); 
-                //start data generation and loading
-		HbaseTableGenerator dg = new HbaseTableGenerator();
-                //create sql file
-		dg.setSqlFile("workdir/createTable.sql");
-	       
-                //create xml file
-          	dg.setXmlFile("./workdir/z.xml");
 		
-    	        //generate data, write to csv file
-                dg.generate();
-    	        
-                //copy data from local to hdfs
-                
+//		//generate table 2
+//		Column ip = new Column("IP", " ", "INTEGER", 10, true, true);
+//		Column message = new Column("Message", "f","VARCHAR", 10, false,false);
+//		
+//		ArrayList<Column> rowkey2 = new ArrayList<Column>();
+//		ArrayList<Column> columns2 = new ArrayList<Column>();
+//        
+//		rowkey2.add(ip);  
+//		columns2.add(message);     
+//		Table table2 = new Table("X",20,rowkey2,columns2) ;
+//		
+//		//add table to tableList
+//		tableList.add(table1);
+//		tableList.add(table2);
+	       
 
-                long endTime = System.currentTimeMillis();
-                System.out.println("Total time used: " + (endTime - startTime)/1e3 + " seconds");
+
+        long startTime = System.currentTimeMillis(); 
+        HbaseTableGenerator generator = new HbaseTableGenerator();
+        generator.generate(tableList);
+    	long endTime = System.currentTimeMillis();
+        System.out.println("Total time used: " + (endTime - startTime)/1e3 + " seconds");
    }
 } 
 

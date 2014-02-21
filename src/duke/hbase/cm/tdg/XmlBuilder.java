@@ -209,7 +209,7 @@ public class XmlBuilder {
 		 System.out.println("-------------------------------------------");
 	 }
 
-     public void setOutFilePath(String name){
+     public void setOutFile(String name){
 		 this.xmlFile = name;
 	 }
  
@@ -237,7 +237,7 @@ public class XmlBuilder {
 		 ArrayList<Table> tables = new ArrayList<Table>();     
 	     tables.add(t);
 	  	
-         builder.setOutFilePath("workdir/z.xml");
+         builder.setOutFile("workdir/z.xml");
 		 builder.createXmlFile(tables);
          } 
 }

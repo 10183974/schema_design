@@ -8,11 +8,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class PdgfDataGenerator {
-//	 private static final String PROJECT_HOME = System.getenv("PROJECT_HOME");
-	 private static final String PROJECT_HOME = "/Users/Weizheng/git/schema_design";
+	 private static final String PROJECT_HOME = System.getenv("PROJECT_HOME");
 	 private static final String PDGF_HOME = PROJECT_HOME + "/pdgf/";
+	 private String xmlFile = null;
 	//generate csv file using xmlFile
-     public void generate(String xmlFile){
+     public void generate(){
         try {
                   //load xml file to pdgf     
                   //ProcessBuilder pb = new ProcessBuilder(new String[]{"pdgf/mypdgfscript.sh",xmlFilePath});
@@ -47,9 +47,13 @@ public class PdgfDataGenerator {
 	         e.printStackTrace();
          } 
      }
+ 	public void setInFile(String fileName){
+		this.xmlFile = fileName;
+	}
      public static void main(String[] args){
     	 PdgfDataGenerator pdgf = new PdgfDataGenerator();
-    	 pdgf.generate(PdgfDataGenerator.PDGF_HOME + "z.xml");
+    	 pdgf.setInFile("workdir/z.xml");
+    	 pdgf.generate();
     	 
      }
 }

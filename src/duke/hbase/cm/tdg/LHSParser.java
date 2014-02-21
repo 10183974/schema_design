@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import duke.hbase.cm.tdg.Schema;
 
 public class LHSParser {
@@ -48,7 +49,8 @@ public class LHSParser {
   }
   
   public static void main(String[] args) {
-    String lhsFile = "/Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/LHS.csv";
+	String PROJECT_HOME = System.getenv("PROJECT_HOME");
+    String lhsFile = PROJECT_HOME  + "/src/duke/hbase/cm/tdg/LHS.csv";
 	LHSParser parser = new LHSParser();
 	parser.parse(new Schema(),lhsFile,2);
   }

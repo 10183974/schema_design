@@ -73,7 +73,7 @@ public class SqlBuilder {
 			e.printStackTrace();
 		}
 	}
-	public void setsqlFile(String name){
+	public void setOutFile(String name){
 		this.sqlFile = name;
 	}
 	public void createSqlFile(ArrayList<Table> tableList){
@@ -122,7 +122,7 @@ public class SqlBuilder {
 		tableList.add(table2);
 		
 		SqlBuilder sqlBuilder = new SqlBuilder();
-	        sqlBuilder.setsqlFile("workdir/createTable.sql");
+	        sqlBuilder.setOutFile("workdir/createTable.sql");
 		sqlBuilder.createSqlFile(tableList);
 	}
 
