@@ -109,24 +109,24 @@ public class HbaseTableGenerator{
            
 		  // initialize a new schema 
                   Schema schema = new Schema();
-	          schema.schemaName = "schema_" + numSchema;
+	          schema.name = "schema_" + numSchema;
 	          schema.initializeFromLHS(lhsFile, numSchema);
                   
-                  String dataDir = workdir + "/" + schema.schemaName;
+                  String dataDir = workdir + "/" + schema.name;
 	          HbaseTableGenerator.dataDir = dataDir; 
                   // make new directory
                   new File(dataDir).mkdirs();
-                  System.out.println("Making new data directory for " + schema.schemaName + " = " + dataDir);
+                  System.out.println("Making new data directory for " + schema.name + " = " + dataDir);
 		  new File(dataDir + "/csvDir").mkdirs(); 
-	          System.out.println("Making new csv directory for "  + schema.schemaName + " = " + dataDir);
+	          System.out.println("Making new csv directory for "  + schema.name + " = " + dataDir);
 	          
                   //
                   HbaseTableGenerator gen = new HbaseTableGenerator();
                   
-                  gen.setSqlFile(schema.schemaName + ".sql");
-                  gen.setXmlFile(schema.schemaName + ".xml");
+                  gen.setSqlFile(schema.name + ".sql");
+                  gen.setXmlFile(schema.name + ".xml");
                   gen.setcsvDir("csvDir");
-                  gen.setHdfsCsvDir(schema.schemaName + "/csvDir" );
+                  gen.setHdfsCsvDir(schema.name + "/csvDir" );
                   gen.createTableInHbase(schema);
       	      }
               long endTime = System.currentTimeMillis();
