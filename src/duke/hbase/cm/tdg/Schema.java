@@ -66,11 +66,11 @@ public class Schema {
     		
     	  }
      private void initialDataDir() throws IOException{
-         String s = System.getenv("PROJECT_HOME") +
+         this.dataDir = System.getenv("PROJECT_HOME") +
         		          "/" +  "workdir" +
         		           "/" + this.name;       
          // make new directory
-         File dataDir = new File(s);
+         File dataDir = new File(this.dataDir);
          if (!dataDir.exists())
          {
         	  dataDir.mkdir();

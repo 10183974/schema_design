@@ -3,7 +3,7 @@
 echo "---------------------------------------"
 cd $PHOENIX_HOME/bin
 echo 'deleting table Z on hbase'
-./sqlline.sh localhost drop table Z
+./sqlline.sh localhost drop table schema1_Z
 
 echo "---------------------------------------"
 echo 'deleting table Z on hbase'
@@ -12,10 +12,10 @@ echo 'deleting table Z on hbase'
 #delete the /tdg/csvdir on the hdfs
 echo "---------------------------------------"
 echo 'delete /tdg/csvdir on hdfs'
-hadoop dfs -rmr /tdg/schema_1
+hadoop dfs -rmr /tdg/
 
 echo "---------------------------------------"
 cd $PROJECT_HOME
 
 #delete the workdir for the schema_1
-rm -r workdir/schema_1
+rm -r workdir/schema1
