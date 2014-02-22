@@ -50,7 +50,7 @@ public class HbaseTableGenerator{
  		columnList.add(accBal);
  		columnList.add(comment);
  	       
- 		Table table = new Table("Z",schema.numRows,rowkeyList,columnList) ;
+ 		Table table = new Table(schema.name.toUpperCase() +"_Z",schema.numRows,rowkeyList,columnList) ;
  		
  		tableList.add(table);
  		
@@ -116,9 +116,9 @@ public class HbaseTableGenerator{
 	          HbaseTableGenerator.dataDir = dataDir; 
                   // make new directory
                   new File(dataDir).mkdirs();
-                  System.out.println("Making new data directory for " + schema.name + " = " + dataDir);
+                  System.out.println("Making data directory for " + schema.name + " = " + dataDir);
 		  new File(dataDir + "/csvDir").mkdirs(); 
-	          System.out.println("Making new csv directory for "  + schema.name + " = " + dataDir);
+	          System.out.println("Making csv directory for "  + schema.name + " = " + dataDir);
 	          
                   //
                   HbaseTableGenerator gen = new HbaseTableGenerator();

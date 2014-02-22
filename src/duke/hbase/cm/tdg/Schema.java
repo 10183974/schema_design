@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 public class Schema {
-	 String schemaName = "mySchema";
+	 String name = null;
 	 int numRows =  0;
 	 int numColumns = 0;
 	 int rowkeySize = 0;
@@ -24,7 +24,7 @@ public class Schema {
     		String line = "";
     		String seperator = ",";  	 
     		try {
-    			System.out.println("Parsing " + k + "th row of LHS data from " + lhsFile + " to schema " + this.schemaName);
+    			System.out.println("Parsing " + k + "th row of LHS data from " + lhsFile + " to schema " + this.name);
     			br = new BufferedReader(new FileReader(lhsFile));
     			int lineNumber = 1;
     			while ((line = br.readLine()) != null) {
@@ -36,7 +36,7 @@ public class Schema {
     					this.columnSize = Integer.parseInt(s[3]);	
     					System.out.println("-------------------------------------------");
     					
-    					System.out.println(this.schemaName  + ":\n" + 
+    					System.out.println(this.name  + ":\n" + 
     					                    "\tNumber of rows = " + this.numRows + "\n" + 
     		                                "\tNumber of columns = " + this.numColumns + "\n" + 
     							            "\tRowkey size = " + this.rowkeySize + "\n" + 
@@ -68,5 +68,4 @@ public class Schema {
 		   schema.initializeFromLHS(lhsFile, 2);
 		   System.out.println(schema.numRows);
 	 }
-
 }
