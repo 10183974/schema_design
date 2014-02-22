@@ -13,27 +13,26 @@ public class HbaseTableGenerator{
 	private String xmlFile = null;
 	private String sqlFile = null;
 	private String csvDir = null;
-        private String hdfsCsvDir = null;
+    private String hdfsCsvDir = null;
 	
-	public void setXmlFile(String fileName){
-		this.xmlFile = dataDir + "/" + fileName;
-                System.out.println("Setting xmlFile = " + this.xmlFile);
+	public void setXmlFile(Schema schema){
+		this.xmlFile = schema.dataDir + "/" + schema.name + ".xml";
+        System.out.println("Setting xmlFile = " + this.xmlFile);
 	}
-        public void setSqlFile(String fileName){
-         	this.sqlFile = dataDir + "/" + fileName; 
-                System.out.println("Setting sqlFile = " + this.sqlFile);
-        }
-        public void setcsvDir(String dirName){
-        	this.csvDir = dataDir + "/" + dirName;
-                System.out.println("Setting local csv directory = " + this.csvDir);
-        }
-        public void setHdfsCsvDir(String dirName){
-                this.hdfsCsvDir = "/tdg" + "/" + dirName;
-                System.out.println("Setting hdfs csv directory = " + this.hdfsCsvDir); 
-        }
-        public ArrayList<Table> createTableList(Schema schema){
-                ArrayList<Table> tableList = new ArrayList<Table>();
-		
+    public void setSqlFile(Schema schema){
+         this.sqlFile = schema.dataDir + "/" + schema.name + ".sql";
+         System.out.println("Setting sqlFile = " + this.sqlFile);
+    }
+    public void setcsvDir(Schema schema){
+          this.csvDir = schema.dataDir;
+          System.out.println("Setting local csv directory = " + this.csvDir);
+    }
+    public void setHdfsCsvDir(Schema schema){          
+           this.hdfsCsvDir = "/tdg" + "/" + schema.name + "/csvDir";
+           System.out.println("Setting hdfs csv directory = " + this.hdfsCsvDir); 
+    }
+    public ArrayList<Table> createTableList(Schema schema){
+        ArrayList<Table> tableList = new ArrayList<Table>();		
  		//generate table 1
  		Column id       = new Column("ID",      " ", "INTEGER",  10,               true, true, true);
  		Column userName = new Column("UserName"," ", "VARCHAR",  schema.rowkeySize,false,true,true);	
@@ -51,11 +50,8 @@ public class HbaseTableGenerator{
  		columnList.add(comment);
  	       
  		Table table = new Table(schema.name.toUpperCase() +"_Z",schema.numRows,rowkeyList,columnList) ;
- 		
  		tableList.add(table);
- 		
 		return tableList;
-    	
         }
     
 	public void createTableInHbase(Schema schema){	
@@ -63,73 +59,61 @@ public class HbaseTableGenerator{
 		ArrayList<Table> tableList = createTableList(schema);
 		
 		//create sql file
-	        SqlBuilder sqlBuilder = new SqlBuilder();
-	        sqlBuilder.setOutFile(sqlFile);
-                sqlBuilder.createSqlFile(tableList);
+	    SqlBuilder sqlBuilder = new SqlBuilder();
+	    sqlBuilder.setOutFile(sqlFile);
+        sqlBuilder.createSqlFile(tableList);
 		
 		//create xml file
-	        XmlBuilder xmlBuilder = new XmlBuilder();
-	        xmlBuilder.setXmlFile(xmlFile);
-                xmlBuilder.setCsvDir(csvDir);	 
-	        xmlBuilder.createXmlFile(tableList);
+	    XmlBuilder xmlBuilder = new XmlBuilder();
+	    xmlBuilder.setXmlFile(xmlFile);
+        xmlBuilder.setCsvDir(csvDir);	 
+	    xmlBuilder.createXmlFile(tableList);
 	    
-	        //generate csv data using pdgf
-	        PdgfDataGenerator pdgf = new PdgfDataGenerator();
-                pdgf.setInFile(xmlFile);
-   	        pdgf.generate( );
+	    //generate csv data using pdgf
+	    PdgfDataGenerator pdgf = new PdgfDataGenerator();
+        pdgf.setInFile(xmlFile);
+   	    pdgf.generate( );
    	    
-	        //copy csv data from local to hdfs
+	     //copy csv data from local to hdfs
 
-                try {
-    	           HdfsCopier hdfsCopier = new HdfsCopier();
-                   hdfsCopier.copyFromLocal(csvDir,hdfsCsvDir);
-                } catch (IOException e) {
-                 e.printStackTrace();
-                }
+         try {
+    	      HdfsCopier hdfsCopier = new HdfsCopier();
+              hdfsCopier.copyFromLocal(csvDir,hdfsCsvDir);
+          } catch (IOException e) {
+              e.printStackTrace();
+          }
         
-               //load table into Hbase
-               HbaseLoader hLoader = new HbaseLoader();
-               hLoader.createTableInHbase(sqlFile);
-	       hLoader.loadTableInHbase(tableList, hdfsCsvDir);         
+         //load table into Hbase
+         HbaseLoader hLoader = new HbaseLoader();
+         hLoader.createTableInHbase(sqlFile);
+	     hLoader.loadTableInHbase(tableList, hdfsCsvDir);         
 	}
 
     public static void main(String[] agrs){
-              long startTime = System.currentTimeMillis(); 
-    	      String PROJECT_HOME = System.getenv("PROJECT_HOME"); 
-              System.out.println("PROJECT_HOME = " + PROJECT_HOME);
-    	      
-              String workdir = PROJECT_HOME + "/workdir";
-              System.out.println("Working directory = " + workdir);
-    	      
-              String lhsFile = PROJECT_HOME + "/src/duke/hbase/cm/tdg/LHS.csv"; 		
-              System.out.println("LHS.csv directory = " + lhsFile);
+         long startTime = System.currentTimeMillis(); 
+
+    	          	      
+         String lhsFile = System.getenv("PROJECT_HOME") + "/src/duke/hbase/cm/tdg/LHS.csv"; 		
+         System.out.println("LHS.csv directory = " + lhsFile);
 	       
-             for(int i =1; i<3;i++){		 
-                  int numSchema = i ;
+         for(int i =1; i<2;i++){		 
+              int numSchema = i ;
            
-		  // initialize a new schema 
-                  Schema schema = new Schema();
-	          schema.name = "schema_" + numSchema;
-	          schema.initializeFromLHS(lhsFile, numSchema);
+		       // initialize a new schema 
+               Schema schema = new Schema();
+	           schema.initialSchema("z",lhsFile, numSchema);
                   
-                  String dataDir = workdir + "/" + schema.name;
-	          HbaseTableGenerator.dataDir = dataDir; 
-                  // make new directory
-                  new File(dataDir).mkdirs();
-                  System.out.println("Making data directory for " + schema.name + " = " + dataDir);
-		  new File(dataDir + "/csvDir").mkdirs(); 
-	          System.out.println("Making csv directory for "  + schema.name + " = " + dataDir);
-	          
-                  //
-                  HbaseTableGenerator gen = new HbaseTableGenerator();
+                 	          
+               //
+               HbaseTableGenerator gen = new HbaseTableGenerator();
                   
-                  gen.setSqlFile(schema.name + ".sql");
-                  gen.setXmlFile(schema.name + ".xml");
-                  gen.setcsvDir("csvDir");
-                  gen.setHdfsCsvDir(schema.name + "/csvDir" );
-                  gen.createTableInHbase(schema);
-      	      }
-              long endTime = System.currentTimeMillis();
+               gen.setSqlFile(schema);
+               gen.setXmlFile(schema);
+               gen.setcsvDir(schema);
+               gen.setHdfsCsvDir(schema);
+               gen.createTableInHbase(schema);
+      	 }
+         long endTime = System.currentTimeMillis();
          System.out.println("Total time used: " + (endTime - startTime)/1e3 + " seconds");
    }
 } 
