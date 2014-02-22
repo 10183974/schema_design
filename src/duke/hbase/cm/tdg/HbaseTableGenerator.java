@@ -8,31 +8,31 @@ import java.util.ArrayList;
 import java.io.*;
 
 public class HbaseTableGenerator{
-	private static final String PROJECT_HOME = System.getenv("PROJECT_HOME");	
-	private String dataDir = PROJECT_HOME + "/workdir";
+	private static String dataDir = null;
 	
 	private String xmlFile = null;
 	private String sqlFile = null;
 	private String csvDir = null;
-	private String hdfsDir = "/tdg";
-    private String hdfsCsvDir = null;
+        private String hdfsCsvDir = null;
 	
 	public void setXmlFile(String fileName){
 		this.xmlFile = dataDir + "/" + fileName;
                 System.out.println("Setting xmlFile = " + this.xmlFile);
 	}
-    public void setSqlFile(String fileName){
+        public void setSqlFile(String fileName){
          	this.sqlFile = dataDir + "/" + fileName; 
                 System.out.println("Setting sqlFile = " + this.sqlFile);
-    }
-    public void setcsvDir(String fileName){
-        	this.csvDir = dataDir + "/" + fileName;
-                this.hdfsCsvDir = hdfsDir + "/" + fileName;
+        }
+        public void setcsvDir(String dirName){
+        	this.csvDir = dataDir + "/" + dirName;
                 System.out.println("Setting local csv directory = " + this.csvDir);
-                System.out.println("Setting hdfs csv directory = " + this.hdfsCsvDir);
-    }
-    public ArrayList<Table> createTableList(Schema schema){
-        ArrayList<Table> tableList = new ArrayList<Table>();
+        }
+        public void setHdfsCsvDir(String dirName){
+                this.hdfsCsvDir = "/tdg" + "/" + dirName;
+                System.out.println("Setting hdfs csv directory = " + this.hdfsCsvDir); 
+        }
+        public ArrayList<Table> createTableList(Schema schema){
+                ArrayList<Table> tableList = new ArrayList<Table>();
 		
  		//generate table 1
  		Column id       = new Column("ID",      " ", "INTEGER",  10,               true, true, true);
@@ -56,57 +56,80 @@ public class HbaseTableGenerator{
  		
 		return tableList;
     	
-    }
+        }
     
 	public void createTableInHbase(Schema schema){	
 		
 		ArrayList<Table> tableList = createTableList(schema);
 		
 		//create sql file
-	    SqlBuilder sqlBuilder = new SqlBuilder();
-	    sqlBuilder.setOutFile(sqlFile);
-        sqlBuilder.createSqlFile(tableList);
+	        SqlBuilder sqlBuilder = new SqlBuilder();
+	        sqlBuilder.setOutFile(sqlFile);
+                sqlBuilder.createSqlFile(tableList);
 		
 		//create xml file
-	    XmlBuilder xmlBuilder = new XmlBuilder();
-	    xmlBuilder.setXmlFile(xmlFile);
-            xmlBuilder.setCsvDir(csvDir);	 
-	    xmlBuilder.createXmlFile(tableList);
+	        XmlBuilder xmlBuilder = new XmlBuilder();
+	        xmlBuilder.setXmlFile(xmlFile);
+                xmlBuilder.setCsvDir(csvDir);	 
+	        xmlBuilder.createXmlFile(tableList);
 	    
-	    //generate csv data using pdgf
-	    PdgfDataGenerator pdgf = new PdgfDataGenerator();
-            pdgf.setInFile(xmlFile);
-   	    pdgf.generate( );
+	        //generate csv data using pdgf
+	        PdgfDataGenerator pdgf = new PdgfDataGenerator();
+                pdgf.setInFile(xmlFile);
+   	        pdgf.generate( );
    	    
-	    //copy csv data from local to hdfs
+	        //copy csv data from local to hdfs
 
-        try {
-    	    HdfsCopier hdfsCopier = new HdfsCopier();
-            hdfsCopier.copyFromLocal(csvDir,hdfsDir);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                try {
+    	           HdfsCopier hdfsCopier = new HdfsCopier();
+                   hdfsCopier.copyFromLocal(csvDir,hdfsCsvDir);
+                } catch (IOException e) {
+                 e.printStackTrace();
+                }
         
-        //load table into Hbase
-        HbaseLoader hLoader = new HbaseLoader();
-        hLoader.createTableInHbase(sqlFile);
-	hLoader.loadTableInHbase(tableList, hdfsCsvDir);         
+               //load table into Hbase
+               HbaseLoader hLoader = new HbaseLoader();
+               hLoader.createTableInHbase(sqlFile);
+	       hLoader.loadTableInHbase(tableList, hdfsCsvDir);         
 	}
 
     public static void main(String[] agrs){
-  
-         long startTime = System.currentTimeMillis(); 
-    	 String lhsFile = "/Users/Weizheng/git/schema_design/src/duke/hbase/cm/tdg/LHS.csv";
- 		
-		 Schema schema = new Schema();
-		 schema.initializeFromLHS(lhsFile, 1);
-		 
-         HbaseTableGenerator gen = new HbaseTableGenerator();
-         gen.setcsvDir("csvdir/");
-         gen.setSqlFile("z.sql");
-         gen.setXmlFile("z.xml");
-         gen.createTableInHbase(schema);
-      	 long endTime = System.currentTimeMillis();
+              long startTime = System.currentTimeMillis(); 
+    	      String PROJECT_HOME = System.getenv("PROJECT_HOME"); 
+              System.out.println("PROJECT_HOME = " + PROJECT_HOME);
+    	      
+              String workdir = PROJECT_HOME + "/workdir";
+              System.out.println("Working directory = " + workdir);
+    	      
+              String lhsFile = PROJECT_HOME + "/src/duke/hbase/cm/tdg/LHS.csv"; 		
+              System.out.println("LHS.csv directory = " + lhsFile);
+	       
+             for(int i =1; i<3;i++){		 
+                  int numSchema = i ;
+           
+		  // initialize a new schema 
+                  Schema schema = new Schema();
+	          schema.schemaName = "schema_" + numSchema;
+	          schema.initializeFromLHS(lhsFile, numSchema);
+                  
+                  String dataDir = workdir + "/" + schema.schemaName;
+	          HbaseTableGenerator.dataDir = dataDir; 
+                  // make new directory
+                  new File(dataDir).mkdirs();
+                  System.out.println("Making new data directory for " + schema.schemaName + " = " + dataDir);
+		  new File(dataDir + "/csvDir").mkdirs(); 
+	          System.out.println("Making new csv directory for "  + schema.schemaName + " = " + dataDir);
+	          
+                  //
+                  HbaseTableGenerator gen = new HbaseTableGenerator();
+                  
+                  gen.setSqlFile(schema.schemaName + ".sql");
+                  gen.setXmlFile(schema.schemaName + ".xml");
+                  gen.setcsvDir("csvDir");
+                  gen.setHdfsCsvDir(schema.schemaName + "/csvDir" );
+                  gen.createTableInHbase(schema);
+      	      }
+              long endTime = System.currentTimeMillis();
          System.out.println("Total time used: " + (endTime - startTime)/1e3 + " seconds");
    }
 } 

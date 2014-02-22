@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 public class HbaseLoader {
-	    private static final String PHOENIX_HOME = System.getenv("PHOENIX_HOME");
+	private static final String PHOENIX_HOME = System.getenv("PHOENIX_HOME");
         private static final String psql = PHOENIX_HOME+"/bin/psql.sh";
         private static final String psqlPath = PHOENIX_HOME+"/bin/";
         private static final String csvBulkLoader = PHOENIX_HOME + "/bin/csv-bulk-loader.sh";
@@ -44,7 +44,7 @@ public class HbaseLoader {
 		for (Table t:tableList){
 			try {
 				String[] command = {HbaseLoader.csvBulkLoader,
-						   "-i", csvDir+t.getTableName().toUpperCase()+".csv",
+						   "-i", csvDir + "/" + t.getTableName().toUpperCase()+".csv",
 						   "-t", t.getTableName().toUpperCase(), 
 						   "-zk", zk,
 						   "-hd", hd,
@@ -57,7 +57,7 @@ public class HbaseLoader {
 				p = pb.start();
                                 System.out.println("---------------------------------------------");
 				System.out.println("Loading table " + t.getTableName() + 
-                                     " from " + csvDir+t.getTableName().toUpperCase()+".csv" +" into Hbase ...");
+                                     " from " + csvDir+ "/" + t.getTableName().toUpperCase()+".csv" +" into Hbase ...");
                                 System.out.println("-------------------------------------------");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				String line = null;

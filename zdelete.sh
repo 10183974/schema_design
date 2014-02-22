@@ -12,8 +12,10 @@ echo 'deleting table Z on hbase'
 #delete the /tdg/csvdir on the hdfs
 echo "---------------------------------------"
 echo 'delete /tdg/csvdir on hdfs'
-hadoop dfs -rmr /tdg/csvdir
-
+hadoop dfs -rmr /tdg/schema_1
 
 echo "---------------------------------------"
 cd $PROJECT_HOME
+
+#delete the workdir for the schema_1
+rm -r workdir/schema_1
