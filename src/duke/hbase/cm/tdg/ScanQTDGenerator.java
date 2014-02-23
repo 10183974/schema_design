@@ -31,7 +31,7 @@ public class ScanQTDGenerator {
 	      
 	      long ts = System.currentTimeMillis();
               System.out.println("---------------------------------------");
-  	      System.out.println("Executing query ");
+  	      System.out.println("Executing query: " + query);
 	      rset = statement.executeQuery();
 	      long tf = System.currentTimeMillis();
           
@@ -60,6 +60,9 @@ public class ScanQTDGenerator {
     public void writeTD(Schema schema, Double latency){
         try {
 			FileWriter writer = new FileWriter("scanTDG.csv",true);
+
+			writer.append(Double.toString(latency));
+                        writer.append(",");
 			writer.append(Integer.toString(schema.numRows));
 			writer.append(",");
 			writer.append(Integer.toString(schema.numColumns));
@@ -67,8 +70,6 @@ public class ScanQTDGenerator {
 			writer.append(Integer.toString(schema.rowkeySize));
 			writer.append(",");
 			writer.append(Integer.toString(schema.columnSize));
-			writer.append(",");
-			writer.append(Double.toString(latency));
 			writer.append("\n");
 			
                         writer.flush();
@@ -98,18 +99,21 @@ public class ScanQTDGenerator {
        } catch (IOException e){
            e.printStackTrace();
       }
-      for(int i=1; i<11;i++)
+      for(int i=1; i<100;i++)
       {	     
           // int i = 1;
  	  // initialize a new schema 
+           System.out.println("---------------------------------------------------------");
+           System.out.println("Generating" + i +"th training data ");
            Schema schema = new Schema();
-	  schema.initialSchema("schema"+i,lhsFile, i);
+	  schema.initialSchema("ScanTDG"+i,lhsFile, i);
 	  tdg.generate(schema);
-	  double latency =  tdg.measureLatency("select *  from " + schema.name+"_z" + " where accbal > 900");	  
+	  double latency =  tdg.measureLatency("select *  from " + schema.name+"_z" + " where accbal > 9000");	  
           tdg.writeTD(schema, latency);
       }
       long endTime = System.currentTimeMillis();
-      System.out.println("Total time used: " + (endTime - startTime)/1e3 + " seconds");
+      System.out.println("Total time used: " + (endTime - startTime)/1e3 + " seconds"); 
+      System.out.println("============================================================");
       System.exit(0);
   }
 }
