@@ -25,7 +25,7 @@ public class HbaseTableGenerator{
             System.out.println("Setting sqlFile = " + this.sqlFile);
         }
         public void setcsvDir(Schema schema){
-            this.csvDir = schema.dataDir;
+            this.csvDir = schema.dataDir + "/" + "csvDir";
             System.out.println("Setting local csv directory = " + this.csvDir);
         }
         public void setHdfsCsvDir(Schema schema){          

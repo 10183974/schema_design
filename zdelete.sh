@@ -18,4 +18,6 @@ echo "---------------------------------------"
 cd $PROJECT_HOME
 
 #delete the workdir for the schema_1
-rm -r workdir/schema1
+rm -r workdir/schema*
+
+rm scanTDG.csv
