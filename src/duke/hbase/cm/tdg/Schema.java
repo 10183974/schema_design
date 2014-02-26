@@ -1,12 +1,12 @@
 package duke.hbase.cm.tdg;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class Schema {
+	//protected fields
 	 String name = null;
 	 int numRows =  0;
 	 int numColumns = 0;
@@ -16,18 +16,15 @@ public class Schema {
 	 int phoenixThreadSize = 0;
      int hbaseThreadSize = 0;
      //store data in the dataDir
-     
-     
+         
      public void parseLHS(String schemaName, String lhsFile,  int k) { 
     	 
- 	        this.name = schemaName;
- 		    
+ 	        this.name = schemaName;	    
  	        BufferedReader br = null;
  		    String line = "";
  		    String seperator = ",";  	    
   	   	    	 
-    		try {
-   			   			
+    		try {		   			
     			System.out.println("Parsing " + k + "th row of sample data from " + lhsFile + " to schema " + this.name);
     			br = new BufferedReader(new FileReader(lhsFile));
     			int lineNumber = 1;
@@ -38,14 +35,6 @@ public class Schema {
     					this.numColumns = Integer.parseInt(s[1]);
     					this.rowkeySize = Integer.parseInt(s[2]);
     					this.columnSize = Integer.parseInt(s[3]);	
-    					System.out.println("-------------------------------------------");
-    					
-    					System.out.println(this.name  + ":\n" + 
-    					                    "\tNumber of rows = " + this.numRows + "\n" + 
-    		                                "\tNumber of columns = " + this.numColumns + "\n" + 
-    							            "\tRowkey size = " + this.rowkeySize + "\n" + 
-    		                                "\tColumnSize = " + this.columnSize);	
-    					System.out.println("-------------------------------------------");
     				}
     				lineNumber++;
     			}
@@ -61,11 +50,18 @@ public class Schema {
     					e.printStackTrace();
     				}
     			}
-    		}
-    		
-    	  }
+    		}		
+     }
+     public void printSchema(){
+			System.out.println("-------------------------------------------");    					
+			System.out.println(this.name  + ":\n" + 
+			                    "\tNumber of rows = " + this.numRows + "\n" + 
+                             "\tNumber of columns = " + this.numColumns + "\n" + 
+					            "\tRowkey size = " + this.rowkeySize + "\n" + 
+                             "\tColumnSize = " + this.columnSize);	
+			System.out.println("-------------------------------------------");
+     }
 
-   
 	 public static void main(String[] args){
 
 	 }

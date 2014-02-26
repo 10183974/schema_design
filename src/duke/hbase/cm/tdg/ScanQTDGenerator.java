@@ -1,14 +1,6 @@
 package duke.hbase.cm.tdg;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.File;
+
 public class ScanQTDGenerator {
 
 
@@ -18,7 +10,7 @@ public class ScanQTDGenerator {
       long startTime = System.currentTimeMillis(); 
       
       //welcome informations
-      System.out.println("/n/n=============================================================");
+      System.out.println("\n\n=============================================================\n");
       System.out.println("----Start ScanQTDGenerator-----------------------------------");
       
       //LHS.csv file 

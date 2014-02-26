@@ -25,7 +25,7 @@ public class Column {
 	    this.familyName = aFamilyName;
 	    this.columnName = aName;
 	    this.isPrimary = aIsPrimary;
-	    this.setIsRowkey(aIsRowkey);
+	    this.isRowkey= aIsRowkey;
 	    this.isNotNull = aIsNotNull;
 	  }
 	  public String getColumnType() {

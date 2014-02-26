@@ -1,16 +1,12 @@
 package duke.hbase.cm.tdg;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class HbaseTableGenerator{
-	
-	
+		
 	private Schema schema = null;
-	 
 	private String dataDir = null;
 	private String xmlFile = null;
 	private String sqlFile = null;
@@ -53,8 +49,9 @@ public class HbaseTableGenerator{
         }	 
     }
     private ArrayList<Table> createTableList(){
-        ArrayList<Table> tableList = new ArrayList<Table>();		
-           //generate table 1
+        
+    	ArrayList<Table> tableList = new ArrayList<Table>();		
+        //generate table 1
  		Column id       = new Column("ID",      " ", "INTEGER",  10,               true, true, true);
  		Column userName = new Column("UserName"," ", "VARCHAR",  schema.rowkeySize,false,true,true);	
  		Column address  = new Column("Address", "f", "VARCHAR",  schema.columnSize,false,false,false);
@@ -75,7 +72,8 @@ public class HbaseTableGenerator{
  		Table table = new Table(tableName,schema.numRows,rowkeyList,columnList) ;
  		tableList.add(table);
 		return tableList;
-        }
+		
+  }
     
     
 	public void createTable(Schema aSchema){	
@@ -83,7 +81,7 @@ public class HbaseTableGenerator{
 		//set schema
     	this.schema = aSchema;
     	
-    	//make new working directory if not exist for this schema
+    	//make new working directory if not exist
     	try {
 			this.makeDataDir();
 		} catch (IOException e) {
