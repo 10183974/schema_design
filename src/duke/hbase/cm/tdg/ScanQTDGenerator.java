@@ -14,7 +14,7 @@ public class ScanQTDGenerator {
 
   public static void main(String[] args) {
 	  
-	  //start time
+      //start time
       long startTime = System.currentTimeMillis(); 
       
       //welcome informations
@@ -25,28 +25,25 @@ public class ScanQTDGenerator {
       String lhsFile = System.getenv("PROJECT_HOME") + "/src/duke/hbase/cm/tdg/LHS.csv"; 		
       System.out.println("LHS.csv directory = " + lhsFile);
       
-
-
-
-      String outputFile = "ScanTD.txt";  
+      String outputFile = "scanTD.txt";  
       TDWriter tdWriter = new  TDWriter(outputFile);
       
       double latency =0;
-      for(int i=1; i<2;i++)
+      for(int i=1; i<10;i++)
       {	     
            System.out.println("---------------------------------------------------------");
            System.out.println("Generating the " + i +"th training data ");
 
            //parse schema from LHS.csv
            Schema schema = new Schema();
-	       schema.parseLHS("ScanTDG"+i,lhsFile, i);
+	   schema.parseLHS("scanTD"+i,lhsFile, i);
 	       
-	       HbaseTableGenerator generator = new HbaseTableGenerator();
-	       generator.createTable(schema);
+	   HbaseTableGenerator generator = new HbaseTableGenerator();
+	   generator.createTable(schema);
 	       	       
-	       Query query = new Query();
-	       String statement = "select *  from " + schema.name+"_z" + " where accbal > 9000";
-	       latency =  query.measureLatency(statement);	  
+	   Query query = new Query();
+	   String statement = "select *  from " + schema.name+"_z" + " where accbal > 9000";
+	   latency =  query.measureLatency(statement);	  
 
            tdWriter.write(outputFile,schema,latency);
       }
