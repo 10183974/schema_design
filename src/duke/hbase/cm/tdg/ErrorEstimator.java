@@ -117,7 +117,7 @@ public class ErrorEstimator {
 	public static void main(String[] args){
 		ErrorEstimator es = new ErrorEstimator();
 //		es.kOutofN(5, 10);
-		es.splitFile("/Users/Weizheng/git/schema_design/scanTD.txt",0.5);	
+		es.splitFile("/home/hadoop/git/schema_design/scanTD.txt",0.7);	
     }
 		
 
