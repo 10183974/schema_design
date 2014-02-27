@@ -1,10 +1,12 @@
 package duke.hbase.cm.tdg;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -113,11 +115,43 @@ public class ErrorEstimator {
 	 	System.out.println("");
 		return resList;	
 	}
+	
+	public void cm(String trainData, String testData, String output){
+		String cmPath = System.getenv("PROJECT_HOME") + "/cm-1.2/bin";
+                System.out.println(cmPath);		
+		try {
+            System.out.println("-------------------------------------------");                      
+            System.out.println();
+            System.out.println("-------------------------------------------");
+            String[] command = {System.getenv("PROJECT_HOME") +"/cm-1.2/bin/cm",
+            		            "--train_file="+trainData,
+            		            "--test_file="+testData,
+            		            "--output="+output};
+   
+            ProcessBuilder pb = new ProcessBuilder(command);
+            pb.directory(new File(cmPath));   
+            pb.redirectErrorStream(true);
+            Process p;
+            p = pb.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line = null;
+            while ((line = reader.readLine()) != null){
+                 System.out.println(line);
+            }
+            System.out.println("Cost Model executed.");
+            System.out.println("-------------------------------------------");
+            } catch (IOException e) {
+                 e.printStackTrace();
+           } 
+	}
 
 	public static void main(String[] args){
 		ErrorEstimator es = new ErrorEstimator();
-//		es.kOutofN(5, 10);
 		es.splitFile("/home/hadoop/git/schema_design/scanTD.txt",0.7);	
+
+		es.cm( System.getenv("PROJECT_HOME") +"/scan_train_data.txt",
+				System.getenv("PROJECT_HOME") +"/scan_test_data.txt",
+				 System.getenv("PROJECT_HOME") +"/scan_estimate.txt");
     }
 		
 

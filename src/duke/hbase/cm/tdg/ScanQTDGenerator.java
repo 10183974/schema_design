@@ -21,7 +21,7 @@ public class ScanQTDGenerator {
       TDWriter tdWriter = new  TDWriter(outputFile);
       
       double latency =0;
-      for(int i=1; i<10;i++)
+      for(int i=1; i<30;i++)
       {	     
            System.out.println("---------------------------------------------------------");
            System.out.println("Generating the " + i +"th training data ");
