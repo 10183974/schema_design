@@ -60,7 +60,7 @@ public class ErrorEstimator {
 		return resList;	
 	}
 	
-	public ArrayList<Double> splitFile(String inputFile, double percent){
+	public ArrayList<Double> splitFile(String inputFile, double percent, String trainData, String testData){
 		    //randomly split input file into percent : (1-percent) 
 		
 		    //store the measured latency of test data
@@ -81,8 +81,8 @@ public class ErrorEstimator {
  			
  			System.out.println(trainLines + " out of " +
  			        numOfLines + " are selected as the training data.");         
-            tdWriter = new FileWriter("scan_train_data.txt");
-            testWriter = new FileWriter("scan_test_data.txt"); 	
+            tdWriter = new FileWriter(trainData);
+            testWriter = new FileWriter(testData); 	
             int lineNumber = 1;
  			while ((line = br.readLine()) != null) {			
  				if (trainDataIndex.contains(lineNumber)){
@@ -200,12 +200,13 @@ public class ErrorEstimator {
 	public static void main(String[] args){
 		ErrorEstimator es = new ErrorEstimator();
 		String workDir = System.getenv("PROJECT_HOME");
-		String trainingData = workDir + "/scanTD.txt";
+		String rowData = workDir + "/scanTD.txt";
+		String trainData = workDir + "/scanTrain.txt";
 		String testData = workDir + "/scanTest.txt";
 		String estimateData = workDir + "/scanEstimate.txt";
 		
-		ArrayList<Double> measureLatency = es.splitFile(trainingData,0.7);	
-		es.computeEstimateLatency(trainingData,testData,estimateData);
+		ArrayList<Double> measureLatency = es.splitFile(rowData,0.7,trainData,testData);	
+		es.computeEstimateLatency(trainData,testData,estimateData);
 		ArrayList<Double>  estimateLatency = es.getEstimateLatency(estimateData);
 		double mse = es.MeanSquaureError(measureLatency, estimateLatency);
 		System.out.println("The mean square error = " + mse);
