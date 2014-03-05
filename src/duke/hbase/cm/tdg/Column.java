@@ -1,89 +1,75 @@
 package duke.hbase.cm.tdg;
 
 public class Column {
-	  private String columnType = null;
-	  private int    columnSize = 0;
-	  private String familyName = null;
-	  private String columnName = null;
+	  private String fName = null;
+	  private String name = null;
+	  private String type = null;
+	  private int    size = 0;
 	  private boolean isPrimary = false;
 	  private boolean isRowkey = false;
 	  private boolean isNotNull = false;
 
-	  public Column() {
-		  //default Column constructor
-//		  this.columnType = "VARCHAR";
-//		  this.columnSize = 10;
-//		  this.familyName = "_0";
-//		  this.columnName = "Comment";
-//		  this.isPrimary = false;   
-//		  this.isNotNull = false;
-	  }
-	  public Column(String aName,  String aFamilyName, String aType, int aSize,
-			   boolean aIsPrimary, boolean aIsRowkey, boolean aIsNotNull) {
-	    this.columnType = aType;
-	    this.columnSize = aSize;
-	    this.familyName = aFamilyName;
-	    this.columnName = aName;
-	    this.isPrimary = aIsPrimary;
-	    this.isRowkey= aIsRowkey;
-	    this.isNotNull = aIsNotNull;
-	  }
-	  public String getColumnType() {
-	    return this.columnType;
-	  }
-	  public int getColumnSize() {
-	 	return this.columnSize;
-	  }
-	  public String getFamilyName(){
-		  return this.familyName;
-	  }
-	  public String getColumnName(){
-		return this.columnName;
-	  }
-	  public boolean getIsPrimary(){
-		  return this.isPrimary;
-	  }
-		public boolean getIsRowkey() {
-			return this.isRowkey;
-		}
-	  public boolean getIsNotNull(){
-		  return this.isNotNull;
-	  }
-	  public void setColumnType(String aType) {
-	    this.columnType = aType;
-	  } 
-	  public void setFamilyName(String aFamilyName){
-		  this.familyName = aFamilyName;
-	  }
-	  public void setColumnSize(int aSize) {
-	    this.columnSize = aSize;
-	  }
-	  public void setColumnName(String aName){
-		  this.columnName=aName;
-	  }
-	  public void setIsPrimary(boolean aIsPrimary){
-		  this.isPrimary = aIsPrimary;
-	  }
-
-	 public void setIsRowkey(boolean aIsRowkey) {
-			this.isRowkey = aIsRowkey;
+	public Column(String fName, String name, String type, int size,
+			boolean isPrimary, boolean isRowkey, boolean isNotNull) {
+		this.fName = fName;
+		this.name = name;
+		this.type = type;
+		this.size = size;
+		this.isPrimary = isPrimary;
+		this.isRowkey = isRowkey;
+		this.isNotNull = isNotNull;
+	}  
+	  public String getfName() {
+		return fName;
 	}
-	  public void setIsNotNull(boolean aIsNotNull){
-		  this.isNotNull = aIsNotNull;
-	  }
-	  public void printColumnInfo(){
-		  System.out.println("\t\tfname: " + this.getFamilyName() + ", " 
-                  +"name: " + this.getColumnName() + ", "
-                  + "type: " + this.getColumnType() + ", "
-                  + "szie: "+ this.getColumnSize() + ", "
-                  + "isPrimary: " + this.getIsPrimary() + ", "
-                  + "isNotNull: " + this.getIsNotNull());
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	public boolean isPrimary() {
+		return isPrimary;
+	}
+	public void setPrimary(boolean isPrimary) {
+		this.isPrimary = isPrimary;
+	}
+	public boolean isRowkey() {
+		return isRowkey;
+	}
+	public void setRowkey(boolean isRowkey) {
+		this.isRowkey = isRowkey;
+	}
+	public boolean isNotNull() {
+		return isNotNull;
+	}
+	public void setNotNull(boolean isNotNull) {
+		this.isNotNull = isNotNull;
+	}
+	public void printColumnInfo(){
+		  System.out.println("\t\tfname: " + this.getfName() + ", " 
+                  +"name: " + this.getName() + ", "
+                  + "type: " + this.getType() + ", "
+                  + "szie: "+ this.getSize() + ", "
+                  + "isPrimary: " + this.isPrimary() + ", "
+                  + "isRowkey: " + this.isRowkey() + ", " 
+                  + "isNotNull: " + this.isNotNull());
 	  }
 	  
-	  public static void main(String[] args){
-		  Column c = new Column();
-		  c.printColumnInfo();
-
-	  }
 
 }

@@ -40,7 +40,7 @@ public class HdfsCopier {
 		// Check if the schema dir exists
 		if (!(fileSystem.exists(schemaDir))) {
 		   System.out.println("No such destination " + schemaDir);
-                   System.out.println("Creating new diretory in hdfs: " + schemaDir);
+           System.out.println("Creating new diretory in hdfs: " + schemaDir);
 		   fileSystem.mkdirs(schemaDir);
 		}
    

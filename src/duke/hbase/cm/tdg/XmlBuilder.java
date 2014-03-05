@@ -32,7 +32,7 @@ public class XmlBuilder {
 			    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 				document = documentBuilder.parse(templateFile);
-				System.out.println("Successfully parsed " + templateFile);
+				System.out.println("Parsing pdgf template file = " + templateFile);
 			} catch (SAXException e){
 				e.printStackTrace();
 			} catch(IOException e){
@@ -50,8 +50,7 @@ public class XmlBuilder {
 	        output.appendChild(outputDir);	       
 	        System.out.println("Setting output csv directory  = " + this.csvDir);      
      }
- 	 private Element getTablesNode(){	            
-		
+ 	 private Element getTablesNode(){	            	
             //list of tables
 	        NodeList tablesList = document.getElementsByTagName("tables");
 	        Element tables = (Element) tablesList.item(0);               
@@ -135,50 +134,50 @@ public class XmlBuilder {
 	 private Element createTableElement(Table t){
 		 
 		 Element tableElement = document.createElement("table");
-		 tableElement.setAttribute("name", t.getTableName());
-		 Element sizeElement = createSizeElement(t.getNRows());
+		 tableElement.setAttribute("name", t.getName());
+		 Element sizeElement = createSizeElement(t.getNumRows());
          tableElement.appendChild(sizeElement);
          
          //new fields
 		 Element fields = document.createElement("fields");
 		      
   
-         ArrayList<Column> rowkey = t.getRowkey();
-         ArrayList<Column> columns = t.getColumns();
+         ArrayList<Column> rowkey = t.getRowkeyList();
+         ArrayList<Column> columns = t.getColumnList();
          for(Column r:rowkey){
-        	 if (r.getColumnType().equalsIgnoreCase("INTEGER")){
-        		 Element field = createIntegerField(r.getColumnName());
-        		 if (r.getIsPrimary())
+        	 if (r.getType().equalsIgnoreCase("INTEGER")){
+        		 Element field = createIntegerField(r.getName());
+        		 if (r.isPrimary())
         		     field = setPrimary(field);
         		 
         		 fields.appendChild(field);
         	 }
-        	 else if (r.getColumnType().equalsIgnoreCase("DECIMAL")){
-        		 Element field = createDecimalField(r.getColumnName());
+        	 else if (r.getType().equalsIgnoreCase("DECIMAL")){
+        		 Element field = createDecimalField(r.getName());
         		 fields.appendChild(field);
         		 
         	 }
-        	 else if (r.getColumnType().equalsIgnoreCase("VARCHAR")){
-    			 Element field = createTextField(r.getColumnName(),r.getColumnSize());
+        	 else if (r.getType().equalsIgnoreCase("VARCHAR")){
+    			 Element field = createTextField(r.getName(),r.getSize());
     			 fields.appendChild(field);
         	 }      	 
          }	
 
          for(Column c:columns){
-        	 if (c.getColumnType().equalsIgnoreCase("INTEGER")){
-        		 Element field = createIntegerField(c.getColumnName());
-        		 if (c.getIsPrimary())
+        	 if (c.getType().equalsIgnoreCase("INTEGER")){
+        		 Element field = createIntegerField(c.getName());
+        		 if (c.isPrimary())
         		     field = setPrimary(field);
         		 
         		 fields.appendChild(field);
         	 }
-        	 else if (c.getColumnType().equalsIgnoreCase("DECIMAL")){
-        		 Element field = createDecimalField(c.getColumnName());
+        	 else if (c.getType().equalsIgnoreCase("DECIMAL")){
+        		 Element field = createDecimalField(c.getName());
         		 fields.appendChild(field);
         		 
         	 }
-        	 else if (c.getColumnType().equalsIgnoreCase("VARCHAR")){
-    			 Element field = createTextField(c.getColumnName(),c.getColumnSize());
+        	 else if (c.getType().equalsIgnoreCase("VARCHAR")){
+    			 Element field = createTextField(c.getName(),c.getSize());
     			 fields.appendChild(field);
         	 }      	 
          }	
@@ -214,7 +213,7 @@ public class XmlBuilder {
 		 //write tableList into xml file
 		 writeToXML();	    
 		 System.out.println("-------------------------------------------");
-		 System.out.println("Writing XML file to " + xmlFile);
+		 System.out.println("Writing pdgf xml file to " + xmlFile);
 		 System.out.println("-------------------------------------------");
 	 }
 
@@ -222,37 +221,12 @@ public class XmlBuilder {
 		 this.xmlFile = name;
 	 }
      public void setCsvDir(String aCsvDir){	 
- 	        //set the output csv file directory	    
-	        this.csvDir = aCsvDir;
-	        modifyOutputDir();
+	     this.csvDir = aCsvDir;
+	    modifyOutputDir();
 	 }
  
 	 public static void main(String[] args){
-		 ArrayList<Table> tableList = new ArrayList<Table>();
-			
-			//table 1
-	 		Column id       = new Column("ID",      " ", "INTEGER",  10,               true, true, true);
-	 		Column userName = new Column("UserName"," ", "VARCHAR",  10,false,true,true);	
-	 		Column address  = new Column("Address", "f", "VARCHAR",  10,false,false,false);
-	 		Column accBal   = new Column("AccBal",  "f", "DECIMAL",  10,false,false,false);
-	 		Column comment  = new Column("Comment", "f", "VARCHAR",  10,false,false,false);
-	 		
-			ArrayList<Column> rowkey = new ArrayList<Column>();
-			rowkey.add(id);
-			rowkey.add(userName);
-			ArrayList<Column> columns = new ArrayList<Column>();
-			columns.add(address);
-			columns.add(accBal);
-			columns.add(comment);
-	       
-			Table table1 = new Table("Z",20,rowkey,columns) ;
-		
-			tableList.add(table1);
-	     
-            XmlBuilder builder = new XmlBuilder();
-            builder.setXmlFile("/home/hadoop/git/schema_design/src/duke/hbase/cm/tdg/z.xml");
-            builder.setCsvDir("/home/hadoop/git/schema_design/workdir");
-		 builder.createXmlFile(tableList);
+		   
 		 
          } 
 }

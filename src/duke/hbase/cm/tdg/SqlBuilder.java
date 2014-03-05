@@ -6,36 +6,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 public class SqlBuilder {
 	private String sqlFile = null;
-	private String buildSqlStatement(ArrayList<Table> tableList){
+	private String build(ArrayList<Table> tableList){
 		
 		StringBuilder builder = new StringBuilder();
 		for (Table table:tableList){
 			builder.append("create table if not exists ");
-			builder.append(table.getTableName() + " (\n");
+			builder.append(table.getName() + " (\n");
 			
-			ArrayList<Column> rowkey = table.getRowkey();   
-	 
+			ArrayList<Column> rowkey = table.getRowkeyList();    
 		    for(Column r:rowkey){
 		    	//format
 		    	builder.append("\t");
-		    	builder.append(r.getColumnName() + " ");
-		    	builder.append(r.getColumnType());
-		    	if(r.getIsNotNull()){
+		    	builder.append(r.getName() + " ");
+		    	builder.append(r.getType());
+		    	if(r.isNotNull()){
 		    		builder.append(" not null");
 		    	}
 		    	builder.append(",\n");
 		    }
 		    	
-
-		    ArrayList<Column> columns = table.getColumns();  
+		    ArrayList<Column> columns = table.getColumnList();  
 			for(Column c:columns){
 			    	//format
 			    	builder.append("\t");
-			    	builder.append(c.getFamilyName() + ".");
+			    	builder.append(c.getfName() + ".");
 			  
-			    	builder.append(c.getColumnName() + " ");
-			    	builder.append(c.getColumnType());
-			    	if(c.getIsNotNull()){
+			    	builder.append(c.getName() + " ");
+			    	builder.append(c.getType());
+			    	if(c.isNotNull()){
 			    		builder.append(" not null");
 			    	}
 			    	builder.append(",\n");
@@ -47,29 +45,26 @@ public class SqlBuilder {
 		    while(it.hasNext())
 		    {		    	
 		    	Column c = it.next();
-		    	builder.append(c.getColumnName());
+		    	builder.append(c.getName());
 		    	if(it.hasNext())
 		    		builder.append(", ");
 		    }
-
 		    builder.append(")\n");
+		    
 		    builder.append(");\n");		
-		}
-				
+		}				
 		return builder.toString();
 		
 	}
-	private void writeToSql(String s){
+	private void write(String s){
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter(sqlFile, "UTF-8");
 			writer.println(s);
 			writer.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (FileNotFoundException e) {	
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -77,41 +72,13 @@ public class SqlBuilder {
 		this.sqlFile = name;
 	}
 	public void createSqlFile(ArrayList<Table> tableList){
-		String sqlStatement = buildSqlStatement(tableList);
+		String sqlStatement = build(tableList);
 		System.out.println("-------------------------------------------");
 		System.out.println("Writing create table sql statement to " + this.sqlFile);	
 		System.out.println(sqlStatement);
 		System.out.println("-------------------------------------------");
-		writeToSql(sqlStatement);	
+		write(sqlStatement);	
 	}	
-	public static void main(String[] args){
-		ArrayList<Table> tableList = new ArrayList<Table>();
-		
-		//table 1
- 		Column id       = new Column("ID",      " ", "INTEGER",  10,               true, true, true);
- 		Column userName = new Column("UserName"," ", "VARCHAR",  10,false,true,true);	
- 		Column address  = new Column("Address", "f", "VARCHAR",  10,false,false,false);
- 		Column accBal   = new Column("AccBal",  "f", "DECIMAL",  10,false,false,false);
- 		Column comment  = new Column("Comment", "f", "VARCHAR",  10,false,false,false);
- 		
-		ArrayList<Column> rowkey = new ArrayList<Column>();
-		rowkey.add(id);
-		rowkey.add(userName);
-		ArrayList<Column> columns = new ArrayList<Column>();
-		columns.add(address);
-		columns.add(accBal);
-		columns.add(comment);
-       
-		Table table1 = new Table("Z",20,rowkey,columns) ;
-	
-		tableList.add(table1);
-		
-		
-	
-		
-		SqlBuilder sqlBuilder = new SqlBuilder();
-	        sqlBuilder.setOutFile("workdir/createTable.sql");
-		sqlBuilder.createSqlFile(tableList);
-	}
+
 
 }
