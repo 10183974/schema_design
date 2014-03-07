@@ -3,31 +3,29 @@
 	<table>
 		<name>CUSTOMER</name>
 		<columns>
-			<column type="INTEGER">C_CUSTKEY</column>
-            <column type="VARCHAR">C_NAME</column> 
-            <column type="VARCHAR">C_ADDRESS</column>
-            <column type="INTEGER">C_NATIONKEY</column> 
-            <column type="VARCHAR">C_PHONE</column> 
-            <column type="VARCHAR">C_ACCTBAL</column>
-            <column type="VARCHAR">C_MKTSEGMENT</column>   
-            <column type="VARCHAR">C_COMMENT</column>
-            <column type="VARCHAR">C_EMPTY</column>
+			<column type="INTEGER" size="16">C_CUSTKEY</column>
+            <column type="VARCHAR" size="10">C_NAME</column> 
+            <column type="VARCHAR" size="30">C_ADDRESS</column>
+            <column type="INTEGER" size="16">C_NATIONKEY</column> 
+            <column type="VARCHAR" size="10">C_PHONE</column> 
+            <column type="VARCHAR" size="16">C_ACCTBAL</column>
+            <column type="VARCHAR" size="10">C_MKTSEGMENT</column>   
+            <column type="VARCHAR" size="100">C_COMMENT</column>
 		</columns>
 		<primarykey>C_CUSTKEY</primarykey>
 	</table>
 	<table>
 		<name>ORDERS</name>
 		<columns>
-			<column type="INTEGER">O_ORDERKEY</column>
-			<column type="INTEGER">O_CUSTKEY</column>
-			<column type="VARCHAR">O_ORDERSTATUS</column>
-			<column type="DOUBLE">O_TOTALPRICE</column>
-			<column type="VARCHAR">O_ORDERDATE</column>
-			<column type="VARCHAR">O_ORDERPRIORITY</column>
-			<column type="VARCHAR">O_CLERK</column>
-			<column type="INTEGER">O_SHIPPRIORITY</column>
-			<column type="VARCHAR">O_COMMENT</column>	
-			<column type="VARCHAR">O_EMPTY</column>
+			<column type="INTEGER" size="16">O_ORDERKEY</column>
+			<column type="INTEGER" size="16">O_CUSTKEY</column>
+			<column type="VARCHAR" size="10">O_ORDERSTATUS</column>
+			<column type="DOUBLE"  size="16">O_TOTALPRICE</column>
+			<column type="VARCHAR" size="10">O_ORDERDATE</column>
+			<column type="VARCHAR" size="10">O_ORDERPRIORITY</column>
+			<column type="VARCHAR" size="10">O_CLERK</column>
+			<column type="INTEGER" size="10">O_SHIPPRIORITY</column>
+			<column type="VARCHAR" size="100">O_COMMENT</column>
 		</columns>
 	    <primarykey>O_ORDERKEY</primarykey>
 	</table>

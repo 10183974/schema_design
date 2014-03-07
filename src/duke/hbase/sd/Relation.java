@@ -6,7 +6,8 @@ public class Relation {
 
   Table t1;
   Table t2;
-
+  ArrayList<Column> t2_jkey;
+  String cardinality;
   ArrayList<Column> t1_jkey;
 
   public String getCardinality() {
@@ -17,16 +18,16 @@ public class Relation {
     this.cardinality = cardinality;
   }
 
-  ArrayList<Column> t2_jkey;
-
-  String cardinality;
-
   public Table getT1() {
     return t1;
   }
 
   public void setT1(Table t1) {
     this.t1 = t1;
+  }
+
+  public Relation() {
+
   }
 
   public Relation(Table t1, Table t2, ArrayList<Column> t1_jkey, ArrayList<Column> t2_jkey) {

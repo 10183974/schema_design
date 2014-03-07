@@ -2,12 +2,15 @@ package duke.hbase.sd;
 
 public class Column {
   
+  static int column_count = 0;
+
   String family = "_0:";
   String key;
+  String type = null;
   int average_key_size = 0;
   int average_value_size = 0;
   int numberOfColumns = 1;
-  String type = null;
+
 
   public int getAverage_key_size() {
     return average_key_size;

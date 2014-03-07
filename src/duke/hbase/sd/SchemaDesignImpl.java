@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Properties;
 
 public class SchemaDesignImpl {
 
@@ -25,19 +24,18 @@ public class SchemaDesignImpl {
   }
 
   public static void main(String[] args) {
+
     // System.setProperty("user.name", "hadoop");
-
-    Properties prop = new Properties();
-
-    try {
-      Class.forName("com.salesforce.phoenix.jdbc.PhoenixDriver");
-    } catch (ClassNotFoundException e) {
-      System.err.println("Error in loading the phoenix driver: " + e);
-    }
+    // try {
+    // Class.forName("com.salesforce.phoenix.jdbc.PhoenixDriver");
+    // } catch (ClassNotFoundException e) {
+    // System.err.println("Error in loading the phoenix driver: " + e);
+    // }
     // conn = Util.getConnection(prop);
 
     // initialize schema from ER diagram
     Schema schema = Util.initSchema("workdir/schema.xml");
+    System.out.println(schema.toString());
 
     ArrayList<Query> queries = new ArrayList<Query>();
 

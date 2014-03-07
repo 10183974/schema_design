@@ -1,11 +1,14 @@
 package duke.hbase.sd;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Table {
 
+  static int table_count = 0;
+
   String name;
-  ArrayList<Column> columns = new ArrayList<Column>();
+  HashMap<String, Column> columns = new HashMap<String, Column>();
   ArrayList<Column> rowkey = new ArrayList<Column>();
   int rowcount = 0;
 
@@ -13,7 +16,7 @@ public class Table {
     // TODO Auto-generated constructor stub
   }
 
-  public Table(String name, ArrayList<Column> columns, int rowcount) {
+  public Table(String name, HashMap<String, Column> columns, int rowcount) {
     super();
     this.name = name;
     this.columns = columns;
@@ -50,11 +53,11 @@ public class Table {
     this.name = name;
   }
 
-  public ArrayList<Column> getColumns() {
+  public HashMap<String, Column> getColumns() {
     return columns;
   }
 
-  public void setColumns(ArrayList<Column> columns) {
+  public void setColumns(HashMap<String, Column> columns) {
     this.columns = columns;
   }
 

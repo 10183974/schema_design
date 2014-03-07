@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -83,10 +84,9 @@ public class Util {
 
     System.out.println("Parsing " + filename + " ...");
 
-    Schema schema = null;
+    Schema schema = new Schema();
     try {
-
-      ArrayList<Table> tables = new ArrayList<Table>();
+      HashMap<String, Table> tables = new HashMap<String, Table>();
       File f = new File(filename);
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
@@ -101,25 +101,72 @@ public class Util {
         String[] pks =
             ((Element) table).getElementsByTagName("primarykey").item(0).getTextContent()
                 .split("\\s*,\\s*");
+
         ArrayList<Column> rowkeys = new ArrayList<Column>();
         for (String pk : pks) {
           rowkeys.add(new Column(pk));
         }
         t.setRowkey(rowkeys);
 
-        ArrayList<Column> cols = new ArrayList<Column>();
+        HashMap<String, Column> cols = new HashMap<String, Column>();
 
         NodeList columns = ((Element)((Element) table).getElementsByTagName("columns").item(0)).getElementsByTagName("column");
         for (int j = 0; j < columns.getLength(); j++) {
-          cols.add(new Column(columns.item(j).getTextContent(), ((Element) columns.item(j))
-              .getAttribute("type")));
+          Column col =
+              new Column(columns.item(j).getTextContent(),
+                  ((Element) columns.item(j)).getAttribute("type"));
+          col.setAverage_value_size(Integer.parseInt(((Element) columns.item(j))
+              .getAttribute("size")));
+          col.setAverage_key_size(Integer.parseInt(columns.item(j).getTextContent()));
+          String key = col.getFamily() + col.getKey();
+          cols.put(key, col);
+        }
+        t.setColumns(cols);
+        tables.put(t.getName(), t);
+      }
+      schema.setTables(tables);
+      
+      HashMap<String, Relation> relations = new HashMap<String, Relation>();
+      NodeList relationList =
+          ((Element) doc.getElementsByTagName("relationships").item(0))
+              .getElementsByTagName("relationship");
+      for (int j = 0; j < relationList.getLength(); j++) {
+        Relation rel = new Relation();
+        Element relation = (Element) relationList.item(j);
+        String table1 = 
+            ((Element) relation.getElementsByTagName("cardinality").item(0)).getAttribute("table1");
+        String table2 =
+            ((Element) relation.getElementsByTagName("cardinality").item(0)).getAttribute("table2");
+        String cardinality =
+            ((Element) relation.getElementsByTagName("cardinality").item(0)).getTextContent();
+        
+        String[] table1_joinkey_l =
+            ((Element) relation.getElementsByTagName("joinkey").item(0)).getTextContent().split(
+              "\\s*,\\s*");
+        String[] table2_joinkey_l =
+            ((Element) relation.getElementsByTagName("joinkey").item(0)).getTextContent().split(
+              "\\s*,\\s*");
+
+        ArrayList<Column> t1_joinkeys = new ArrayList<Column>();
+        for (String joinkey : table1_joinkey_l) {
+          t1_joinkeys.add(schema.getTables().get(table1).getColumns().get(joinkey));
         }
 
-        NodeList relationList = doc.getElementsByTagName("relationship");
+        ArrayList<Column> t2_joinkeys = new ArrayList<Column>();
+        for (String joinkey : table2_joinkey_l) {
+          t2_joinkeys.add(schema.getTables().get(table2).getColumns().get(joinkey));
+        }
 
-
-
+        rel.setT1(schema.getTables().get(table1));
+        rel.setT2(schema.getTables().get(table2));
+        rel.setCardinality(cardinality);
+        rel.setT1_jkey(t1_joinkeys);
+        rel.setT2_jkey(t2_joinkeys);
       }
+
+      schema.setRels(relations);
+
+      schema.setTables(tables);
     } catch (ParserConfigurationException e) {
       e.printStackTrace();
     } catch (SAXException e) {
