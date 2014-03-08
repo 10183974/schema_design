@@ -1,18 +1,43 @@
 package duke.hbase.sd;
 
+import java.util.HashMap;
+
 public class Query {
 
-  int id;
-  String querystr;
-  double desired_latency;
-  double current_estimate;
+  static int id_counter = 0;
 
-  public Query(int id, String querystr, double desired_latency, double current_estimate) {
-    super();
-    this.id = id;
-    this.querystr = querystr;
-    this.desired_latency = desired_latency;
-    this.current_estimate = current_estimate;
+  private int id;
+  private String querystr;
+  private String type;
+  private double desired_latency;
+  private int desired_throughput;
+  private HashMap<String, String> features;
+
+  public Query() {
+  }
+
+  public int getDesired_throughput() {
+    return desired_throughput;
+  }
+
+  public void setDesired_throughput(int desired_throughput) {
+    this.desired_throughput = desired_throughput;
+  }
+
+  public HashMap<String, String> getFeatures() {
+    return features;
+  }
+
+  public void setFeatures(HashMap<String, String> features) {
+    this.features = features;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public int getId() {
@@ -39,12 +64,8 @@ public class Query {
     this.desired_latency = desired_latency;
   }
 
-  public double getCurrent_estimate() {
-    return current_estimate;
-  }
-
-  public void setCurrent_estimate(double current_estimate) {
-    this.current_estimate = current_estimate;
+  public int getNextId() {
+    return id_counter++;
   }
 
 }

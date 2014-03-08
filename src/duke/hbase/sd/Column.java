@@ -20,16 +20,22 @@ public class Column {
     this.average_key_size = average_key_size;
   }
 
+  public Column() {
+
+  }
+
   public Column(String key) {
     super();
     this.key = key;
   }
 
-  public Column(String key, String type) {
+  public Column(String key, String type, int average_key_size, int average_value_size) {
     super();
     this.family = "_0";
     this.key = key;
     this.type = type;
+    this.average_key_size = average_key_size;
+    this.average_value_size = average_value_size;
   }
 
   public int getAverage_value_size() {

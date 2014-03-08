@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='us-ascii'?>
+<workload>
+  <query id="1">
+    <stmt>select * from orders where o_orderstatus="1"</stmt>
+    <type>scan</type>
+    <desired_throughput>100</desired_throghput>
+    <desired_latency>10</desired_latency>
+    <properties>
+      <property type="rows_scanned">1000</properties>
+    </properties>
+  </query>
+  <query id="2">
+    <stmt>upsert table orders into(?,?,?)</stmt>
+    <type>insert</type>
+    <desired_throughput>100</desired_throughput>
+    <desired_latency>10</desired_latency>
+  </query>
+</workload>
