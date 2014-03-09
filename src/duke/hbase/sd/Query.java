@@ -1,6 +1,8 @@
 package duke.hbase.sd;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Query {
 
@@ -66,6 +68,25 @@ public class Query {
 
   public int getNextId() {
     return id_counter++;
+  }
+
+  public String toString() {
+    StringBuffer sb = new StringBuffer();
+    sb.append("------------------------\n");
+    sb.append("id: " + getId() + "\n");
+    sb.append("stmt: " + getQuerystr() + "\n");
+    sb.append("desired latency: " + getDesired_latency() + "\n");
+    sb.append("desired throughput: " + getDesired_throughput() + "\n");
+    
+    Set<String> features = getFeatures().keySet();
+    Iterator<String> fitr = features.iterator();
+    if(fitr.hasNext()) {
+      String prop = fitr.next();
+      sb.append(prop + ": " + getFeatures().get(prop) + "\n");
+    }
+    sb.append("------------------------\n");
+    return sb.toString();
+
   }
 
 }

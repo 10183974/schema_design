@@ -85,6 +85,7 @@ public class Util {
     System.out.println("Parsing " + filename + " ...");
 
     Schema schema = new Schema();
+    schema.setId(schema.getSchemaId());
     HashMap<String, Table> tables = new HashMap<String, Table>();
     HashMap<String, Relation> relations = new HashMap<String, Relation>();
 
@@ -123,7 +124,6 @@ public class Util {
           int keysize = columnList.item(j).getTextContent().length();
           Column col = new Column(name, type, keysize, size);
           String column_hashkey = col.getFamily() + col.getKey();
-
           cols.put(column_hashkey, col);
         }
         t.setColumns(cols);
@@ -137,7 +137,7 @@ public class Util {
 
         ArrayList<Column> rowkeys = new ArrayList<Column>();
         for (String pk : pks) {
-          rowkeys.add(cols.get("_0:" + pk));
+          rowkeys.add(cols.get(Column.DEFAULT_FAMILY + pk));
         }
         t.setRowkey(rowkeys);
         
@@ -188,10 +188,11 @@ public class Util {
         rel.setCardinality(card);
         rel.setT1_jkey(t1_joinkeys);
         rel.setT2_jkey(t2_joinkeys);
+
+        relations.put(table1 + table2 + table1_joinkey_l + table2_joinkey_l, rel);
       }
 
       schema.setRels(relations);
-
       schema.setTables(tables);
     } catch (ParserConfigurationException e) {
       e.printStackTrace();
@@ -218,10 +219,9 @@ public class Util {
       NodeList queryList = doc.getElementsByTagName("query");
       System.out.println("Query count: " + queryList.getLength());
       if (queryList != null) {
-
-        Query q = new Query();
         for (int i = 0; i < queryList.getLength(); i++) {
-          Node query = queryList.item(0);
+          Query q = new Query();
+          Node query = queryList.item(i);
           if (query != null) {
             String stmt =
                 ((Element) ((Element) query).getElementsByTagName("stmt").item(0)).getTextContent();
@@ -254,8 +254,9 @@ public class Util {
             q.setFeatures(features);
 
           }
+          queries.add(q);
         }
-        queries.add(q);
+
       }
 
     } catch (Exception e) {

@@ -32,10 +32,14 @@ public class SchemaDesignImpl {
     // conn = Util.getConnection(prop);
 
     // initialize schema from xml
-    Schema schema = Util.initSchema("workdir/schema.xml");
-    System.out.println(schema.toString());
-    ArrayList<Query> queries = Util.initQueryWorkload("workdir/workload.xml");
 
+    Schema schema = Util.initSchema("workdir/schema.xml");
+    // System.out.println(schema.toString());
+    ArrayList<Query> queries = Util.initQueryWorkload("workdir/workload.xml");
+    // Iterator<Query> qitr = queries.iterator();
+    // while (qitr.hasNext()) {
+    // System.out.println(qitr.next());
+    // }
     Method[] transformationRules = Util.getTransformationMethods();
     
     NeighbourSelector ns = new NeighbourSelector();
