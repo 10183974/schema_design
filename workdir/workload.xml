@@ -6,7 +6,7 @@
     <desired_throughput>100</desired_throughput>
     <desired_latency>10</desired_latency>
     <stats>
-      <stat type="rows_scanned">1000</property>
+      <stat type="rows_scanned">1000</stat>
     </stats>
   </query>
   <query id="2">

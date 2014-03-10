@@ -41,13 +41,10 @@ public class SchemaDesignImpl {
     // System.out.println(qitr.next());
     // }
     Method[] transformationRules = Util.getTransformationMethods();
-    
-    NeighbourSelector ns = new NeighbourSelector();
+   
     int loop_counter = 0;
     while (cost(queries) > COST_THRESOLD || loop_counter < MAX_LOOP_COUNT) {
       loop_counter++;
-      
-      ArrayList<Schema> schemas = ns.getNeighbours();
       // assume it returns only one schema
       // schema = schemas.get(0);
       // queries = ns.getRewrittenQueries();
