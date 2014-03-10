@@ -7,7 +7,7 @@ public class TRSelector {
   public TRSelector() {
   }
 
-  public Object select(Schema schema, ArrayList<Query> queries) {
+  public Transformation select(Schema schema, ArrayList<Query> queries) {
 	return null;
   }
 }
