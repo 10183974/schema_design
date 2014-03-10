@@ -28,6 +28,9 @@ public class TrainDataWriter {
 	}
     public void write(String line){   	
         try {
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Writing training data to " + fileName);
+			System.out.println(line);
 			FileWriter writer = new FileWriter(fileName,true);//true for "append"
 			writer.append(line);         
             writer.flush();

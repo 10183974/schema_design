@@ -20,7 +20,7 @@ public class TrainDataSpliter {
 			while ((line = br.readLine()) != null) {							
 			        String[] s = line.split(seperator);
 			        //latency goes to testReal
-					tr.append(s[0]);					
+					tr.append(s[0] + "\n");					
 					//others goes to testData
 					StringBuilder builder = new StringBuilder();
 					for(int i=1; i<s.length;i++){

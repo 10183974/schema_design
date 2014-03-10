@@ -1,36 +1,88 @@
 package duke.hbase.cm.tdg;
 
-import java.io.BufferedWriter;
-import java.sql.Connection;
-import java.util.Properties;
+import java.util.ArrayList;
 
-import duke.hbase.sd.Util;
+public class JoinQTDGenerator extends TDGenerator {
+	
+	public JoinQTDGenerator(String name, String queryName) {
+		super(name, queryName);
+	}
+	@Override
+	public Schema nextSchema(String[] sampledValues, int k) {
+		//parse sampled values 
+		int c_NumRows = Integer.parseInt(sampledValues[0]);
+		int c_NumColumns =  Integer.parseInt(sampledValues[1]);
+		int c_RowkeySize = Integer.parseInt(sampledValues[2]);
+		int c_ColumnSize = Integer.parseInt(sampledValues[3]);
+				
+		int o_NumRows =  Integer.parseInt(sampledValues[4]);
+		int o_NumColumns =  Integer.parseInt(sampledValues[5]);
+		int o_RowkeySize =  Integer.parseInt(sampledValues[6]);
+		int o_ColumnSize = Integer.parseInt(sampledValues[7]);
+				
+		//create customer table
+	    String c_TableName = this.getName() + k;
+	    Table c_Table = super.nextCustomerTable(c_TableName, c_NumRows, c_NumColumns, c_RowkeySize, c_ColumnSize);
+		
+	    String o_TableName = this.getName() + k;
+	    Table o_Table = super.nextOrdersTable(o_TableName, o_NumRows, o_NumColumns, o_RowkeySize, o_ColumnSize);
+		//crate table list
+		ArrayList<Table> tableList = new ArrayList<Table>();
+		tableList.add(c_Table);	
+		tableList.add(o_Table);
+				
+		//create schema
+		String schemaName = this.getName()+k;
+	    Schema schema = new Schema(schemaName,tableList); 
+	    return schema;
+		
+	}
+	@Override
+	public Configuration nextConfig(String[] sampledValues, int k) {
+		Configuration config = new Configuration();
+		return config;
+	}
+	@Override
+	public String prepareQuery(Schema schema) {
+		Table c_table = schema.getTableList().get(0);
+		Table o_table = schema.getTableList().get(1);
+		String queryStr = "select * from " +
+		                  c_table.getName() + " c " +
+				          " inner join " + 
+		                  o_table.getName() + " o " + 
+				          " on c.c_custkey = o.o_custkey" +
+                          " and o.o_custkey<10 where c.c_custkey<10";;
+		return queryStr;	
+	}
+	@Override
+	public String prepareTDOutput(Schema schema, Configuration config, Query query) {
+		Table c_table = schema.getTableList().get(0);
+		Table o_table = schema.getTableList().get(1);
+		StringBuilder builder = new StringBuilder();	
+        //(1). latency
+		builder.append(Double.toString(query.getLatency()) + "\t");         
+        //(2). number of concurrent queries 
+        builder.append(Integer.toString(1) + "\t");
+		//(3).  number of server side threads	
+		builder.append(Integer.toString(4) + "\t");
+		//(4). customer table number of rows 
+		builder.append(Integer.toString(c_table.getNumRows()) + "\t");
+		//(5). customer table number of columns
+		builder.append(Integer.toString(c_table.getNumColumns()) + "\t");
+		//(6). orders table number of rows 
+		builder.append(Integer.toString(o_table.getNumRows()) + "\t");
+		//(7). orders table number of columns
+		builder.append(Integer.toString(o_table.getNumColumns()) + "\t");		
+		//(8).  number of returned rows 
+		builder.append(Integer.toString(query.getRetNumRows()) + "\t");	
+		//(9). returned column size
+		builder.append(Integer.toString(query.getRetColumnSize()));
+		
+		builder.append("\n");	
+		return builder.toString();
+	}
 
-public class JoinQTDGenerator {
-  BufferedWriter bw;
-  Connection conn = null;
 
-  // client thread, server thread, table1 row count, table1 rowkey size, table2 row count, table2
-  // rowkey size, cardinality
-  public void generate(String t1, String t2, String[] t1_cols, String[] t2_cols) {
 
-  }
 
-  public void generate() {
-    System.out.println("generating training data for join operation...");
-    Properties prop = new Properties();
-    conn = Util.getConnection(prop);
-    bw = Util.getFileWriter("training_data/join.csv");
-    generate("customer", "orders", new String[] { "c_custkey" }, new String[] { "o_custkey" });
-    generate("orders", "lineitem", new String[] { "o_orderkey" }, new String[] { "l_orderkey" });
-    generate("lineitem", "part", new String[] { "l_partkey" }, new String[] { "p_partkey" });
-    generate("part", "partsupp", new String[] { "p_partkey" }, new String[] { "ps_partkey" });
-    generate("partsupp", "lineitem", new String[] { "ps_partkey, ps_suppkey" }, new String[] {
-        "l_partkey", "l_suppkey" });
-    generate("partsupp", "supplier", new String[] { "ps_suppkey" }, new String[] { "s_suppkey" });
-    generate("supplier", "nation", new String[] { "s_nationkey" }, new String[] { "n_nationkey" });
-    generate("nation", "customer", new String[] { "n_nationkey" }, new String[] { "c_nationkey" });
-    generate("nation", "region", new String[] { "n_regionkey" }, new String[] { "r_nationkey" });
-    Util.closeFileWriter(bw);
-  }
 }

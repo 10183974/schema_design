@@ -17,7 +17,8 @@ public class ProcessExecutor {
 	    this.pb = new ProcessBuilder(cmd);
 	    pb.directory(new File(workDir));   
         pb.redirectErrorStream(true);
-        System.out.println("Starting process " + this.name);
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("Starting process: " + this.name);
         try {
 			p = pb.start();
 		} catch (IOException e) {
@@ -26,8 +27,9 @@ public class ProcessExecutor {
     }
 
     public void stop() {
-        p.destroy();
-        System.out.println("Stopping process " + this.name);
+        p.destroy();    
+        System.out.println("Stopping process: " + this.name);
+        System.out.println("----------------------------------------------------------------------");
     }
 
     public void read() {

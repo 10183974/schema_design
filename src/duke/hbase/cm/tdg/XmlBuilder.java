@@ -74,7 +74,13 @@ public class XmlBuilder {
 	        e.appendChild(sizeElement);
 	        return e;	       
 	 }
-	 private Element createIntegerGeneratorElement(String name){	          
+	 private Element createPrimaryElement(boolean isPrimary){
+		   Element e = document.createElement("primary");
+		   e.appendChild(document.createTextNode(String.valueOf(isPrimary)));
+	       return e;	   
+	 }
+
+	 private Element createIDGeneratorElement(){	          
 	        Element e = document.createElement("generator");
 	        e.setAttribute("name", "IdGenerator");
 	        return e;	       
@@ -90,26 +96,41 @@ public class XmlBuilder {
 	        e.appendChild(y);
 	        return e;	       
 	 }
-	 private Element createPrimaryElement(boolean isPrimary){
-		   Element e = document.createElement("primary");
-		   e.appendChild(document.createTextNode(String.valueOf(isPrimary)));
-	       return e;	   
+	 private Element createIntegerGeneratorElement(int min, int max){	          
+	        Element e = document.createElement("generator");
+	        e.setAttribute("name", "tpc.h.generators.RandomValueXY");
+	        Element x = document.createElement("x");
+	        Element y = document.createElement("y");
+	        x.appendChild(document.createTextNode(String.valueOf(min)));
+	        y.appendChild(document.createTextNode(String.valueOf(max)));
+	        e.appendChild(x);
+	        e.appendChild(y);
+	        return e;	       
 	 }
-	 private Element createIntegerField(String fieldName){
+
+	 private Element createIntegerField(String fieldName, int min, int max){
 		    // Assuming this is the primary key
 		    Element field = document.createElement("field");
 		    field.setAttribute("name", fieldName);
 		    Element typeElement = createTypeElement("INTEGER");
-		    Element generatorElement = createIntegerGeneratorElement("IdGenerator");	    	    
+		    Element generatorElement = createIntegerGeneratorElement(min,max);	    	    
 		    field.appendChild(typeElement);
 		    field.appendChild(generatorElement);		    	        
 		    return field;	  	    
 	 }
-	 private Element setPrimary(Element field){
+	 private Element createIDField(String fieldName){
+		    // Assuming this is the primary key
+		    Element field = document.createElement("field");
+		    field.setAttribute("name", fieldName);
+		    Element typeElement = createTypeElement("INTEGER");
+		    Element generatorElement = createIDGeneratorElement();	    	    
+		    field.appendChild(typeElement);
+		    field.appendChild(generatorElement);	
 		    Element primaryElement = createPrimaryElement(true);
-		    field.appendChild(primaryElement);
-		    return field;
+		    field.appendChild(primaryElement);		    
+		    return field;	  	    
 	 }
+
 	 private Element createDecimalField(String fieldName){
 		    Element field = document.createElement("field");
 		    field.setAttribute("name", fieldName);
@@ -132,7 +153,6 @@ public class XmlBuilder {
 		    return field;	  	    
 	 }
 	 private Element createTableElement(Table t){
-		 
 		 Element tableElement = document.createElement("table");
 		 tableElement.setAttribute("name", t.getName());
 		 Element sizeElement = createSizeElement(t.getNumRows());
@@ -140,17 +160,18 @@ public class XmlBuilder {
          
          //new fields
 		 Element fields = document.createElement("fields");
-		      
-  
+		       
          ArrayList<Column> rowkey = t.getRowkeyList();
          ArrayList<Column> columns = t.getColumnList();
          for(Column r:rowkey){
         	 if (r.getType().equalsIgnoreCase("INTEGER")){
-        		 Element field = createIntegerField(r.getName());
-        		 if (r.isPrimary())
-        		     field = setPrimary(field);
-        		 
-        		 fields.appendChild(field);
+        		 if (r.isPrimary()){
+        			 Element field = createIDField(r.getName());
+         		     fields.appendChild(field);
+        		 } else {
+        			 Element field = createIntegerField(r.getName(),r.getMin(),r.getMax());
+         		    fields.appendChild(field);
+        		 }
         	 }
         	 else if (r.getType().equalsIgnoreCase("DECIMAL")){
         		 Element field = createDecimalField(r.getName());
@@ -165,11 +186,13 @@ public class XmlBuilder {
 
          for(Column c:columns){
         	 if (c.getType().equalsIgnoreCase("INTEGER")){
-        		 Element field = createIntegerField(c.getName());
-        		 if (c.isPrimary())
-        		     field = setPrimary(field);
-        		 
-        		 fields.appendChild(field);
+        		 if (c.isPrimary()){
+        			 Element field = createIDField(c.getName());
+         		     fields.appendChild(field);
+        		 } else {
+        			 Element field = createIntegerField(c.getName(),c.getMin(),c.getMax());
+         		    fields.appendChild(field);
+        		 }
         	 }
         	 else if (c.getType().equalsIgnoreCase("DECIMAL")){
         		 Element field = createDecimalField(c.getName());
@@ -181,8 +204,7 @@ public class XmlBuilder {
     			 fields.appendChild(field);
         	 }      	 
          }	
-         
-         
+                
          tableElement.appendChild(fields);
 		 return tableElement;
 	 }
@@ -214,7 +236,7 @@ public class XmlBuilder {
 		 writeToXML();	    
 		 System.out.println("-------------------------------------------");
 		 System.out.println("Writing pdgf xml file to " + xmlFile);
-		 System.out.println("-------------------------------------------");
+	
 	 }
 
      public void setXmlFile(String name){

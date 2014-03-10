@@ -1,23 +1,21 @@
 package duke.hbase.cm.tdg;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ErrorEstimator {
+	private double mean = 0.;
+	private double mse = 0;
 	private static final String CM_BIN_HOME = System.getenv("PROJECT_HOME") + "/cm-1.2/bin";
 	private static final String CM = CM_BIN_HOME + "/cm";
 	
-	private void runCM(String trainData, String testData, String testEstimate){
+	private void runCM(String trainData, String testPara, String testEstimate){
 		//use costModel to compute the estimated latency of test data
 		String[] cmd = new String[]{CM,
 				       "--train_file="+trainData,
-				       "--test_file="+testData,
+				       "--test_file="+testPara,
 				       "--output="+testEstimate};
 		
 		ProcessExecutor pe = new ProcessExecutor("cm-1.2", cmd,CM_BIN_HOME);
@@ -25,13 +23,14 @@ public class ErrorEstimator {
         pe.stop();
 	}
 	
-	private double computeMSE(String testReal, String testEstimate){
+	private void compute(String testReal, String testEstimate){
 		BufferedReader brReal  = null;
 		BufferedReader brEstimate = null;
 		
-		double sum = 0;
+		double mseSum = 0;
+		double meanSum = 0;
 		int count = 0 ;
-		double mse =0.;
+		
 
 		try {	
             brReal = new BufferedReader(new FileReader(testReal)); 
@@ -43,7 +42,8 @@ public class ErrorEstimator {
  					(lineEstimate = brEstimate.readLine()) != null) {
  				double realLatency = Double.valueOf(lineReal);
  				double estimateLatency = Double.valueOf(lineEstimate);
- 				sum = sum + Math.pow((realLatency-estimateLatency), 2);
+ 			    meanSum = meanSum + realLatency;
+ 				mseSum = mseSum + Math.pow((realLatency-estimateLatency), 2);
  				count = count + 1;
  			}
  			
@@ -62,18 +62,21 @@ public class ErrorEstimator {
  			}
  		}	
 		
-		mse = sum/count;
-		return mse;
+		this.mse = mseSum/count;
+		this.mean = meanSum/count;
+		
 	}
 	
-	public double estimate(String trainData, String testData, String testReal, String testEstimate){		
-		this.runCM(trainData,testData,testEstimate);
-		return computeMSE(testReal,testEstimate);
+	public void estimate(String trainData, String testPara, String testReal, String testEstimate){		
+		this.runCM(trainData,testPara,testEstimate);
+		this.compute(testReal, testEstimate);
+	}
+	public double getMean(){
+		return this.mean;
+	}
+	public double getSigma(){
+		return Math.sqrt(this.mse);
 	}
 	
-	
-	public static void main(String[] args){
 
-
-    }
 }
