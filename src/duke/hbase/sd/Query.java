@@ -9,11 +9,21 @@ public class Query {
   static int id_counter = 0;
 
   private int id;
+  private int schema_id;
+
+  public int getSchema_id() {
+    return schema_id;
+  }
+
+  public void setSchema_id(int schema_id) {
+    this.schema_id = schema_id;
+  }
+
   private String querystr;
   private String type;
   private double desired_latency;
   private int desired_throughput;
-  private HashMap<String, String> features;
+  private HashMap<String, String> stats;
 
   public Query() {
   }
@@ -26,12 +36,12 @@ public class Query {
     this.desired_throughput = desired_throughput;
   }
 
-  public HashMap<String, String> getFeatures() {
-    return features;
+  public HashMap<String, String> getStats() {
+    return stats;
   }
 
-  public void setFeatures(HashMap<String, String> features) {
-    this.features = features;
+  public void setStats(HashMap<String, String> features) {
+    this.stats = features;
   }
 
   public String getType() {
@@ -78,11 +88,11 @@ public class Query {
     sb.append("desired latency: " + getDesired_latency() + "\n");
     sb.append("desired throughput: " + getDesired_throughput() + "\n");
     
-    Set<String> features = getFeatures().keySet();
-    Iterator<String> fitr = features.iterator();
+    Set<String> stats = getStats().keySet();
+    Iterator<String> fitr = stats.iterator();
     if(fitr.hasNext()) {
       String prop = fitr.next();
-      sb.append(prop + ": " + getFeatures().get(prop) + "\n");
+      sb.append(prop + ": " + getStats().get(prop) + "\n");
     }
     sb.append("------------------------\n");
     return sb.toString();

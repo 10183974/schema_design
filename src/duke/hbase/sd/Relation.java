@@ -16,7 +16,7 @@ public class Relation {
 
   public String toString() {
     StringBuffer sb = new StringBuffer();
-    sb.append("Relations: \n");
+    sb.append("Relation: \n");
     sb.append("id= " + getId() + "\n");
     sb.append("schema_id= " + getSchema_id() + "\n");
     sb.append("table1 info \n" + getT1());
@@ -24,12 +24,12 @@ public class Relation {
     Iterator<Column> t1_jkey_itr = getT1_jkey().iterator();
     sb.append("table1 joinkeys \n");
     while (t1_jkey_itr.hasNext()) {
-      sb.append(t1_jkey_itr.next());
+      sb.append(t1_jkey_itr.next() + "\n");
     }
     Iterator<Column> t2_jkey_itr = getT2_jkey().iterator();
     sb.append("table2 joinkeys \n");
     while (t2_jkey_itr.hasNext()) {
-      sb.append(t2_jkey_itr.next());
+      sb.append(t2_jkey_itr.next() + "\n");
     }
     sb.append("cardinality: " + getCardinality() + "\n");
     return sb.toString();

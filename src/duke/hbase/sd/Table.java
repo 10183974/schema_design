@@ -78,7 +78,7 @@ public class Table implements Cloneable {
     Iterator<Column> rowkeys = getRowkey().iterator();
     while (rowkeys.hasNext()) {
       Column col = rowkeys.next();
-      System.out.println(col + "\n");
+      sb.append(col + "\n");
       sb.append(col.getFamily() + col.getKey() + "\n");
     }
     sb.append("row count: " + getRowcount() + "\n");
@@ -109,7 +109,7 @@ public class Table implements Cloneable {
       Column col = t.getColumns().get(c.getFamily() + c.getKey());
       rowkey.add(col);
     }
-    t.setRowkey(this.getRowkey());
+    t.setRowkey(rowkey);
     t.setRowcount(this.getRowcount());
     return t;
   }

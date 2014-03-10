@@ -170,17 +170,19 @@ public class Util {
             ((Element) relation.getElementsByTagName("joinkey").item(0)).getTextContent().split(
               "\\s*,\\s*");
         String[] table2_joinkey_l =
-            ((Element) relation.getElementsByTagName("joinkey").item(0)).getTextContent().split(
+            ((Element) relation.getElementsByTagName("joinkey").item(1)).getTextContent().split(
               "\\s*,\\s*");
 
         ArrayList<Column> t1_joinkeys = new ArrayList<Column>();
         for (String joinkey : table1_joinkey_l) {
-          t1_joinkeys.add(schema.getTables().get(table1).getColumns().get(joinkey));
+          t1_joinkeys.add(schema.getTables().get(table1).getColumns()
+              .get(Column.DEFAULT_FAMILY + joinkey));
         }
 
         ArrayList<Column> t2_joinkeys = new ArrayList<Column>();
         for (String joinkey : table2_joinkey_l) {
-          t2_joinkeys.add(schema.getTables().get(table2).getColumns().get(joinkey));
+          t2_joinkeys.add(schema.getTables().get(table2).getColumns()
+              .get(Column.DEFAULT_FAMILY + joinkey));
         }
 
         rel.setT1(schema.getTables().get(table1));
@@ -239,19 +241,19 @@ public class Util {
             q.setDesired_latency(Double.parseDouble(desired_latency));
             q.setDesired_throughput(Integer.parseInt(desired_throughput));
 
-            NodeList properties = ((Element) query).getElementsByTagName("property");
+            NodeList stats = ((Element) query).getElementsByTagName("stat");
 
-            HashMap<String, String> features = new HashMap<String, String>();
-            if (properties != null) {
-              for (int j = 0; j < properties.getLength(); j++) {
-                Element property = (Element) properties.item(j);
+            HashMap<String, String> s = new HashMap<String, String>();
+            if (stats != null) {
+              for (int j = 0; j < stats.getLength(); j++) {
+                Element property = (Element) stats.item(j);
                 String key = property.getAttribute("type");
                 String value = property.getTextContent();
 
-                features.put(key, value);
+                s.put(key, value);
               }
             }
-            q.setFeatures(features);
+            q.setStats(s);
 
           }
           queries.add(q);
