@@ -1,18 +1,55 @@
 package duke.hbase.sd;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
 public class Query {
 
-  int id;
-  String querystr;
-  double desired_latency;
-  double current_estimate;
+  static int id_counter = 0;
 
-  public Query(int id, String querystr, double desired_latency, double current_estimate) {
-    super();
-    this.id = id;
-    this.querystr = querystr;
-    this.desired_latency = desired_latency;
-    this.current_estimate = current_estimate;
+  private int id;
+  private int schema_id;
+
+  public int getSchema_id() {
+    return schema_id;
+  }
+
+  public void setSchema_id(int schema_id) {
+    this.schema_id = schema_id;
+  }
+
+  private String querystr;
+  private String type;
+  private double desired_latency;
+  private int desired_throughput;
+  private HashMap<String, String> stats;
+
+  public Query() {
+  }
+
+  public int getDesired_throughput() {
+    return desired_throughput;
+  }
+
+  public void setDesired_throughput(int desired_throughput) {
+    this.desired_throughput = desired_throughput;
+  }
+
+  public HashMap<String, String> getStats() {
+    return stats;
+  }
+
+  public void setStats(HashMap<String, String> features) {
+    this.stats = features;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public int getId() {
@@ -39,12 +76,27 @@ public class Query {
     this.desired_latency = desired_latency;
   }
 
-  public double getCurrent_estimate() {
-    return current_estimate;
+  public int getNextId() {
+    return id_counter++;
   }
 
-  public void setCurrent_estimate(double current_estimate) {
-    this.current_estimate = current_estimate;
+  public String toString() {
+    StringBuffer sb = new StringBuffer();
+    sb.append("------------------------\n");
+    sb.append("id: " + getId() + "\n");
+    sb.append("stmt: " + getQuerystr() + "\n");
+    sb.append("desired latency: " + getDesired_latency() + "\n");
+    sb.append("desired throughput: " + getDesired_throughput() + "\n");
+    
+    Set<String> stats = getStats().keySet();
+    Iterator<String> fitr = stats.iterator();
+    if(fitr.hasNext()) {
+      String prop = fitr.next();
+      sb.append(prop + ": " + getStats().get(prop) + "\n");
+    }
+    sb.append("------------------------\n");
+    return sb.toString();
+
   }
 
 }

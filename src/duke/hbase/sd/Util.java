@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -79,47 +80,122 @@ public class Util {
     return m;
   }
 
-  public static Schema initSchema(String filename) {
+  public static Schema initSchema(String filename) throws Exception {
 
     System.out.println("Parsing " + filename + " ...");
 
-    Schema schema = null;
-    try {
+    Schema schema = new Schema();
+    schema.setId(schema.getSchemaId());
+    HashMap<String, Table> tables = new HashMap<String, Table>();
+    HashMap<String, Relation> relations = new HashMap<String, Relation>();
 
-      ArrayList<Table> tables = new ArrayList<Table>();
+    try {
       File f = new File(filename);
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
       Document doc = builder.parse(f);
 
+      // parse table
       NodeList tableList = doc.getElementsByTagName("table");
-      for (int i = 0; i < tableList.getLength(); i++) {
-        Table t = new Table();
-        Node table = tableList.item(i);
-        t.setName(((Element) table).getElementsByTagName("name").item(0).getTextContent());
+      System.out.println("table count " + tableList.getLength());
 
-        String[] pks =
-            ((Element) table).getElementsByTagName("primarykey").item(0).getTextContent()
-                .split("\\s*,\\s*");
+      for (int i = 0; i < tableList.getLength(); i++) {
+
+        Table t = new Table();
+        HashMap<String, Column> cols = new HashMap<String, Column>();
+
+        Node table = tableList.item(i);
+        NodeList tname = ((Element) table).getElementsByTagName("name");
+        if (tname != null && tname.getLength() == 1) {
+          System.out.println("table name ->" + tname.item(0).getTextContent());
+          t.setName(tname.item(0).getTextContent());
+        } else {
+          throw new Exception("Error: table name not found");
+        }
+
+        NodeList columnList = ((Element) table).getElementsByTagName("column");
+        System.out.println("column count " + columnList.getLength());
+
+        for (int j = 0; j < columnList.getLength(); j++) {
+
+          String type = ((Element) columnList.item(j)).getAttribute("type");
+          String name = columnList.item(j).getTextContent();
+          int size = Integer.parseInt(((Element) columnList.item(j)).getAttribute("size"));
+          int keysize = columnList.item(j).getTextContent().length();
+          Column col = new Column(name, type, keysize, size);
+          String column_hashkey = col.getFamily() + col.getKey();
+          cols.put(column_hashkey, col);
+        }
+        t.setColumns(cols);
+
+        NodeList primary_keys = ((Element) table).getElementsByTagName("primarykey");
+        String[] pks = null;
+        if (primary_keys != null && primary_keys.getLength() == 1) {
+          pks = primary_keys.item(0).getTextContent().split("\\s*,\\s*");
+        }
+        System.out.println("primary key count: " + pks.length);
+
         ArrayList<Column> rowkeys = new ArrayList<Column>();
         for (String pk : pks) {
-          rowkeys.add(new Column(pk));
+          rowkeys.add(cols.get(Column.DEFAULT_FAMILY + pk));
         }
         t.setRowkey(rowkeys);
-
-        ArrayList<Column> cols = new ArrayList<Column>();
-
-        NodeList columns = ((Element)((Element) table).getElementsByTagName("columns").item(0)).getElementsByTagName("column");
-        for (int j = 0; j < columns.getLength(); j++) {
-          cols.add(new Column(columns.item(j).getTextContent(), ((Element) columns.item(j))
-              .getAttribute("type")));
+        
+        NodeList rowcount = ((Element) table).getElementsByTagName("rowcount");
+        if(rowcount!=null && rowcount.getLength()==1) {
+          t.setRowcount(Integer.parseInt(((Element) rowcount.item(0)).getTextContent()));
         }
 
-        NodeList relationList = doc.getElementsByTagName("relationship");
-
-
-
+        tables.put(t.getName(), t);
       }
+      schema.setTables(tables);
+      
+      NodeList relationList = doc.getElementsByTagName("relationship");
+      System.out.println("Relations count: " + relationList.getLength());
+
+      for (int j = 0; j < relationList.getLength(); j++) {
+
+        Relation rel = new Relation();
+        Element relation = (Element) relationList.item(j);
+        NodeList cardinality = relation.getElementsByTagName("cardinality");
+
+        String table1 = "", table2 = "", card = "";
+        if (cardinality != null && cardinality.getLength() == 1) {
+          table1 = ((Element) cardinality.item(0)).getAttribute("table1");
+          table2 = ((Element) cardinality.item(0)).getAttribute("table2");
+          card = ((Element) cardinality.item(0)).getTextContent();
+        }
+        
+        String[] table1_joinkey_l =
+            ((Element) relation.getElementsByTagName("joinkey").item(0)).getTextContent().split(
+              "\\s*,\\s*");
+        String[] table2_joinkey_l =
+            ((Element) relation.getElementsByTagName("joinkey").item(1)).getTextContent().split(
+              "\\s*,\\s*");
+
+        ArrayList<Column> t1_joinkeys = new ArrayList<Column>();
+        for (String joinkey : table1_joinkey_l) {
+          t1_joinkeys.add(schema.getTables().get(table1).getColumns()
+              .get(Column.DEFAULT_FAMILY + joinkey));
+        }
+
+        ArrayList<Column> t2_joinkeys = new ArrayList<Column>();
+        for (String joinkey : table2_joinkey_l) {
+          t2_joinkeys.add(schema.getTables().get(table2).getColumns()
+              .get(Column.DEFAULT_FAMILY + joinkey));
+        }
+
+        rel.setT1(schema.getTables().get(table1));
+        rel.setT2(schema.getTables().get(table2));
+        rel.setCardinality(card);
+        rel.setT1_jkey(t1_joinkeys);
+        rel.setT2_jkey(t2_joinkeys);
+
+        relations.put(table1 + table2 + table1_joinkey_l + table2_joinkey_l, rel);
+      }
+
+      schema.setRels(relations);
+      schema.setTables(tables);
     } catch (ParserConfigurationException e) {
       e.printStackTrace();
     } catch (SAXException e) {
@@ -129,5 +205,66 @@ public class Util {
     }
 
     return schema;
+  }
+
+  public static ArrayList<Query> initQueryWorkload(String filename) {
+    
+    System.out.println("Parsing " + filename + " ...");
+    ArrayList<Query> queries = new ArrayList<Query>();
+
+    try {
+      File f = new File(filename);
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document doc = builder.parse(f);
+
+      NodeList queryList = doc.getElementsByTagName("query");
+      System.out.println("Query count: " + queryList.getLength());
+      if (queryList != null) {
+        for (int i = 0; i < queryList.getLength(); i++) {
+          Query q = new Query();
+          Node query = queryList.item(i);
+          if (query != null) {
+            String stmt =
+                ((Element) ((Element) query).getElementsByTagName("stmt").item(0)).getTextContent();
+            String type =
+                ((Element) ((Element) query).getElementsByTagName("type").item(0)).getTextContent();
+            String desired_throughput =
+                ((Element) ((Element) query).getElementsByTagName("desired_throughput").item(0))
+                    .getTextContent();
+            String desired_latency =
+                ((Element) ((Element) query).getElementsByTagName("desired_latency").item(0))
+                    .getTextContent();
+
+            q.setQuerystr(stmt);
+            q.setType(type);
+            q.setDesired_latency(Double.parseDouble(desired_latency));
+            q.setDesired_throughput(Integer.parseInt(desired_throughput));
+
+            NodeList stats = ((Element) query).getElementsByTagName("stat");
+
+            HashMap<String, String> s = new HashMap<String, String>();
+            if (stats != null) {
+              for (int j = 0; j < stats.getLength(); j++) {
+                Element property = (Element) stats.item(j);
+                String key = property.getAttribute("type");
+                String value = property.getTextContent();
+
+                s.put(key, value);
+              }
+            }
+            q.setStats(s);
+
+          }
+          queries.add(q);
+        }
+
+      }
+
+    } catch (Exception e) {
+
+    }
+    
+    return queries;
   }
 }
