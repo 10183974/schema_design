@@ -89,7 +89,7 @@ public class Column implements Cloneable {
     this.type = type;
   }
 
-  public int getColumnId() {
+  public static int getColumnId() {
     return column_count++;
   }
 

@@ -53,14 +53,14 @@ public class Table implements Cloneable {
   }
 
   public HashMap<String, Column> getColumns() {
-    return columns;
-  }
+	return columns;
+}
 
-  public void setColumns(HashMap<String, Column> columns) {
-    this.columns = columns;
-  }
+public void setColumns(HashMap<String, Column> columns) {
+	this.columns = columns;
+}
 
-  public static int getTableId() {
+public static int getTableId() {
     return table_count++;
   }
 
@@ -116,8 +116,8 @@ public class Table implements Cloneable {
   
   @SuppressWarnings("unchecked")
   public static void main(String[] args) throws Exception {
-    Schema schema = Util.initSchema("workdir/schema.xml");
-    HashMap<String, Table> tables = schema.getTables();
+    Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
+    HashMap<String, Table> tables = app.getTables();
     HashMap<String, Table> tables_cloned = new HashMap<String, Table>();
     //cloning tables
     Iterator<String> t_itr = tables.keySet().iterator();
@@ -145,9 +145,9 @@ public class Table implements Cloneable {
     }
 
     System.out.println("------original table----");
-    Iterator<String> ot_itr = schema.getTables().keySet().iterator();
+    Iterator<String> ot_itr = app.getTables().keySet().iterator();
     while (ot_itr.hasNext()) {
-      System.out.println(schema.getTables().get(ot_itr.next()).toString());
+      System.out.println(app.getTables().get(ot_itr.next()).toString());
     }
 
   }

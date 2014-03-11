@@ -6,18 +6,8 @@ import java.util.Set;
 
 public class Query {
 
-  static int id_counter = 0;
-
+  static int query_counter = 0;
   private int id;
-  private int schema_id;
-
-  public int getSchema_id() {
-    return schema_id;
-  }
-
-  public void setSchema_id(int schema_id) {
-    this.schema_id = schema_id;
-  }
 
   private String querystr;
   private String type;
@@ -76,27 +66,43 @@ public class Query {
     this.desired_latency = desired_latency;
   }
 
-  public int getNextId() {
-    return id_counter++;
+  public static int getQueryId() {
+    return query_counter++;
   }
 
   public String toString() {
     StringBuffer sb = new StringBuffer();
-    sb.append("------------------------\n");
     sb.append("id: " + getId() + "\n");
     sb.append("stmt: " + getQuerystr() + "\n");
     sb.append("desired latency: " + getDesired_latency() + "\n");
     sb.append("desired throughput: " + getDesired_throughput() + "\n");
     
-    Set<String> stats = getStats().keySet();
+    Set<String> stats = this.getStats().keySet();
     Iterator<String> fitr = stats.iterator();
-    if(fitr.hasNext()) {
+    while(fitr.hasNext()) {
       String prop = fitr.next();
-      sb.append(prop + ": " + getStats().get(prop) + "\n");
+      sb.append(prop + ": " + this.getStats().get(prop) + "\n");
     }
-    sb.append("------------------------\n");
     return sb.toString();
-
   }
 
+  
+  @SuppressWarnings("unchecked")
+  public Query clone() {
+	  Query q = new Query();
+	  q.setId(Query.getQueryId());
+	  q.setQuerystr(new String(this.getQuerystr()));
+	  q.setType(new String(this.getType()));
+	  q.setDesired_latency(this.getDesired_latency());
+	  q.setDesired_throughput(this.getDesired_throughput());
+	  Iterator<String> prop_itr = this.getStats().keySet().iterator();
+	  HashMap<String, String> stats = new HashMap<String, String>();
+	  while(prop_itr.hasNext()) {
+		  String key = prop_itr.next();
+		  stats.put(new String(key), new String(this.getStats().get(key)));
+	  }
+	  q.setStats(stats);
+	  return q;
+  }
+  
 }
