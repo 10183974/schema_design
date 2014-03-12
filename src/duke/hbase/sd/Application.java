@@ -4,19 +4,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class Schema {
+public class Application {
 
-  public static int schema_count = 0;
+  public static int application_count = 0;
   private int id = 0;
   private HashMap<String, Table> tables = new HashMap<String, Table>();
   private HashMap<String, Relation> rels = new HashMap<String, Relation>();
+  private ArrayList<Query> queries = new ArrayList<Query>();
 
-  public Schema(HashMap<String, Table> tables) {
+  public Application(HashMap<String, Table> tables) {
     super();
     this.tables = tables;
   }
 
-  public Schema() {
+  public Application() {
     // TODO Auto-generated constructor stub
   }
 
@@ -36,7 +37,15 @@ public class Schema {
     this.tables = tables;
   }
 
-  public HashMap<String, Relation> getRels() {
+  public ArrayList<Query> getQueries() {
+	return queries;
+}
+
+public void setQueries(ArrayList<Query> queries) {
+	this.queries = queries;
+}
+
+public HashMap<String, Relation> getRels() {
     return rels;
   }
 
@@ -44,8 +53,8 @@ public class Schema {
     this.rels = rels;
   }
 
-  public static int getSchemaId() {
-    return schema_count++;
+  public static int getApplicationId() {
+    return application_count++;
   }
 
   public String toString() {
@@ -60,16 +69,21 @@ public class Schema {
     while (r_itr.hasNext()) {
       sb.append(getRels().get(r_itr.next()).toString());
     }
+    Iterator<Query> q_itr = getQueries().iterator();
+    while(q_itr.hasNext()) {
+      sb.append(q_itr.next().toString());
+    }
     sb.append("---------------------\n");
     return sb.toString();
   }
 
-  public Schema clone() {
-    Schema s = new Schema();
-    s.setId(Schema.getSchemaId());
+  public Application clone() {
+    Application s = new Application();
+    s.setId(Application.getApplicationId());
 
     HashMap<String, Table> ct = new HashMap<String, Table>();
     HashMap<String, Relation> cr = new HashMap<String, Relation>();
+    ArrayList<Query> cq = new ArrayList<Query>();
 
     // cloning tables
     Iterator<String> _t_itr = this.getTables().keySet().iterator();
@@ -111,20 +125,27 @@ public class Schema {
 
       cr.put(new String(rkey), rel);
     }
+    
+    //cloning Queries
+    Iterator<Query> q_itr = this.getQueries().iterator();
+    while(q_itr.hasNext()) {
+    	Query _q = q_itr.next();
+    	cq.add(_q.clone());
+    }
+    
     s.setTables(ct);
     s.setRels(cr);
+    s.setQueries(cq);
     return s;
   }
 
   public static void main(String[] args) throws Exception {
-    Schema schema = Util.initSchema("workdir/schema.xml");
-    System.out.println("---------original schema------");
-    System.out.println(schema.toString());
-    Schema schema_c = schema.clone();
+    Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
+    Application app_c = app.clone();
     // modify the cloned schema
-    Iterator<String> ct_itr = schema_c.getTables().keySet().iterator();
+    Iterator<String> ct_itr = app_c.getTables().keySet().iterator();
     while (ct_itr.hasNext()) {
-      Table t = schema_c.getTables().get(ct_itr.next());
+      Table t = app_c.getTables().get(ct_itr.next());
       Iterator<String> cc_itr = (Iterator<String>) t.getColumns().keySet().iterator();
       while (cc_itr.hasNext()) {
         String ck = cc_itr.next();
@@ -132,10 +153,19 @@ public class Schema {
         c.setKey(c.getKey() + "_mod");
       }
     }
+    //modify the cloned query
+    Iterator<Query> cq_itr = app_c.getQueries().iterator();
+    while(cq_itr.hasNext()) {
+      Query cq = cq_itr.next();
+      HashMap<String, String> cstats = cq.getStats();
+      cstats.put("clone_check", "dummy");
+      cstats.put("rows_scanned", "10000");
+      cq.setStats(cstats);
+    }
+
     System.out.println("---------cloned schema--------");
-    System.out.println(schema_c.toString());
-
+    System.out.println(app_c.toString());
+    System.out.println("---------original schema------");
+    System.out.println(app.toString());
   }
-
-
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 
+import java.util.Iterator;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -80,17 +81,37 @@ public class Util {
     return m;
   }
 
-  public static Schema initSchema(String filename) throws Exception {
+  public static Application initApplication(String[] files) throws Exception {
+	
+	// argument checking  
+    if(files==null) {
+		throw new Exception("Error initApplication: null arguement");
+	}
+	if(files.length<2) {
+		throw new Exception("Error initApplication: either schema.xml or workload.xml is missing");
+	}
 
-    System.out.println("Parsing " + filename + " ...");
+    Application app = new Application();
+	
+	String schema_xml = files[0];
+	String query_workload_xml = files[1];
+	
+    System.out.println("Parsing " + schema_xml + " ...");
+	initSchema(app, schema_xml); 
+    System.out.println("Parsing " + query_workload_xml + " ...");
+	initQueryWorkload(app, query_workload_xml);
+	return app;
+  }
+	
+  private static void initSchema(Application app, String schema_xml) throws Exception{
 
-    Schema schema = new Schema();
-    schema.setId(schema.getSchemaId());
-    HashMap<String, Table> tables = new HashMap<String, Table>();
+	app.setId(Application.getApplicationId());
+	
+	HashMap<String, Table> tables = new HashMap<String, Table>();
     HashMap<String, Relation> relations = new HashMap<String, Relation>();
 
     try {
-      File f = new File(filename);
+      File f = new File(schema_xml);
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
       Document doc = builder.parse(f);
@@ -102,12 +123,14 @@ public class Util {
       for (int i = 0; i < tableList.getLength(); i++) {
 
         Table t = new Table();
+        t.setId(Table.getTableId());
+        
         HashMap<String, Column> cols = new HashMap<String, Column>();
 
         Node table = tableList.item(i);
         NodeList tname = ((Element) table).getElementsByTagName("name");
         if (tname != null && tname.getLength() == 1) {
-          System.out.println("table name ->" + tname.item(0).getTextContent());
+          //System.out.println("table name ->" + tname.item(0).getTextContent());
           t.setName(tname.item(0).getTextContent());
         } else {
           throw new Exception("Error: table name not found");
@@ -117,29 +140,33 @@ public class Util {
         System.out.println("column count " + columnList.getLength());
 
         for (int j = 0; j < columnList.getLength(); j++) {
-
+          Column col = new Column();
+          col.setId(Column.getColumnId());
           String type = ((Element) columnList.item(j)).getAttribute("type");
           String name = columnList.item(j).getTextContent();
           int size = Integer.parseInt(((Element) columnList.item(j)).getAttribute("size"));
           int keysize = columnList.item(j).getTextContent().length();
-          Column col = new Column(name, type, keysize, size);
-          String column_hashkey = col.getFamily() + col.getKey();
-          cols.put(column_hashkey, col);
+          
+          col.setKey(name);
+          col.setType(type);
+          col.setAverage_key_size(keysize);
+          col.setAverage_value_size(size);
+          cols.put(col.getFamily()+col.getKey(), col);
         }
         t.setColumns(cols);
 
-        NodeList primary_keys = ((Element) table).getElementsByTagName("primarykey");
+        NodeList primaryKeyList = ((Element) table).getElementsByTagName("primarykey");
         String[] pks = null;
-        if (primary_keys != null && primary_keys.getLength() == 1) {
-          pks = primary_keys.item(0).getTextContent().split("\\s*,\\s*");
+        if (primaryKeyList != null && primaryKeyList.getLength() == 1) {
+          pks = primaryKeyList.item(0).getTextContent().split("\\s*,\\s*");
         }
         System.out.println("primary key count: " + pks.length);
 
-        ArrayList<Column> rowkeys = new ArrayList<Column>();
+        ArrayList<Column> rowkey = new ArrayList<Column>();
         for (String pk : pks) {
-          rowkeys.add(cols.get(Column.DEFAULT_FAMILY + pk));
+        	rowkey.add(t.getColumns().get(Column.DEFAULT_FAMILY+pk));
         }
-        t.setRowkey(rowkeys);
+        t.setRowkey(rowkey);
         
         NodeList rowcount = ((Element) table).getElementsByTagName("rowcount");
         if(rowcount!=null && rowcount.getLength()==1) {
@@ -148,7 +175,7 @@ public class Util {
 
         tables.put(t.getName(), t);
       }
-      schema.setTables(tables);
+      app.setTables(tables);
       
       NodeList relationList = doc.getElementsByTagName("relationship");
       System.out.println("Relations count: " + relationList.getLength());
@@ -156,6 +183,8 @@ public class Util {
       for (int j = 0; j < relationList.getLength(); j++) {
 
         Relation rel = new Relation();
+        rel.setId(Relation.getRelationId());
+        
         Element relation = (Element) relationList.item(j);
         NodeList cardinality = relation.getElementsByTagName("cardinality");
 
@@ -175,18 +204,18 @@ public class Util {
 
         ArrayList<Column> t1_joinkeys = new ArrayList<Column>();
         for (String joinkey : table1_joinkey_l) {
-          t1_joinkeys.add(schema.getTables().get(table1).getColumns()
+          t1_joinkeys.add(app.getTables().get(table1).getColumns()
               .get(Column.DEFAULT_FAMILY + joinkey));
         }
 
         ArrayList<Column> t2_joinkeys = new ArrayList<Column>();
         for (String joinkey : table2_joinkey_l) {
-          t2_joinkeys.add(schema.getTables().get(table2).getColumns()
+          t2_joinkeys.add(app.getTables().get(table2).getColumns()
               .get(Column.DEFAULT_FAMILY + joinkey));
         }
 
-        rel.setT1(schema.getTables().get(table1));
-        rel.setT2(schema.getTables().get(table2));
+        rel.setT1(app.getTables().get(table1));
+        rel.setT2(app.getTables().get(table2));
         rel.setCardinality(card);
         rel.setT1_jkey(t1_joinkeys);
         rel.setT2_jkey(t2_joinkeys);
@@ -194,8 +223,8 @@ public class Util {
         relations.put(table1 + table2 + table1_joinkey_l + table2_joinkey_l, rel);
       }
 
-      schema.setRels(relations);
-      schema.setTables(tables);
+      app.setRels(relations);
+      app.setTables(tables);
     } catch (ParserConfigurationException e) {
       e.printStackTrace();
     } catch (SAXException e) {
@@ -203,26 +232,26 @@ public class Util {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
-    return schema;
   }
 
-  public static ArrayList<Query> initQueryWorkload(String filename) {
+  public static void initQueryWorkload(Application app, String query_workload_xml) {
     
-    System.out.println("Parsing " + filename + " ...");
     ArrayList<Query> queries = new ArrayList<Query>();
 
     try {
-      File f = new File(filename);
+      File f = new File(query_workload_xml);
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
       Document doc = builder.parse(f);
 
       NodeList queryList = doc.getElementsByTagName("query");
       System.out.println("Query count: " + queryList.getLength());
+      
       if (queryList != null) {
         for (int i = 0; i < queryList.getLength(); i++) {
           Query q = new Query();
+          q.setId(Query.getQueryId());
+          
           Node query = queryList.item(i);
           if (query != null) {
             String stmt =
@@ -264,7 +293,11 @@ public class Util {
     } catch (Exception e) {
 
     }
-    
-    return queries;
+    app.setQueries(queries);
   }
+
+public static Application getRandomApplication(Application app_ini) {
+	// TODO Auto-generated method stub
+	return null;
+}
 }
