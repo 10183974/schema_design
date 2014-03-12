@@ -1,47 +1,20 @@
 package duke.hbase.cm.tdg;
 
-import java.util.ArrayList;
+public class ReadQTDGenerator extends TDGenerator  {
+	public ReadQTDGenerator(String lhsFile, String tdName, String queryName) {
+		super(lhsFile, tdName, queryName);
+	}
 
-public class ReadQTDGenerator extends TDGenerator {
-
-	public ReadQTDGenerator(String name, String queryName) {
-		super(name, queryName);
-		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public Schema nextSchema(String[] sampledValues, int k) {
-		//parse sampled values 
-		int numRows = Integer.parseInt(sampledValues[0]);
-  	    int numColumns = Integer.parseInt(sampledValues[1]);
-		int rowkeySize = Integer.parseInt(sampledValues[2]);
-		int columnSize = Integer.parseInt(sampledValues[3]);
-		
-		String tableName = this.getName() + k + "_customer";
-		Table table = super.nextCustomerTable(tableName, numRows, numColumns, rowkeySize, columnSize);
-		//crate table list
-		ArrayList<Table> tableList = new ArrayList<Table>();
-		tableList.add(table);	
-		
-		//create schema
-	    String schemaName = this.getName()+k;
-		Schema schema = new Schema(schemaName,tableList); 
-		return schema;
-	}
-	@Override
-	public Configuration nextConfig(String[] sampledValues, int k) {
-		Configuration config = new Configuration();
-		return config;
-	}
 	@Override
 	public String prepareQuery(Schema schema) {
-		Table c_table = schema.getTableList().get(0);
-		String queryStr = "select *  from " + c_table.getName() + " where accbal > 9000";
+	
+		Table o_table = schema.getTableList().get(1);
+		String queryStr = "select * from " +  o_table.getName() +  " where o_orderkey = 1000";
 		return queryStr;	
-	}	
+	}
 	@Override
 	public String prepareTDOutput(Schema schema, Configuration config, Query query) {
-		Table table = schema.getTableList().get(0);
-		
+		Table table = schema.getTableList().get(1);	
 		StringBuilder builder = new StringBuilder();	
         //(1). latency
 		builder.append(Double.toString(query.getLatency()) + "\t");         
@@ -53,14 +26,17 @@ public class ReadQTDGenerator extends TDGenerator {
 		builder.append(Integer.toString(table.getNumRows()) + "\t");
 		//(5). number of columns
 		builder.append(Integer.toString(table.getNumColumns()) + "\t");
-		//(6). number of returned rows 
+		//(6). row key size
+		builder.append(Integer.toString(table.getRowkeySize()) + "\t");
+		//(7). column size
+		builder.append(Integer.toString(table.getColumnSize()) + "\t");					
+		//(8). number of returned rows 
 		builder.append(Integer.toString(query.getRetNumRows()) + "\t");	
-		//(7). returned column size
+		//(9). returned column size
 		builder.append(Integer.toString(query.getRetColumnSize()));
 		//new line
 		builder.append("\n");	
 		
 		return builder.toString();
 	}
-
 }

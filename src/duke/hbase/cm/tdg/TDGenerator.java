@@ -1,9 +1,10 @@
 package duke.hbase.cm.tdg;
 
+
 import java.util.ArrayList;
 
 abstract public class TDGenerator {
-	private String name = null;
+	private String tdName = null;
 	private String queryName = null;
 	private int numSamples = 0;
 	
@@ -17,16 +18,17 @@ abstract public class TDGenerator {
 	private ArrayList<Configuration> configList = new ArrayList<Configuration>();
 	
 	public String getName() {
-		return name;
+		return tdName;
 	}
-	public void setName(String name){
-		this.name = name;
+	public void setName(String tdName){
+		this.tdName = tdName;
 	}
 	
-	public TDGenerator(String name, String queryName){
-		this.name = name;
+	public TDGenerator(String lhsFile, String tdName, String queryName){
+		this.tdName = tdName;
 		this.queryName = queryName;
 		this.setWorkEnv();
+		this.parseLHSFile(lhsFile);
 	}
 
 	public void setWorkEnv(){
@@ -39,7 +41,7 @@ abstract public class TDGenerator {
 	}
 	
 
-    public Table nextCustomerTable(String name, int numRows, int numColumns, int rowkeySize, int columnSize){
+    public Table nextCustomerTable(String tdName, int numRows, int numColumns, int rowkeySize, int columnSize){
     	//create columns
         Column c_CustKey  = new Column(" ", "C_CUSTKEY",       "INTEGER",  10,         true, true, true);
     	Column c_Name     = new Column(" ", "C_NAME", "VARCHAR",  rowkeySize, false,true,true);	
@@ -58,31 +60,64 @@ abstract public class TDGenerator {
     	 	c_ColumnList.add(new Column("f","C_COMMENT" + (i+1), "VARCHAR",  columnSize, false,false,false));		
     	}
     	//create table		
-    	String c_TableName = name + "_customer";
+    	String c_TableName = tdName + "_customer";
     	Table c_Table =  new Table(c_TableName, numRows, numColumns, rowkeySize, columnSize, c_RowkeyList, c_ColumnList);   	
     	return c_Table;
     }
-    public Table nextOrdersTable(String name, int numRows, int numColumns, int rowkeySize, int columnSize){
+    public Table nextOrdersTable(String tdName, int numRows, int numColumns, int rowkeySize, int columnSize, int c_numRows){
     	Column o_OrderKey  = new Column(" ", "O_ORDERKEY",  "INTEGER",  10, true, true, true);
- 		Column o_CustKey   = new Column("f",  "O_CUSTKEY",  "INTEGER",  10, false,false,false, 1, numRows);
+    	Column o_OrderName = new Column(" ", "O_ORDERNAME", "VARCHAR",  rowkeySize, false,true,true);	
+ 		Column o_CustKey   = new Column("f", "O_CUSTKEY",   "INTEGER",  10, false,false,false, 1, c_numRows);
+ 		Column o_Value     = new Column("f", "O_VALUE" ,    "DECIMAL",  columnSize, false,false,false);
  		//create row key list and column list
  		ArrayList<Column> o_RowkeyList = new ArrayList<Column>();
  		ArrayList<Column> o_ColumnList = new ArrayList<Column>();
  		o_RowkeyList.add(o_OrderKey);
- 		o_ColumnList.add(o_CustKey);     	
+ 		o_RowkeyList.add(o_OrderName);
+ 		o_ColumnList.add(o_CustKey);   
+ 		o_ColumnList.add(o_Value);
  		//create rest of columns automatically
- 		for(int i=0; i<numColumns-2; i++){
+ 		for(int i=0; i<numColumns-4; i++){
  			o_ColumnList.add(new Column("f","O_COMMENT" + (i+1), "VARCHAR",  columnSize, false,false,false));		
  		}
  		//create table		
- 		String o_TableName = name + "_orders";
+ 		String o_TableName = tdName + "_orders";
  		Table o_Table =  new Table(o_TableName, numRows, numColumns, rowkeySize, columnSize, o_RowkeyList, o_ColumnList);				
  		return o_Table;
     }
 
-	public abstract Schema nextSchema(String[] sampledValues, int k);
-	public abstract Configuration nextConfig(String[] sampledValues, int k);
-	
+    public Schema nextSchema(String[] sampledValues, int k) {
+		//parse sampled values 
+	    int c_NumRows = Integer.parseInt(sampledValues[0]);
+		int c_NumColumns =  Integer.parseInt(sampledValues[1]);
+		int c_RowkeySize = Integer.parseInt(sampledValues[2]);
+		int c_ColumnSize = Integer.parseInt(sampledValues[3]);
+						
+		int o_NumRows =  Integer.parseInt(sampledValues[4]);
+		int o_NumColumns =  Integer.parseInt(sampledValues[5]);
+		int o_RowkeySize =  Integer.parseInt(sampledValues[6]);
+		int o_ColumnSize = Integer.parseInt(sampledValues[7]);
+						
+		//create customer table
+		String c_TableName = this.getName() + k;
+	    Table c_Table = this.nextCustomerTable(c_TableName, c_NumRows, c_NumColumns, c_RowkeySize, c_ColumnSize);
+				
+		String o_TableName = this.getName() + k;
+	    Table o_Table = this.nextOrdersTable(o_TableName, o_NumRows, o_NumColumns, o_RowkeySize, o_ColumnSize,c_NumRows);
+		//crate table list
+		ArrayList<Table> tableList = new ArrayList<Table>();
+		tableList.add(c_Table);	
+		tableList.add(o_Table);
+						
+		//create schema
+		String schemaName = this.getName()+k;
+	    Schema schema = new Schema(schemaName,tableList); 
+	    return schema;
+	}
+	public Configuration nextConfig(String[] sampledValues, int k) {
+		Configuration config = new Configuration();
+		return config;
+	}
 	public void parseLHSFile(String lhsFile){
 		LHSReader lhsReader = new LHSReader();
 		this.numSamples = lhsReader.getTotalNumRows(lhsFile);
@@ -130,16 +165,24 @@ abstract public class TDGenerator {
 			tdw.write(line);
 		}	
 	}
-	public void getStat(){
+	public double getStat(){
 		  ErrorEstimator es = new ErrorEstimator();
 	      es.estimate(this.trainData, this.testPara,
 	    		      this.testRealLatency, this.testEstimateLatency);
 	      System.out.println("Latency = " + es.getMean() + " +- " + es.getSigma() + " (ms)");
+	      return es.getSigma() / es.getMean();
 	}
 	public void dropTables(){
+		for(int k=0;k<numSamples;k++){
+			Schema schema = schemaList.get(k);
+	        ArrayList<Table> tableList = schema.getTableList();
+	        for(Table t:tableList){
+	        	Query q = new Query();
+	        	q.dropTable(t);
+	        }
+		}	
+		
 		
 	}
-
-
-
+	
 }

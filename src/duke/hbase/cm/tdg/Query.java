@@ -20,7 +20,9 @@ public class Query {
 				e.printStackTrace();
 			  }
 	}
-	public void execute(String queryStr, int n){	      	
+	public void execute(String queryStr, int n){	
+	   	System.out.println("----------------------------------------------------------------------");
+	    System.out.println("Executing query [ " + queryStr + " ] for " + n + " times");
 	    try {
 	        for(int i=0;i<n;i++){
 		    	this.execute(queryStr);	
@@ -33,8 +35,7 @@ public class Query {
     	this.retNumRows = this.retNumRows/n;
     	this.retColumnSize = this.retColumnSize/n;
     	  
-    	System.out.println("----------------------------------------------------------------------");
-	    System.out.println("Executing query [" + queryStr + "] for " + n + " times");
+ 
 	    System.out.println("Average latency:  " + this.latency);
 	    System.out.println("Average number of rows returned: " + this.retNumRows);
 	    System.out.println("Number of columns: " + this.numColumns);
@@ -82,6 +83,19 @@ public class Query {
 //			  System.out.println("Number of rows: " + rowCount);
 //			  System.out.println("Number of columns: " + numColumns);
 //			  System.out.println("Total column size: " + totalColumnSize);
+		      
+		      } catch (SQLException e) {
+			   e.printStackTrace();	   
+	   	   }	
+	}
+	public void dropTable(Table table){
+		String queryStr = "drop table " + table.getName(); 
+		System.out.println("Droping table " + table.getName());
+		try {   	  
+			  ResultSet rs = null;
+		      PreparedStatement statement = this.con.prepareStatement(queryStr);	      
+		      rs = statement.executeQuery();
+		      statement.close();
 		      
 		      } catch (SQLException e) {
 			   e.printStackTrace();	   

@@ -1,19 +1,41 @@
 package duke.hbase.cm.tdg;
 
-public class ScanQTDGenerator extends TDGenerator {
-	public ScanQTDGenerator(String lhsFile, String tdName, String queryName) {
-		super(lhsFile,tdName, queryName);
+import java.util.ArrayList;
+
+public class UpsertQTDGenerator extends TDGenerator {
+
+	public UpsertQTDGenerator(String lhsFile, String tdName, String queryName) {
+		super(lhsFile, tdName, queryName);
+	
 	}
 
 	@Override
 	public String prepareQuery(Schema schema) {
-//		Table c_table = schema.getTableList().get(0);
-		Table o_table = schema.getTableList().get(1);
-		String queryStr = "select *  from " + o_table.getName() + " where o_value > 9990";
-		return queryStr;	
-	}	
+		ArrayList<Table> tableList = schema.getTableList();
+		
+		Table o_table = tableList.get(1);
+	    int numRows = o_table.getNumRows();
+		int numColumns = o_table.getNumColumns();
+
+		StringBuilder builder = new StringBuilder();
+		builder.append("upsert into " + o_table.getName() + " values(");
+		builder.append(Integer.toString(numRows + 1) + 
+				       "," + "\'insertedNname\'" +  
+				       "," + Integer.toString(1000) + 
+				       "," + Double.toString(99.99) 
+		               );	
+ 		for(int i=0; i<numColumns-4; i++){
+ 			builder.append("," + "\'testComment" + (i+1) + "\'");	
+ 		}
+ 		builder.append(")");
+ 		
+		return builder.toString();
+		
+	}
+
 	@Override
 	public String prepareTDOutput(Schema schema, Configuration config, Query query) {
+	
 		Table table = schema.getTableList().get(1);	
 		StringBuilder builder = new StringBuilder();	
         //(1). latency
@@ -38,6 +60,8 @@ public class ScanQTDGenerator extends TDGenerator {
 		builder.append("\n");	
 		
 		return builder.toString();
+		
 	}
+	
 
 }
