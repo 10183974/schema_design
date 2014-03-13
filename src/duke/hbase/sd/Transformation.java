@@ -6,9 +6,16 @@ import java.util.Iterator;
 
 public class Transformation {
 
+	private Query q;
 	private Method transformationRule;
 	private ArrayList<Object> arguments;
 	
+	public Query getQ() {
+		return q;
+	}
+	public void setQ(Query q) {
+		this.q = q;
+	}
 	public Method getTransformationRule() {
 		return transformationRule;
 	}

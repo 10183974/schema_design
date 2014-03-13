@@ -56,6 +56,14 @@ public HashMap<String, Relation> getRels() {
   public static int getApplicationId() {
     return application_count++;
   }
+  
+  public void removeTable(String table) {
+	  this.getTables().remove(table);
+  }
+  
+  public void addTable(Table t) {
+	  this.getTables().put(t.getName(), t);
+  }
 
   public String toString() {
     StringBuffer sb = new StringBuffer();

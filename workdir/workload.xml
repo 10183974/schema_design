@@ -11,7 +11,7 @@
   </query>
   <query id="2">
     <stmt>upsert table orders into(?,?,?)</stmt>
-    <type>insert</type>
+    <type>write</type>
     <desired_throughput>100</desired_throughput>
     <desired_latency>10</desired_latency>
   </query>

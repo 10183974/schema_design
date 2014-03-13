@@ -30,9 +30,13 @@ public class TransformationMethods {
     return null;
   }
 
-  public Table join(Table t1, Table t2, ArrayList<Column> t1_jkey, ArrayList<Column> t2_jkey) {
-    Table t = new Table();
-    return t;
+  public Application join(Application app, Query q, Table t1, 
+		  ArrayList<Column> t1_jkeys, Table t2, ArrayList<Column> t2_jkeys) {
+    Application new_app = new Application();
+	  //new_app.removeTable(((Table)tr_args.get(0)).getName());
+	  //new_app.removeTable(((Table)tr_args.get(2)).getName());
+	  //new_app.addTable(new_table)
+    return new_app;
   }
 
   public ArrayList<Table> split(Table t) {
@@ -40,8 +44,10 @@ public class TransformationMethods {
     return ts;
   }
 
-  public Table nesting(Table t1, Table t2) {
-    return null;
+  public Application nesting(Application app, Query q, Table t1,
+		  ArrayList<Column> t1_jkeys, Table t2, ArrayList<Column> t2_jkeys) {
+	    Application new_app = new Application();
+	    return new_app;
   }
 
   public ArrayList<Table> denesting(Table t) {

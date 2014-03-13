@@ -62,7 +62,7 @@ public class RuleBasedTREnumerator {
 	    };
 	}
 	
-	private Collection<? extends Transformation> join(Application app, Query q) throws Exception{
+	private Collection<? extends Transformation> generateJoinAndNestingTR(Application app, Query q) throws Exception{
 		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
 		HashMap<String, String> tables = new HashMap<String, String>();
 		TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
@@ -77,11 +77,16 @@ public class RuleBasedTREnumerator {
 			TJoinItemList join_items = full_join_clause.getJoinItems();
 			System.out.println("join item count " + join_items.size());
 			for(int i=0; i<join_items.size(); i++) {
-				Transformation tr = new Transformation();
+				Transformation j_tr = new Transformation();
+				Transformation n_tr = new Transformation();
+				j_tr.setQ(q);
+				n_tr.setQ(q);
 				Method join = Class.forName("duke.hbase.sd.TransformationMethods").
-						getDeclaredMethod("join", Table.class, Table.class, 
-								ArrayList.class, ArrayList.class);
-				tr.setTransformationRule(join);
+						getDeclaredMethod("join", Application.class, Query.class, Table.class, ArrayList.class, Table.class, ArrayList.class);
+				Method nesting = Class.forName("duke.hbase.sd.TransformationMethods").
+						getDeclaredMethod("nesting", Application.class, Query.class, Table.class, ArrayList.class, Table.class, ArrayList.class);
+				j_tr.setTransformationRule(join);
+				n_tr.setTransformationRule(nesting);
 				TJoinItem join_item = (TJoinItem) join_items.elementAt(i);
 				System.out.println(i + "-->" + join_item.toString());
 				TTable next_t = join_item.getTable();
@@ -91,7 +96,7 @@ public class RuleBasedTREnumerator {
 				t_exp.postOrderTraverse(ev);
 				Iterator<String> e_itr = ev.keys.keySet().iterator();
 				Table t1 = null, t2 = null;
-				ArrayList<Column> t1_jkeys = null, t2_jkeys = null;
+				ArrayList<Object> args = new ArrayList<Object>();
 				while(e_itr.hasNext()) {
 					String alias = e_itr.next();
 					ArrayList<String> cols = ev.keys.get(alias);
@@ -99,33 +104,30 @@ public class RuleBasedTREnumerator {
 					if(t1==null) {
 						t1 = app.getTables().get(tables.get(alias));
 					    Iterator<String> jkey_itr = cols.iterator();
-					    t1_jkeys = new ArrayList<Column>();
+					    ArrayList<Column> t1_jkeys = new ArrayList<Column>();
 					    while(jkey_itr.hasNext()) {
 					    	String c = jkey_itr.next();
-					    	System.out.println("table " + tables.get(alias) + " c " + c);
 					    	Column col = app.getTables().get(tables.get(alias)).getColumns().get(Column.DEFAULT_FAMILY+c);
-					    	System.out.println(col);
 					    	t1_jkeys.add(col);
 					    }
-					    
+						args.add(t1);
+					    args.add(t1_jkeys);
 					} else if(t2==null) {
 						t2 = app.getTables().get(tables.get(alias));
 					    Iterator<String> jkey_itr = cols.iterator();
-					    t2_jkeys = new ArrayList<Column>();
+					    ArrayList<Column> t2_jkeys = new ArrayList<Column>();
 					    while(jkey_itr.hasNext()) {
 					    	Column col = app.getTables().get(tables.get(alias)).getColumns().get(Column.DEFAULT_FAMILY+ jkey_itr.next());
 					    	t2_jkeys.add(col);
 					    }
+					    args.add(t2);
+					    args.add(t2_jkeys);
 					}
 				}
-				ArrayList<Object> args = new ArrayList<Object>();
-				args.add(t1);
-				args.add(t2);
-				args.add(t1_jkeys);
-				System.out.println("arg 1 " + t1_jkeys);
-				args.add(t2_jkeys);
-				tr.setArguments(args);
-				tr_list.add(tr);
+				j_tr.setArguments(args);
+				n_tr.setArguments(args);
+				tr_list.add(j_tr);
+				tr_list.add(n_tr);
 			}
 		}
 		else {
@@ -133,39 +135,35 @@ public class RuleBasedTREnumerator {
 		}
 		return tr_list;
 	}
-	
-	private Collection<? extends Transformation> nesting(Application app, Query q) {
-		return null;
-	}
 
 	private Collection<? extends Transformation> 
 	enumerateForJoinQ(Application app, Query q) throws Exception {
-		ArrayList<Transformation> tr = new ArrayList<Transformation>();
-		tr.addAll(join(app, q));		
-		tr.addAll(nesting(app, q));
-		return null;
+		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
+		tr_list.addAll(generateJoinAndNestingTR(app, q));
+		return tr_list;
 	}
 
 	private Collection<? extends Transformation> enumerateForScanQ(
 			Application app, Query q) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
+		return tr_list;
 	}
 
 	private Collection<? extends Transformation> enumerateForUpdateQ(
 			Application app, Query q) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
+		return tr_list;
 	}
 
 	private Collection<? extends Transformation> enumerateForWriteQ(
 			Application app, Query q) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
+		return tr_list;
 	}
 
 	private Collection<? extends Transformation> enumerateForReadQ(Application app, Query q) {
-		return null;		
+		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
+		return tr_list;	
 	}
 	
 	public ArrayList<Transformation> enumerate(Application app) throws Exception {
@@ -209,7 +207,7 @@ public class RuleBasedTREnumerator {
 		while(q_itr.hasNext()) {
 			Query q = q_itr.next();
 			if("join".equals(q.getType())) {
-				ArrayList<Transformation> tr_list = (ArrayList<Transformation>) rbe.join(app, q);
+				ArrayList<Transformation> tr_list = (ArrayList<Transformation>) rbe.generateJoinAndNestingTR(app, q);
 				Iterator<Transformation> tr_itr = tr_list.iterator();
 				while(tr_itr.hasNext()) {
 					Transformation tr = tr_itr.next();
