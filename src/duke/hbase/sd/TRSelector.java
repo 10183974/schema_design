@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.lang.reflect.Method;
+
 import duke.hbase.cm.CMDProxy;
 
 public class TRSelector {
@@ -47,10 +48,12 @@ public class TRSelector {
     }
     
     public Double cost(Application app) {
-    	return null;
+    	return new Double(app.toString().length());
     }
 
     public Transformation select(Application app) throws Exception {
+      Transformation selected_transformation = null;
+      Double selected_app_cost = Double.MAX_VALUE;
   	  RuleBasedTREnumerator rte = new RuleBasedTREnumerator();
   	  ArrayList<Transformation> transformations = rte.enumerate(app);
   	  
@@ -59,10 +62,16 @@ public class TRSelector {
   		  Transformation tr = tr_itr.next();
   		  Method tr_method = tr.getTransformationRule();
   		  ArrayList<Object> tr_args = tr.getArguments();
-  		  Application new_app = (Application) tr_method.invoke(tr_args);
+  		  Class<?> tm = Class.forName("duke.hbase.sd.TransformationMethods");
+  		  Application new_app = (Application) tr_method.invoke(tm.newInstance(), app, tr.getQ(), tr_args.get(0),
+  				  tr_args.get(1), tr_args.get(2), tr_args.get(3));
   		  Double new_cost = cost(new_app);
+  		  if(new_cost < selected_app_cost) {
+  			  selected_app_cost = new_cost;
+  			  selected_transformation = tr;
+  		  }
   	  }
-  	return null;
+  	return selected_transformation;
     }
     
   public CMDProxy getCm_read() {
@@ -144,4 +153,12 @@ public class TRSelector {
 	public void setBw_join(BufferedWriter bw_join) {
 		this.bw_join = bw_join;
 	}
+	
+	public static void main(String[] args) throws Exception {
+		Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
+		TRSelector trs = new TRSelector();
+		Transformation tr = trs.select(app);
+		System.out.println(tr);
+	}
+
 }
