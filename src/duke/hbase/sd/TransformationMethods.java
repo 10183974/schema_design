@@ -30,7 +30,7 @@ public class TransformationMethods {
     return null;
   }
 
-  public Table join(Table t1, Table t2) {
+  public Table join(Table t1, Table t2, ArrayList<Column> t1_jkey, ArrayList<Column> t2_jkey) {
     Table t = new Table();
     return t;
   }

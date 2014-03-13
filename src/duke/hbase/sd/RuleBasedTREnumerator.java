@@ -3,34 +3,168 @@ package duke.hbase.sd;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.lang.reflect.Method;
+
+import gudusoft.gsqlparser.*;
+import gudusoft.gsqlparser.nodes.*;
+import gudusoft.gsqlparser.stmt.TSelectSqlStatement;
+
+import java.util.HashMap;
 
 public class RuleBasedTREnumerator {
+	
+	private class JoinExprVisitor implements IExpressionVisitor {
+		private HashMap<String, ArrayList<String>> keys = new HashMap<String, ArrayList<String>>();
+	    private String l_key;
+	    private String r_key;
+	    private int count_leaf = 0;
+		public boolean exprVisit(TParseTreeNode pNode,boolean isLeafNode){
+	         String sign = "";
+	        if (isLeafNode){
+	        	if(count_leaf==0) {
+	        		l_key = pNode.toString();
+	        		count_leaf++;
+	        	}
+	        	else {
+	        		r_key = pNode.toString();
+	        		count_leaf++;
+	        	}
+	            sign ="*";
+	        } else {
+	        	if(count_leaf==2) {
+	        		String l_alias = l_key.split("\\.")[0];
+	        		String l_column = l_key.split("\\.")[1];
+	        		String r_alias = r_key.split("\\.")[0];
+	        		String r_column = r_key.split("\\.")[1];
+	        		if(keys.containsKey(l_alias)) {
+	        			ArrayList<String> cols = keys.get(l_alias);
+	        			cols.add(l_column);
+	        		}
+	        		else {
+	        			ArrayList<String> cols = new ArrayList<String>();
+	        			cols.add(l_column);
+	        			keys.put(l_alias, cols);
+	        		}
+	        		if(keys.containsKey(r_alias)) {
+	        			ArrayList<String> cols = keys.get(r_alias);
+	        			cols.add(r_column);
+	        		}
+	        		else {
+	        			ArrayList<String> cols = new ArrayList<String>();
+	        			cols.add(r_column);
+	        			keys.put(r_alias, cols);
+	        		}
+	        		count_leaf=0;
+	        	}
+	        }
+	         //System.out.println(sign+pNode.getClass().toString()+" "+ pNode.toString());
+	        return true;
+	    };
+	}
+	
+	private Collection<? extends Transformation> join(Application app, Query q) throws Exception{
+		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
+		HashMap<String, String> tables = new HashMap<String, String>();
+		TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+		sqlparser.sqltext = q.getQuerystr();
+		int ret = sqlparser.parse();
+		if(ret==0) {
+			TSelectSqlStatement qstmt = (TSelectSqlStatement) sqlparser.getSqlstatements().get(0);
+			TJoin full_join_clause = qstmt.joins.getJoin(0);
+			TTable first_t = full_join_clause.getTable();
+			System.out.println("first table " + first_t.getName() + " " + first_t.getAliasClause());
+			tables.put(first_t.getAliasClause().toString(), first_t.getName());
+			TJoinItemList join_items = full_join_clause.getJoinItems();
+			System.out.println("join item count " + join_items.size());
+			for(int i=0; i<join_items.size(); i++) {
+				Transformation tr = new Transformation();
+				Method join = Class.forName("duke.hbase.sd.TransformationMethods").
+						getDeclaredMethod("join", Table.class, Table.class, 
+								ArrayList.class, ArrayList.class);
+				tr.setTransformationRule(join);
+				TJoinItem join_item = (TJoinItem) join_items.elementAt(i);
+				System.out.println(i + "-->" + join_item.toString());
+				TTable next_t = join_item.getTable();
+				tables.put(next_t.getAliasClause().toString(), next_t.getName());
+				TExpression t_exp = join_item.getOnCondition();
+				JoinExprVisitor ev = new JoinExprVisitor();
+				t_exp.postOrderTraverse(ev);
+				Iterator<String> e_itr = ev.keys.keySet().iterator();
+				Table t1 = null, t2 = null;
+				ArrayList<Column> t1_jkeys = null, t2_jkeys = null;
+				while(e_itr.hasNext()) {
+					String alias = e_itr.next();
+					ArrayList<String> cols = ev.keys.get(alias);
+					System.out.println( alias + "(" + cols + ")-> " +  tables.get(alias));
+					if(t1==null) {
+						t1 = app.getTables().get(tables.get(alias));
+					    Iterator<String> jkey_itr = cols.iterator();
+					    t1_jkeys = new ArrayList<Column>();
+					    while(jkey_itr.hasNext()) {
+					    	String c = jkey_itr.next();
+					    	System.out.println("table " + tables.get(alias) + " c " + c);
+					    	Column col = app.getTables().get(tables.get(alias)).getColumns().get(Column.DEFAULT_FAMILY+c);
+					    	System.out.println(col);
+					    	t1_jkeys.add(col);
+					    }
+					    
+					} else if(t2==null) {
+						t2 = app.getTables().get(tables.get(alias));
+					    Iterator<String> jkey_itr = cols.iterator();
+					    t2_jkeys = new ArrayList<Column>();
+					    while(jkey_itr.hasNext()) {
+					    	Column col = app.getTables().get(tables.get(alias)).getColumns().get(Column.DEFAULT_FAMILY+ jkey_itr.next());
+					    	t2_jkeys.add(col);
+					    }
+					}
+				}
+				ArrayList<Object> args = new ArrayList<Object>();
+				args.add(t1);
+				args.add(t2);
+				args.add(t1_jkeys);
+				System.out.println("arg 1 " + t1_jkeys);
+				args.add(t2_jkeys);
+				tr.setArguments(args);
+				tr_list.add(tr);
+			}
+		}
+		else {
+			throw new Exception("Error: syntex error in " + q);
+		}
+		return tr_list;
+	}
+	
+	private Collection<? extends Transformation> nesting(Application app, Query q) {
+		return null;
+	}
 
-	private Collection<? extends Transformation> enumerateForJoinQ(
-			Application app) {
-		// TODO Auto-generated method stub
+	private Collection<? extends Transformation> 
+	enumerateForJoinQ(Application app, Query q) throws Exception {
+		ArrayList<Transformation> tr = new ArrayList<Transformation>();
+		tr.addAll(join(app, q));		
+		tr.addAll(nesting(app, q));
 		return null;
 	}
 
 	private Collection<? extends Transformation> enumerateForScanQ(
-			Application app) {
+			Application app, Query q) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	private Collection<? extends Transformation> enumerateForUpdateQ(
-			Application app) {
+			Application app, Query q) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	private Collection<? extends Transformation> enumerateForWriteQ(
-			Application app) {
+			Application app, Query q) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	private Collection<? extends Transformation> enumerateForReadQ(Application app) {
+	private Collection<? extends Transformation> enumerateForReadQ(Application app, Query q) {
 		return null;		
 	}
 	
@@ -43,19 +177,19 @@ public class RuleBasedTREnumerator {
 			Query q = q_itr.next();
 			switch(q.getType()) {
 			case "read":
-				transformations.addAll(enumerateForReadQ(app));
+				transformations.addAll(enumerateForReadQ(app, q));
 				break;
 			case "write":
-				transformations.addAll(enumerateForWriteQ(app));
+				transformations.addAll(enumerateForWriteQ(app, q));
 			break;
 			case "update":
-				transformations.addAll(enumerateForUpdateQ(app));
+				transformations.addAll(enumerateForUpdateQ(app, q));
 			break;	
 			case "scan":
-				transformations.addAll(enumerateForScanQ(app));
+				transformations.addAll(enumerateForScanQ(app, q));
 				break;
 			case "join":
-				transformations.addAll(enumerateForJoinQ(app));
+				transformations.addAll(enumerateForJoinQ(app, q));
 				break;
 			default:
 				throw new Exception("Invalid query type");
@@ -66,4 +200,24 @@ public class RuleBasedTREnumerator {
 		System.out.println("Rulebased enumerator suggests " + transformations.size() + " transformations");
 		return transformations;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) throws Exception{
+		RuleBasedTREnumerator rbe = new RuleBasedTREnumerator();
+		Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
+		Iterator<Query> q_itr = app.getQueries().iterator();
+		while(q_itr.hasNext()) {
+			Query q = q_itr.next();
+			if("join".equals(q.getType())) {
+				ArrayList<Transformation> tr_list = (ArrayList<Transformation>) rbe.join(app, q);
+				Iterator<Transformation> tr_itr = tr_list.iterator();
+				while(tr_itr.hasNext()) {
+					Transformation tr = tr_itr.next();
+					System.out.println(tr);
+				}		
+			}
+		}
+	}
+	
+	
 }

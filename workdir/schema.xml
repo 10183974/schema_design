@@ -4,13 +4,13 @@
 		<name>CUSTOMER</name>
 		<columns>
 			<column type="INTEGER" size="16">C_CUSTKEY</column>
-            <column type="VARCHAR" size="10">C_NAME</column> 
-            <column type="VARCHAR" size="30">C_ADDRESS</column>
-            <column type="INTEGER" size="16">C_NATIONKEY</column> 
-            <column type="VARCHAR" size="10">C_PHONE</column> 
-            <column type="VARCHAR" size="16">C_ACCTBAL</column>
-            <column type="VARCHAR" size="10">C_MKTSEGMENT</column>   
-            <column type="VARCHAR" size="100">C_COMMENT</column>
+            		<column type="VARCHAR" size="10">C_NAME</column> 
+            		<column type="VARCHAR" size="30">C_ADDRESS</column>
+            		<column type="INTEGER" size="16">C_NATIONKEY</column> 
+            		<column type="VARCHAR" size="10">C_PHONE</column> 
+            		<column type="VARCHAR" size="16">C_ACCTBAL</column>
+            		<column type="VARCHAR" size="10">C_MKTSEGMENT</column>   
+            		<column type="VARCHAR" size="100">C_COMMENT</column>
 		</columns>
 		<primarykey>C_CUSTKEY</primarykey>
 		<rowcount>1000000</rowcount>
@@ -31,11 +31,42 @@
 	    <primarykey>O_ORDERKEY</primarykey>
 	    <rowcount>1000000</rowcount>
 	</table>
+	<table>
+		<name>REGION</name>
+		<columns>
+			<column type="INTEGER" size="16">R_REGIONKEY</column>
+			<column type="VARCHAR" size="30">R_NAME</column>
+			<column type="VARCHAR" size="100">R_COMMENT</column>
+		</columns>
+		<primarykey>R_REGIONKEY</primarykey>
+		<rowcount>24</rowcount>
+	</table>
+	<table>
+		<name>NATION</name>
+		<columns>
+			<column type="INTEGER" size="16">N_NATIONKEY</column>
+			<column type="VARCHAR" size="30">N_NAME</column>
+			<column type="INTEGER" size="16">N_REGIONKEY</column>
+			<column type="VARCHAR" size="100">N_COMMENT</column>
+		</columns>
+		<primarykey>N_NATIONKEY</primarykey>
+		<rowcount>170</rowcount>
+	</table>
 	<relationships>
 		<relationship>
 			<cardinality table1="CUSTOMER" table2="ORDERS">1:100</cardinality>
 			<joinkey pos="1">C_CUSTKEY</joinkey>
 			<joinkey pos="2">O_CUSTKEY</joinkey>
+		</relationship>
+		<relationship>
+			<cardinality table1="NATION" table2="CUSTOMER">1:10000</cardinality>
+			<joinkey pos="1">N_NATIONKEY</joinkey>
+			<joinkey pos="2">C_NATIONKEY</joinkey>
+		</relationship>
+		<relationship>
+			<cardinality table1="REGION" table2="NATION">1:10</cardinality>
+			<joinkey pos="1">R_REGIONKEY</joinkey>
+			<joinkey pos="2">N_REGIONKEY</joinkey>
 		</relationship>
 	</relationships>
 </Schema>
