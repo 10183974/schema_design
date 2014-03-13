@@ -2,15 +2,17 @@ package duke.hbase.cm.tdg;
 
 public class JoinQTDGenerator extends TDGenerator {
 	
-	public JoinQTDGenerator(String lhsFile, String tdName, String queryName) {
-		super(lhsFile, tdName, queryName);
+
+	public JoinQTDGenerator(String lhsFile, String tdName, String prefixTrainFile, String prefixTestFile) {
+		super(lhsFile,tdName,prefixTrainFile, prefixTestFile);
+		this.setUpdate(false);
 	}
 
 	@Override
 	public String prepareQuery(Schema schema) {
 		Table c_table = schema.getTableList().get(0);
 		Table o_table = schema.getTableList().get(1);
-		String queryStr = "select * from " +
+		String queryStr = "select c_custkey,c_name,c_accbal,c_address from " +
 				           o_table.getName() + " o " + 
 		                   " inner join " +
                            c_table.getName() + " c " +

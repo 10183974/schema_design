@@ -1,12 +1,12 @@
 package duke.hbase.cm.tdg;
 
-
 import java.util.ArrayList;
 
 abstract public class TDGenerator {
 	private String tdName = null;
-	private String queryName = null;
+	
 	private int numSamples = 0;
+	private boolean isUpdate = false;
 	
 	private String trainData = null;
 	private String testData = null;
@@ -17,27 +17,20 @@ abstract public class TDGenerator {
 	private ArrayList<Schema> schemaList = new ArrayList<Schema>();
 	private ArrayList<Configuration> configList = new ArrayList<Configuration>();
 	
-	public String getName() {
-		return tdName;
-	}
-	public void setName(String tdName){
-		this.tdName = tdName;
-	}
 	
-	public TDGenerator(String lhsFile, String tdName, String queryName){
+	public TDGenerator(String lhsFile, String tdName, String prefixTrainFile, String prefixTestFile){
 		this.tdName = tdName;
-		this.queryName = queryName;
-		this.setWorkEnv();
+		this.setWorkEnv(prefixTrainFile,prefixTestFile);
 		this.parseLHSFile(lhsFile);
 	}
 
-	public void setWorkEnv(){
+	public void setWorkEnv(String prefixTrainFile, String prefixTestFile){
 		String projWorkDir =  System.getenv("PROJECT_HOME") + "/workdir";
-		this.trainData = projWorkDir + "/" + this.queryName + "_trainData.txt";
-		this.testData = projWorkDir + "/" + this.queryName + "_testData.txt";
-		this.testPara = projWorkDir + "/" + this.queryName + "_testPara.txt";
-		this.testRealLatency = projWorkDir + "/" + this.queryName + "_testRealLatency.txt";
-		this.testEstimateLatency = projWorkDir + "/" + this.queryName + "_testEstimateLatency.txt";	
+		this.trainData = projWorkDir + "/" + prefixTrainFile + "trainData.txt";
+		this.testData = projWorkDir + "/" +  prefixTestFile+ "testData.txt";
+		this.testPara = projWorkDir + "/" +  prefixTestFile+ "testPara.txt";
+		this.testRealLatency = projWorkDir + "/" + prefixTestFile + "testRealLatency.txt";
+		this.testEstimateLatency = projWorkDir + "/" + prefixTrainFile + "testEstimateLatency.txt";	
 	}
 	
 
@@ -99,10 +92,10 @@ abstract public class TDGenerator {
 		int o_ColumnSize = Integer.parseInt(sampledValues[7]);
 						
 		//create customer table
-		String c_TableName = this.getName() + k;
+		String c_TableName = this.tdName + k;
 	    Table c_Table = this.nextCustomerTable(c_TableName, c_NumRows, c_NumColumns, c_RowkeySize, c_ColumnSize);
 				
-		String o_TableName = this.getName() + k;
+		String o_TableName = this.tdName + k;
 	    Table o_Table = this.nextOrdersTable(o_TableName, o_NumRows, o_NumColumns, o_RowkeySize, o_ColumnSize,c_NumRows);
 		//crate table list
 		ArrayList<Table> tableList = new ArrayList<Table>();
@@ -110,7 +103,7 @@ abstract public class TDGenerator {
 		tableList.add(o_Table);
 						
 		//create schema
-		String schemaName = this.getName()+k;
+		String schemaName = this.tdName + k;
 	    Schema schema = new Schema(schemaName,tableList); 
 	    return schema;
 	}
@@ -152,37 +145,53 @@ abstract public class TDGenerator {
 		spliter.splitTrainData(this.testData, this.testPara, this.testRealLatency);	
 	}
 	private void generate(String dataFile){
-		TrainDataWriter tdw = new TrainDataWriter(dataFile);	
+		DataWriter dw = new DataWriter(dataFile);	
 		for(int k=0;k<this.numSamples;k++){		
 			Schema schema = schemaList.get(k);
 			Configuration config = configList.get(k);
 			
 			Query query = new Query();
 			String queryStr = this.prepareQuery(schema);
-			query.execute(queryStr,1);
+			
+			query.execute(queryStr,isUpdate,1);
 			
 			String line = this.prepareTDOutput(schema, config, query);
-			tdw.write(line);
+			dw.write(line);
 		}	
 	}
+
+	public void setUpdate(boolean isUpsert) {
+		this.isUpdate = isUpsert;
+	}
+
 	public double getStat(){
 		  ErrorEstimator es = new ErrorEstimator();
-	      es.estimate(this.trainData, this.testPara,
-	    		      this.testRealLatency, this.testEstimateLatency);
+	      es.estimate(this.trainData, this.testPara, this.testRealLatency, this.testEstimateLatency);
+	      
+	      System.out.println("Train data = " + this.trainData);
+	      System.out.println("Test  para = " + this.testPara);
+	      System.out.println("Train testRealLatency = " + this.testRealLatency);
+	      System.out.println("Train testEstimateLatency = " + this.testEstimateLatency);
 	      System.out.println("Latency = " + es.getMean() + " +- " + es.getSigma() + " (ms)");
+	      System.out.println("===============================================================");
 	      return es.getSigma() / es.getMean();
 	}
-	public void dropTables(){
+	public void dropTables(String name){	
+		String dropSql = System.getenv("PROJECT_HOME")  + "/workdir/drop_" + name + ".sql" ;
+		StringBuilder builder = new StringBuilder();
+		DataWriter dw = new DataWriter(dropSql);
 		for(int k=0;k<numSamples;k++){
 			Schema schema = schemaList.get(k);
 	        ArrayList<Table> tableList = schema.getTableList();
-	        for(Table t:tableList){
-	        	Query q = new Query();
-	        	q.dropTable(t);
-	        }
+			for(Table t:tableList){
+				builder.append("drop table " + t.getName() + ";\n");
+			}	             
 		}	
+		dw.write(builder.toString());
 		
-		
+		PhoenixCMDExecutor pcmd = new PhoenixCMDExecutor();
+		pcmd.dropTablesInHbase(dropSql);
+				
 	}
 	
 }

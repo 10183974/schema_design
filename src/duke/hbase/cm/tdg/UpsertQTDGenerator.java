@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class UpsertQTDGenerator extends TDGenerator {
 
-	public UpsertQTDGenerator(String lhsFile, String tdName, String queryName) {
-		super(lhsFile, tdName, queryName);
-	
+	public UpsertQTDGenerator(String lhsFile, String tdName, String prefixTrainFile, String prefixTestFile) {
+		super(lhsFile,tdName,prefixTrainFile, prefixTestFile);
+		this.setUpdate(true);
 	}
 
 	@Override
@@ -51,11 +51,8 @@ public class UpsertQTDGenerator extends TDGenerator {
 		//(6). row key size
 		builder.append(Integer.toString(table.getRowkeySize()) + "\t");
 		//(7). column size
-		builder.append(Integer.toString(table.getColumnSize()) + "\t");					
-		//(8). number of returned rows 
-		builder.append(Integer.toString(query.getRetNumRows()) + "\t");	
-		//(9). returned column size
-		builder.append(Integer.toString(query.getRetColumnSize()));
+		builder.append(Integer.toString(table.getColumnSize()));					
+
 		//new line
 		builder.append("\n");	
 		

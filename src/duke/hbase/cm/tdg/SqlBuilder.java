@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 public class SqlBuilder {
 	private String sqlFile = null;
-	private String build(ArrayList<Table> tableList){
+	private String buildCreateTableSql(ArrayList<Table> tableList){
 		
 		StringBuilder builder = new StringBuilder();
 		for (Table table:tableList){
@@ -72,13 +72,14 @@ public class SqlBuilder {
 		this.sqlFile = name;
 	}
 	public void createSqlFile(ArrayList<Table> tableList){
-		String sqlStatement = build(tableList);
+		String sqlStatement = buildCreateTableSql(tableList);
 		System.out.println("-------------------------------------------");
 		System.out.println("Writing create table sql statement to " + this.sqlFile);	
 		System.out.println(sqlStatement);
 		System.out.println("-------------------------------------------");
 		write(sqlStatement);	
 	}	
+
 
 
 }

@@ -63,9 +63,9 @@ public class HbaseTableGenerator{
 	   	    HdfsCopier hdfsCopier = new HdfsCopier();
             hdfsCopier.copyFromLocal(this.csvDir,this.hdfsCsvDir);
             //load table into Hbase
-            HbaseLoader hbaseLoader = new HbaseLoader();
-            hbaseLoader.createTableInHbase(this.sqlFile);
-   	        hbaseLoader.loadTableInHbase(tableList, this.hdfsCsvDir);      
+            PhoenixCMDExecutor pcmd = new PhoenixCMDExecutor();
+            pcmd.createTableInHbase(this.sqlFile);
+   	        pcmd.loadTableInHbase(tableList, this.hdfsCsvDir);      
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

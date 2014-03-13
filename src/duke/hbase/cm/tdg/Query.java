@@ -20,12 +20,12 @@ public class Query {
 				e.printStackTrace();
 			  }
 	}
-	public void execute(String queryStr, int n){	
+	public void execute(String queryStr, boolean isUpdate, int n){	
 	   	System.out.println("----------------------------------------------------------------------");
 	    System.out.println("Executing query [ " + queryStr + " ] for " + n + " times");
 	    try {
 	        for(int i=0;i<n;i++){
-		    	this.execute(queryStr);	
+		    	this.execute(queryStr, isUpdate);	
 		    }
 			con.close();
 		} catch (SQLException e) {
@@ -41,49 +41,51 @@ public class Query {
 	    System.out.println("Number of columns: " + this.numColumns);
 	    System.out.println("Average returned column size: " + this.retColumnSize);
 	}	
-	private void execute(String queryStr){
-		try {   
-			  long ts = System.currentTimeMillis();
-			  
+	public void execute(String queryStr, boolean isUpdate){
+		try {   		 			  
 			  ResultSet rs = null;
-		      PreparedStatement statement = this.con.prepareStatement(queryStr);	      
-		      rs = statement.executeQuery();
-		      //total number of columns 
-		      ResultSetMetaData rsmd = rs.getMetaData();
-		      int numColumns =rsmd.getColumnCount();
-		      
-		      int rowCount =0;
-		      int totalColumnSize = 0;
-			  while (rs.next()) {
-			     rowCount++;
-			     for(int i=1;i<=numColumns;i++){
-			    	 String s = rs.getString(i);			    	 
-			    	 
-			    	 if( s != null){
-//				    	 System.out.print(s + " (" + s.length() + ") | " );
-				    	 totalColumnSize +=  s.length();			    		 
-			    	 }	 
+		      PreparedStatement statement = this.con.prepareStatement(queryStr);
+		      long ts = 0;
+		      long tf = 0;
 
-			     }
-//			     System.out.println("");
-			   }
-		      statement.close();
-		      long tf = System.currentTimeMillis();
-			  
-		      this.latency +=  (tf-ts);
-		      this.retNumRows +=  rowCount;	
-		      this.numColumns = numColumns;
-		      if (rowCount !=0){
-		    	     this.retColumnSize += totalColumnSize/rowCount;
+		      if (isUpdate){
+			      ts = System.currentTimeMillis();
+		    	  int a = statement.executeUpdate();
+		    	  tf = System.currentTimeMillis();	
+		    	  System.out.println("Update status : " + a);
+		    	  this.latency +=  (tf-ts);
+		    	  statement.close();
 		      }
-		 
-//		      System.out.println("-----------------------------------");
-//			  System.out.println("Executing query [" + queryStr + "]");
-//			  System.out.println("Latency:  " + (tf-ts));
-//			  System.out.println("Number of rows: " + rowCount);
-//			  System.out.println("Number of columns: " + numColumns);
-//			  System.out.println("Total column size: " + totalColumnSize);
-		      
+		      else {
+		    	  ts = System.currentTimeMillis();
+		    	  rs = statement.executeQuery();
+			      
+			      //number of columns 
+			      ResultSetMetaData rsmd = rs.getMetaData();
+			      int numColumns =rsmd.getColumnCount();
+			      
+			      int rowCount =0;
+			      int totalColumnSize = 0;
+				  while (rs.next()) {
+				     rowCount++;
+				     for(int i=0;i<=numColumns;i++){
+				    	 String s = rs.getString(i);			    	 
+				    	 if( s != null){
+					    	 totalColumnSize +=  s.length();			    		 
+				    	 }	 
+				     }
+				   }
+			      statement.close();
+			      
+			      tf = System.currentTimeMillis();			      
+			      this.latency +=  (tf-ts);
+			      this.retNumRows +=  rowCount;	
+			      this.numColumns = numColumns;
+			      if (rowCount !=0){
+			    	     this.retColumnSize += totalColumnSize/rowCount;
+			      }
+		    	  
+		      }
 		      } catch (SQLException e) {
 			   e.printStackTrace();	   
 	   	   }	
@@ -94,7 +96,7 @@ public class Query {
 		try {   	  
 			  ResultSet rs = null;
 		      PreparedStatement statement = this.con.prepareStatement(queryStr);	      
-		      rs = statement.executeQuery();
+		      statement.executeUpdate();
 		      statement.close();
 		      
 		      } catch (SQLException e) {

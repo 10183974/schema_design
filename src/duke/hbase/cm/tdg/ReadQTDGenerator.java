@@ -1,8 +1,10 @@
 package duke.hbase.cm.tdg;
 
 public class ReadQTDGenerator extends TDGenerator  {
-	public ReadQTDGenerator(String lhsFile, String tdName, String queryName) {
-		super(lhsFile, tdName, queryName);
+	
+	public ReadQTDGenerator(String lhsFile, String tdName, String prefixTrainFile, String prefixTestFile) {
+		super(lhsFile,tdName,prefixTrainFile, prefixTestFile);
+		this.setUpdate(false);
 	}
 
 	@Override
@@ -23,16 +25,14 @@ public class ReadQTDGenerator extends TDGenerator  {
 		//(3).  number of server side threads	
 		builder.append(Integer.toString(4) + "\t");
 		//(4). number of rows 
-		builder.append(Integer.toString(table.getNumRows()) + "\t");
+		builder.append(Double.toString(Math.log(table.getNumRows())) + "\t");
 		//(5). number of columns
 		builder.append(Integer.toString(table.getNumColumns()) + "\t");
 		//(6). row key size
 		builder.append(Integer.toString(table.getRowkeySize()) + "\t");
 		//(7). column size
 		builder.append(Integer.toString(table.getColumnSize()) + "\t");					
-		//(8). number of returned rows 
-		builder.append(Integer.toString(query.getRetNumRows()) + "\t");	
-		//(9). returned column size
+		//(8). returned column size
 		builder.append(Integer.toString(query.getRetColumnSize()));
 		//new line
 		builder.append("\n");	

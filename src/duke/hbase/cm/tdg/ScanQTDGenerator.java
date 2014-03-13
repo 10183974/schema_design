@@ -1,8 +1,9 @@
 package duke.hbase.cm.tdg;
 
 public class ScanQTDGenerator extends TDGenerator {
-	public ScanQTDGenerator(String lhsFile, String tdName, String queryName) {
-		super(lhsFile,tdName, queryName);
+	public ScanQTDGenerator(String lhsFile, String tdName, String prefixTrainFile, String prefixTestFile) {
+		super(lhsFile,tdName,prefixTrainFile, prefixTestFile);
+		this.setUpdate(false);
 	}
 
 	@Override
