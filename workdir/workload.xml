@@ -15,4 +15,17 @@
     <desired_throughput>100</desired_throughput>
     <desired_latency>10</desired_latency>
   </query>
+  <query id="3">
+    <stmt>select c.CUSTKEY, o.O_CUSTKEY from CUSTOMER c join ORDERS o on  c.C_CUSTKEY=o.O_CUSTKEY join NATION n on n.N_NATIONKEY=c.C_NATIONKEY</stmt>
+    <type>join</type>
+    <desired_throughput>10</desired_throughput>
+    <desired_latency>1000</desired_latency>
+    <stats>
+      <stat type="t1_rows_scanned">1000</stat>
+      <stat type="t2_rows_scanned">10000</stat>
+      <stat type="t1_column_size">10</stat>
+      <stat type="t2_column_size">10</stat>
+      <stat type="cardinality">1:100</stat>
+    </stats>
+  </query>
 </workload>
