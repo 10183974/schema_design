@@ -217,6 +217,67 @@ public class TransformationMethods {
     	app.getQueries().add(q);
     }
     
+    //find the relation that lead to this join operation and remove this relation
+    Iterator<String> r_itr = app.getRels().keySet().iterator();
+    String cardinalityOfJoin = "";
+    Relation _joinrel = null;
+    String _joinrelkey = null;
+    while(r_itr.hasNext()) {
+    	_joinrelkey = r_itr.next();
+    	_joinrel = app.getRels().get(_joinrelkey);
+    	if((_joinrel.getT1().getName().equals(t1.getName()) &&
+    			_joinrel.getT2().getName().equals(t2.getName())) ||
+    	  (_joinrel.getT2().getName().equals(t1.getName()) &&
+    	   _joinrel.getT1().getName().equals(t2.getName()))) {
+    		cardinalityOfJoin = _joinrel.getCardinality();
+    	}
+    }
+    
+    app.getRels().remove(_joinrelkey);
+    
+    int _t1card = Integer.parseInt(cardinalityOfJoin.split(":")[0]);
+    int _t2card = Integer.parseInt(cardinalityOfJoin.split(":")[1]);
+    
+    if(_t2card==1) {
+    	Table temp = t1;
+    	t1 = t2;
+    	t2 = temp;
+    	
+    	ArrayList<Column> temp_jkeys = t1_jkeys;
+    	t1_jkeys = t2_jkeys;
+    	t2_jkeys = temp_jkeys;
+    }
+    
+    
+    //1. adding new table
+    Table t = t2.clone();
+    t.setName(t1.getName()+"-"+t2.getName());
+    for(String colkey: app.getTables().get(t1.getName()).getColumns().keySet()) {
+    	if(!t1_jkeys.contains(app.getTables().get(t1.getName()).getColumns().get(colkey))) {
+    		t.getColumns().put(colkey, t1.getColumns().get(colkey).clone());
+    	}
+    }
+    
+    //2. rewiring other relationships
+    for(String _rel: _app.getRels().keySet()) {
+    	Relation _relation = _app.getRels().get(_rel);
+    	if(_relation.getT1().getName().equals(t1.getName())) {
+    		app.getRels().get(_rel).setT1(t);
+    	}
+    	else if(_relation.getT1().getName().equals(t2.getName())) {
+    		app.getRels().get(_rel).setT1(t);
+    	}
+    	if(_relation.getT2().getName().equals(t1.getName())) {
+    		app.getRels().get(_rel).setT2(t);
+    	}
+    	else if(_relation.getT2().getName().equals(t2.getName())) {
+    			app.getRels().get(_rel).setT2(t);
+    	}
+    }
+    
+    //3.deleting old tables
+    app.getTables().remove(t1.getName());
+    app.getTables().remove(t2.getName());
     
     return app;
   }
