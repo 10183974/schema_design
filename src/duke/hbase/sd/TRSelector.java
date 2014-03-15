@@ -65,6 +65,7 @@ public class TRSelector {
   		  Class<?> tm = Class.forName("duke.hbase.sd.TransformationMethods");
   		  Application new_app = (Application) tr_method.invoke(tm.newInstance(), app, tr.getQ(), tr_args.get(0),
   				  tr_args.get(1), tr_args.get(2), tr_args.get(3));
+  		  //new_app.printQueries();
   		  Double new_cost = cost(new_app);
   		  if(new_cost < selected_app_cost) {
   			  selected_app_cost = new_cost;
@@ -158,7 +159,8 @@ public class TRSelector {
 		Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
 		TRSelector trs = new TRSelector();
 		Transformation tr = trs.select(app);
-		System.out.println(tr);
+		
+		//System.out.println(tr);
 	}
 
 }

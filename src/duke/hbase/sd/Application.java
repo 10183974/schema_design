@@ -84,6 +84,13 @@ public HashMap<String, Relation> getRels() {
     sb.append("---------------------\n");
     return sb.toString();
   }
+  
+  public void printQueries() {
+	  Iterator<Query> q_itr = getQueries().iterator();
+	    while(q_itr.hasNext()) {
+	      System.out.println(q_itr.next().toString());
+	    }
+  }
 
   public Application clone() {
     Application s = new Application();

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='us-ascii'?>
 <workload>
   <query id="1">
-    <stmt>select * from orders where o_orderstatus="1"</stmt>
+    <stmt>select o.O_ORDERKEY from ORDERS o where o.O_ORDERSTATUS="1"</stmt>
     <type>scan</type>
     <desired_throughput>100</desired_throughput>
     <desired_latency>10</desired_latency>
@@ -10,7 +10,7 @@
     </stats>
   </query>
   <query id="2">
-    <stmt>upsert table orders into(?,?,?)</stmt>
+    <stmt>upsert table ORDERS into(?,?,?)</stmt>
     <type>write</type>
     <desired_throughput>100</desired_throughput>
     <desired_latency>10</desired_latency>
