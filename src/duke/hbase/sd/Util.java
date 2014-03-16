@@ -12,8 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.Random;
 
-import java.util.Iterator;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,6 +25,29 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Util {
+
+  private static final String CHAR_LIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  public static String getRandomString() {
+    StringBuffer randStr = new StringBuffer();
+    for (int i = 0; i < 3; i++) {
+      int number = getRandomNumber();
+      char ch = CHAR_LIST.charAt(number);
+      randStr.append(ch);
+    }
+    return randStr.toString();
+  }
+
+  public static int getRandomNumber() {
+    int randomInt = 0;
+    Random randomGenerator = new Random();
+    randomInt = randomGenerator.nextInt(CHAR_LIST.length());
+    if (randomInt - 1 == -1) {
+      return randomInt;
+    } else {
+      return randomInt - 1;
+    }
+  }
 
   public static BufferedWriter getFileWriter(String filename) {
     BufferedWriter bw = null;

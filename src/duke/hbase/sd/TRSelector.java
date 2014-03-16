@@ -1,10 +1,9 @@
 package duke.hbase.sd;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import duke.hbase.cm.CMDProxy;
 
@@ -52,6 +51,8 @@ public class TRSelector {
     }
 
     public Transformation select(Application app) throws Exception {
+    System.out.println("select method is called ");
+      System.out.println(app);
       Transformation selected_transformation = null;
       Double selected_app_cost = Double.MAX_VALUE;
   	  RuleBasedTREnumerator rte = new RuleBasedTREnumerator();
@@ -60,12 +61,14 @@ public class TRSelector {
   	  Iterator<Transformation> tr_itr = transformations.iterator();
   	  while(tr_itr.hasNext()) {
   		  Transformation tr = tr_itr.next();
+      System.out.println(tr);
   		  Method tr_method = tr.getTransformationRule();
   		  ArrayList<Object> tr_args = tr.getArguments();
   		  Class<?> tm = Class.forName("duke.hbase.sd.TransformationMethods");
   		  Application new_app = (Application) tr_method.invoke(tm.newInstance(), app, tr.getQ(), tr_args.get(0),
   				  tr_args.get(1), tr_args.get(2), tr_args.get(3));
-  		  //new_app.printQueries();
+      // new_app.printQueries();
+      System.out.println(new_app);
   		  Double new_cost = cost(new_app);
   		  if(new_cost < selected_app_cost) {
   			  selected_app_cost = new_cost;
@@ -156,9 +159,9 @@ public class TRSelector {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
+		Application _app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
 		TRSelector trs = new TRSelector();
-		Transformation tr = trs.select(app);
+		Transformation tr = trs.select(_app);
 		
 		//System.out.println(tr);
 	}
