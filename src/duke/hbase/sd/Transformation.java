@@ -39,4 +39,17 @@ public class Transformation {
 		}
 		return sb.toString();
 	}
+	public String toShortString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("Rule: " + getTransformationRule().getName() + "\n");
+		sb.append("arguments: \n");
+		Iterator<Object> a_itr = getArguments().iterator();
+		while(a_itr.hasNext()) {
+		  Object obj = a_itr.next();
+		  if(Table.class.isInstance(obj)) {
+			  sb.append(((Table)obj).getName() + ", ");
+		  }
+		}
+		return sb.toString();
+	}
 }

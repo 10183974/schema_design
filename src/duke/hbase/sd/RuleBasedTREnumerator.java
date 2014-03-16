@@ -72,10 +72,10 @@ public class RuleBasedTREnumerator {
 			TSelectSqlStatement qstmt = (TSelectSqlStatement) sqlparser.getSqlstatements().get(0);
 			TJoin full_join_clause = qstmt.joins.getJoin(0);
 			TTable first_t = full_join_clause.getTable();
-			System.out.println("first table " + first_t.getName() + " " + first_t.getAliasClause());
+			//System.out.println("first table " + first_t.getName() + " " + first_t.getAliasClause());
 			tables.put(first_t.getAliasClause().toString(), first_t.getName());
 			TJoinItemList join_items = full_join_clause.getJoinItems();
-			System.out.println("join item count " + join_items.size());
+			//System.out.println("join item count " + join_items.size());
 			for(int i=0; i<join_items.size(); i++) {
 				Transformation j_tr = new Transformation();
 				Transformation n_tr = new Transformation();
@@ -88,7 +88,7 @@ public class RuleBasedTREnumerator {
 				j_tr.setTransformationRule(join);
 				n_tr.setTransformationRule(nesting);
 				TJoinItem join_item = (TJoinItem) join_items.elementAt(i);
-				System.out.println(i + "-->" + join_item.toString());
+				//System.out.println(i + "-->" + join_item.toString());
 				TTable next_t = join_item.getTable();
 				tables.put(next_t.getAliasClause().toString(), next_t.getName());
 				TExpression t_exp = join_item.getOnCondition();
@@ -100,7 +100,7 @@ public class RuleBasedTREnumerator {
 				while(e_itr.hasNext()) {
 					String alias = e_itr.next();
 					ArrayList<String> cols = ev.keys.get(alias);
-					System.out.println( alias + "(" + cols + ")-> " +  tables.get(alias));
+					//System.out.println( alias + "(" + cols + ")-> " +  tables.get(alias));
 					if(t1==null) {
 						t1 = app.getTables().get(tables.get(alias));
 					    Iterator<String> jkey_itr = cols.iterator();

@@ -7,148 +7,197 @@ import java.util.Set;
 
 public class Table implements Cloneable {
 
-  private static int table_count = 0;
+	private static int table_count = 0;
 
-  private int id;
-  private String name;
-  private HashMap<String, Column> columns = new HashMap<String, Column>();
-  private ArrayList<Column> rowkey = new ArrayList<Column>();
-  private int rowcount = 0;
+	private int id;
+	private String name;
+	private HashMap<String, Column> columns = new HashMap<String, Column>();
+	private HashMap<String, SuperColumn> superColumns = new HashMap<String, SuperColumn>();
+	private ArrayList<Column> rowkey = new ArrayList<Column>();
+	private int rowcount = 0;
 
 
-  public Table() {
-    // TODO Auto-generated constructor stub
-  }
+	public Table() {
+		// TODO Auto-generated constructor stub
+	}
 
-  public int getId() {
-    return id;
-  }
+	public int getId() {
+		return id;
+	}
 
-  public void setId(int id) {
-    this.id = id;
-  }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-  public String getName() {
-    return name;
-  }
+	public String getName() {
+		return name;
+	}
 
-  public ArrayList<Column> getRowkey() {
-    return rowkey;
-  }
+	public ArrayList<Column> getRowkey() {
+		return rowkey;
+	}
 
-  public void setRowkey(ArrayList<Column> rowkey) {
-    this.rowkey = rowkey;
-  }
+	public void setRowkey(ArrayList<Column> rowkey) {
+		this.rowkey = rowkey;
+	}
 
-  public int getRowcount() {
-    return rowcount;
-  }
+	public int getRowcount() {
+		return rowcount;
+	}
 
-  public void setRowcount(int rowcount) {
-    this.rowcount = rowcount;
-  }
+	public void setRowcount(int rowcount) {
+		this.rowcount = rowcount;
+	}
 
-  public void setName(String name) {
-    this.name = name;
-  }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  public HashMap<String, Column> getColumns() {
-	return columns;
-}
+	public HashMap<String, Column> getColumns() {
+		return columns;
+	}
 
-public void setColumns(HashMap<String, Column> columns) {
-	this.columns = columns;
-}
+	public void setColumns(HashMap<String, Column> columns) {
+		this.columns = columns;
+	}
 
-public static int getTableId() {
-    return table_count++;
-  }
+	public HashMap<String, SuperColumn> getSuperColumns() {
+		return superColumns;
+	}
 
-  public String toString() {
-    StringBuffer sb = new StringBuffer();
-    sb.append("table name: " + getName() + "\n");
-    sb.append("table columns: \n");
-    Set<String> keys = getColumns().keySet();
-    Iterator<String> kitr = keys.iterator();
-    while (kitr.hasNext()) {
-      String key = kitr.next();
-      sb.append(getColumns().get(key) + "\n");
-    }
-    sb.append("rowkeys: \n");
-    Iterator<Column> rowkeys = getRowkey().iterator();
-    while (rowkeys.hasNext()) {
-      Column col = rowkeys.next();
-      sb.append(col + "\n");
-      sb.append(col.getFamily() + col.getKey() + "\n");
-    }
-    sb.append("row count: " + getRowcount() + "\n");
-    return sb.toString();
-  }
+	public void setSuperColumns(HashMap<String, SuperColumn> superColumns) {
+		this.superColumns = superColumns;
+	}
 
-  @SuppressWarnings("unchecked")
-  public Table clone() {
-    Table t = new Table();
-    t.setId(Table.getTableId());
-    t.setName(new String(this.getName()));
+	public static int getTableId() {
+		return table_count++;
+	}
 
-    // cloning columns
-    Iterator<String> ckeyitr = this.getColumns().keySet().iterator();
-    HashMap<String, Column> cols = new HashMap<String, Column>();
-    while (ckeyitr.hasNext()) {
-      String ckey = ckeyitr.next();
-      Column c = this.getColumns().get(ckey);
-      cols.put(new String(ckey), c.clone());
-    }
-    t.setColumns(cols);
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("table name: " + getName() + "\n");
+		sb.append("table columns: \n");
+		Set<String> keys = getColumns().keySet();
+		Iterator<String> kitr = keys.iterator();
+		while (kitr.hasNext()) {
+			String key = kitr.next();
+			sb.append(getColumns().get(key) + "\n");
+		}
+		sb.append("table super columns: "+"\n");
+		Iterator<String> sck_itr = getSuperColumns().keySet().iterator();
+		while(sck_itr.hasNext()){
+			String sckey = sck_itr.next();
+			sb.append(getSuperColumns().get(sckey)+"\n");
+		}
+		sb.append("rowkeys: \n");
+		Iterator<Column> rowkeys = getRowkey().iterator();
+		while (rowkeys.hasNext()) {
+			Column col = rowkeys.next();
+			sb.append(col + "\n");
+			sb.append(col.getFamily() + col.getName() + "\n");
+		}
+		sb.append("row count: " + getRowcount() + "\n");
+		return sb.toString();
+	}
 
-    // cloning rowkeys
-    Iterator<Column> citr = this.getRowkey().iterator();
-    ArrayList<Column> rowkey = new ArrayList<Column>();
-    while (citr.hasNext()) {
-      Column c = citr.next();
-      Column col = t.getColumns().get(c.getFamily() + c.getKey());
-      rowkey.add(col);
-    }
-    t.setRowkey(rowkey);
-    t.setRowcount(this.getRowcount());
-    return t;
-  }
-  
-  @SuppressWarnings("unchecked")
-  public static void main(String[] args) throws Exception {
-    Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
-    HashMap<String, Table> tables = app.getTables();
-    HashMap<String, Table> tables_cloned = new HashMap<String, Table>();
-    //cloning tables
-    Iterator<String> t_itr = tables.keySet().iterator();
-    while(t_itr.hasNext()) {
-      String tkey = t_itr.next();
-      tables_cloned.put(new String(tkey), tables.get(tkey).clone());
-    }
+	public String toShortString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("Table: " + getName() + "\n");
+		sb.append("Columns: " + "\n");
+		Set<String> keys = getColumns().keySet();
+		Iterator<String> kitr = keys.iterator();
+		while (kitr.hasNext()) {
+			String key = kitr.next();
+			sb.append(getColumns().get(key).getFamily() + getColumns().get(key).getName() + ", ");
+		}
+		sb.append("\n"+ "Supercolumns: "+"\n");
+		Iterator<String> sck_itr = getSuperColumns().keySet().iterator();
+		while(sck_itr.hasNext()){
+			String sckey = sck_itr.next();
+			sb.append(getSuperColumns().get(sckey).getName()+ ", ");
+		}
+		sb.append("\n" + "Rowkeys: \n");
+		Iterator<Column> rowkeys = getRowkey().iterator();
+		while (rowkeys.hasNext()) {
+			Column col = rowkeys.next();
+			sb.append(col.getFamily() + col.getName() + ", ");
+		}
+		sb.append("row count: " + getRowcount() + "\n");
+		return sb.toString();
+	}
 
-    // modifying cloned table
-    Iterator<String> ct_itr = tables_cloned.keySet().iterator();
-    while (ct_itr.hasNext()) {
-      Table t = tables_cloned.get(ct_itr.next());
-      Iterator<String> cc_itr = (Iterator<String>) t.getColumns().keySet().iterator();
-      while (cc_itr.hasNext()) {
-        String ck = cc_itr.next();
-        Column c = t.getColumns().get(ck);
-        c.setKey(c.getKey() + "_mod");
-      }
-    }
+	@SuppressWarnings("unchecked")
+	public Table clone() {
+		Table t = new Table();
+		t.setId(Table.getTableId());
+		t.setName(new String(this.getName()));
 
-    System.out.println("------cloned table------");
-    ct_itr = tables_cloned.keySet().iterator();
-    while (ct_itr.hasNext()) {
-      System.out.println(tables_cloned.get(ct_itr.next()).toString());
-    }
+		// cloning columns
+		Iterator<String> ckeyitr = this.getColumns().keySet().iterator();
+		HashMap<String, Column> cols = new HashMap<String, Column>();
+		while (ckeyitr.hasNext()) {
+			String ckey = ckeyitr.next();
+			Column c = this.getColumns().get(ckey);
+			cols.put(new String(ckey), c.clone());
+		}
+		t.setColumns(cols);
 
-    System.out.println("------original table----");
-    Iterator<String> ot_itr = app.getTables().keySet().iterator();
-    while (ot_itr.hasNext()) {
-      System.out.println(app.getTables().get(ot_itr.next()).toString());
-    }
+		//cloning super columns
+		Iterator<String> sckey_itr = this.getSuperColumns().keySet().iterator();
+		HashMap<String, SuperColumn> supercols = new HashMap<String, SuperColumn>();
+		while(sckey_itr.hasNext()) {
+			String sckey = sckey_itr.next();
+			supercols.put(new String(sckey), getSuperColumns().get(sckey).clone());
+		}
+		
+		// cloning rowkeys
+		Iterator<Column> citr = this.getRowkey().iterator();
+		ArrayList<Column> rowkey = new ArrayList<Column>();
+		while (citr.hasNext()) {
+			Column c = citr.next();
+			Column col = t.getColumns().get(c.getFamily() + c.getName());
+			rowkey.add(col);
+		}
+		t.setRowkey(rowkey);
+		t.setRowcount(this.getRowcount());
+		return t;
+	}
 
-  }
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) throws Exception {
+		Application app = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
+		HashMap<String, Table> tables = app.getTables();
+		HashMap<String, Table> tables_cloned = new HashMap<String, Table>();
+		//cloning tables
+		Iterator<String> t_itr = tables.keySet().iterator();
+		while(t_itr.hasNext()) {
+			String tkey = t_itr.next();
+			tables_cloned.put(new String(tkey), tables.get(tkey).clone());
+		}
+
+		// modifying cloned table
+		Iterator<String> ct_itr = tables_cloned.keySet().iterator();
+		while (ct_itr.hasNext()) {
+			Table t = tables_cloned.get(ct_itr.next());
+			Iterator<String> cc_itr = (Iterator<String>) t.getColumns().keySet().iterator();
+			while (cc_itr.hasNext()) {
+				String ck = cc_itr.next();
+				Column c = t.getColumns().get(ck);
+				c.setName(c.getName() + "_mod");
+			}
+		}
+
+		System.out.println("------cloned table------");
+		ct_itr = tables_cloned.keySet().iterator();
+		while (ct_itr.hasNext()) {
+			System.out.println(tables_cloned.get(ct_itr.next()).toString());
+		}
+
+		System.out.println("------original table----");
+		Iterator<String> ot_itr = app.getTables().keySet().iterator();
+		while (ot_itr.hasNext()) {
+			System.out.println(app.getTables().get(ot_itr.next()).toString());
+		}
+
+	}
 }

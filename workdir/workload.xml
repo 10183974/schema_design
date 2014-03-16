@@ -10,7 +10,7 @@
     </stats>
   </query>
   <query id="2">
-    <stmt>upsert table ORDERS into(?,?,?)</stmt>
+    <stmt>insert into ORDERS values(?,?,?, ?, ?, ?)</stmt>
     <type>write</type>
     <desired_throughput>100</desired_throughput>
     <desired_latency>10</desired_latency>
