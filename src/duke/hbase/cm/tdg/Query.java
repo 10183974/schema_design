@@ -16,6 +16,7 @@ public class Query {
 	public Query(){
 		 try {
 				con = DriverManager.getConnection("jdbc:phoenix:yahoo005.nicl.cs.duke.edu:2181");
+			
 			  } catch (SQLException e) {
 				e.printStackTrace();
 			  }
@@ -35,13 +36,12 @@ public class Query {
     	this.retNumRows = this.retNumRows/n;
     	this.retColumnSize = this.retColumnSize/n;
     	  
- 
 	    System.out.println("Average latency:  " + this.latency);
 	    System.out.println("Average number of rows returned: " + this.retNumRows);
 	    System.out.println("Number of columns: " + this.numColumns);
 	    System.out.println("Average returned column size: " + this.retColumnSize);
 	}	
-	public void execute(String queryStr, boolean isUpdate){
+	private void execute(String queryStr, boolean isUpdate){
 		try {   		 			  
 			  ResultSet rs = null;
 		      PreparedStatement statement = this.con.prepareStatement(queryStr);
@@ -51,15 +51,16 @@ public class Query {
 		      if (isUpdate){
 			      ts = System.currentTimeMillis();
 		    	  int a = statement.executeUpdate();
+		    	  con.commit();
 		    	  tf = System.currentTimeMillis();	
-		    	  System.out.println("Update status : " + a);
+		    	  System.out.println("Update status : " + a );
+		    	  System.out.println("Affected rows " + statement.getUpdateCount());
 		    	  this.latency +=  (tf-ts);
 		    	  statement.close();
 		      }
 		      else {
 		    	  ts = System.currentTimeMillis();
-		    	  rs = statement.executeQuery();
-			      
+		    	  rs = statement.executeQuery();		      
 			      //number of columns 
 			      ResultSetMetaData rsmd = rs.getMetaData();
 			      int numColumns =rsmd.getColumnCount();
@@ -68,41 +69,32 @@ public class Query {
 			      int totalColumnSize = 0;
 				  while (rs.next()) {
 				     rowCount++;
-				     for(int i=0;i<=numColumns;i++){
+				     for(int i=1;i<=numColumns;i++){
 				    	 String s = rs.getString(i);			    	 
 				    	 if( s != null){
 					    	 totalColumnSize +=  s.length();			    		 
 				    	 }	 
 				     }
 				   }
-			      statement.close();
-			      
-			      tf = System.currentTimeMillis();			      
+			      statement.close();			      
+			      tf = System.currentTimeMillis();				      
 			      this.latency +=  (tf-ts);
 			      this.retNumRows +=  rowCount;	
 			      this.numColumns = numColumns;
 			      if (rowCount !=0){
 			    	     this.retColumnSize += totalColumnSize/rowCount;
-			      }
-		    	  
+			      }	
+			      System.out.println("----------------------------------");
+				  System.out.println("Average latency:  " + (tf-ts));
+				  System.out.println("Average number of rows returned: " + rowCount);
+				  System.out.println("Number of columns: " + numColumns);
+				  System.out.println("Average returned column size: " + retColumnSize);
 		      }
 		      } catch (SQLException e) {
 			   e.printStackTrace();	   
 	   	   }	
 	}
-	public void dropTable(Table table){
-		String queryStr = "drop table " + table.getName(); 
-		System.out.println("Droping table " + table.getName());
-		try {   	  
-			  ResultSet rs = null;
-		      PreparedStatement statement = this.con.prepareStatement(queryStr);	      
-		      statement.executeUpdate();
-		      statement.close();
-		      
-		      } catch (SQLException e) {
-			   e.printStackTrace();	   
-	   	   }	
-	}
+
 	public double getLatency(){
 		return this.latency;
 	}
@@ -112,6 +104,5 @@ public class Query {
 	public int getRetColumnSize(){
 		return this.retColumnSize;
 	}
-
 	
 }

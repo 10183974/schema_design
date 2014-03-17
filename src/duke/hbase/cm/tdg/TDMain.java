@@ -14,7 +14,7 @@ public class TDMain {
 	
     public void setTestGenerators(){
     	 System.out.println("Initialize test data generators");
-	      String testLHS = System.getenv("PROJECT_HOME") + "/workdir/lhs_test.csv";
+	     String testLHS = System.getenv("PROJECT_HOME") + "/workdir/lhs_test.csv";
     	 this.scanTestGen   = new   ScanQTDGenerator(testLHS,    "test_",  null, "scan_"); 	
 	     this.joinTestGen   = new   JoinQTDGenerator(testLHS,    "test_",  null, "join_"); 	
 	     this.readTestGen   = new   ReadQTDGenerator(testLHS,    "test_",  null, "read_");
@@ -37,14 +37,18 @@ public class TDMain {
 		 System.out.println("Preparing test tables");
 		 this.joinTestGen.prepareTables();
 	}
+	public void reloadEmptyTrainTable(){
+		System.out.println("Relading empty tables");
+		this.joinTrainGen.reloadEmptyTables();	
+	}
 	public void dropTestTables(){	
 		System.out.println("Droping test tables");
 
-		this.joinTestGen.dropTables("test");		
+		this.joinTestGen.dropSchemaList("test");		
 	}
 	public void dropTrainTables(int n){
 		System.out.println("Droping train tables");
-		this.joinTrainGen.dropTables("train"+n);
+		this.joinTrainGen.dropSchemaList("train"+n);
 	}
 	public void genData(String tName, String qName){
 		if(tName.equals("train")){
@@ -99,26 +103,32 @@ public class TDMain {
 	
 	public static void main(String[] args){		
 		  long startTime = System.currentTimeMillis();
-			
-		  String resultFileName = System.getenv("PROJECT_HOME") + "/workdir/result.txt";	
+		  
+		  String qName = "scan";
+		  
+	      if (args.length != 0){
+	    	  qName = args[0];
+	      }
+	     		
+  	      String resultFileName = System.getenv("PROJECT_HOME") + "/workdir/result_" + qName + ".txt" ;	
 	      DataWriter dw = new DataWriter(resultFileName);
-	      
-	      String qName = "upsert";	      
+	           
 	      TDMain td = new TDMain();
 	      td.setTestGenerators();	      
-	      td.prepareTestTables();
-//	      td.genData("test",qName);
+//	      td.prepareTestTables();
+	      td.genData("test",qName);
 //	      td.dropTestTables();
 	      	
 	      int[] sampleSize = {30,60,90,120,150};
 		  for(int i=0;i<sampleSize.length;i++){		       		        
 		      td.setTrainGenerators( sampleSize[i]);
-		      td.prepareTrainTables();  		      
-//		      td.genData("train",qName);
+//		      td.prepareTrainTables(); 
+//		      td.reloadEmptyTrainTable();
+		      td.genData("train",qName);		      
+	          ArrayList<Double> relativeErrors = td.getResult(qName);
+	          dw.writeResult(sampleSize[i], relativeErrors);			      
 //		      td.dropTrainTables(sampleSize[i]);
-		      
-//	          ArrayList<Double> relativeErrors = td.getResult(qName);
-//	          dw.writeResult(sampleSize[i], relativeErrors);		      
+	      
 		  }
 
 	      long endTime = System.currentTimeMillis();

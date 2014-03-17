@@ -1,0 +1,2 @@
+#!/bin/bash
+scp -r tdg hadoop@yahoo005.nicl.cs.duke.edu:/home/hadoop/git/schema_design/src/duke/hbase/cm

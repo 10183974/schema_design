@@ -48,7 +48,7 @@ abstract public class TDGenerator {
     	c_ColumnList.add(c_AccBal);
     	c_ColumnList.add(c_Address); 		
     	 		
-    	//create rest of columns automatically
+    	//create the rest of columns automatically
     	for(int i=0; i<numColumns-4; i++){
     	 	c_ColumnList.add(new Column("f","C_COMMENT" + (i+1), "VARCHAR",  columnSize, false,false,false));		
     	}
@@ -150,13 +150,16 @@ abstract public class TDGenerator {
 			Schema schema = schemaList.get(k);
 			Configuration config = configList.get(k);
 			
-			Query query = new Query();
-			String queryStr = this.prepareQuery(schema);
+			int nExeTime = 1; // execute each query 5 times to take an average 
+			int nQueries = 3;//try different return size randomly
 			
-			query.execute(queryStr,isUpdate,1);
-			
-			String line = this.prepareTDOutput(schema, config, query);
-			dw.write(line);
+			for(int j=0;j<nQueries;j++){
+			   Query query = new Query();
+			   String queryStr = this.prepareQuery(schema);		
+			   query.execute(queryStr,isUpdate,nExeTime);
+			   String line = this.prepareTDOutput(schema, config, query);
+			   dw.write(line);
+			}
 		}	
 	}
 
@@ -176,7 +179,7 @@ abstract public class TDGenerator {
 	      System.out.println("===============================================================");
 	      return es.getSigma() / es.getMean();
 	}
-	public void dropTables(String name){	
+	public void dropSchemaList(String name){	
 		String dropSql = System.getenv("PROJECT_HOME")  + "/workdir/drop_" + name + ".sql" ;
 		StringBuilder builder = new StringBuilder();
 		DataWriter dw = new DataWriter(dropSql);
@@ -187,11 +190,63 @@ abstract public class TDGenerator {
 				builder.append("drop table " + t.getName() + ";\n");
 			}	             
 		}	
-		dw.write(builder.toString());
-		
+		dw.write(builder.toString());		
 		PhoenixCMDExecutor pcmd = new PhoenixCMDExecutor();
-		pcmd.dropTablesInHbase(dropSql);
-				
+		pcmd.dropTablesInHbase(dropSql);				
 	}
+
+	
+//chekc if the schema is empty, if it is, regenerate the schema
+//-------------------------------------------------------------
+	public void dropSchema(Schema schema){
+		String dropSql = System.getenv("PROJECT_HOME")  + "/workdir/drop_" + schema.getName() + ".sql" ;
+		StringBuilder builder = new StringBuilder();
+		DataWriter dw = new DataWriter(dropSql);
+		
+	    ArrayList<Table> tableList = schema.getTableList();
+	    for(Table t:tableList){
+				builder.append("drop table " + t.getName() + ";\n");
+		}	             
+		
+		dw.write(builder.toString());
+		PhoenixCMDExecutor pcmd = new PhoenixCMDExecutor();
+		pcmd.dropTablesInHbase(dropSql);		
+	}
+	
+	public void reloadEmptyTables(){		
+		for(int k=0;k<this.numSamples;k++){	
+			Schema schema = schemaList.get(k);
+			Configuration config = configList.get(k);
+			ArrayList<Table> tableList = schema.getTableList();
+		    
+			boolean isEmpty = false;
+			for(Table t:tableList){
+				if (this.isEmpty(t.getName()))
+					isEmpty = true;
+			}						
+			if(isEmpty){
+				System.out.println("Schema " + schema.getName() + " is empty. Reloading this schema");
+				this.dropSchema(schema);	
+			    HbaseTableGenerator hbaseGen = new HbaseTableGenerator(schema,config);
+				hbaseGen.createTable();					
+			}
+			else{
+				System.out.println("Schema " + schema.getName() + " is complete");
+			}
+		}			
+	}
+	
+	private boolean isEmpty(String tableName){
+		Query query = new Query();
+		String queryStr = "select * from " + tableName;
+		query.execute(queryStr, false,1);
+		if (query.getRetNumRows() == 0){
+			return true;
+		}
+		else {
+			return false;
+		}		
+	}
+
 	
 }
