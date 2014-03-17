@@ -65,6 +65,31 @@ public HashMap<String, Relation> getRels() {
 	  this.getTables().put(t.getName(), t);
   }
 
+  public Integer[] getCardinality(String t1, String t2) {
+	  Iterator<String> r_itr = this.getRels().keySet().iterator();
+	  String cardinalityOfJoin = "";
+	  Integer[] card = new Integer[2]; 
+	  Relation _joinrel = null;
+	  String _joinrelkey = null;
+	  while(r_itr.hasNext()) {
+		 _joinrelkey = r_itr.next();
+		 _joinrel = this.getRels().get(_joinrelkey);
+		 if((_joinrel.getT1().getName().equals(t1) &&
+			_joinrel.getT2().getName().equals(t2))) {
+			 cardinalityOfJoin = _joinrel.getCardinality();
+			 card[0] = Integer.parseInt(cardinalityOfJoin.split(":")[0]);
+			 card[1] = Integer.parseInt(cardinalityOfJoin.split(":")[1]);
+		 }
+			if(_joinrel.getT2().getName().equals(t1) &&
+			_joinrel.getT1().getName().equals(t2)) {
+			 cardinalityOfJoin = _joinrel.getCardinality();
+			 card[0] = Integer.parseInt(cardinalityOfJoin.split(":")[1]);
+			 card[1] = Integer.parseInt(cardinalityOfJoin.split(":")[0]);			 
+		 }
+	  }
+	  return card;
+	}
+
   public String toString() {
     StringBuffer sb = new StringBuffer();
     sb.append("---------------------\n");
@@ -83,6 +108,18 @@ public HashMap<String, Relation> getRels() {
     }
     sb.append("---------------------\n");
     return sb.toString();
+  }
+  
+  public String toShortString() {
+	  StringBuffer sb = new StringBuffer();
+	  sb.append("------------App Info---------\n");
+	    sb.append("application id= " + getId() + "\n");
+	    Iterator<String> t_itr = getTables().keySet().iterator();
+	    while (t_itr.hasNext()) {
+	      sb.append(getTables().get(t_itr.next()).toShortString());
+	    }
+	  sb.append("--------------end------------\n");
+	  return sb.toString();
   }
   
   public void printQueries() {
@@ -121,7 +158,7 @@ public HashMap<String, Relation> getRels() {
       Iterator<Column> _t1_jkey_itr = _r.getT1_jkey().iterator();
       while (_t1_jkey_itr.hasNext()) {
         Column _c = _t1_jkey_itr.next();
-        String _ckey = _c.getFamily() + _c.getKey();
+        String _ckey = _c.getFamily() + _c.getName();
         Column c = ct.get(_r.getT1().getName()).getColumns().get(_ckey);
         ct1_jkey.add(c);
       }
@@ -131,7 +168,7 @@ public HashMap<String, Relation> getRels() {
       Iterator<Column> _t2_jkey_itr = _r.getT1_jkey().iterator();
       while (_t2_jkey_itr.hasNext()) {
         Column _c = _t2_jkey_itr.next();
-        String _ckey = _c.getFamily() + _c.getKey();
+        String _ckey = _c.getFamily() + _c.getName();
         Column c = ct.get(_r.getT1().getName()).getColumns().get(_ckey);
         ct2_jkey.add(c);
       }
@@ -165,7 +202,7 @@ public HashMap<String, Relation> getRels() {
       while (cc_itr.hasNext()) {
         String ck = cc_itr.next();
         Column c = t.getColumns().get(ck);
-        c.setKey(c.getKey() + "_mod");
+        c.setName(c.getName() + "_mod");
       }
     }
     //modify the cloned query

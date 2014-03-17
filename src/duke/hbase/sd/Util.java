@@ -170,11 +170,11 @@ public class Util {
           int size = Integer.parseInt(((Element) columnList.item(j)).getAttribute("size"));
           int keysize = columnList.item(j).getTextContent().length();
           
-          col.setKey(name);
+          col.setName(name);
           col.setType(type);
           col.setAverage_key_size(keysize);
           col.setAverage_value_size(size);
-          cols.put(col.getFamily()+col.getKey(), col);
+          cols.put(col.getFamily()+col.getName(), col);
         }
         t.setColumns(cols);
 

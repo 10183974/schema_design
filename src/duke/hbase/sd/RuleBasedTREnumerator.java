@@ -62,6 +62,43 @@ public class RuleBasedTREnumerator {
 	    };
 	}
 	
+	private boolean isValid(Application app, Transformation tr) {
+		boolean isValid = false;
+		if(tr.getType().equals("join")) {
+			Table t1 = (Table)tr.getArguments().get(0);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t1_jkeys = (ArrayList<Column>) tr.getArguments().get(1);
+			Table t2 = (Table) tr.getArguments().get(2);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t2_jkeys = (ArrayList<Column>) tr.getArguments().get(3);
+			if(t1.areColumns(t1_jkeys) && t2.areColumns(t2_jkeys)) {
+				isValid = true;
+			}
+		}
+		if(tr.getType().equals("nesting")) {
+			Table t1 = (Table)tr.getArguments().get(0);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t1_jkeys = (ArrayList<Column>) tr.getArguments().get(1);
+			Table t2 = (Table) tr.getArguments().get(2);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t2_jkeys = (ArrayList<Column>) tr.getArguments().get(3);
+			
+			Integer[] cardinality = app.getCardinality(t1.getName(), t2.getName());
+	
+			if(cardinality[0]==1){
+				if(t1.areRowKeys(t1_jkeys) && t2.areColumns(t2_jkeys)) {
+					isValid = true;
+				}
+			}
+			if(cardinality[1]==1) {
+				if(t2.areRowKeys(t2_jkeys) && t1.areColumns(t1_jkeys)) {
+					isValid = true;
+				}
+			}
+		}
+		return isValid;
+	}
+	
 	private Collection<? extends Transformation> generateJoinAndNestingTR(Application app, Query q) throws Exception{
 		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
 		HashMap<String, String> tables = new HashMap<String, String>();
@@ -72,10 +109,10 @@ public class RuleBasedTREnumerator {
 			TSelectSqlStatement qstmt = (TSelectSqlStatement) sqlparser.getSqlstatements().get(0);
 			TJoin full_join_clause = qstmt.joins.getJoin(0);
 			TTable first_t = full_join_clause.getTable();
-			System.out.println("first table " + first_t.getName() + " " + first_t.getAliasClause());
+			//System.out.println("first table " + first_t.getName() + " " + first_t.getAliasClause());
 			tables.put(first_t.getAliasClause().toString(), first_t.getName());
 			TJoinItemList join_items = full_join_clause.getJoinItems();
-			System.out.println("join item count " + join_items.size());
+			//System.out.println("join item count " + join_items.size());
 			for(int i=0; i<join_items.size(); i++) {
 				Transformation j_tr = new Transformation();
 				Transformation n_tr = new Transformation();
@@ -86,9 +123,11 @@ public class RuleBasedTREnumerator {
 				Method nesting = Class.forName("duke.hbase.sd.TransformationMethods").
 						getDeclaredMethod("nesting", Application.class, Query.class, Table.class, ArrayList.class, Table.class, ArrayList.class);
 				j_tr.setTransformationRule(join);
+				j_tr.setType("join");
 				n_tr.setTransformationRule(nesting);
+				n_tr.setType("nesting");
 				TJoinItem join_item = (TJoinItem) join_items.elementAt(i);
-				System.out.println(i + "-->" + join_item.toString());
+				//System.out.println(i + "-->" + join_item.toString());
 				TTable next_t = join_item.getTable();
 				tables.put(next_t.getAliasClause().toString(), next_t.getName());
 				TExpression t_exp = join_item.getOnCondition();
@@ -100,7 +139,7 @@ public class RuleBasedTREnumerator {
 				while(e_itr.hasNext()) {
 					String alias = e_itr.next();
 					ArrayList<String> cols = ev.keys.get(alias);
-					System.out.println( alias + "(" + cols + ")-> " +  tables.get(alias));
+					//System.out.println( alias + "(" + cols + ")-> " +  tables.get(alias));
 					if(t1==null) {
 						t1 = app.getTables().get(tables.get(alias));
 					    Iterator<String> jkey_itr = cols.iterator();
@@ -126,8 +165,12 @@ public class RuleBasedTREnumerator {
 				}
 				j_tr.setArguments(args);
 				n_tr.setArguments(args);
-				tr_list.add(j_tr);
-				tr_list.add(n_tr);
+				if(isValid(app, j_tr)) {
+					tr_list.add(j_tr);
+				}
+				if(isValid(app, n_tr)) {
+					tr_list.add(n_tr);
+				}
 			}
 		}
 		else {
