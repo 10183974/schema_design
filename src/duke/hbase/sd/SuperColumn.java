@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class SuperColumn {
+public class SuperColumn implements Cloneable {
 	private static int supercolumn_count = 0;
 
 	private int id;

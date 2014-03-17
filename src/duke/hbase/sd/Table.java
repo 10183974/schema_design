@@ -72,6 +72,34 @@ public class Table implements Cloneable {
 	public static int getTableId() {
 		return table_count++;
 	}
+	
+	public boolean areRowKeys(ArrayList<Column> t1_jkeys) {
+		boolean areRowkeys = true;
+		for(Column c: t1_jkeys) {
+			if(!getRowkey().contains(c)) {
+				areRowkeys = false;
+			}
+		}
+		return areRowkeys;
+	}
+	
+	public boolean areColumns(ArrayList<Column> cols) {
+		boolean areColumns = true;
+		for(Column c: cols) {
+			if(!getColumns().containsKey(c.getFamily()+c.getName())) {
+				areColumns = false;
+			}
+		}
+		return areColumns;
+	}
+	
+	public boolean isFatTable() {
+		boolean isfat = false;
+		if(this.getSuperColumns()!=null && this.getSuperColumns().size()>0) {
+			isfat=true;
+		}
+		return isfat;
+	}
 
 	public String toString() {
 		StringBuffer sb = new StringBuffer();

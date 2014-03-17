@@ -7,6 +7,7 @@ import java.util.Iterator;
 public class Transformation {
 
 	private Query q;
+	private String	type; 
 	private Method transformationRule;
 	private ArrayList<Object> arguments;
 	
@@ -27,6 +28,12 @@ public class Transformation {
 	}
 	public void setArguments(ArrayList<Object> arguments) {
 		this.arguments = arguments;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String toString() {
 		StringBuffer sb = new StringBuffer();

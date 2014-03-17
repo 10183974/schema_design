@@ -62,6 +62,43 @@ public class RuleBasedTREnumerator {
 	    };
 	}
 	
+	private boolean isValid(Application app, Transformation tr) {
+		boolean isValid = false;
+		if(tr.getType().equals("join")) {
+			Table t1 = (Table)tr.getArguments().get(0);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t1_jkeys = (ArrayList<Column>) tr.getArguments().get(1);
+			Table t2 = (Table) tr.getArguments().get(2);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t2_jkeys = (ArrayList<Column>) tr.getArguments().get(3);
+			if(t1.areColumns(t1_jkeys) && t2.areColumns(t2_jkeys)) {
+				isValid = true;
+			}
+		}
+		if(tr.getType().equals("nesting")) {
+			Table t1 = (Table)tr.getArguments().get(0);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t1_jkeys = (ArrayList<Column>) tr.getArguments().get(1);
+			Table t2 = (Table) tr.getArguments().get(2);
+			@SuppressWarnings("unchecked")
+			ArrayList<Column> t2_jkeys = (ArrayList<Column>) tr.getArguments().get(3);
+			
+			Integer[] cardinality = app.getCardinality(t1.getName(), t2.getName());
+	
+			if(cardinality[0]==1){
+				if(t1.areRowKeys(t1_jkeys) && t2.areColumns(t2_jkeys)) {
+					isValid = true;
+				}
+			}
+			if(cardinality[1]==1) {
+				if(t2.areRowKeys(t2_jkeys) && t1.areColumns(t1_jkeys)) {
+					isValid = true;
+				}
+			}
+		}
+		return isValid;
+	}
+	
 	private Collection<? extends Transformation> generateJoinAndNestingTR(Application app, Query q) throws Exception{
 		ArrayList<Transformation> tr_list = new ArrayList<Transformation>();
 		HashMap<String, String> tables = new HashMap<String, String>();
@@ -86,7 +123,9 @@ public class RuleBasedTREnumerator {
 				Method nesting = Class.forName("duke.hbase.sd.TransformationMethods").
 						getDeclaredMethod("nesting", Application.class, Query.class, Table.class, ArrayList.class, Table.class, ArrayList.class);
 				j_tr.setTransformationRule(join);
+				j_tr.setType("join");
 				n_tr.setTransformationRule(nesting);
+				n_tr.setType("nesting");
 				TJoinItem join_item = (TJoinItem) join_items.elementAt(i);
 				//System.out.println(i + "-->" + join_item.toString());
 				TTable next_t = join_item.getTable();
@@ -126,8 +165,12 @@ public class RuleBasedTREnumerator {
 				}
 				j_tr.setArguments(args);
 				n_tr.setArguments(args);
-				tr_list.add(j_tr);
-				tr_list.add(n_tr);
+				if(isValid(app, j_tr)) {
+					tr_list.add(j_tr);
+				}
+				if(isValid(app, n_tr)) {
+					tr_list.add(n_tr);
+				}
 			}
 		}
 		else {

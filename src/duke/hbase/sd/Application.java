@@ -65,6 +65,31 @@ public HashMap<String, Relation> getRels() {
 	  this.getTables().put(t.getName(), t);
   }
 
+  public Integer[] getCardinality(String t1, String t2) {
+	  Iterator<String> r_itr = this.getRels().keySet().iterator();
+	  String cardinalityOfJoin = "";
+	  Integer[] card = new Integer[2]; 
+	  Relation _joinrel = null;
+	  String _joinrelkey = null;
+	  while(r_itr.hasNext()) {
+		 _joinrelkey = r_itr.next();
+		 _joinrel = this.getRels().get(_joinrelkey);
+		 if((_joinrel.getT1().getName().equals(t1) &&
+			_joinrel.getT2().getName().equals(t2))) {
+			 cardinalityOfJoin = _joinrel.getCardinality();
+			 card[0] = Integer.parseInt(cardinalityOfJoin.split(":")[0]);
+			 card[1] = Integer.parseInt(cardinalityOfJoin.split(":")[1]);
+		 }
+			if(_joinrel.getT2().getName().equals(t1) &&
+			_joinrel.getT1().getName().equals(t2)) {
+			 cardinalityOfJoin = _joinrel.getCardinality();
+			 card[0] = Integer.parseInt(cardinalityOfJoin.split(":")[1]);
+			 card[1] = Integer.parseInt(cardinalityOfJoin.split(":")[0]);			 
+		 }
+	  }
+	  return card;
+	}
+
   public String toString() {
     StringBuffer sb = new StringBuffer();
     sb.append("---------------------\n");
