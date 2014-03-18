@@ -79,12 +79,14 @@ public HashMap<String, Relation> getRels() {
 			 cardinalityOfJoin = _joinrel.getCardinality();
 			 card[0] = Integer.parseInt(cardinalityOfJoin.split(":")[0]);
 			 card[1] = Integer.parseInt(cardinalityOfJoin.split(":")[1]);
+        break;
 		 }
 			if(_joinrel.getT2().getName().equals(t1) &&
 			_joinrel.getT1().getName().equals(t2)) {
 			 cardinalityOfJoin = _joinrel.getCardinality();
 			 card[0] = Integer.parseInt(cardinalityOfJoin.split(":")[1]);
-			 card[1] = Integer.parseInt(cardinalityOfJoin.split(":")[0]);			 
+        card[1] = Integer.parseInt(cardinalityOfJoin.split(":")[0]);
+        break;
 		 }
 	  }
 	  return card;

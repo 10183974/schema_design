@@ -52,6 +52,29 @@
 		<primarykey>N_NATIONKEY</primarykey>
 		<rowcount>170</rowcount>
 	</table>
+	<table>
+		<name>LINEITEM</name>
+		<columns>
+			<column type="INTEGER"	size="16">L_ORDERKEY</column>
+			<column type="INTEGER"	size="16">L_PARTKEY</column>
+			<column	type="INTEGER"	size="16">L_SUPPKEY</column>
+			<column	type="INTEGER"	size="16">L_LINENUMBER</column>
+			<column	type="DOUBLE"	size="32">L_QUANTITY</column>
+			<column	type="DOUBLE"	size="32">L_EXTENDEDPRICE</column>
+			<column	type="DOUBLE"	size="32">L_DISCOUNT</column>
+			<column	type="DOUBLE"	size="32">L_TAX</column>
+			<column	type="VARCHAR"	size="48">L_RETURNFLAG</column>
+			<column	type="VARCHAR"	size="48">L_LINESTATUS</column>
+			<column type="VARCHAR"	size="48">L_SHIPDATE</column>
+			<column type="VARCHAR"	size="48">L_COMMITDATE</column>
+			<column type="VARCHAR"	size="48">L_RECEIPTDATE</column>
+			<column type="VARCHAR"	size="48">L_SHIPINSTRUCT</column>
+			<column	type="VARCHAR"	size="48">L_SHIPMODE</column>
+			<column type="VARCHAR"	size="200">L_COMMENT</column>
+		</columns>
+		<primarykey>L_ORDERKEY,L_LINENUMBER</primarykey>
+		<rowcount>10000000</rowcount>
+	</table>
 	<relationships>
 		<relationship>
 			<cardinality table1="CUSTOMER" table2="ORDERS">1:100</cardinality>
@@ -68,5 +91,10 @@
 			<joinkey pos="1">R_REGIONKEY</joinkey>
 			<joinkey pos="2">N_REGIONKEY</joinkey>
 		</relationship>
+		<relationship>
+			<cardinality table1="ORDERS" table2="LINEITEM">1:10</cardinality>
+			<joinkey pos="1">O_ORDERKEY</joinkey>
+			<joinkey pos="2">L_ORDERKEY</joinkey>
+		</relationship>	
 	</relationships>
 </Schema>
