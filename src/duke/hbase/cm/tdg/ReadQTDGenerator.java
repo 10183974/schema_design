@@ -11,7 +11,9 @@ public class ReadQTDGenerator extends TDGenerator  {
 	public String prepareQuery(Schema schema) {
 	
 		Table o_table = schema.getTableList().get(1);
-		String queryStr = "select * from " +  o_table.getName() +  " where o_orderkey = 1000";
+		double max_value = 9999.99;
+	    double value = Math.random() * max_value;
+		String queryStr = "select * from " +  o_table.getName() +  " where o_orderkey = " + Double.toString(value);
 		return queryStr;	
 	}
 	@Override
@@ -24,7 +26,7 @@ public class ReadQTDGenerator extends TDGenerator  {
         builder.append(Integer.toString(1) + "\t");
 		//(3).  number of server side threads	
 		builder.append(Integer.toString(4) + "\t");
-		//(4). number of rows 
+		//(4). log of the number of rows 
 		builder.append(Double.toString(Math.log(table.getNumRows())) + "\t");
 		//(5). number of columns
 		builder.append(Integer.toString(table.getNumColumns()) + "\t");
