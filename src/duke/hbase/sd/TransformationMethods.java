@@ -271,14 +271,14 @@ public class TransformationMethods {
           }
           break;
         case "write":
-          q.setQuerystr(updateNameAndFields(sqlparser, t1, t2, t1_jkeys, t2_jkeys, t));
+          q.setQuerystr(updateNameAndFields(sqlparser, t1, t2, t1_jkeys, t2_jkeys, t_n));
           break;
         case "update":
           // not handled correctly
-          q.setQuerystr(updateNameAndFields(sqlparser, t1, t2, t1_jkeys, t2_jkeys, t));
+          q.setQuerystr(updateNameAndFields(sqlparser, t1, t2, t1_jkeys, t2_jkeys, t_n));
           break;
         case "join":
-          renameTablesAndRemoveJoinItem(sqlparser, q, t1, t2, t, from);
+          renameTablesAndRemoveJoinItem(sqlparser, q, t1, t2, t_n, from);
           break;
         default:
           System.out.println("Error: invalid query type " + _q);
