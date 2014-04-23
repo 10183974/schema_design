@@ -41,19 +41,19 @@ public class TRSelector {
     cm_join.stop();
   }
 
-  public Double cost(Application app) {
-    return new Double(app.toString().length());
-  }
-
   public Transformation select(Application _app) throws Exception {
     System.out.println("Inside TRSelector.select()");
     System.out.println("printing argument app");
     System.out.println(_app.toShortString());
     Transformation selected_transformation = null;
-    Double selected_app_cost = Double.MAX_VALUE;
+    Double selected_app_penalty = Double.MAX_VALUE;
     RuleBasedTREnumerator rte = new RuleBasedTREnumerator();
     ArrayList<Transformation> transformations = rte.enumerate(_app);
-
+    
+    if(transformations.size()<=0) {
+    	return null;
+    }
+    
     Iterator<Transformation> tr_itr = transformations.iterator();
     Application app = null;
     while (tr_itr.hasNext()) {
@@ -71,12 +71,14 @@ public class TRSelector {
       }
       System.out.println("application after transformation");
       System.out.println(app.toShortString());
-      Double new_cost = cost(app);
-      if (new_cost < selected_app_cost) {
-        selected_app_cost = new_cost;
+      Double penaltyOfNewApp = SchemaDesignImpl.penalty(app);
+      if (penaltyOfNewApp < selected_app_penalty) {
+        selected_app_penalty = penaltyOfNewApp;
         selected_transformation = tr;
       }
     }
+    System.out.println("printing selected transformation");
+    System.out.println(selected_transformation.toShortString());
     return selected_transformation;
   }
 

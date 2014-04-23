@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='us-ascii'?>
+<workload>
+  <query id="1">
+    <stmt>select o.O_ORDERKEY from ORDERS o where o.O_ORDERSTATUS='1'</stmt>
+    <type>scan</type>
+    <desired_throughput>100</desired_throughput>
+    <desired_latency>10</desired_latency>
+    <stats>
+      <stat type="rows_scanned">1000</stat>
+    </stats>
+  </query>
+  <query id="2">
+    <stmt>insert into ORDERS values(?,?,?, ?, ?, ?)</stmt>
+    <type>write</type>
+    <desired_throughput>100</desired_throughput>
+    <desired_latency>10</desired_latency>
+  </query>
+  <query id="3">
+    <stmt>select c.C_NAME, o.O_ORDERDATE, o.O_SHIPPRIORITY from CUSTOMER c join ORDERS o on  c.C_CUSTKEY=o.O_CUSTKEY join NATION n on n.N_NATIONKEY=c.C_NATIONKEY where o.O_ORDERSTATUS=3</stmt>
+    <type>join</type>
+    <desired_throughput>10</desired_throughput>
+    <desired_latency>300</desired_latency>
+    <stats>
+      <stat type="">25</stat>
+    </stats>
+  </query>
+  <query id="4">
+    <stmt>select o.O_ORDERKEY, o.O_ORDERSTATUS from ORDERS o where o.O_ORDERKEY='100'</stmt>
+    <type>read</type>
+    <desired_throughput>1000</desired_throughput>
+    <desired_latency>10</desired_latency>
+    <stats>
+      <stat type="numberofrowsread">1</stat>
+    </stats> 
+  </query> 
+</workload>

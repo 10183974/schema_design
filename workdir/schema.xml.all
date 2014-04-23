@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='us-ascii'?> 
+<Schema>
+	<table>
+		<name>CUSTOMER</name>
+		<columns>
+			<column type="INTEGER" size="16">C_CUSTKEY</column>
+            		<column type="VARCHAR" size="10">C_NAME</column> 
+            		<column type="VARCHAR" size="30">C_ADDRESS</column>
+            		<column type="INTEGER" size="16">C_NATIONKEY</column> 
+            		<column type="VARCHAR" size="10">C_PHONE</column> 
+            		<column type="VARCHAR" size="16">C_ACCTBAL</column>
+            		<column type="VARCHAR" size="10">C_MKTSEGMENT</column>   
+            		<column type="VARCHAR" size="100">C_COMMENT</column>
+		</columns>
+		<primarykey>C_CUSTKEY</primarykey>
+		<rowcount>1000000</rowcount>
+	</table>
+	<table>
+		<name>ORDERS</name>
+		<columns>
+			<column type="INTEGER" size="16">O_ORDERKEY</column>
+			<column type="INTEGER" size="16">O_CUSTKEY</column>
+			<column type="VARCHAR" size="10">O_ORDERSTATUS</column>
+			<column type="DOUBLE"  size="16">O_TOTALPRICE</column>
+			<column type="VARCHAR" size="10">O_ORDERDATE</column>
+			<column type="VARCHAR" size="10">O_ORDERPRIORITY</column>
+			<column type="VARCHAR" size="10">O_CLERK</column>
+			<column type="INTEGER" size="10">O_SHIPPRIORITY</column>
+			<column type="VARCHAR" size="100">O_COMMENT</column>
+		</columns>
+	    <primarykey>O_ORDERKEY</primarykey>
+	    <rowcount>1000000</rowcount>
+	</table>
+	<table>
+		<name>REGION</name>
+		<columns>
+			<column type="INTEGER" size="16">R_REGIONKEY</column>
+			<column type="VARCHAR" size="30">R_NAME</column>
+			<column type="VARCHAR" size="100">R_COMMENT</column>
+		</columns>
+		<primarykey>R_REGIONKEY</primarykey>
+		<rowcount>24</rowcount>
+	</table>
+	<table>
+		<name>NATION</name>
+		<columns>
+			<column type="INTEGER" size="16">N_NATIONKEY</column>
+			<column type="VARCHAR" size="30">N_NAME</column>
+			<column type="INTEGER" size="16">N_REGIONKEY</column>
+			<column type="VARCHAR" size="100">N_COMMENT</column>
+		</columns>
+		<primarykey>N_NATIONKEY</primarykey>
+		<rowcount>170</rowcount>
+	</table>
+	<table>
+		<name>LINEITEM</name>
+		<columns>
+			<column type="INTEGER"	size="16">L_ORDERKEY</column>
+			<column type="INTEGER"	size="16">L_PARTKEY</column>
+			<column	type="INTEGER"	size="16">L_SUPPKEY</column>
+			<column	type="INTEGER"	size="16">L_LINENUMBER</column>
+			<column	type="DOUBLE"	size="32">L_QUANTITY</column>
+			<column	type="DOUBLE"	size="32">L_EXTENDEDPRICE</column>
+			<column	type="DOUBLE"	size="32">L_DISCOUNT</column>
+			<column	type="DOUBLE"	size="32">L_TAX</column>
+			<column	type="VARCHAR"	size="48">L_RETURNFLAG</column>
+			<column	type="VARCHAR"	size="48">L_LINESTATUS</column>
+			<column type="VARCHAR"	size="48">L_SHIPDATE</column>
+			<column type="VARCHAR"	size="48">L_COMMITDATE</column>
+			<column type="VARCHAR"	size="48">L_RECEIPTDATE</column>
+			<column type="VARCHAR"	size="48">L_SHIPINSTRUCT</column>
+			<column	type="VARCHAR"	size="48">L_SHIPMODE</column>
+			<column type="VARCHAR"	size="200">L_COMMENT</column>
+		</columns>
+		<primarykey>L_ORDERKEY,L_LINENUMBER</primarykey>
+		<rowcount>10000000</rowcount>
+	</table>
+	<relationships>
+		<relationship>
+			<cardinality table1="CUSTOMER" table2="ORDERS">1:100</cardinality>
+			<joinkey pos="1">C_CUSTKEY</joinkey>
+			<joinkey pos="2">O_CUSTKEY</joinkey>
+		</relationship>
+		<relationship>
+			<cardinality table1="NATION" table2="CUSTOMER">1:10000</cardinality>
+			<joinkey pos="1">N_NATIONKEY</joinkey>
+			<joinkey pos="2">C_NATIONKEY</joinkey>
+		</relationship>
+		<relationship>
+			<cardinality table1="REGION" table2="NATION">1:10</cardinality>
+			<joinkey pos="1">R_REGIONKEY</joinkey>
+			<joinkey pos="2">N_REGIONKEY</joinkey>
+		</relationship>
+		<relationship>
+			<cardinality table1="ORDERS" table2="LINEITEM">1:10</cardinality>
+			<joinkey pos="1">O_ORDERKEY</joinkey>
+			<joinkey pos="2">L_ORDERKEY</joinkey>
+		</relationship>	
+	</relationships>
+</Schema>

@@ -7,12 +7,12 @@ import java.util.Iterator;
 
 public class SchemaDesignImpl {
 
-  private static double COST_THRESOLD = 2;
+  private static double COST_THRESOLD = 0;
   private static int MAX_LOOP_COUNT = 10;
   public static Connection conn = null;
 
-  private static double cost(ArrayList<Query> queries) {
-    double max_cost = 0;
+  public static double penalty(Application app) {
+    double max_cost = 1;
     // Iterator<Query> itr = queries.iterator();
     //
     // while (itr.hasNext()) {
@@ -39,15 +39,37 @@ public class SchemaDesignImpl {
 
     Application app_ini = Util.initApplication(new String[] {"workdir/schema.xml", "workdir/workload.xml"});
     TransformationMethods tr_methods = new TransformationMethods();   
+    Class<?> tm = Class.forName("duke.hbase.sd.TransformationMethods");
     TRSelector tr_selector = new TRSelector();
     int loop_counter = 0;
     Application app = Util.getRandomApplication(app_ini);
     
-    while (cost(app_ini.getQueries()) > COST_THRESOLD || loop_counter < MAX_LOOP_COUNT) {
+    double penalty = penalty(app);
+    
+    while (penalty > COST_THRESOLD && loop_counter < MAX_LOOP_COUNT) {
       Transformation tr = tr_selector.select(app);	
-      app = (Application) tr.getTransformationRule().invoke(tr_methods, tr.getArguments());
+      
+      if(tr!=null) {
+    	  System.out.println("No transformation rule is selected");
+    	  break;
+      }
+      
+      Method tr_method = tr.getTransformationRule();
+      ArrayList<Object> tr_args = tr.getArguments();
+
+      if ("join".equals(tr.getType()) || "nesting".equals(tr.getType())) {
+        app =
+            (Application) tr_method.invoke(tm.newInstance(), app, tr.getQ(), tr_args.get(0),
+              tr_args.get(1), tr_args.get(2), tr_args.get(3));
+      }
+      
       loop_counter++;
     }
+    
+    System.out.println("printing application after iterations ends");
+    System.out.println("penalty score of below app " + penalty );
+    System.out.println(app.toShortString());
+    
     System.exit(0);
   }
 

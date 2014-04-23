@@ -321,6 +321,6 @@ public class Util {
 
 public static Application getRandomApplication(Application app_ini) {
 	// TODO Auto-generated method stub
-	return null;
+	return app_ini;
 }
 }
