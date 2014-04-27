@@ -71,6 +71,29 @@ public class Table implements Cloneable {
   public static int getTableId() {
     return table_count++;
   }
+  
+  public int getAverageColumnLen() {
+	  int totalColumnLen = 0;
+	  int columnCount = 0;
+	  
+	  // columnkey size currently ignored
+	  Set<String> keys = getColumns().keySet();
+	  Iterator<String> kitr = keys.iterator();
+	  while (kitr.hasNext()) {
+	    String key = kitr.next();
+	    totalColumnLen += getColumns().get(key).getAverage_value_size();
+	    columnCount++;
+	  }
+	  
+	  Iterator<String> sck_itr = getSuperColumns().keySet().iterator();
+	  while (sck_itr.hasNext()) {
+	    String sckey = sck_itr.next();
+	    SuperColumn sc = getSuperColumns().get(sckey);
+	    totalColumnLen += sc.getNumberOfSuperColumnPerRow() * sc.getTotalColumnLen();
+	    columnCount++;
+	  }
+	  return totalColumnLen/columnCount;
+  }
 
   public boolean areRowKeys(ArrayList<Column> t1_jkeys) {
     boolean areRowkeys = true;
@@ -256,6 +279,11 @@ public class Table implements Cloneable {
     Iterator<String> ot_itr = app.getTables().keySet().iterator();
     while (ot_itr.hasNext()) {
       System.out.println(app.getTables().get(ot_itr.next()).toString());
+    }
+    
+    t_itr = tables.keySet().iterator();
+    while (t_itr.hasNext()) {
+    	System.out.println(tables.get(t_itr.next()).getColumns());
     }
 
   }

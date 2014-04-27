@@ -3,6 +3,7 @@ package duke.hbase.sd;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 public class SuperColumn implements Cloneable {
 	private static int supercolumn_count = 0;
@@ -49,6 +50,20 @@ public class SuperColumn implements Cloneable {
 	
 	public static int getSuperColumnId() {
 		return supercolumn_count++;
+	}
+	
+	public int getTotalColumnLen() {
+        int totalColLen = 0;
+		
+		//not considering columnkey length
+		Set<String> keys = getColumns().keySet();
+		Iterator<String> kitr = keys.iterator();
+		while (kitr.hasNext()) {
+		  String key = kitr.next();
+		  totalColLen += getColumns().get(key).getAverage_value_size();
+		}
+		
+		return totalColLen;
 	}
 	
 	public String toString() {

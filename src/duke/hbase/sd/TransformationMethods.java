@@ -279,6 +279,12 @@ public class TransformationMethods {
           break;
         case "join":
           renameTablesAndRemoveJoinItem(sqlparser, q, t1, t2, t_n, from);
+          if(q.getTables(app).size()==1) {
+        	  q.setType("scan");
+          }
+          else {
+        	  q.setType("join");
+          }
           break;
         default:
           System.out.println("Error: invalid query type " + _q);
