@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./bin/ycsb run hbase -P workloads/workloada.f -p columnfamily=family -p operationcount=$1 -p threadcount=$2 -p requestdistribution=$4 -s > $3

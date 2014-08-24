@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/home/hadoop/git/schema_design/ycsb-0.1.4/bin/ycsb load hbase -P /home/hadoop/git/schema_design/ycsb-0.1.4/workloads/load -p columnfamily=family -p recordcount=$1 -p threadcount=$2 -s > $3
