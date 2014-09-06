@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+  <workload name="sample workload">
+  <query name="update">
+   <statement>UPSERT INTO usertable VALUES (?,?,?)</statement>
+   <binds>
+     <binding pos="2">zipfian</binding>
+     <binding pos="3">uniform</binding>
+   </binds>
+   <proportion>0.8</proportion>
+  </query>
+  </workload>

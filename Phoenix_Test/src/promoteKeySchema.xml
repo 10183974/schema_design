@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+  <schema>
+    <table name="my_table">
+      <statement>CREATE TABLE IF NOT EXISTS MY_SCHEMA9 (id VARCHAR not null primary key, f.b VARCHAR, f.c VARCHAR, f.d VARCHAR)
+      SPLIT ON ('user2','user3','user4','user5','user6','user7')
+      </statement>
+    </table>
+  </schema>

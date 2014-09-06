@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<schema>
+    <table name="my_table">
+      <statement> CREATE TABLE table1 (id VARCHAR not null primary key desc, f1.date DATE, f2.db_utilization DECIMAL) 
+      </statement>
+    </table>
+</schema>

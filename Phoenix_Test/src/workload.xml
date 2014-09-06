@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+  <workload name="sample workload">
+  <query name="read">
+   <statement>SELECT * FROM usertable WHERE user_id=? and user_location=?</statement>
+   <binds>
+     <binding pos="1">zipfian</binding>
+     <binding pos="2">uniform</binding>
+   </binds>
+   <proportion>0.8</proportion>
+  </query>
+  
+  <query name="update">
+   <statement>UPSERT INTO usertable VALUES (?,?,?)</statement>
+   <binds>
+     <binding pos="2">zipfian</binding>
+     <binding pos="3">uniform</binding>
+   </binds>
+   <proportion>0.8</proportion>
+  </query>
+  </workload>

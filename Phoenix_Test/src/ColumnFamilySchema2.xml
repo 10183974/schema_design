@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+  <schema>
+    <table name="my_table">
+      <statement>CREATE TABLE IF NOT EXISTS MY_SCHEMA2 (id VARCHAR not null primary key, f1.b VARCHAR, f2.c VARCHAR) 
+      </statement>
+    </table>
+  </schema>
