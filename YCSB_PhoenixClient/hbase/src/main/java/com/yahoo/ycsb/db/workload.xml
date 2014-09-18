@@ -6,6 +6,6 @@
      <binding pos="1">zipfian</binding>
      <binding pos="2">uniform</binding>
    </binds>
-   <proportion>0.8</queryproportion>
+   <proportion>0.8</proportion>
   </query>
   </workload>

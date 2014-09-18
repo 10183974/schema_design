@@ -369,7 +369,7 @@ public class CoreWorkload extends Workload
 			/**
 			 * use WorkloadParse in Phoenix Test to read in the workload information from workload.xml
 			 * */
-			File fXmlFile = new File("/home/hadoop/git/schema_design/phoenix_workdir/xml/w_insertdata.xml");
+			File fXmlFile = new File(p.getProperty("workloadfile"));
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
@@ -683,8 +683,8 @@ public class CoreWorkload extends Workload
 	{
 		int keynum=keysequence.nextInt();
 		String dbkey = buildKeyName(keynum);
-		//HashMap<String, ByteIterator> values = buildValues();
-		HashMap<String, ByteIterator> values = buildValue(insertbinds);
+		HashMap<String, ByteIterator> values = buildValues();
+		//HashMap<String, ByteIterator> values = buildValue(insertbinds);
 		if (db.insert(table,dbkey,values) == 0)
 			return true;
 		else
@@ -820,8 +820,8 @@ public class CoreWorkload extends Workload
 	public void doTransactionScan(DB db)
 	{
 		//choose a random key
-		//int keynum = nextKeynum();
-		int keynum = nextKeynum2(scanKey);
+		int keynum = nextKeynum();
+		//int keynum = nextKeynum2(scanKey);
 		String startkeyname = buildKeyName(keynum);
 		
 		//choose a random scan length

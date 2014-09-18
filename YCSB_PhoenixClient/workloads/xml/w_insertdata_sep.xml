@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <workload name="sample workload">
+  <query name="insert">
+   <statement>UPSERT INTO separate_cf_table VALUES (?,?,?,?,?)</statement>
+   <binds>
+     <binding pos="1">uniform</binding>
+     <binding pos="2">uniform</binding>
+     <binding pos="3">uniform</binding>
+     <binding pos="4">uniform</binding>
+     <binding pos="5">uniform</binding>
+   </binds>
+   <proportion>1.0</proportion>
+  </query>
+  </workload>

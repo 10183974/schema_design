@@ -36,7 +36,7 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>yahoo005.nicl.cs.duke.edu,yahoo006.nicl.cs.duke.edu,yahoo007.nicl.cs.duke.edu,yahoo008.nicl.duke.edu</value>
+    <value>yahoo005.nicl.cs.duke.edu,yahoo006.nicl.cs.duke.edu,yahoo007.nicl.cs.duke.edu,yahoo008.nicl.cs.duke.edu</value>
   </property>
     <property>
     <name>hbase.cluster.distributed</name>

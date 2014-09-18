@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>This is a property and workload file for phoenix in YCSB </comment>
+<entry key="exportfile">/home/hadoop/git/schema_design/phoenix_workdir/output.dat</entry>
+<entry key="recordcount">10000</entry>
+<entry key="operationcount">10000</entry>
+<entry key="workload">com.yahoo.ycsb.workloads.CoreWorkload</entry>
+<entry key="requestdistribution">zipfian</entry>
+
+</properties>

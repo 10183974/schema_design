@@ -1,0 +1,4 @@
+#! /bin/bash
+
+#./RunAExperiment.sh fat_workloada /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql &> output.log 
+./RunAExperiment.sh workloada /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql &> output.log 

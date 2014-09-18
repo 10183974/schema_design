@@ -421,6 +421,7 @@ public class JdbcDBClient extends DB implements JdbcDBClientConstants {
 	    return -1;
 	  }
 	  try {
+		  System.out.println("jdbcdbclient key:" + key);
 	    int numFields = values.size();
 	    StatementType type = new StatementType(StatementType.Type.INSERT, tableName, numFields, getShardIndexByKey(key));
 	    PreparedStatement insertStatement = cachedStatements.get(type);
@@ -438,6 +439,7 @@ public class JdbcDBClient extends DB implements JdbcDBClientConstants {
       else return 1;
     } catch (SQLException e) {
       System.err.println("Error in processing insert to table: " + tableName + e);
+      e.printStackTrace();
       return -1;
     }
 	}

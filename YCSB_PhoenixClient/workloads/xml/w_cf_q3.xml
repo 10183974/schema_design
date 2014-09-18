@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<workload name="three column">
+ <query name="scan">
+  <statement>SELECT f1.column1, f1.column2, f1.column3 FROM single_cf_table</statement>
+  <proportion>1.0</proportion>
+ </query>
+</workload>

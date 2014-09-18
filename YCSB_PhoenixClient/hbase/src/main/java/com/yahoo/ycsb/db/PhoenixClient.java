@@ -81,11 +81,11 @@ public class PhoenixClient extends DB {
 	public void init() throws DBException {
 	    props=getProperties();
 	    try{
-		Class.forName("com.salesforce.phoenix.jdbc.PhoenixDriver");
+		Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
 		con = DriverManager.getConnection("jdbc:phoenix:yahoo005.nicl.cs.duke.edu,yahoo006.nicl.cs.duke.edu,yahoo007.nicl.cs.duke.edu,yahoo008.nicl.cs.duke.edu:2181",props);
 		System.out.println("Finish connection to phoenix database");
 		System.out.println(con.getAutoCommit());
-		File fXmlFile = new File("/home/hadoop/git/schema_design/phoenix_workdir/xml/single_cf_table.xml");
+		File fXmlFile = new File(props.getProperty("schemafile"));
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);
@@ -173,7 +173,7 @@ public class PhoenixClient extends DB {
 		//cachedPreparedStatement.put(read,readStatement);
 		//insert: initialize statement:
 		//parse an xml document to get the workload information, then build the prepareStatement according to this
-		File fXmlFile = new File("/home/hadoop/git/schema_design/phoenix_workdir/xml/w_insertdata.xml");
+		File fXmlFile = new File(props.getProperty("workloadfile"));
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);
@@ -299,8 +299,8 @@ public class PhoenixClient extends DB {
 	    ///String scan=props.getProperty("scan");
 	    try{
 		//PreparedStatement scanStatement=con.prepareStatement(scan);
-		scanStatement.setString(1, startKey);
-		scanStatement.setInt(2,recordcount);
+		//scanStatement.setString(1, startKey);
+		//scanStatement.setInt(2,recordcount);
 		//ResultSet resultSet = scanStatement.executeQuery();
 		scanStatement.executeQuery();
 		/* if (!resultSet.next()) {
@@ -343,6 +343,7 @@ public class PhoenixClient extends DB {
      */
     @Override
 	public int insert(String tableName, String key, HashMap<String, ByteIterator> values) {
+    	Thread.currentThread().dumpStack();
 	    if (tableName == null) {
 		return -1;
 	    }
@@ -355,19 +356,21 @@ public class PhoenixClient extends DB {
 		insertStatement.setString(1, key);
 		int index = 2;
 		for (Map.Entry<String, ByteIterator> entry : values.entrySet()) {
-		    //for (int i=0; i<10; i++) {
 		    String field = entry.getValue().toString();
-		    insertStatement.setString(index++, entry.getValue().toString());
-		    //insertStatement.setString(index++, "aaaaaaaaaaaaaaa");
+		    //System.out.println(index + " " + field );
+		    insertStatement.setString(index++, field);
 		}
 		insertStatement.executeUpdate();
-		//con.commit();
+		//System.out.println(key);
+		//System.out.println(values.toString());
+		con.commit();
 		//if (result == 1) return 0;
 		//else return 1;
 		//insertStatement.close();
 
 		} catch (SQLException e) {
 		    System.err.println("Error in processing insert to table: " + tableName + e);
+		    e.printStackTrace();
 		    return -1;
 		}
 		return 0;

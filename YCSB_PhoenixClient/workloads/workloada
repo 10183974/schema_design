@@ -24,7 +24,7 @@
 
 recordcount=500
 operationcount=500
-workload=com.yahoo.ycsb.workloads.CoreWorkload
+workload=com.yahoo.ycsb.workloads.OriginalCoreWorkload
 
 readallfields=true
 columnfamily=family

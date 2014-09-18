@@ -1,0 +1,10 @@
++ workloadfile=workloads/workloada
++ RESULT_DIR=./result/
++ SHORT_SLEEP_TIME=10
++ LONG_SLEEP_TIME=120
++ number_of_operations=600000
++ number_of_threads=20
++ output_file_suffix=.dat
++ echo 'droping the usertable...'
+droping the usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/drop_usertable.sql

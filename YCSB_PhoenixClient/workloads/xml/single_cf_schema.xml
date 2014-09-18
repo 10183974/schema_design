@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema>
+    <table name="single_cf_table">
+      <statement> CREATE TABLE if not exists single_cf_table (id VARCHAR not null primary key, f1.column1 VARCHAR, f1.column2 VARCHAR, f1.column3 VARCHAR, f1.column4 VARCHAR) 
+      </statement>
+    </table>
+</schema>
