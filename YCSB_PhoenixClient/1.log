@@ -7076,3 +7076,1263 @@ org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = 
  3640 sec: 218058 operations; 0 current ops/sec;   
  3650 sec: 218058 operations; 0 current ops/sec;   
  3660 sec: 218058 operations; 0 current ops/sec;   
+ 3670 sec: 218058 operations; 0 current ops/sec;   
+ 3680 sec: 218058 operations; 0 current ops/sec;   
+ 3690 sec: 218058 operations; 0 current ops/sec;   
+ 3700 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:16:34 INFO client.AsyncProcess: #17, table=usertable, attempt=10/35 failed 2366 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110593, waitTime=81485, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:31:15 EDT 2014, retrying after 4039 ms, replay 2366 ops.
+ 3710 sec: 218058 operations; 0 current ops/sec;   
+ 3720 sec: 218058 operations; 0 current ops/sec;   
+ 3730 sec: 218058 operations; 0 current ops/sec;   
+ 3740 sec: 218058 operations; 0 current ops/sec;   
+ 3750 sec: 218058 operations; 0 current ops/sec;   
+ 3760 sec: 218058 operations; 0 current ops/sec;   
+ 3770 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:17:52 INFO client.AsyncProcess: #17, table=usertable, attempt=11/35 SUCCEEDED on slave2,60020,1410910845141, tracking started Fri Sep 19 09:31:15 EDT 2014
+ 3780 sec: 218058 operations; 0 current ops/sec;   
+ 3790 sec: 218058 operations; 0 current ops/sec;   
+ 3800 sec: 218058 operations; 0 current ops/sec;   
+ 3810 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:18:27 INFO client.AsyncProcess: #10, table=usertable, attempt=10/35 failed 2303 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110677, waitTime=88182, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:50:12 EDT 2014, retrying after 2017 ms, replay 2303 ops.
+ 3820 sec: 218058 operations; 0 current ops/sec;   
+ 3830 sec: 218058 operations; 0 current ops/sec;   
+ 3840 sec: 218058 operations; 0 current ops/sec;   
+ 3850 sec: 218058 operations; 0 current ops/sec;   
+ 3860 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:19:15 INFO client.AsyncProcess: #7, table=usertable, attempt=11/35 failed 2342 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110677, waitTime=88182, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 10092 ms, replay 2342 ops.
+ 3870 sec: 218058 operations; 0 current ops/sec;   
+ 3880 sec: 218058 operations; 0 current ops/sec;   
+ 3890 sec: 218058 operations; 0 current ops/sec;   
+ 3900 sec: 218058 operations; 0 current ops/sec;   
+ 3910 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:20:07 INFO client.AsyncProcess: #10, table=usertable, attempt=11/35 failed 2303 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:50998 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:50:12 EDT 2014, retrying after 4026 ms, replay 2303 ops.
+ 3920 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:20:21 INFO client.AsyncProcess: #20, table=usertable, attempt=12/35 failed 2381 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110670, waitTime=87151, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 10041 ms, replay 2381 ops.
+ 3930 sec: 218058 operations; 0 current ops/sec;   
+ 3940 sec: 218058 operations; 0 current ops/sec;   
+ 3950 sec: 218058 operations; 0 current ops/sec;   
+ 3960 sec: 218058 operations; 0 current ops/sec;   
+ 3970 sec: 218058 operations; 0 current ops/sec;   
+ 3980 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:21:22 INFO client.AsyncProcess: #7, table=usertable, attempt=12/35 failed 2342 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:50998 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 10034 ms, replay 2342 ops.
+ 3990 sec: 218058 operations; 0 current ops/sec;   
+ 4000 sec: 218058 operations; 0 current ops/sec;   
+ 4010 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:21:45 INFO client.AsyncProcess: #13, table=usertable, attempt=12/35 failed 2428 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110670, waitTime=87151, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:28:05 EDT 2014, retrying after 10052 ms, replay 2428 ops.
+ 4020 sec: 218058 operations; 0 current ops/sec;   
+ 4030 sec: 218058 operations; 0 current ops/sec;   
+ 4040 sec: 218058 operations; 0 current ops/sec;   
+ 4050 sec: 218058 operations; 0 current ops/sec;   
+ 4060 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:22:36 INFO client.AsyncProcess: #20, table=usertable, attempt=13/35 failed 2381 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:50998 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 10041 ms, replay 2381 ops.
+ 4070 sec: 218058 operations; 0 current ops/sec;   
+ 4080 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:23:00 INFO client.AsyncProcess: #14, table=usertable, attempt=12/35 failed 2346 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110670, waitTime=87151, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 10085 ms, replay 2346 ops.
+ 4090 sec: 218058 operations; 0 current ops/sec;   
+ 4100 sec: 218058 operations; 0 current ops/sec;   
+ 4110 sec: 218058 operations; 0 current ops/sec;   
+ 4120 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:23:42 INFO client.AsyncProcess: #10, table=usertable, attempt=12/35 failed 2303 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110695, waitTime=68257, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:50:12 EDT 2014, retrying after 10059 ms, replay 2303 ops.
+ 4130 sec: 218058 operations; 0 current ops/sec;   
+ 4140 sec: 218058 operations; 0 current ops/sec;   
+ 4150 sec: 218058 operations; 0 current ops/sec;   
+ 4160 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:24:14 INFO client.AsyncProcess: #9, table=usertable, attempt=10/35 failed 2338 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110667, waitTime=81238, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10089 ms, replay 2338 ops.
+ 4170 sec: 218058 operations; 0 current ops/sec;   
+ 4180 sec: 218058 operations; 0 current ops/sec;   
+ 4190 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:24:49 INFO client.AsyncProcess: #14, table=usertable, attempt=13/35 failed 2346 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:50998 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 10020 ms, replay 2346 ops.
+ 4200 sec: 218058 operations; 0 current ops/sec;   
+ 4210 sec: 218058 operations; 0 current ops/sec;   
+ 4220 sec: 218058 operations; 0 current ops/sec;   
+ 4230 sec: 218058 operations; 0 current ops/sec;   
+ 4240 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:25:40 INFO client.AsyncProcess: #4, table=usertable, attempt=10/35 failed 2425 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110664, waitTime=68171, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10078 ms, replay 2425 ops.
+ 4250 sec: 218058 operations; 0 current ops/sec;   
+ 4260 sec: 218058 operations; 0 current ops/sec;   
+ 4270 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:26:05 INFO client.AsyncProcess: #20, table=usertable, attempt=14/35 failed 2381 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:50998 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 10005 ms, replay 2381 ops.
+ 4280 sec: 218058 operations; 0 current ops/sec;   
+ 4290 sec: 218058 operations; 0 current ops/sec;   
+ 4300 sec: 218058 operations; 0 current ops/sec;   
+ 4310 sec: 218058 operations; 0 current ops/sec;   
+ 4320 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:26:55 INFO client.AsyncProcess: #19, table=usertable, attempt=10/35 failed 2347 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110661, waitTime=61932, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10059 ms, replay 2347 ops.
+ 4330 sec: 218058 operations; 0 current ops/sec;   
+ 4340 sec: 218058 operations; 0 current ops/sec;   
+ 4350 sec: 218058 operations; 0 current ops/sec;   
+ 4360 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:27:41 INFO client.AsyncProcess: #13, table=usertable, attempt=13/35 failed 2428 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:50998 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:28:05 EDT 2014, retrying after 10096 ms, replay 2428 ops.
+ 4370 sec: 218058 operations; 0 current ops/sec;   
+ 4380 sec: 218058 operations; 0 current ops/sec;   
+ 4390 sec: 218058 operations; 0 current ops/sec;   
+ 4400 sec: 218058 operations; 0 current ops/sec;   
+ 4410 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:28:27 INFO client.AsyncProcess: #4, table=usertable, attempt=11/35 failed 2425 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:51037 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10047 ms, replay 2425 ops.
+14/09/19 10:28:27 INFO client.AsyncProcess: #19, table=usertable, attempt=11/35 failed 2347 ops, last exception: java.io.IOException: com.google.protobuf.ServiceException: java.lang.NullPointerException on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10026 ms, replay 2347 ops.
+14/09/19 10:28:27 INFO client.AsyncProcess: #20, table=usertable, attempt=15/35 failed 2381 ops, last exception: java.io.IOException: com.google.protobuf.ServiceException: java.lang.NullPointerException on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 20069 ms, replay 2381 ops.
+ 4420 sec: 218058 operations; 0 current ops/sec;   
+ 4430 sec: 218058 operations; 0 current ops/sec;   
+ 4440 sec: 218058 operations; 0 current ops/sec;   
+ 4450 sec: 218058 operations; 0 current ops/sec;   
+ 4460 sec: 218058 operations; 0 current ops/sec;   
+ 4470 sec: 218058 operations; 0 current ops/sec;   
+ 4480 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:29:36 INFO client.AsyncProcess: #7, table=usertable, attempt=13/35 failed 2342 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:50998 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 20016 ms, replay 2342 ops.
+14/09/19 10:29:36 INFO client.AsyncProcess: #14, table=usertable, attempt=14/35 failed 2346 ops, last exception: java.io.IOException: com.google.protobuf.ServiceException: java.lang.NullPointerException on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 20188 ms, replay 2346 ops.
+14/09/19 10:29:36 INFO client.AsyncProcess: #9, table=usertable, attempt=11/35 failed 2338 ops, last exception: java.io.IOException: com.google.protobuf.ServiceException: java.lang.NullPointerException on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10060 ms, replay 2338 ops.
+14/09/19 10:29:36 INFO client.AsyncProcess: #10, table=usertable, attempt=13/35 failed 2303 ops, last exception: java.io.IOException: com.google.protobuf.ServiceException: java.lang.NullPointerException on slave2,60020,1410910845141, tracking started Fri Sep 19 09:50:12 EDT 2014, retrying after 10066 ms, replay 2303 ops.
+14/09/19 10:29:37 INFO client.AsyncProcess: #13, table=usertable, attempt=10/35 failed 1413 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:51051 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:28:05 EDT 2014, retrying after 20112 ms, replay 1413 ops.
+ 4490 sec: 218058 operations; 0 current ops/sec;   
+ 4500 sec: 218058 operations; 0 current ops/sec;   
+ 4510 sec: 218058 operations; 0 current ops/sec;   
+ 4520 sec: 218058 operations; 0 current ops/sec;   
+ 4530 sec: 218058 operations; 0 current ops/sec;   
+ 4540 sec: 218058 operations; 0 current ops/sec;   
+ 4550 sec: 218058 operations; 0 current ops/sec;   
+ 4560 sec: 218058 operations; 0 current ops/sec;   
+ 4570 sec: 218058 operations; 0 current ops/sec;   
+ 4580 sec: 218058 operations; 0 current ops/sec;   
+ 4590 sec: 218058 operations; 0 current ops/sec;   
+ 4600 sec: 218058 operations; 0 current ops/sec;   
+ 4610 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:31:44 INFO client.AsyncProcess: #4, table=usertable, attempt=12/35 failed 2425 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110731, waitTime=69665, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10023 ms, replay 2425 ops.
+ 4620 sec: 218058 operations; 0 current ops/sec;   
+ 4630 sec: 218058 operations; 0 current ops/sec;   
+ 4640 sec: 218058 operations; 0 current ops/sec;   
+ 4650 sec: 218058 operations; 0 current ops/sec;   
+ 4660 sec: 218058 operations; 0 current ops/sec;   
+ 4670 sec: 218058 operations; 0 current ops/sec;   
+ 4680 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:33:02 INFO client.AsyncProcess: #20, table=usertable, attempt=16/35 failed 2381 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110731, waitTime=69665, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 20059 ms, replay 2381 ops.
+ 4690 sec: 218058 operations; 0 current ops/sec;   
+ 4700 sec: 218058 operations; 0 current ops/sec;   
+ 4710 sec: 218058 operations; 0 current ops/sec;   
+ 4720 sec: 218058 operations; 0 current ops/sec;   
+ 4730 sec: 218058 operations; 0 current ops/sec;   
+ 4740 sec: 218058 operations; 0 current ops/sec;   
+ 4750 sec: 218058 operations; 0 current ops/sec;   
+ 4760 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:34:18 INFO client.AsyncProcess: #19, table=usertable, attempt=12/35 failed 2347 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110731, waitTime=69665, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 20075 ms, replay 2347 ops.
+ 4770 sec: 218058 operations; 0 current ops/sec;   
+ 4780 sec: 218058 operations; 0 current ops/sec;   
+ 4790 sec: 218058 operations; 0 current ops/sec;   
+ 4800 sec: 218058 operations; 0 current ops/sec;   
+ 4810 sec: 218058 operations; 0 current ops/sec;   
+ 4820 sec: 218058 operations; 0 current ops/sec;   
+ 4830 sec: 218058 operations; 0 current ops/sec;   
+ 4840 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:35:35 INFO client.AsyncProcess: #13, table=usertable, attempt=14/35 failed 2428 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:51051 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:28:05 EDT 2014, retrying after 20195 ms, replay 2428 ops.
+14/09/19 10:48:05 WARN zookeeper.ClientCnxn: Session 0x4880d776570085 for server yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, unexpected error, closing socket connection and attempting reconnect
+java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:68)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:366)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+ 5592 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:48:07 INFO zookeeper.ClientCnxn: Opening socket connection to server yahoo006.nicl.cs.duke.edu/152.3.144.176:2181. Will not attempt to authenticate using SASL (unknown error)
+14/09/19 10:48:07 INFO zookeeper.ClientCnxn: Socket connection established to yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, initiating session
+14/09/19 10:48:08 INFO zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x4880d776570085 has expired, closing socket connection
+14/09/19 10:48:08 WARN client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, closing it. It will be recreated next time someone needs it
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperWatcher.connectionEvent(ZooKeeperWatcher.java:401)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperWatcher.process(ZooKeeperWatcher.java:319)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:522)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:498)
+14/09/19 10:48:08 INFO client.HConnectionManager$HConnectionImplementation: Closing zookeeper sessionid=0x4880d776570085
+14/09/19 10:48:08 INFO zookeeper.ClientCnxn: EventThread shut down
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:08 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:08 INFO util.RetryCounter: Sleeping 1000ms before retry #0...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:09 INFO util.RetryCounter: Sleeping 2000ms before retry #1...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:11 INFO util.RetryCounter: Sleeping 4000ms before retry #2...
+14/09/19 10:48:13 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=90000 watcher=hconnection-0x74e94a88, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase
+14/09/19 10:48:13 INFO zookeeper.RecoverableZooKeeper: Process identifier=hconnection-0x74e94a88 connecting to ZooKeeper ensemble=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181
+14/09/19 10:48:13 INFO zookeeper.ClientCnxn: Opening socket connection to server yahoo005.nicl.cs.duke.edu/152.3.144.175:2181. Will not attempt to authenticate using SASL (unknown error)
+14/09/19 10:48:13 INFO zookeeper.ClientCnxn: Socket connection established to yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, initiating session
+14/09/19 10:48:14 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, sessionid = 0x4880d776570087, negotiated timeout = 90000
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+14/09/19 10:48:15 INFO util.RetryCounter: Sleeping 8000ms before retry #3...
+ 5602 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, exception=org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+14/09/19 10:48:23 ERROR zookeeper.RecoverableZooKeeper: ZooKeeper getData failed after 4 attempts
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 WARN zookeeper.ZKUtil: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Unable to get data of znode /hbase/table/usertable
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 10:48:23 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x74e94a88-0x4880d776570085, quorum=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/table/usertable
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1155)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:337)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:683)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.getTableState(ZKTableReadOnly.java:151)
+	at org.apache.hadoop.hbase.zookeeper.ZKTableReadOnly.isDisabledTable(ZKTableReadOnly.java:59)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.isTableOnlineState(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.isTableDisabled(HConnectionManager.java:931)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.relocateRegion(HConnectionManager.java:1084)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.getRegionLocation(HConnectionManager.java:909)
+	at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:72)
+	at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:113)
+	at org.apache.hadoop.hbase.client.HTable.get(HTable.java:780)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:163)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:143)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+ 5612 sec: 218058 operations; 0 current ops/sec;   
+ 5622 sec: 218058 operations; 0 current ops/sec;   
+ 5632 sec: 218058 operations; 0 current ops/sec;   
+ 5642 sec: 218058 operations; 0 current ops/sec;   
+ 5652 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:49:08 INFO client.AsyncProcess: #1, table=usertable, attempt=10/35 failed 2370 ops, last exception: java.io.IOException: com.google.protobuf.ServiceException: java.lang.NullPointerException on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 10078 ms, replay 2370 ops.
+ 5662 sec: 218058 operations; 0 current ops/sec;   
+ 5672 sec: 218058 operations; 0 current ops/sec;   
+ 5682 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:49:39 INFO client.AsyncProcess: #19, table=usertable, attempt=13/35 failed 2347 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110765, waitTime=846938, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 20008 ms, replay 2347 ops.
+ 5692 sec: 218058 operations; 0 current ops/sec;   
+ 5702 sec: 218058 operations; 0 current ops/sec;   
+ 5712 sec: 218058 operations; 0 current ops/sec;   
+ 5722 sec: 218058 operations; 0 current ops/sec;   
+ 5732 sec: 218058 operations; 0 current ops/sec;   
+ 5742 sec: 218058 operations; 0 current ops/sec;   
+ 5752 sec: 218058 operations; 0 current ops/sec;   
+ 5762 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:51:02 INFO client.AsyncProcess: #20, table=usertable, attempt=17/35 failed 2381 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:51051 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 20192 ms, replay 2381 ops.
+ 5772 sec: 218058 operations; 0 current ops/sec;   
+ 5782 sec: 218058 operations; 0 current ops/sec;   
+ 5792 sec: 218058 operations; 0 current ops/sec;   
+ 5803 sec: 218058 operations; 0 current ops/sec;   
+ 5813 sec: 218058 operations; 0 current ops/sec;   
+ 5823 sec: 218058 operations; 0 current ops/sec;   
+ 5833 sec: 218058 operations; 0 current ops/sec;   
+ 5843 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:52:25 INFO client.AsyncProcess: #4, table=usertable, attempt=13/35 failed 2425 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110751, waitTime=60716, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:37:38 EDT 2014, retrying after 20182 ms, replay 2425 ops.
+ 5853 sec: 218058 operations; 0 current ops/sec;   
+ 5863 sec: 218058 operations; 0 current ops/sec;   
+ 5873 sec: 218058 operations; 0 current ops/sec;   
+ 5883 sec: 218058 operations; 0 current ops/sec;   
+ 5893 sec: 218058 operations; 0 current ops/sec;   
+ 5903 sec: 218058 operations; 0 current ops/sec;   
+ 5913 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:53:33 INFO client.AsyncProcess: #7, table=usertable, attempt=10/35 failed 1466 ops, last exception: java.io.IOException: Call to slave2/152.3.144.177:60020 failed on local exception: org.apache.hadoop.hbase.ipc.RpcClient$CallTimeoutException: Call id=110744, waitTime=78294, rpcTimetout=60000 on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 20090 ms, replay 1466 ops.
+ 5923 sec: 218058 operations; 0 current ops/sec;   
+ 5933 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:53:56 INFO client.AsyncProcess: #13, table=usertable, attempt=11/35 failed 1413 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:51051 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:28:05 EDT 2014, retrying after 20133 ms, replay 1413 ops.
+ 5943 sec: 218058 operations; 0 current ops/sec;   
+ 5953 sec: 218058 operations; 0 current ops/sec;   
+ 5963 sec: 218058 operations; 0 current ops/sec;   
+ 5973 sec: 218058 operations; 0 current ops/sec;   
+14/09/19 10:54:35 INFO client.AsyncProcess: #14, table=usertable, attempt=15/35 failed 2346 ops, last exception: java.net.SocketTimeoutException: Call to slave2/152.3.144.177:60020 failed because java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/192.168.1.111:51051 remote=slave2/152.3.144.177:60020] on slave2,60020,1410910845141, tracking started Fri Sep 19 09:26:59 EDT 2014, retrying after 20049 ms, replay 2346 ops.
+ 5983 sec: 218058 operations; 0 current ops/sec;   
