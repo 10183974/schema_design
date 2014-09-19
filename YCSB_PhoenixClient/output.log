@@ -1,4 +1,4 @@
-+ workloadfile=workloads/workloada
++ workloadfile=workloads/fat_workloada
 + RESULT_DIR=./result/
 + SHORT_SLEEP_TIME=10
 + LONG_SLEEP_TIME=120
@@ -8,3 +8,461 @@
 + echo 'droping the usertable...'
 droping the usertable...
 + ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/drop_usertable.sql
+0 row(s) in 20.2880 seconds
+
+0 row(s) in 0.2010 seconds
+
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ echo 'creating usertable...'
+creating usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/create_user_table1.sql
+0 row(s) in 19.6500 seconds
+
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ echo 'running experiment...'
+running experiment...
++ echo 'start time:'
+start time:
+++ date +%s
++ echo 1411095924
+1411095924
++ java -classpath core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:distribution/target/ycsb-0.1.4.tar.gz:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/ com.yahoo.ycsb.OriginalClient -db com.yahoo.ycsb.db.OriginalHBaseClient -P /Users/akd/git/schema_design/YCSB_PhoenixClient/workloads/fat_workloada -p columnfamily=cf -p workload=com.yahoo.ycsb.workloads.FatTableWorkload -p operationcount=600000 -t -threads 20
+YCSB Client 0.1
+Command line: -db com.yahoo.ycsb.db.OriginalHBaseClient -P /Users/akd/git/schema_design/YCSB_PhoenixClient/workloads/fat_workloada -p columnfamily=cf -p workload=com.yahoo.ycsb.workloads.FatTableWorkload -p operationcount=600000 -t -threads 20
+Loading workload...
+initializing original coreworkload...
+initializing fat table workload...
+Starting test.
+SLF4J: The requested version 1.5.8 by your slf4j binding is not compatible with [1.6]
+SLF4J: See http://www.slf4j.org/codes.html#version_mismatch for further details.
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:zookeeper.version=3.4.3-1240972, built on 02/06/2012 10:48 GMT
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:host.name=192.168.1.111
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:java.version=1.7.0_67
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:java.vendor=Oracle Corporation
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home/jre
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:java.class.path=core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:distribution/target/ycsb-0.1.4.tar.gz:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:java.library.path=/Users/akd/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/var/folders/xk/_wc61f3x7wx4yh8m90z38mvw0000gn/T/
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:os.name=Mac OS X
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:os.arch=x86_64
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:os.version=10.9.4
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:user.name=akd
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:user.home=/Users/akd
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Client environment:user.dir=/Users/akd/git/schema_design/YCSB_PhoenixClient
+14/09/19 00:05:24 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 00:05:23 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.176:2181
+14/09/19 00:05:23 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 00:05:23 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 00:05:23 INFO zookeeper.ClientCnxn: Socket connection established to yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, initiating session
+14/09/19 00:05:23 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, sessionid = 0x14880d778be006d, negotiated timeout = 180000
+14/09/19 01:06:18 INFO zookeeper.ClientCnxn: Client session timed out, have not heard from server in 3654892ms for sessionid 0x14880d778be006d, closing socket connection and attempting reconnect
+14/09/19 01:06:18 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper exception: org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /hbase
+14/09/19 01:06:18 INFO util.RetryCounter: The 1 times to retry  after sleeping 2000 ms
+14/09/19 01:06:19 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.175:2181
+14/09/19 01:06:20 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Socket connection established to yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, initiating session
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x14880d778be006d has expired, closing socket connection
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:06:20 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.176:2181
+14/09/19 01:06:20 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:06:20 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Socket connection established to yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, initiating session
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, sessionid = 0x14880d778be006e, negotiated timeout = 180000
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: EventThread shut down
+14/09/19 01:06:20 WARN zookeeper.ZKUtil: hconnection-0x14880d778be006d Unable to set watcher on znode (/hbase)
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1021)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.exists(RecoverableZooKeeper.java:154)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.checkExists(ZKUtil.java:259)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.checkIfBaseNodeAvailable(ZooKeeperNodeTracker.java:210)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:77)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:06:20 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x14880d778be006d Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1021)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.exists(RecoverableZooKeeper.java:154)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.checkExists(ZKUtil.java:259)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.checkIfBaseNodeAvailable(ZooKeeperNodeTracker.java:210)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:77)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:06:20 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.175:2181
+14/09/19 01:06:20 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:06:20 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Socket connection established to yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, initiating session
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, sessionid = 0x4880d77657007e, negotiated timeout = 180000
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 01:06:20 WARN zookeeper.ZKUtil: hconnection-0x14880d778be006d Unable to get data of znode /hbase/root-region-server
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/root-region-server
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1131)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:295)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataInternal(ZKUtil.java:518)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataAndWatch(ZKUtil.java:494)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.blockUntilAvailable(ZooKeeperNodeTracker.java:124)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:83)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:06:20 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x14880d778be006d Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/root-region-server
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1131)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:295)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataInternal(ZKUtil.java:518)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataAndWatch(ZKUtil.java:494)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.blockUntilAvailable(ZooKeeperNodeTracker.java:124)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:83)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:06:20 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:06:20 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:06:20 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.176:2181
+14/09/19 01:06:20 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Socket connection established to yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, initiating session
+14/09/19 01:06:20 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, sessionid = 0x14880d778be006f, negotiated timeout = 180000
+14/09/19 01:06:21 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 01:59:32 INFO zookeeper.ClientCnxn: Client session timed out, have not heard from server in 3191951ms for sessionid 0x14880d778be006e, closing socket connection and attempting reconnect
+14/09/19 01:59:32 INFO zookeeper.ClientCnxn: Client session timed out, have not heard from server in 3191953ms for sessionid 0x4880d77657007e, closing socket connection and attempting reconnect
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Client session timed out, have not heard from server in 3191950ms for sessionid 0x14880d778be006f, closing socket connection and attempting reconnect
+14/09/19 01:59:33 WARN zookeeper.RecoverableZooKeeper: Possibly transient ZooKeeper exception: org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /hbase
+14/09/19 01:59:33 INFO util.RetryCounter: The 1 times to retry  after sleeping 2000 ms
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.178:2181
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.178:2181
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.177:2181
+14/09/19 01:59:33 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:33 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Socket connection established to yahoo008.nicl.cs.duke.edu/152.3.144.178:2181, initiating session
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Socket connection established to yahoo008.nicl.cs.duke.edu/152.3.144.178:2181, initiating session
+14/09/19 01:59:33 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:59:33 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x14880d778be006e has expired, closing socket connection
+14/09/19 01:59:33 INFO zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x14880d778be006f has expired, closing socket connection
+14/09/19 01:59:33 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:59:34 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:34 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.175:2181
+14/09/19 01:59:34 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:59:34 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Socket connection established to yahoo007.nicl.cs.duke.edu/152.3.144.177:2181, initiating session
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Socket connection established to yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, initiating session
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x4880d77657007e has expired, closing socket connection
+14/09/19 01:59:34 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, sessionid = 0x4880d77657007f, negotiated timeout = 180000
+14/09/19 01:59:34 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: EventThread shut down
+14/09/19 01:59:34 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:59:34 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:59:34 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.176:2181
+14/09/19 01:59:34 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Socket connection established to yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, initiating session
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, sessionid = 0x14880d778be0070, negotiated timeout = 180000
+14/09/19 01:59:34 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 01:59:34 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: EventThread shut down
+14/09/19 01:59:34 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:59:34 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.175:2181
+14/09/19 01:59:34 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Socket connection established to yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, initiating session
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo005.nicl.cs.duke.edu/152.3.144.175:2181, sessionid = 0x4880d776570080, negotiated timeout = 180000
+14/09/19 01:59:34 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 01:59:34 INFO zookeeper.ClientCnxn: EventThread shut down
+14/09/19 01:59:35 WARN zookeeper.ZKUtil: hconnection-0x14880d778be006f Unable to set watcher on znode (/hbase)
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1021)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.exists(RecoverableZooKeeper.java:154)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.checkExists(ZKUtil.java:259)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.checkIfBaseNodeAvailable(ZooKeeperNodeTracker.java:210)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:77)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:59:35 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x14880d778be006f Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1021)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.exists(RecoverableZooKeeper.java:154)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.checkExists(ZKUtil.java:259)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.checkIfBaseNodeAvailable(ZooKeeperNodeTracker.java:210)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:77)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:59:35 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:59:35 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:59:35 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:59:35 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:59:35 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.178:2181
+14/09/19 01:59:35 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:35 INFO zookeeper.ClientCnxn: Socket connection established to yahoo008.nicl.cs.duke.edu/152.3.144.178:2181, initiating session
+14/09/19 01:59:35 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo008.nicl.cs.duke.edu/152.3.144.178:2181, sessionid = 0x34880d77939006b, negotiated timeout = 180000
+14/09/19 01:59:35 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 01:59:35 WARN zookeeper.ZKUtil: hconnection-0x14880d778be006f Unable to get data of znode /hbase/root-region-server
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/root-region-server
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1131)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:295)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataInternal(ZKUtil.java:518)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataAndWatch(ZKUtil.java:494)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.blockUntilAvailable(ZooKeeperNodeTracker.java:124)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:83)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:59:35 ERROR zookeeper.ZooKeeperWatcher: hconnection-0x14880d778be006f Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/root-region-server
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1131)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:295)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataInternal(ZKUtil.java:518)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getDataAndWatch(ZKUtil.java:494)
+	at org.apache.hadoop.hbase.zookeeper.ZooKeeperNodeTracker.blockUntilAvailable(ZooKeeperNodeTracker.java:124)
+	at org.apache.hadoop.hbase.zookeeper.RootRegionTracker.waitRootRegionLocation(RootRegionTracker.java:83)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+14/09/19 01:59:35 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 01:59:35 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+14/09/19 01:59:35 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=yahoo008.nicl.cs.duke.edu:2181,yahoo007.nicl.cs.duke.edu:2181,yahoo006.nicl.cs.duke.edu:2181,yahoo005.nicl.cs.duke.edu:2181 sessionTimeout=180000 watcher=hconnection
+14/09/19 01:59:35 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 24579@abhisheks-MacBook-Pro.local
+14/09/19 01:59:35 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.176:2181
+14/09/19 01:59:35 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 01:59:35 INFO zookeeper.ClientCnxn: Socket connection established to yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, initiating session
+14/09/19 01:59:35 INFO zookeeper.ClientCnxn: Session establishment complete on server yahoo006.nicl.cs.duke.edu/152.3.144.176:2181, sessionid = 0x14880d778be0071, negotiated timeout = 180000
+14/09/19 01:59:35 INFO client.HConnectionManager$HConnectionImplementation: Reconnected successfully. This disconnect could have been caused by a network partition or a long-running GC pause, either way it's recommended that you verify your environment.
+14/09/19 03:00:29 INFO zookeeper.ClientCnxn: Client session timed out, have not heard from server in 3654963ms for sessionid 0x4880d77657007f, closing socket connection and attempting reconnect
+14/09/19 03:00:29 INFO zookeeper.ClientCnxn: Client session timed out, have not heard from server in 3654958ms for sessionid 0x14880d778be0070, closing socket connection and attempting reconnect
+14/09/19 03:00:29 INFO zookeeper.ClientCnxn: Client session timed out, have not heard from server in 3654961ms for sessionid 0x4880d776570080, closing socket connection and attempting reconnect
+14/09/19 03:00:29 INFO zookeeper.ClientCnxn: Opening socket connection to server /152.3.144.178:2181
+14/09/19 03:00:29 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+14/09/19 03:00:29 INFO zookeeper.ClientCnxn: Socket connection established to yahoo008.nicl.cs.duke.edu/152.3.144.178:2181, initiating session
+14/09/19 03:00:29 INFO zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x4880d77657007f has expired, closing socket connection
+14/09/19 03:00:29 INFO client.HConnectionManager$HConnectionImplementation: This client just lost it's session with ZooKeeper, trying to reconnect.
+14/09/19 03:00:29 INFO client.HConnectionManager$HConnectionImplementation: Trying to reconnect to zookeeper
+java.lang.NullPointerException
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:814)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)
+	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)
+	at com.yahoo.ycsb.DBWrapper.read(DBWrapper.java:90)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:482)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+java.lang.NullPointerException
+ava.lang.NullPointerException 
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)a:915)                                                                                                                         
+ 	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)                                                                                                                         
+ 	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)                                                                                                                         
+ 	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)                                                                                                                         
+ 	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)                                                                                                                         
+ 	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)                                                                                                                         
+ 	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)mentation.locateRegion(HConnectionManager.java:818)                                                                      
+ 	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)                                                                 
+ 	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171):249)                                                                 
+ 	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)Client.java:113)                                                                 
+ 	at com.yahoo.ycsb.db.OriginalHBaseClient.read(OriginalHBaseClient.java:138)                                                                 
+ 	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)                                                    
+ 	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionRead(FatTableWorkload.java:129)                                                                              
+ 	at com.yahoo.ycsb.db.OriginalHBaseClient.insert(OriginalHBaseClient.java:352)rkload.java:482)                                                                              
+ 	at com.yahoo.ycsb.DBWrapper.insert(DBWrapper.java:148)                                                    
+ 	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionInsert(FatTableWorkload.java:105)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:490)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+java.lang.NullPointerException
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)
+java.lang.NullPointerException
+at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782) 
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:802)                                                                                                                         
+
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915) 
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915)	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818)
+
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)                                                                                                                         
+
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)
+
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)
+at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegionInMeta(HConnectionManager.java:915) 
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:818) 
+at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113) 
+	at org.apache.hadoop.hbase.client.HConnectionManager$HConnectionImplementation.locateRegion(HConnectionManager.java:782)	at com.yahoo.ycsb.db.OriginalHBaseClient.update(OriginalHBaseClient.java:297)
+
+	at org.apache.hadoop.hbase.client.HTable.finishSetup(HTable.java:249)	at com.yahoo.ycsb.db.OriginalHBaseClient.insert(OriginalHBaseClient.java:352)
+
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:213)	at com.yahoo.ycsb.DBWrapper.insert(DBWrapper.java:148)
+
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:171)	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionInsert(FatTableWorkload.java:105)
+
+	at com.yahoo.ycsb.db.OriginalHBaseClient.getHTable(OriginalHBaseClient.java:113)	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:490)
+
+	at com.yahoo.ycsb.db.OriginalHBaseClient.update(OriginalHBaseClient.java:297)	at com.yahoo.ycsb.ClientThread.run(Client.java:233)
+
+	at com.yahoo.ycsb.db.OriginalHBaseClient.insert(OriginalHBaseClient.java:352)
+	at com.yahoo.ycsb.DBWrapper.insert(DBWrapper.java:148)
+	at com.yahoo.ycsb.workloads.FatTableWorkload.doTransactionInsert(FatTableWorkload.java:105)
+	at com.yahoo.ycsb.workloads.OriginalCoreWorkload.doTransaction(OriginalCoreWorkload.java:490)
+	at com.yahoo.ycsb.ClientThread.run(Client.java:233)+ echo 'end time:'
+end time:
+++ date +%s
++ echo 1411110030
+1411110030
++ echo 'sleeping for short time...'
+sleeping for short time...
+./RunAExperiment.sh: line 34: unexpected EOF while looking for matching `"'
+./RunAExperiment.sh: line 37: syntax error: unexpected end of file

@@ -7,7 +7,6 @@ workloadfile=workloads/$1
 RESULT_DIR='./result/'
 SHORT_SLEEP_TIME=10
 LONG_SLEEP_TIME=120
-number_of_operations=600000
 number_of_threads=20
 output_file_suffix='.dat'
 
@@ -27,7 +26,7 @@ sleep $SHORT_SLEEP_TIME
 echo "running experiment..."
 echo "start time:"
 echo `date +%s`
-java -classpath core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/ com.yahoo.ycsb.OriginalClient -db com.yahoo.ycsb.db.OriginalHBaseClient -P  workloads/fat_workloada -p columnfamily=cf  -p workload=com.yahoo.ycsb.workloads.FatTableWorkload -p operationcount=$number_of_operations -t -threads $number_of_threads
+java -classpath ../lib/phoenix-4.1.0-client.jar:core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:distribution/target/ycsb-0.1.4.tar.gz:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/ com.yahoo.ycsb.OriginalClient -db com.yahoo.ycsb.db.OriginalHBaseClient -P  ~/git/schema_design/YCSB_PhoenixClient/workloads/fat_workload -p columnfamily=cf  -p readproportion=$4 -p insertproportion=$5 -t -threads $number_of_threads -s &> $6
 echo "end time:"
 echo `date +%s`
 echo "sleeping for short time..."

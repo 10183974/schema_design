@@ -303,6 +303,7 @@ public class OriginalCoreWorkload extends Workload
 	 */
 	public void init(Properties p) throws WorkloadException
 	{
+		System.out.println("initializing original coreworkload...");
 		table = p.getProperty(TABLENAME_PROPERTY,TABLENAME_PROPERTY_DEFAULT);
 		
 		fieldcount=Integer.parseInt(p.getProperty(FIELD_COUNT_PROPERTY,FIELD_COUNT_PROPERTY_DEFAULT));
@@ -428,6 +429,7 @@ public class OriginalCoreWorkload extends Workload
 		return "user"+ keynum;
 	}
 	HashMap<String, ByteIterator> buildValues() {
+		System.out.println("original coreworkload: why am i here");
  		HashMap<String,ByteIterator> values=new HashMap<String,ByteIterator>();
 
  		for (int i=0; i<fieldcount; i++)
@@ -455,6 +457,7 @@ public class OriginalCoreWorkload extends Workload
 	 */
 	public boolean doInsert(DB db, Object threadstate)
 	{
+		System.out.println("inside OriginalCoreWorkload...");
 		int keynum=keysequence.nextInt();
 		String dbkey = buildKeyName(keynum);
 		HashMap<String, ByteIterator> values = buildValues();

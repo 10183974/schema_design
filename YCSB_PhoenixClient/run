@@ -1,4 +1,14 @@
 #! /bin/bash
 
-#./RunAExperiment.sh fat_workloada /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql &> output.log 
-./RunAExperiment.sh workloada /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql &> output.log 
+./RunAExperiment.sh fat_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.1 0.9 result/fat_table_output_1.dat &> result/RunAExperiment_1.log
+./RunAExperiment.sh fat_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.3 .07 result/fat_table_output_2.dat &> result/RunAExperiment_2.log
+./RunAExperiment.sh fat_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.5 0.5 result/fat_table_output_3.dat &> result/RunAExperiment_3.log
+./RunAExperiment.sh fat_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.7 0.3 result/fat_table_output_4.dat &> result/RunAExperiment_4.log
+./RunAExperiment.sh fat_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.9 0.1 result/fat_table_output_5.dat &> result/RunAExperiment_5.log
+
+
+./RunAExperiment.sh thin_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.1 0.9 result/thin_table_output_1.dat &>result/RunAExperiment_6.log
+./RunAExperiment.sh thin_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.3 .07 result/thin_table_output_2.dat &> result/RunAExperiment_7.log
+./RunAExperiment.sh thin_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.5 0.5 result/thin_table_output_3.dat &> result/RunAExperiment_8.log
+./RunAExperiment.sh thin_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.7 0.3 result/thin_table_output_4.dat &> result/RunAExperiment_9.log
+./RunAExperiment.sh thin_table_workload /home/hadoop/git/schema_design/script/drop_usertable.sql /home/hadoop/git/schema_design/script/create_user_table1.sql 0.9 0.1 result/thin_table_output_5.dat &> result/RunAExperiment_10.log

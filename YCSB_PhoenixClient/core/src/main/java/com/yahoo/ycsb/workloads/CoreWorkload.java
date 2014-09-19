@@ -681,6 +681,7 @@ public class CoreWorkload extends Workload
 	 */
 	public boolean doInsert(DB db, Object threadstate)
 	{
+		System.out.println("inside coreworkload...");
 		int keynum=keysequence.nextInt();
 		String dbkey = buildKeyName(keynum);
 		HashMap<String, ByteIterator> values = buildValues();

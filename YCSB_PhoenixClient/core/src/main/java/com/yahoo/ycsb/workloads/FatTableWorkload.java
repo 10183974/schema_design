@@ -1,5 +1,6 @@
 package com.yahoo.ycsb.workloads;
 
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Properties;
@@ -47,7 +48,7 @@ public class FatTableWorkload extends OriginalCoreWorkload {
 
 	UniformIntegerGenerator ordersequence;
 
-	HashMap<String,Integer> userordercount = new HashMap<String,Integer>(); 
+	ConcurrentHashMap<String, Integer> userordercount = new ConcurrentHashMap<String,Integer>(); 
 
 	int usercount = 0;
 	int ordercount = 0;	
@@ -62,7 +63,7 @@ public class FatTableWorkload extends OriginalCoreWorkload {
 	public void init(Properties p) throws WorkloadException
 	{
 		super.init(p);
-		
+		System.out.println("initializing fat table workload...");
 		usercount = Integer.parseInt(p.getProperty(USER_COUNT, USER_COUNT_DEFAULT));
 		orderfieldsize = Integer.parseInt(p.getProperty(ORDER_FIELD_SIZE, ORDER_FIELD_SIZE_DEFAULT));
 		//ordercount = Integer.parseInt(p.getProperty(ORDERCOUNT, ORDER_COUNT_DEFAULT));
@@ -70,11 +71,6 @@ public class FatTableWorkload extends OriginalCoreWorkload {
 		useridsequence_zipflan=new ZipfianGenerator(usercount);
 		useridsequence_uniform=new UniformIntegerGenerator(0, usercount-1);
 		ordersequence=new UniformIntegerGenerator(0, ordercount);
-
-		//for(int i=0; i< usercount; i++)
-		//{
-			//userordercount.put("user"+i, 0);
-		//}	
 	}
 
 	public String buildKeyName(long keynum) {
@@ -86,8 +82,8 @@ public class FatTableWorkload extends OriginalCoreWorkload {
 	{
 		if (requestdistrib.equals("uniform"))
 			keynum=useridsequence_uniform.nextInt();
-		else if (requestdistrib.equals("zipfian"));
-		keynum=useridsequence_zipflan.nextInt();                   
+		else if (requestdistrib.equals("zipfian"))
+			keynum=useridsequence_zipflan.nextInt();                   
 
 		String dbkey = buildKeyName(keynum);
 		HashMap<String, ByteIterator> values = buildValues(dbkey);
@@ -95,6 +91,18 @@ public class FatTableWorkload extends OriginalCoreWorkload {
 			return true;
 		else
 			return false;
+	}
+	
+	public void doTransactionInsert(DB db)
+	{
+		if (requestdistrib.equals("uniform"))
+			keynum=useridsequence_uniform.nextInt();
+		else if (requestdistrib.equals("zipfian"))
+			keynum=useridsequence_zipflan.nextInt();                   
+
+		String dbkey = buildKeyName(keynum);
+		HashMap<String, ByteIterator> values = buildValues(dbkey);
+		db.insert(table,dbkey,values);
 	}
 
 	HashMap<String, ByteIterator> buildValues(String dbkey) {
