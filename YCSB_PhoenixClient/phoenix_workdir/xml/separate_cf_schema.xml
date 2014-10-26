@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<schema>
+    <table name="separate_cf_table">
+      <statement> CREATE TABLE separate_cf_table (id VARCHAR not null primary key, f1.column1 VARCHAR, f2.column2 VARCHAR, f3.column3 VARCHAR, f4.column4 VARCHAR) 
+      </statement>
+    </table>
+</schema>

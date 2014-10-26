@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <workload name="sample workload">
+  <query name="update">
+   <statement>UPSERT INTO single_cf_table VALUES (?,?,?,?,?)</statement>
+   <proportion>1.0</proportion>
+  </query>
+  </workload>

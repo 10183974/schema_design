@@ -325,7 +325,11 @@ public class OriginalHBaseClient extends com.yahoo.ycsb.DB
         try
         {
             _hTable.put(p);
+<<<<<<< HEAD
             _hTable.flushCommits();
+=======
+	    _hTable.flushCommits();
+>>>>>>> b9d1382e5095cb5173d19c98a0e8051cb86e189e
         }
         catch (IOException e)
         {
