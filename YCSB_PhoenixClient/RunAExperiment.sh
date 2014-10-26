@@ -26,10 +26,10 @@ sleep $SHORT_SLEEP_TIME
 echo "running experiment..."
 echo "start time:"
 echo `date +%s`
-java -classpath ../lib/phoenix-4.1.0-client.jar:core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:distribution/target/ycsb-0.1.4.tar.gz:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/ com.yahoo.ycsb.OriginalClient -db com.yahoo.ycsb.db.OriginalHBaseClient -P  ~/git/schema_design/YCSB_PhoenixClient/workloads/fat_workload -p columnfamily=cf  -p readproportion=$4 -p insertproportion=$5 -t -threads $number_of_threads -s &> $6
+java -classpath ../lib/phoenix-4.1.0-client.jar:core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:distribution/target/ycsb-0.1.4.tar.gz:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/ com.yahoo.ycsb.OriginalClient -db com.yahoo.ycsb.db.OriginalHBaseClient -P  ~/git/schema_design/YCSB_PhoenixClient/$workloadfile -p columnfamily=cf  -p readproportion=$4 -p insertproportion=$5 -t -threads $number_of_threads -s &> $6
 echo "end time:"
 echo `date +%s`
 echo "sleeping for short time..."
-sleep $SHORT_SLEEP_TIME"
+sleep $SHORT_SLEEP_TIME
 
 set +x

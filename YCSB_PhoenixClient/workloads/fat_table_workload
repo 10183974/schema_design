@@ -24,7 +24,7 @@
 
 usercount=10000
 recordcount=10000
-operationcount=10000000
+operationcount=10000
 workload=com.yahoo.ycsb.workloads.FatTableWorkload
 
 readallfields=true
@@ -34,5 +34,5 @@ readallfields=true
 updateproportion=0
 scanproportion=0
 
-requestdistribution=zipfian
+requestdistribution=uniform
 

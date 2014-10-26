@@ -105,4 +105,8 @@ public class Query {
 		return this.retColumnSize;
 	}
 	
+	public static void main(String[] args) {
+		Query q= new Query();
+	}
+	
 }

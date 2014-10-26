@@ -34,5 +34,5 @@ readallfields=true
 updateproportion=0
 scanproportion=0
 
-requestdistribution=zipfian
+requestdistribution=uniform
 

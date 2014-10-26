@@ -1,0 +1,55 @@
++ workloadfile=workloads/thin_table_workload
++ RESULT_DIR=./result/
++ SHORT_SLEEP_TIME=10
++ LONG_SLEEP_TIME=120
++ number_of_threads=20
++ output_file_suffix=.dat
++ echo 'droping the usertable...'
+droping the usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/drop_usertable.sql
+
+ERROR: Table usertable does not exist.'
+
+Here is some help for this command:
+Start disable of named table:
+  hbase> disable 't1'
+  hbase> disable 'ns1:t1'
+
+
+
+ERROR: Table usertable does not exist.'
+
+Here is some help for this command:
+Drop the named table. Table must first be disabled:
+  hbase> drop 't1'
+  hbase> drop 'ns1:t1'
+
+
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ echo 'creating usertable...'
+creating usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/create_user_table1.sql
+0 row(s) in 19.6760 seconds
+
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ echo 'running experiment...'
+running experiment...
++ echo 'start time:'
+start time:
+++ date +%s
++ echo 1411141620
+1411141620
++ java -classpath ../lib/phoenix-4.1.0-client.jar:core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:distribution/target/ycsb-0.1.4.tar.gz:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/ com.yahoo.ycsb.OriginalClient -db com.yahoo.ycsb.db.OriginalHBaseClient -P /Users/akd/git/schema_design/YCSB_PhoenixClient/workloads/fat_workload -p columnfamily=cf -p readproportion=0.1 -p insertproportion=0.9 -t -threads 20 -s
++ echo 'end time:'
+end time:
+++ date +%s
++ echo 1411141620
+1411141620
++ echo 'sleeping for short time...'
+sleeping for short time...
+./RunAExperiment.sh: line 33: unexpected EOF while looking for matching `"'
+./RunAExperiment.sh: line 36: syntax error: unexpected end of file

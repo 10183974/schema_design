@@ -112,8 +112,8 @@ public class OriginalHBaseClient extends com.yahoo.ycsb.DB
         synchronized (tableLock) {
             _hTable = new HTable(config, table);
             //2 suggestions from http://ryantwopointoh.blogspot.com/2009/01/performance-of-hbase-importing.html
-            _hTable.setAutoFlush(false);
-            _hTable.setWriteBufferSize(1024*1024*12);
+            _hTable.setAutoFlush(true);
+            //_hTable.setWriteBufferSize(1024*1024*12);
             //return hTable;
         }
 
@@ -156,11 +156,15 @@ public class OriginalHBaseClient extends com.yahoo.ycsb.DB
           if (fields == null) {
             g.addFamily(_columnFamilyBytes);
           } else {
-            for (String field : fields) {
+            for (String field : fields) {	
+              System.out.println("Reading field: " + field);
               g.addColumn(_columnFamilyBytes, Bytes.toBytes(field));
             }
           }
             r = _hTable.get(g);
+            if(_debug) {
+            	System.out.println("Rows retrieved: " + r.size());
+            }
         }
         catch (IOException e)
         {
@@ -321,6 +325,7 @@ public class OriginalHBaseClient extends com.yahoo.ycsb.DB
         try
         {
             _hTable.put(p);
+            _hTable.flushCommits();
         }
         catch (IOException e)
         {
@@ -332,6 +337,9 @@ public class OriginalHBaseClient extends com.yahoo.ycsb.DB
         catch (ConcurrentModificationException e)
         {
             //do nothing for now...hope this is rare
+        	if(_debug) {
+        		System.err.println("Concurrent modification: " + e);
+        	}
             return ServerError;
         }
 

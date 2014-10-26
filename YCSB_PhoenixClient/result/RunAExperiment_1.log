@@ -1,1 +1,23 @@
-./run: line 4: .1: command not found
++ workloadfile=workloads/fat_table_workload
++ RESULT_DIR=./result/
++ SHORT_SLEEP_TIME=10
++ LONG_SLEEP_TIME=120
++ number_of_threads=20
++ output_file_suffix=.dat
++ echo 'droping the usertable...'
+droping the usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/drop_usertable.sql
+0 row(s) in 20.2590 seconds
+
+0 row(s) in 0.2240 seconds
+
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ echo 'creating usertable...'
+creating usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/create_user_table1.sql
+Killed by signal 2.
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
