@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+  <workload name="sample workload">
+  <query name="read">
+   <statement>SELECT f.b FROM my_schema7 WHERE id=?</statement>
+   <binds>
+     <binding pos="1">uniform</binding>
+   </binds>
+   <proportion>1</proportion>
+  </query>
+  
+  <query name="insert">
+   <statement>UPSERT INTO MY_SCHEMA7 VALUES (?,?,?,?,?,?)</statement>
+   <binds>
+     <binding pos="1">uniform</binding>
+     <binding pos="2">random</binding>
+     <binding pos="3">random</binding>
+     <binding pos="4">random</binding>
+     <binding pos="5">random</binding>
+     <binding pos="6">random</binding>
+   </binds>
+   <proportion>0</proportion>
+  </query>
+  </workload>

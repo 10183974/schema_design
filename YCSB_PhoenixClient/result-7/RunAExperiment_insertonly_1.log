@@ -1,0 +1,10 @@
++ workloadfile=workloads/fat_table_workload
++ RESULT_DIR=./result/
++ SHORT_SLEEP_TIME=10
++ LONG_SLEEP_TIME=100
++ number_of_threads=20
++ output_file_suffix=.dat
++ echo 'stoping hbase...'
+stoping hbase...
++ ssh hadoop@master /home/hadoop/hbase/bin/stop-hbase.sh
+stopping hbase........

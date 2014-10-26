@@ -1,0 +1,96 @@
++ workloadfile=workloads/fat_table_workload
++ RESULT_DIR=./result/
++ SHORT_SLEEP_TIME=10
++ LONG_SLEEP_TIME=100
++ number_of_threads=20
++ output_file_suffix=.dat
++ echo 'stoping hbase...'
+stoping hbase...
++ ssh hadoop@master /home/hadoop/hbase/bin/stop-hbase.sh
+stopping hbase
+yahoo005.nicl.cs.duke.edu: stopping zookeeper.
+yahoo007.nicl.cs.duke.edu: stopping zookeeper.
+yahoo008.nicl.cs.duke.edu: stopping zookeeper.
+yahoo006.nicl.cs.duke.edu: stopping zookeeper.
++ sleep 10
++ echo 'stoping dfs...'
+stoping dfs...
++ ssh hadoop@master /home/hadoop/hadoop/bin/stop-dfs.sh
+stopping namenode
+master: stopping datanode
+slave3: stopping datanode
+slave2: stopping datanode
+slave1: stopping datanode
+master: stopping secondarynamenode
++ sleep 10
++ echo 'starting dfs...'
+starting dfs...
++ ssh hadoop@master /home/hadoop/hadoop/bin/start-dfs.sh
+starting namenode, logging to /home/hadoop/hadoop-1.2.1/libexec/../logs/hadoop-hadoop-namenode-yahoo005.out
+master: starting datanode, logging to /home/hadoop/hadoop-1.2.1/libexec/../logs/hadoop-hadoop-datanode-yahoo005.out
+slave1: starting datanode, logging to /home/hadoop/hadoop-1.2.1/libexec/../logs/hadoop-hadoop-datanode-yahoo006.out
+slave3: starting datanode, logging to /home/hadoop/hadoop-1.2.1/libexec/../logs/hadoop-hadoop-datanode-yahoo008.out
+slave2: starting datanode, logging to /home/hadoop/hadoop-1.2.1/libexec/../logs/hadoop-hadoop-datanode-yahoo007.out
+master: starting secondarynamenode, logging to /home/hadoop/hadoop-1.2.1/libexec/../logs/hadoop-hadoop-secondarynamenode-yahoo005.out
++ sleep 100
++ echo 'starting hbase...'
+starting hbase...
++ ssh hadoop@master /home/hadoop/hbase/bin/start-hbase.sh
+yahoo005.nicl.cs.duke.edu: starting zookeeper, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-zookeeper-yahoo005.out
+yahoo006.nicl.cs.duke.edu: starting zookeeper, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-zookeeper-yahoo006.out
+yahoo008.nicl.cs.duke.edu: starting zookeeper, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-zookeeper-yahoo008.out
+yahoo007.nicl.cs.duke.edu: starting zookeeper, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-zookeeper-yahoo007.out
+starting master, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-master-yahoo005.out
+slave2: starting regionserver, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-regionserver-yahoo007.out
+slave1: starting regionserver, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-regionserver-yahoo006.out
+slave3: starting regionserver, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-regionserver-yahoo008.out
+master: starting regionserver, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-regionserver-yahoo005.out
++ sleep 100
++ echo 'starting hbase...'
+starting hbase...
++ ssh hadoop@master /home/hadoop/hbase/bin/start-hbase.sh
+yahoo005.nicl.cs.duke.edu: zookeeper running as process 11797. Stop it first.
+yahoo007.nicl.cs.duke.edu: zookeeper running as process 3756. Stop it first.
+yahoo006.nicl.cs.duke.edu: zookeeper running as process 11026. Stop it first.
+yahoo008.nicl.cs.duke.edu: zookeeper running as process 19316. Stop it first.
+starting master, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-master-yahoo005.out
+slave1: regionserver running as process 11122. Stop it first.
+slave2: regionserver running as process 3849. Stop it first.
+slave3: regionserver running as process 19409. Stop it first.
+master: starting regionserver, logging to /home/hadoop/hbase/bin/../logs/hbase-hadoop-regionserver-yahoo005.out
++ sleep 100
++ echo 'droping the usertable...'
+droping the usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/drop_usertable.sql
+0 row(s) in 20.3860 seconds
+
+0 row(s) in 1.3350 seconds
+
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ echo 'creating usertable...'
+creating usertable...
++ ssh hadoop@master /home/hadoop/hbase/bin/hbase shell /home/hadoop/git/schema_design/script/create_user_table1.sql
+0 row(s) in 19.7200 seconds
+
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ echo 'running experiment...'
+running experiment...
++ echo 'start time:'
+start time:
+++ date +%s
++ echo 1411517669
+1411517669
++ java -classpath ../lib/phoenix-4.1.0-client.jar:core/target/core-0.1.4.jar:hbase/target/hbase-binding-0.1.4.jar:distribution/target/ycsb-0.1.4.tar.gz:jdbc/target/jdbc-binding-0.1.4.jar:hbase/src/main/conf/ com.yahoo.ycsb.OriginalClient -db com.yahoo.ycsb.db.OriginalHBaseClient -P /home/hadoop/git/schema_design/YCSB_PhoenixClient/workloads/fat_table_workload -p columnfamily=cf -p readproportion=0.1 -p insertproportion=0.9 -t -threads 20 -s
++ echo 'end time:'
+end time:
+++ date +%s
++ echo 1411519639
+1411519639
++ echo 'sleeping for short time...'
+sleeping for short time...
++ sleep 10
++ set +x

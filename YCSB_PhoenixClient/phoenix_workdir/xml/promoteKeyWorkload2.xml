@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+  <workload name="sample workload">
+  <query name="read">
+   <statement><![CDATA[SELECT f.c FROM resultSizeSchema3 WHERE f.d=? ]]></statement>
+   <binds>
+     <binding pos="1">uniform</binding>
+   </binds>
+   <proportion>1</proportion>
+  </query>
+  
+  <query name="insert">
+   <statement>UPSERT INTO resultSizeSchema3 VALUES (?,?,?,?)</statement>
+   <binds>
+     <binding pos="1">uniform</binding>
+     <binding pos="2">uniform</binding>
+     <binding pos="3">random</binding>
+     <binding pos="4">uniform</binding>
+   </binds>
+   <proportion>0</proportion>
+  </query>
+  </workload>
